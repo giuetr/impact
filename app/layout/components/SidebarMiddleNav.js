@@ -6,6 +6,12 @@ export const SidebarMiddleNav = () => (
     <SidebarMenu>
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-home"></i>}
+            title="Home"
+            to='/Home'
+        />
+
+        <SidebarMenu.Item
+            icon={<i className="fa fa-fw fa-home"></i>}
             title="Dashboards"
         >
             <SidebarMenu.Item title="Analytics" to='/dashboards/analytics' exact />
@@ -21,6 +27,7 @@ export const SidebarMiddleNav = () => (
             title="Widgets"
             to='/widgets'
         />
+        
         { /* -------- Cards ---------*/ }
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-clone"></i>}

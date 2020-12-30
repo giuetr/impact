@@ -14,7 +14,10 @@ import Financial from './Dashboards/Financial';
 import Stock from './Dashboards/Stock';
 import Reports from './Dashboards/Reports';
 
+
 import Widgets from './Widgets';
+
+import Home from './Home';
 
 import Cards from './Cards/Cards';
 import CardsHeaders from './Cards/CardsHeaders';
@@ -114,7 +117,7 @@ import { SidebarASidebar } from './../layout/components/SidebarASidebar';
 export const RoutedContent = () => {
     return (
         <Switch>
-            <Redirect from="/" to="/dashboards/projects" exact />
+            <Redirect from="/" to="/Home" exact />
             
             <Route path="/dashboards/analytics" exact component={Analytics} />
             <Route path="/dashboards/projects" exact component={ProjectsDashboard} />
@@ -126,6 +129,7 @@ export const RoutedContent = () => {
 
             <Route path='/widgets' exact component={Widgets} />
             
+            <Route path='/Home' exact component={Home} />
             { /*    Cards Routes     */ }
             <Route path='/cards/cards' exact component={Cards} />
             <Route path='/cards/cardsheaders' exact component={CardsHeaders} />
