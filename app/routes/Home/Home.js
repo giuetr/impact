@@ -1,17 +1,35 @@
 import React, {Component} from 'react';
 import Chart from "react-apexcharts";
+import faker from 'faker/locale/en_US';
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+
+
 
 
 import {
     Container,
+    Row,
     Card,
     CardBody,
     CardDeck,
-    Col
+    CardHeader,
+    CardFooter,
+    Col,
+    Badge,
+    ListGroup,
+    ListGroupItem,
+    ListGroupItemHeading,
+    ListGroupItemText,
+    Table,
+    Media
 } from './../../components'
 import {
     ProfileOverviewCard
 } from "../components/Profile/ProfileOverviewCard";
+import {
+    TinyAreaChart
+} from "../components/Analytics/TinyAreaChart";
+
 
 
 class Home extends Component {
@@ -370,22 +388,358 @@ render() {
         </CardDeck>
         { /* START Section 1 */}
 
-        <Col lg={ 8 }>
-        <Card className="mb-3">
-            <CardBody>
-                <div className="chart-candlestick">
-                    <Chart
-                    options={this.state.options}
-                    series={this.state.series}
-                    type="candlestick"
-                    width="100%"
-                    />
-                </div>
+        <Row>
+            <Col lg={ 7 }>
+                <Card className="mb-3">
+                    <CardBody>
+                        <div className="chart-candlestick">
+                            <Chart
+                            options={this.state.options}
+                            series={this.state.series}
+                            type="candlestick"
+                            width="100%"
+                            />
+                        </div>
 
-            </CardBody>
-        </Card>
-            
-        </Col>
+                    </CardBody>
+                </Card>
+            </Col>
+
+            <Col lg={ 5 }>
+                <Card className="d-flex flex-column">
+                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
+                    Sectors
+                </CardHeader>
+                <Table responsive hover className="table mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col" className="bt-0">Channel</th>
+                            <th scope="col" className="bt-0">Sessions</th>
+                            <th scope="col" className="bt-0">Prev Period</th>
+                            <th scope="col" className="text-right bt-0">Change</th>
+                            <th scope="col" className="bt-0 text-right">Trend</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Energy
+                            </td>
+                            <td className="align-middle">
+                            { faker.finance.amount() }
+                            </td>
+                            <td className="align-middle">
+                            <span data-faker="[[finance.amount]]">949.00</span>
+                            </td>
+                            <td className="align-middle text-right">
+                            -75,0% 
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                            <td className="text-right align-middle">
+                            <TinyAreaChart />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Materials
+                            </td>
+                            <td className="align-middle">
+                            { faker.finance.amount() }
+                            </td>
+                            <td className="align-middle">
+                            <span data-faker="[[finance.amount]]">157.11</span>
+                            </td>
+                            <td className="align-middle text-right">
+                            82,1% 
+                            <i className="fa fa-caret-up text-success ml-1"></i>
+                            </td>
+                            <td className="text-right align-middle">
+                            <TinyAreaChart />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Industrials
+                            </td>
+                            <td className="align-middle">
+                            { faker.finance.amount() }
+                            </td>
+                            <td className="align-middle">
+                            <span data-faker="[[finance.amount]]">949.00</span>
+                            </td>
+                            <td className="align-middle text-right">
+                            -75,0% 
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                            <td className="text-right align-middle">
+                            <TinyAreaChart />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Cons. Discretionary
+                            </td>
+                            <td className="align-middle">
+                            { faker.finance.amount() }
+                            </td>
+                            <td className="align-middle">
+                            <span data-faker="[[finance.amount]]">949.00</span>
+                            </td>
+                            <td className="align-middle text-right">
+                            -75,0% 
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                            <td className="text-right align-middle">
+                            <TinyAreaChart />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Real Estate
+                            </td>
+                            <td className="align-middle">
+                            { faker.finance.amount() }
+                            </td>
+                            <td className="align-middle">
+                            <span data-faker="[[finance.amount]]">949.00</span>
+                            </td>
+                            <td className="align-middle text-right">
+                            -75,0% 
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                            <td className="text-right align-middle">
+                            <TinyAreaChart />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Utilities
+                            </td>
+                            <td className="align-middle">
+                            { faker.finance.amount() }
+                            </td>
+                            <td className="align-middle">
+                            <span data-faker="[[finance.amount]]">949.00</span>
+                            </td>
+                            <td className="align-middle text-right">
+                            -75,0% 
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                            <td className="text-right align-middle">
+                            <TinyAreaChart />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Financials
+                            </td>
+                            <td className="align-middle">
+                            { faker.finance.amount() }
+                            </td>
+                            <td className="align-middle">
+                            <span data-faker="[[finance.amount]]">949.00</span>
+                            </td>
+                            <td className="align-middle text-right">
+                            -75,0% 
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                            <td className="text-right align-middle">
+                            <TinyAreaChart />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Health Care
+                            </td>
+                            <td className="align-middle">
+                            { faker.finance.amount() }
+                            </td>
+                            <td className="align-middle">
+                            <span data-faker="[[finance.amount]]">949.00</span>
+                            </td>
+                            <td className="align-middle text-right">
+                            -75,0% 
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                            <td className="text-right align-middle">
+                            <TinyAreaChart />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Technology
+                            </td>
+                            <td className="align-middle">
+                            { faker.finance.amount() }
+                            </td>
+                            <td className="align-middle">
+                            <span data-faker="[[finance.amount]]">949.00</span>
+                            </td>
+                            <td className="align-middle text-right">
+                            -75,0% 
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                            <td className="text-right align-middle">
+                            <TinyAreaChart />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Cons. Staples
+                            </td>
+                            <td className="align-middle">
+                            { faker.finance.amount() }
+                            </td>
+                            <td className="align-middle">
+                            <span data-faker="[[finance.amount]]">949.00</span>
+                            </td>
+                            <td className="align-middle text-right">
+                            -75,0% 
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                            <td className="text-right align-middle">
+                            <TinyAreaChart />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Communication
+                            </td>
+                            <td className="align-middle">
+                            { faker.finance.amount() }
+                            </td>
+                            <td className="align-middle">
+                            <span data-faker="[[finance.amount]]">949.00</span>
+                            </td>
+                            <td className="align-middle text-right">
+                            -75,0% 
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                            <td className="text-right align-middle">
+                            <TinyAreaChart />
+                            </td>
+                        </tr>
+                    </tbody>
+                </Table>
+                <CardFooter className="mt-auto flex-grow-0">
+                    <Media className="small">
+                        <Media left>
+                            <i className="fa fa-fw fa-info-circle mr-2"></i>
+                        </Media>
+                        <Media body>
+                            How do your users (visitors), sessions (visits) and pageviews 
+                            metrics for <abbr title="attribute" className="text-dark">www.webkom.com</abbr> compare to your targets over the last 30 days?
+                        </Media>
+                    </Media>
+                </CardFooter>
+                </Card>
+                </Col>  
+        </Row>
+
+        <Row>
+            <Col  lg={ 12 }>
+            <div className="mb-5">
+                        <h6>
+                             List Groups: Custom Content
+                             <span className="small ml-1 text-muted">
+                                #1.09
+                            </span>
+                        </h6>
+                        <p>
+                            Here is an example of combination 
+                            <code>&lt;ListGroupItemHeading className="h6"&gt;</code> 
+                            and <code>&lt;ListGroupItemText&gt;</code>
+                        </p>
+                        <ListGroup>
+                            <ListGroupItem active>
+                                <ListGroupItemHeading className="h4">
+                                    Newsfeed
+                                </ListGroupItemHeading>
+                            </ListGroupItem>
+                            <ListGroupItem tag="a" href="#" action>
+                                <span className="mt-2 d-flex h6 mb-1 text-info">
+                                    <span className="text-info">
+                                        { faker.name.firstName() }
+                                    </span>
+                                    <span className="ml-auto small text-muted">
+                                        06:09 PM
+                                    </span>
+
+                                </span>
+                                <ListGroupItemHeading className="h5">
+                                    List group item heading
+                                </ListGroupItemHeading>
+                                <ListGroupItemText className="mb-2">
+                                    { faker.lorem.sentence() }
+                                </ListGroupItemText>
+                                
+                            </ListGroupItem>
+
+                            <ListGroupItem tag="a" href="#" action>
+                                <span className="mt-2 d-flex h6 mb-1 text-info">
+                                    <span className="text-info">
+                                        { faker.name.firstName() }
+                                    </span>
+                                    <span className="ml-auto small text-muted">
+                                        06:09 PM
+                                    </span>
+
+                                </span>
+                                <ListGroupItemHeading className="h5">
+                                    List group item heading
+                                </ListGroupItemHeading>
+                                <ListGroupItemText className="mb-2">
+                                    { faker.lorem.sentence() }
+                                </ListGroupItemText>
+                                
+                            </ListGroupItem>
+
+                            <ListGroupItem tag="a" href="#" action>
+                                <span className="mt-2 d-flex h6 mb-1 text-info">
+                                    <span className="text-info">
+                                        { faker.name.firstName() }
+                                    </span>
+                                    <span className="ml-auto small text-muted">
+                                        06:09 PM
+                                    </span>
+
+                                </span>
+                                <ListGroupItemHeading className="h5">
+                                    List group item heading
+                                </ListGroupItemHeading>
+                                <ListGroupItemText className="mb-2">
+                                    { faker.lorem.sentence() }
+                                </ListGroupItemText>
+                                
+                            </ListGroupItem>
+
+                            <ListGroupItem tag="a" href="#" action>
+                                <span className="mt-2 d-flex h6 mb-1 text-info">
+                                    <span className="text-info">
+                                        { faker.name.firstName() }
+                                    </span>
+                                    <span className="ml-auto small text-muted">
+                                        06:09 PM
+                                    </span>
+
+                                </span>
+                                <ListGroupItemHeading className="h5">
+                                    List group item heading
+                                </ListGroupItemHeading>
+                                <ListGroupItemText className="mb-2">
+                                    { faker.lorem.sentence() }
+                                </ListGroupItemText>
+                                
+                            </ListGroupItem>
+
+
+                        </ListGroup>
+                    </div>
+            </Col>
+        </Row>
+
+        
+        
 
     </Container>
     );
