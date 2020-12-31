@@ -370,7 +370,7 @@ render() {
         </CardDeck>
         { /* START Section 1 */}
 
-        <Col lg={ 10 }>
+        <Col lg={ 8 }>
         <Card className="mb-3">
             <CardBody>
                 <div className="chart-candlestick">
