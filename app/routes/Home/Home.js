@@ -302,6 +302,7 @@ class Home extends Component {
         };
     }
 
+
     async componentDidMount() {
         const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
         const API = PROXY_URL +`https://query2.finance.yahoo.com/v10/finance/quoteSummary/NDAQ?modules=financialData`;
@@ -638,21 +639,10 @@ render() {
 
         <Row>
             <Col  lg={ 12 }>
-            <div className="mb-5">
-                        <h6>
-                             List Groups: Custom Content
-                             <span className="small ml-1 text-muted">
-                                #1.09
-                            </span>
-                        </h6>
-                        <p>
-                            Here is an example of combination 
-                            <code>&lt;ListGroupItemHeading className="h6"&gt;</code> 
-                            and <code>&lt;ListGroupItemText&gt;</code>
-                        </p>
+            <div className="mb-5 mt-5">
                         <ListGroup>
                             <ListGroupItem active>
-                                <ListGroupItemHeading className="h4">
+                                <ListGroupItemHeading className="h4 mt-2">
                                     Newsfeed
                                 </ListGroupItemHeading>
                             </ListGroupItem>
