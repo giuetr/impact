@@ -31,7 +31,6 @@ import {
 } from "../components/Analytics/TinyAreaChart";
 
 
-
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -315,6 +314,16 @@ class Home extends Component {
 render() {
     return (
         <Container>
+          <Row className="mb-3">
+            <Col lg={ 12 }>
+                <h5 className="mb-0">
+                <span>1 January 2021 - </span>
+                <span className="text-info">05:12:00 PM</span>
+                <span className="text-muted"> CET</span>
+                </h5>
+                <Badge color="info">MARKET OPEN</Badge>
+            </Col>
+          </Row>
        
         { /* START Section 1 */}
         <CardDeck>
@@ -322,12 +331,12 @@ render() {
             <Card className="mb-3">
                 <CardBody>
                     <ProfileOverviewCard 
-                        title="Total Views"
-                        badgeTitle="Monthly"
+                        title="Dow Jones Industrial"
+                        badgeTitle="INDU"
                         badgeColor="primary"
                         value="6.200"
                         valueTitle="vs 4.891 prev."
-                        footerTitle="Prev"
+                        footerTitle="Change"
                         footerTitleClassName="text-success"
                         footerValue="23%"
                         footerIcon="caret-up"
@@ -339,12 +348,12 @@ render() {
             <Card className="mb-3">
                 <CardBody>
                     <ProfileOverviewCard 
-                        title="Total Orders"
-                        badgeTitle="Annual"
+                        title="S&amp;P 500"
+                        badgeTitle="SPX"
                         badgeColor="info"
                         value="75.938"
                         valueTitle="vs 55.002 prev."
-                        footerTitle="Prev"
+                        footerTitle="Change"
                         footerTitleClassName="text-danger"
                         footerValue="12%"
                         footerIcon="caret-down"
@@ -356,12 +365,12 @@ render() {
             <Card className="mb-3">
                 <CardBody>
                     <ProfileOverviewCard 
-                        title="Total Visits"
-                        badgeTitle="Daily"
+                        title="NASDAQ 100"
+                        badgeTitle="NDX"
                         badgeColor="secondary"
                         value="456"
                         valueTitle="vs 231 prev."
-                        footerTitle="Prev"
+                        footerTitle="Change"
                         footerTitleClassName="text-success"
                         footerValue="67%"
                         footerIcon="caret-up"
@@ -370,14 +379,14 @@ render() {
             </Card>
             { /* START Card Widget */}
             { /* START Card Widget */}
-            <Card className="mb-3">
-                <CardBody>
+            <Card type="border" color="success" className="mb-3">
+                <CardBody className="table-success">
                     <ProfileOverviewCard 
-                        title="Total Bounces"
-                        badgeTitle="Reatime"
-                        badgeColor="warning"
-                        value="91"
-                        valueTitle="vs 87 prev."
+                        title="MARKET BIAS"
+                        badgeTitle="Real time"
+                        badgeColor="success"
+                        value="87%"
+                        valueTitle="BULLISH"
                         footerTitle="Prev"
                         footerTitleClassName="text-success"
                         footerValue="8%"
