@@ -319,7 +319,7 @@ render() {
                 <h5 className="mb-0">
                 <span>1 January 2021 - </span>
                 <span className="text-info">05:12:00 PM</span>
-                <span className="text-muted"> CET</span>
+                <span className="small text-muted"> CET</span>
                 </h5>
                 <Badge color="info">MARKET OPEN</Badge>
             </Col>
@@ -336,7 +336,7 @@ render() {
                         badgeColor="primary"
                         value="6.200"
                         valueTitle="vs 4.891 prev."
-                        footerTitle="Change"
+                        footerTitle="Change:"
                         footerTitleClassName="text-success"
                         footerValue="23%"
                         footerIcon="caret-up"
@@ -353,7 +353,7 @@ render() {
                         badgeColor="info"
                         value="75.938"
                         valueTitle="vs 55.002 prev."
-                        footerTitle="Change"
+                        footerTitle="Change:"
                         footerTitleClassName="text-danger"
                         footerValue="12%"
                         footerIcon="caret-down"
@@ -370,7 +370,7 @@ render() {
                         badgeColor="secondary"
                         value="456"
                         valueTitle="vs 231 prev."
-                        footerTitle="Change"
+                        footerTitle="Change:"
                         footerTitleClassName="text-success"
                         footerValue="67%"
                         footerIcon="caret-up"
@@ -387,7 +387,7 @@ render() {
                         badgeColor="success"
                         value="87%"
                         valueTitle="BULLISH"
-                        footerTitle="Prev"
+                        footerTitle="Previous:"
                         footerTitleClassName="text-success"
                         footerValue="8%"
                         footerIcon="caret-up"
