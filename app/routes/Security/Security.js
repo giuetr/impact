@@ -24,7 +24,7 @@ import {
     ListGroupItemText,
     Table,
     Media
-} from './../../components'
+} from '../../components'
 import {
     ProfileOverviewCard
 } from "../components/Profile/ProfileOverviewCard";
@@ -33,7 +33,7 @@ import {
 } from "../components/Analytics/TinyAreaChart";
 
 
-class Home extends Component {
+class Security extends Component {
     constructor(props) {
         super(props);
 
@@ -353,7 +353,7 @@ render() {
                     <ProfileOverviewCard 
                         title="S&amp;P 500"
                         badgeTitle="SPX"
-                        badgeColor="danger"
+                        badgeColor="info"
                         value="75.938"
                         valueTitle="vs 55.002 prev."
                         footerTitle="Change:"
@@ -747,4 +747,4 @@ render() {
     );
   } //render
 }
-export default Home
+export default Security
