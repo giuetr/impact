@@ -31,6 +31,9 @@ import {
 import {
     TinyAreaChart
 } from "../components/Analytics/TinyAreaChart";
+import {
+  TrTableMonitor
+} from "../components/Monitor/TrTableMonitor";
 
 
 class Home extends Component {
@@ -650,7 +653,7 @@ render() {
         </Row>
 
         <Row>
-            <Col  lg={ 12 }>
+            <Col  lg={ 7 }>
             <div className="mb-5 mt-5">
                         <ListGroup>
                             <ListGroupItem active>
@@ -737,6 +740,28 @@ render() {
 
                         </ListGroup>
                     </div>
+            </Col>
+            <Col lg={5}>
+                <Card className="d-flex flex-column mt-5">
+                <CardHeader className="bb-0 pt-3 bg-none" tag="h5">
+                    Macro
+                </CardHeader>
+                <Table responsive>
+                    <thead>
+                        <tr>
+                            <th className="bt-0">Description</th>
+                            <th className="bt-0">RAID</th>
+                            <th className="bt-0">Capacity</th>
+                            <th className="bt-0 text-right">Usage</th>
+                            <th className="bt-0 text-right">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <TrTableMonitor />
+                    </tbody>
+                </Table>
+                </Card>
+                
             </Col>
         </Row>
 
