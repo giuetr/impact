@@ -16,6 +16,8 @@ import {
     CardDeck,
     CardHeader,
     CardFooter,
+    CardTitle,
+    Progress,
     Col,
     Badge,
     ListGroup,
@@ -32,6 +34,9 @@ import {
     TinyAreaChart
 } from "../components/Analytics/TinyAreaChart";
 import { HeaderMain } from "../components/HeaderMain";
+import {
+  TinyDonutChart
+} from "../components/Monitor/TinyDonutChart"
 
 
 
@@ -341,8 +346,8 @@ render() {
                 <div className="h3">
                   <span className="text-info mr-3">AAPL</span>
                   <span>130.02</span>
-                  <span className="small">USD</span>
-                  <span className="text-danger"> (-0.77%)</span>
+                  <span className="small mr-3">USD</span>
+                  <span className="text-danger">-0.77%</span>
                 </div>
 
             </div>
@@ -362,7 +367,7 @@ render() {
                   <div className="d-flex flex-column">
                     <div color="link" className="text-left pl-0 text-decoration-none mb-2 mr-5">
                       <i className="fa fa-globe text-body mr-2"></i>
-                      <a href="#" className="text-info">www.apple.com</a>
+                      <a href="#" target="_blank" className="text-info">www.apple.com</a>
                     </div>
                     <div color="link" className="text-left pl-0 text-decoration-none mb-2 mr-5">
                       <i className="fa fa-child text-body mr-2"></i>
@@ -380,35 +385,75 @@ render() {
         <CardDeck>
             { /* START Card Widget */}
             <Card className="mb-3">
-                <CardBody>
-                    <ProfileOverviewCard 
-                        title="Dow Jones Industrial"
-                        badgeTitle="INDU"
-                        badgeColor="primary"
-                        value="6.200"
-                        valueTitle="vs 4.891 prev."
-                        footerTitle="Change:"
-                        footerTitleClassName="text-success"
-                        footerValue="23%"
-                        footerIcon="caret-up"
-                    />
-                </CardBody>
-            </Card>
+                    <CardBody>
+                        <div>
+                            <div>
+                                <h6 className="mb-1 text-info">ESG</h6>
+                                <p>Real Time Sustainability Profile</p>
+                            </div>
+                            <div className="mb-3 d-flex">
+                                <TinyDonutChart />
+                                <div className="ml-2 align-self-center">
+                                    <h2 className="mb-0">52</h2>
+                                    <span>ESG Score</span>
+                                </div>
+                            </div>
+                            <div className="d-flex justify-content-between">
+                                <div className="text-left">
+                                    <div className="small mb-2">
+                                        <i className="fa fa-circle fa-fw text-info"></i> Environmental
+                                    </div>
+                                    <h6 className="mb-0">48,7</h6>
+                                    <span>79</span>
+                                </div>
+                                <div className="text-left">
+                                    <div className="small mb-2">
+                                        <i className="fa fa-circle fa-fw text-primary"></i> Social
+                                    </div>
+                                    <h6 className="mb-0">26,9</h6>
+                                    <span>65</span>
+                                </div>
+                                <div className="text-left">
+                                    <div className="small mb-2">
+                                        <i className="fa fa-circle fa-fw text-gray-300"></i> Governance
+                                    </div>
+                                    <h6 className="mb-0">2,7</h6>
+                                    <span>34</span>
+                                </div>
+                            </div>
+                        </div>
+                    </CardBody>
+                </Card>
             { /* START Card Widget */}
             { /* START Card Widget */}
             <Card className="mb-3">
                 <CardBody>
                     <ProfileOverviewCard 
-                        title="S&amp;P 500"
-                        badgeTitle="SPX"
+                        title="PRICE TARGET"
+                        badgeTitle="UP"
                         badgeColor="info"
-                        value="75.938"
-                        valueTitle="vs 55.002 prev."
-                        footerTitle="Change:"
-                        footerTitleClassName="text-danger"
-                        footerValue="12%"
-                        footerIcon="caret-down"
+                        value="135.02"
+                        valueTitle="+5% MoM"
+                        footerTitle="Potential Return:"
+                        footerTitleClassName="text-info"
+                        footerValue="5%"
+                        footerIcon="caret-up"
                     />
+                    <div className="d-flex justify-content-between mt-3">
+                                <div className="text-center">
+                                    <h6 className="mb-0">132</h6>
+                                    <span>Min</span>
+                                </div>
+                                <div className="text-center">
+                                    <h6 className="mb-0">135.02</h6>
+                                    <span>Avg</span>
+                                </div>
+                                <div className="text-center">
+                                    <h6 className="mb-0">142</h6>
+                                    <span>Max</span>
+                                </div>
+                            </div>     
+                    
                 </CardBody>
             </Card>
             { /* START Card Widget */}
@@ -416,16 +461,30 @@ render() {
             <Card className="mb-3">
                 <CardBody>
                     <ProfileOverviewCard 
-                        title="NASDAQ 100"
-                        badgeTitle="NDX"
-                        badgeColor="secondary"
-                        value="456"
-                        valueTitle="vs 231 prev."
-                        footerTitle="Change:"
-                        footerTitleClassName="text-success"
-                        footerValue="67%"
-                        footerIcon="caret-up"
+                        title="RECOMMENDATIONS"
+                        badgeTitle="LONG"
+                        badgeColor="info"
+                        value="BUY"
+                        valueTitle="STRONG"
+                        footerTitle="Analysts:"
+                        footerTitleClassName="text-INFO"
+                        footerValue="30"
+                        footerIcon=""
                     />
+                    <div className="d-flex justify-content-between mt-3">
+                                <div className="text-center">
+                                    <h6 className="mb-0 text-danger">SELL</h6>
+                                    <span>3</span>
+                                </div>
+                                <div className="text-center">
+                                    <h6 className="mb-0 text-secondary">HOLD</h6>
+                                    <span>10</span>
+                                </div>
+                                <div className="text-center">
+                                    <h6 className="mb-0 text-info">BUY</h6>
+                                    <span>17</span>
+                                </div>
+                            </div> 
                 </CardBody>
             </Card>
             { /* START Card Widget */}
@@ -433,16 +492,30 @@ render() {
             <Card type="border" color="success" className="mb-3">
                 <CardBody className="table-success">
                     <ProfileOverviewCard 
-                        title="MARKET BIAS"
+                        title="SENTIMENT"
                         badgeTitle="Real time"
                         badgeColor="success"
                         value="87%"
                         valueTitle="BULLISH"
-                        footerTitle="Previous:"
+                        footerTitle="Trend:"
                         footerTitleClassName="text-success"
                         footerValue="8%"
                         footerIcon="caret-up"
                     />
+                    <div className="d-flex justify-content-between mt-3">
+                                <div className="text-center">
+                                    <h6 className="mb-0 text-danger">SELL</h6>
+                                    <span>3</span>
+                                </div>
+                                <div className="text-center">
+                                    <h6 className="mb-0 text-secondary">HOLD</h6>
+                                    <span>10</span>
+                                </div>
+                                <div className="text-center">
+                                    <h6 className="mb-0 text-info">BUY</h6>
+                                    <span>17</span>
+                                </div>
+                            </div> 
                 </CardBody>
             </Card>
             { /* START Card Widget */}
@@ -467,217 +540,81 @@ render() {
             </Col>
 
             <Col lg={ 5 }>
-                <Card className="d-flex flex-column">
+              <CardDeck>
+              <Card className="d-flex flex-column">
                 <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
-                    Sectors
+                    Top Peers
                 </CardHeader>
                 <Table responsive hover className="table mb-0">
                     <thead>
                         <tr>
-                            <th scope="col" className="bt-0">Channel</th>
-                            <th scope="col" className="bt-0">Sessions</th>
-                            <th scope="col" className="bt-0">Prev Period</th>
-                            <th scope="col" className="text-right bt-0">Change</th>
-                            <th scope="col" className="bt-0 text-right">Trend</th>
+                            <th scope="col" className="bt-0">Company</th>
+                            <th scope="col" className="text-right bt-0">Ticker</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td className="align-middle text-inverse">
-                            Energy
-                            </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
+                            Advanced Micro Devices
                             </td>
                             <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
+                            <Badge color="info">AMD</Badge>
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
-                            Materials
-                            </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">157.11</span>
+                              Tesla Motors
                             </td>
                             <td className="align-middle text-right">
-                            82,1% 
-                            <i className="fa fa-caret-up text-success ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
+                            <Badge color="info">TSLA</Badge>
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
-                            Industrials
-                            </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
+                            Micron
                             </td>
                             <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
+                            <Badge color="info">MU</Badge>
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
-                            Cons. Discretionary
-                            </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
+                            Facebook
                             </td>
                             <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
+                            <Badge color="info">FB</Badge>
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
-                            Real Estate
-                            </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
+                            Google
                             </td>
                             <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
+                            <Badge color="info">GOOG</Badge>
                             </td>
                         </tr>
+                    </tbody>
+                </Table>
+                </Card>
+                <Card className="d-flex flex-column">
+                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
+                    Financials
+                </CardHeader>
+                <Table responsive hover className="table mb-0">
+                    <thead>
                         <tr>
-                            <td className="align-middle text-inverse">
-                            Utilities
-                            </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
-                            </td>
-                            <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
-                            </td>
+                            <th scope="col" className="bt-0">Indicator</th>
+                            <th scope="col" className="text-right bt-0">Value</th>
                         </tr>
+                    </thead>
+                    <tbody>
                         <tr>
                             <td className="align-middle text-inverse">
-                            Financials
-                            </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
+                            Market Cap
                             </td>
                             <td className="align-middle text-right">
-                            -75,0% 
+                            2.256T
                             <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Health Care
-                            </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
-                            </td>
-                            <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Technology
-                            </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
-                            </td>
-                            <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Cons. Staples
-                            </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
-                            </td>
-                            <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Communication
-                            </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
-                            </td>
-                            <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
                             </td>
                         </tr>
                     </tbody>
@@ -694,6 +631,9 @@ render() {
                     </Media>
                 </CardFooter>
                 </Card>
+
+              </CardDeck>
+                
                 </Col>  
         </Row>
 
