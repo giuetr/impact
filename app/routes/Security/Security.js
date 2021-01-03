@@ -31,6 +31,9 @@ import {
 import {
     TinyAreaChart
 } from "../components/Analytics/TinyAreaChart";
+import { HeaderMain } from "../components/HeaderMain";
+
+
 
 
 class Security extends Component {
@@ -327,6 +330,51 @@ render() {
                 <Badge color="info">MARKET OPEN</Badge>
             </Col>
           </Row>
+          <Container className="pl-0">
+
+          <div className="d-flex mt-3 mb-5">
+            <div>
+                <HeaderMain 
+                    title="Apple Inc."
+                    className=""
+                />
+                <div className="h3">
+                  <span className="text-info mr-3">AAPL</span>
+                  <span>130.02</span>
+                  <span className="small">USD</span>
+                  <span className="text-danger"> (-0.77%)</span>
+                </div>
+
+            </div>
+
+                
+
+                
+                <div className="d-flex ml-auto align-self-start">
+                  <div className="d-flex flex-column">
+                    <div color="link" className="text-left pl-0 text-decoration-none mb-2 mr-5">
+                      Industry: <span className="text-muted">Consumer Electronics</span>
+                    </div>
+                    <div color="link" className="text-left pl-0 text-decoration-none mb-2 mr-5">
+                      Sector: <span className="text-muted">Technology</span>
+                    </div>
+                  </div>
+                  <div className="d-flex flex-column">
+                    <div color="link" className="text-left pl-0 text-decoration-none mb-2 mr-5">
+                      <i className="fa fa-globe text-body mr-2"></i>
+                      <a href="#" className="text-info">www.apple.com</a>
+                    </div>
+                    <div color="link" className="text-left pl-0 text-decoration-none mb-2 mr-5">
+                      <i className="fa fa-child text-body mr-2"></i>
+                      Employees: <span className="text-muted">147,000</span>
+                    </div>
+                  </div>
+                </div>
+
+
+          </div>
+          </Container>
+
        
         { /* START Section 1 */}
         <CardDeck>

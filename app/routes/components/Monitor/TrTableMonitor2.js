@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { 
     Badge,
     Progress
-} from './../../../components';
+} from '../../../components';
 
 /*eslint-disable */
 const status = [

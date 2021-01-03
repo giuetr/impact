@@ -31,9 +31,6 @@ import {
 import {
     TinyAreaChart
 } from "../components/Analytics/TinyAreaChart";
-import {
-  TrTableMonitor
-} from "../components/Monitor/TrTableMonitor";
 
 
 class Home extends Component {
@@ -423,8 +420,8 @@ render() {
 
             <Col lg={ 5 }>
                 <Card className="d-flex flex-column">
-                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
-                    Sectors
+                <CardHeader className="bb-0 pt-3 bg-none" tag="h6" height="336px">
+                    US Sectors
                 </CardHeader>
                 <Table responsive hover className="table mb-0">
                     <thead>
@@ -742,24 +739,47 @@ render() {
                     </div>
             </Col>
             <Col lg={5}>
-                <Card className="d-flex flex-column mt-5">
-                <CardHeader className="bb-0 pt-3 bg-none" tag="h5">
-                    Macro
+            <Card className="d-flex flex-column mt-5">
+                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
+                    Macro indicators
                 </CardHeader>
-                <Table responsive>
+                <Table responsive hover className="table mb-0">
                     <thead>
                         <tr>
-                            <th className="bt-0">Description</th>
-                            <th className="bt-0">RAID</th>
-                            <th className="bt-0">Capacity</th>
-                            <th className="bt-0 text-right">Usage</th>
-                            <th className="bt-0 text-right">Status</th>
+                            <th scope="col" className="bt-0">Indicator</th>
+                            <th scope="col" className="bt-0">Last</th>
+                            <th scope="col" className="bt-0">Period</th>
+                            <th scope="col" className="text-right bt-0">Prev</th>
+                            <th scope="col" className="bt-0 text-right">Range</th>
                         </tr>
                     </thead>
                     <tbody>
-                      <TrTableMonitor />
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            GDP Growth Rate<span className="small ml-1 text-muted">%</span>
+                            </td>
+                            <td className="align-middle">
+                              33.4
+                            </td>
+                            <td className="align-middle">
+                              Sep20
+                            </td>
+                            <td className="align-middle text-right">
+                              -31.4
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                            <td className="text-right align-right">
+                              <span className="text-warning">-31.4</span>
+                              <span className="text-muted"> - </span>
+                              <span className="text-info">33.4</span>
+                            </td>
+                        </tr>
                     </tbody>
                 </Table>
+                
+
+
+                
                 </Card>
                 
             </Col>
