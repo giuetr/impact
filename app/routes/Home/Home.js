@@ -419,18 +419,16 @@ render() {
             </Col>
 
             <Col lg={ 5 }>
-                <Card className="d-flex flex-column">
-                <CardHeader className="bb-0 pt-3 bg-none" tag="h6" height="336px">
+              <CardDeck>
+              <Card className="d-flex flex-column" height="336px">
+                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
                     US Sectors
                 </CardHeader>
-                <Table responsive hover className="table mb-0">
+                <Table responsive hover className="table mb-0 table-striped" height="336px">
                     <thead>
                         <tr>
-                            <th scope="col" className="bt-0">Channel</th>
-                            <th scope="col" className="bt-0">Sessions</th>
-                            <th scope="col" className="bt-0">Prev Period</th>
-                            <th scope="col" className="text-right bt-0">Change</th>
-                            <th scope="col" className="bt-0 text-right">Trend</th>
+                            <th scope="col" className="bt-0">Sector</th>
+                            <th scope="col" className="bt-0 text-right">Change</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -438,54 +436,24 @@ render() {
                             <td className="align-middle text-inverse">
                             Energy
                             </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
-                            </td>
-                            <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
+                            <td className="align-right">
+                            0.31%
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Materials
                             </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">157.11</span>
-                            </td>
-                            <td className="align-middle text-right">
-                            82,1% 
-                            <i className="fa fa-caret-up text-success ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
+                            <td className="align-right">
+                            0.31%
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Industrials
                             </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
-                            </td>
-                            <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
+                            <td className="align-right">
+                            -0.31%
                             </td>
                         </tr>
                         <tr>
@@ -493,143 +461,63 @@ render() {
                             Cons. Discretionary
                             </td>
                             <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
-                            </td>
-                            <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
+                            -0.31%
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Real Estate
                             </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
-                            </td>
-                            <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
+                            <td className="align-right">
+                            -0.31%
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Utilities
                             </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
-                            </td>
-                            <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
+                            <td className="align-right">
+                            -0.31%
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Financials
                             </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
-                            </td>
-                            <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
+                            <td className="align-right">
+                            -0.31%
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Health Care
                             </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
-                            </td>
-                            <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
+                            <td className="align-right">
+                            -0.31%
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Technology
                             </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
-                            </td>
-                            <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
+                            <td className="align-right">
+                            -0.31%
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Cons. Staples
                             </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
-                            </td>
-                            <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
+                            <td className="align-right">
+                            -0.31%
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Communication
                             </td>
-                            <td className="align-middle">
-                            { faker.finance.amount() }
-                            </td>
-                            <td className="align-middle">
-                            <span data-faker="[[finance.amount]]">949.00</span>
-                            </td>
-                            <td className="align-middle text-right">
-                            -75,0% 
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                            <td className="text-right align-middle">
-                            <TinyAreaChart />
+                            <td className="align-right">
+                              -0.31%
                             </td>
                         </tr>
                     </tbody>
@@ -646,6 +534,65 @@ render() {
                     </Media>
                 </CardFooter>
                 </Card>
+
+                <Card className="d-flex flex-column">
+                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
+                    Most Active
+                </CardHeader>
+                <Table responsive hover className="table mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col" className="bt-0">Company</th>
+                            <th scope="col" className="text-right bt-0">Ticker</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Advanced Micro Devices
+                            </td>
+                            <td className="align-middle text-right">
+                            <Badge color="info">AMD</Badge>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                              Tesla Motors
+                            </td>
+                            <td className="align-middle text-right">
+                            <Badge color="info">TSLA</Badge>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Micron
+                            </td>
+                            <td className="align-middle text-right">
+                            <Badge color="info">MU</Badge>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Facebook
+                            </td>
+                            <td className="align-middle text-right">
+                            <Badge color="info">FB</Badge>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Google
+                            </td>
+                            <td className="align-middle text-right">
+                            <Badge color="info">GOOG</Badge>
+                            </td>
+                        </tr>
+                    </tbody>
+                </Table>
+                </Card>
+
+              </CardDeck>
+                
                 </Col>  
         </Row>
 

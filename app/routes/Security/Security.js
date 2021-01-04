@@ -541,7 +541,44 @@ render() {
 
             <Col lg={ 5 }>
               <CardDeck>
-              <Card className="d-flex flex-column">
+              
+                <Card className="d-flex flex-column">
+                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
+                    Financials
+                </CardHeader>
+                <Table responsive hover className="table mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col" className="bt-0">Indicator</th>
+                            <th scope="col" className="text-right bt-0">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Market Cap
+                            </td>
+                            <td className="align-middle text-right">
+                            2.256T
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </Table>
+                <CardFooter className="mt-auto flex-grow-0">
+                    <Media className="small">
+                        <Media left>
+                            <i className="fa fa-fw fa-info-circle mr-2"></i>
+                        </Media>
+                        <Media body>
+                            How do your users (visitors), sessions (visits) and pageviews 
+                            metrics for <abbr title="attribute" className="text-dark">www.webkom.com</abbr> compare to your targets over the last 30 days?
+                        </Media>
+                    </Media>
+                </CardFooter>
+                </Card>
+
+                <Card className="d-flex flex-column">
                 <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
                     Top Peers
                 </CardHeader>
@@ -596,45 +633,85 @@ render() {
                     </tbody>
                 </Table>
                 </Card>
-                <Card className="d-flex flex-column">
-                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
-                    Financials
-                </CardHeader>
-                <Table responsive hover className="table mb-0">
-                    <thead>
-                        <tr>
-                            <th scope="col" className="bt-0">Indicator</th>
-                            <th scope="col" className="text-right bt-0">Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Market Cap
-                            </td>
-                            <td className="align-middle text-right">
-                            2.256T
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                        </tr>
-                    </tbody>
-                </Table>
-                <CardFooter className="mt-auto flex-grow-0">
-                    <Media className="small">
-                        <Media left>
-                            <i className="fa fa-fw fa-info-circle mr-2"></i>
-                        </Media>
-                        <Media body>
-                            How do your users (visitors), sessions (visits) and pageviews 
-                            metrics for <abbr title="attribute" className="text-dark">www.webkom.com</abbr> compare to your targets over the last 30 days?
-                        </Media>
-                    </Media>
-                </CardFooter>
-                </Card>
 
               </CardDeck>
                 
                 </Col>  
+        </Row>
+
+        <Row className="mt-3">
+                <Col lg={ 6 }>
+                    <Card className="mb-3">
+                        <CardBody>
+                            <CardTitle tag="h6">
+                                Executives
+                            </CardTitle>
+                            <p className="mb-0">
+                                Add <code>size="sm"</code> to make tables more compact by cutting cell padding in half.
+                            </p>
+                        </CardBody>
+                        { /* START Table */}
+                        <Table className="mb-0" hover responsive>
+                            <thead>
+                                <tr>
+                                    <th className="bt-0">ID</th>
+                                    <th className="bt-0">Name</th>
+                                    <th className="bt-0">Amount</th>
+                                    <th className="text-right bt-0">
+                                        Payment
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                  <td className="align-middle text-inverse">
+                                  Advanced Micro Devices
+                                  </td>
+                                  <td className="align-middle text-right">
+                                  <Badge color="info">AMD</Badge>
+                                  </td>
+                              </tr>
+                            </tbody>
+                        </Table>
+                        { /* END Table */}
+                    </Card>
+                </Col>
+                <Col lg={ 6 }>
+                    <Card className="mb-3">
+                        <CardBody>
+                            <CardTitle tag="h6">
+                                Insiders Transactions
+                            </CardTitle>
+                            <p className="mb-0">
+                                Add <code>size="sm"</code> to make tables more compact by cutting cell padding in half.
+                            </p>
+                        </CardBody>
+                        { /* START Table */}
+                        <Table className="mb-0" hover responsive>
+                            <thead>
+                                <tr>
+                                    <th className="bt-0">ID</th>
+                                    <th className="bt-0">Name</th>
+                                    <th className="bt-0">Amount</th>
+                                    <th className="text-right bt-0">
+                                        Payment
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                  <td className="align-middle text-inverse">
+                                  Advanced Micro Devices
+                                  </td>
+                                  <td className="align-middle text-right">
+                                  <Badge color="info">AMD</Badge>
+                                  </td>
+                                </tr>
+                            </tbody>
+                        </Table>
+                        { /* END Table */}
+                    </Card>
+                </Col>
         </Row>
 
         <Row>
