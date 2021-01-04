@@ -37,8 +37,9 @@ import { HeaderMain } from "../components/HeaderMain";
 import {
   TinyDonutChart
 } from "../components/Monitor/TinyDonutChart"
-
-
+import {
+  SessionsByDevice
+} from "../components/Analytics/SessionsByDevice";
 
 
 class Security extends Component {
@@ -544,7 +545,7 @@ render() {
               
                 <Card className="d-flex flex-column">
                 <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
-                    Financials
+                    Key Financials
                 </CardHeader>
                 <Table responsive hover className="table mb-0">
                     <thead>
@@ -560,6 +561,60 @@ render() {
                             </td>
                             <td className="align-middle text-right">
                             2.256T
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            EPS
+                            </td>
+                            <td className="align-middle text-right">
+                            0.52
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Revenue
+                            </td>
+                            <td className="align-middle text-right">
+                            190M
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            EBITDA
+                            </td>
+                            <td className="align-middle text-right">
+                            590M
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Cash
+                            </td>
+                            <td className="align-middle text-right">
+                            1.023B
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Debt
+                            </td>
+                            <td className="align-middle text-right">
+                            256M
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Cash Flow
+                            </td>
+                            <td className="align-middle text-right">
+                            256M
                             <i className="fa fa-caret-down text-danger ml-1"></i>
                             </td>
                         </tr>
@@ -640,35 +695,106 @@ render() {
         </Row>
 
         <Row className="mt-3">
-                <Col lg={ 6 }>
+                <Col lg={ 12 }>
                     <Card className="mb-3">
-                        <CardBody>
+                        <CardBody className="pb-0">
                             <CardTitle tag="h6">
-                                Executives
+                                Governance Risk and Executives Pay
                             </CardTitle>
-                            <p className="mb-0">
-                                Add <code>size="sm"</code> to make tables more compact by cutting cell padding in half.
+                            <p className="mb-4">
+                                A measure of the company Governance risk and the breakdown of high-level corporate salaries, including stock options compensation.
                             </p>
+                            <Row>
+                              <Col sm={ 4 }>
+                              <ProfileOverviewCard 
+                                  title="OVERALL GOVERNANCE RISK"
+                                  badgeTitle="HIGH RISK"
+                                  badgeColor="danger"
+                                  value="10"
+                                  valueTitle="Vs. Sector Average: 7"
+                                  footerTitle=""
+                                  footerTitleClassName="text-info"
+                                  footerValue=""
+                                  footerIcon=""
+                              />
+                                  
+                              </Col>
+                              <Col sm={ 4 }>
+                              <ProfileOverviewCard 
+                                  title="EXEC. PAY"
+                                  badgeTitle="TOP PERFORMER"
+                                  badgeColor="info"
+                                  value="-55%"
+                                  valueTitle="lower than market average"
+                                  footerTitle=""
+                                  footerTitleClassName="text-info"
+                                  footerValue=""
+                                  footerIcon=""
+                              />
+                                  
+                              </Col>
+                              <Col sm={ 4 }>
+                              <Table size="sm">
+                                  <tbody>
+                                      <tr>
+                                          <td className="text-inverse bt-0">Audit Risk</td>
+                                          <td className="text-right bt-0">
+                                              <Badge color="success" pill>2</Badge>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td className="text-inverse">Board Risk</td>
+                                          <td className="text-right">
+                                              <Badge color="primary" pill>10</Badge>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td className="text-inverse">Compensantion Risk</td>
+                                          <td className="text-right">
+                                              <Badge color="info" pill>10</Badge>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td className="text-inverse">Shareholders Rights Risk</td>
+                                          <td className="text-right">
+                                              <Badge color="secondary" pill>10</Badge>
+                                          </td>
+                                      </tr>
+                                  </tbody>
+                              </Table>
+                              </Col>
+                              
+                            </Row>
                         </CardBody>
                         { /* START Table */}
                         <Table className="mb-0" hover responsive>
                             <thead>
                                 <tr>
-                                    <th className="bt-0">ID</th>
                                     <th className="bt-0">Name</th>
-                                    <th className="bt-0">Amount</th>
+                                    <th className="bt-0">Role</th>
+                                    <th className="bt-0">Pay</th>
+                                    <th className="bt-0">Exercised</th>
                                     <th className="text-right bt-0">
-                                        Payment
+                                        Born
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                               <tr>
                                   <td className="align-middle text-inverse">
-                                  Advanced Micro Devices
+                                  Mr. Elon R. Musk
+                                  </td>
+                                  <td className="align-middle">
+                                  Co-Founder, CEO & Director	
+                                  </td>
+                                  <td className="align-middle">
+                                  23.76k	
+                                  </td>
+                                  <td className="align-middle">
+                                  N/A
                                   </td>
                                   <td className="align-middle text-right">
-                                  <Badge color="info">AMD</Badge>
+                                  1972
                                   </td>
                               </tr>
                             </tbody>
@@ -676,42 +802,201 @@ render() {
                         { /* END Table */}
                     </Card>
                 </Col>
-                <Col lg={ 6 }>
+                <Col lg={ 12 }>
                     <Card className="mb-3">
                         <CardBody>
                             <CardTitle tag="h6">
-                                Insiders Transactions
+                                Insider Transactions
                             </CardTitle>
-                            <p className="mb-0">
-                                Add <code>size="sm"</code> to make tables more compact by cutting cell padding in half.
+                            <p className="mb-3">
+                                <span className="text-success">Long</span> or <span className="text-danger">Short</span> insider transaction pressure in the last 6 months to date.
                             </p>
+                            <Row className="justify-content-between">
+                            <Col lg={4}>
+                              <ProfileOverviewCard 
+                                  title="INSIDER TREND"
+                                  badgeTitle="LONG"
+                                  badgeColor="info"
+                                  value="LONG"
+                                  valueTitle="Upgrade"
+                                  footerTitle=""
+                                  footerTitleClassName="text-info"
+                                  footerValue=""
+                                  footerIcon=""
+                              />
+                            </Col>
+                            <Col lg={5}>
+                              <Row>
+                                <Col sm={ 6 }>
+                                    <SessionsByDevice 
+                                        title="Buy"
+                                        valuePercent="60"
+                                        valuePercentColor="text-info"
+                                        value="$201,345"
+                                        valueColor="text-muted"
+                                    />
+                                </Col>
+                                <Col sm={ 6 }>
+                                    <SessionsByDevice 
+                                        title="Sell"
+                                        valuePercent="50"
+                                        valuePercentColor="text-danger"
+                                        value="$134,201"
+                                        valueColor="text-muted"
+                                    />
+                                </Col>
+                              </Row>
+                              <Progress multi className="mb-2" style={{height: "5px"}}>
+                                  <Progress bar color="info" value="60" />
+                                  <Progress bar color="danger" value="50" />
+                              </Progress>
+                            </Col>
+
+                            </Row>
+                            
+                            
                         </CardBody>
                         { /* START Table */}
                         <Table className="mb-0" hover responsive>
                             <thead>
                                 <tr>
-                                    <th className="bt-0">ID</th>
-                                    <th className="bt-0">Name</th>
-                                    <th className="bt-0">Amount</th>
+                                    <th className="bt-0">Insider</th>
+                                    <th className="bt-0">Transaction</th>
+                                    <th className="bt-0">Value</th>
+                                    <th className="bt-0">Date</th>
+                                    <th className="bt-0">Quantity</th>
                                     <th className="text-right bt-0">
-                                        Payment
+                                        Type
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                              <tr>
                                   <td className="align-middle text-inverse">
-                                  Advanced Micro Devices
+                                  Mr. Elon R. Musk
+                                  </td>
+                                  <td className="align-middle">
+                                  Sale at price 674.68 per share	
+                                  </td>
+                                  <td className="align-middle">
+                                  1,012,020	
+                                  </td>
+                                  <td className="align-middle">
+                                  Dec 28, 2020
+                                  </td>
+                                  <td className="align-middle">
+                                  1,500
                                   </td>
                                   <td className="align-middle text-right">
-                                  <Badge color="info">AMD</Badge>
+                                  <Badge color="danger">SHORT</Badge>
                                   </td>
-                                </tr>
+                              </tr>
                             </tbody>
                         </Table>
                         { /* END Table */}
                     </Card>
                 </Col>
+        </Row>
+
+        <Row>
+        <Col lg={ 12 }>
+              <CardDeck>
+              
+                <Card className="d-flex flex-column">
+                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
+                    Key Valuation Metrics
+                </CardHeader>
+                <Table responsive hover className="table mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col" className="bt-0">Indicator</th>
+                            <th scope="col" className="text-right bt-0">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Market Cap
+                            </td>
+                            <td className="align-middle text-right">
+                            2.256T
+                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </Table>
+                <CardFooter className="mt-auto flex-grow-0">
+                    <Media className="small">
+                        <Media left>
+                            <i className="fa fa-fw fa-info-circle mr-2"></i>
+                        </Media>
+                        <Media body>
+                            How do your users (visitors), sessions (visits) and pageviews 
+                            metrics for <abbr title="attribute" className="text-dark">www.webkom.com</abbr> compare to your targets over the last 30 days?
+                        </Media>
+                    </Media>
+                </CardFooter>
+                </Card>
+
+                <Card className="d-flex flex-column">
+                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
+                    Key technicals
+                </CardHeader>
+                <Table responsive hover className="table mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col" className="bt-0">Indicator</th>
+                            <th scope="col" className="text-right bt-0">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Advanced Micro Devices
+                            </td>
+                            <td className="align-middle text-right">
+                            <Badge color="info">AMD</Badge>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                              Tesla Motors
+                            </td>
+                            <td className="align-middle text-right">
+                            <Badge color="info">TSLA</Badge>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Micron
+                            </td>
+                            <td className="align-middle text-right">
+                            <Badge color="info">MU</Badge>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Facebook
+                            </td>
+                            <td className="align-middle text-right">
+                            <Badge color="info">FB</Badge>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Google
+                            </td>
+                            <td className="align-middle text-right">
+                            <Badge color="info">GOOG</Badge>
+                            </td>
+                        </tr>
+                    </tbody>
+                </Table>
+                </Card>
+
+              </CardDeck>
+                
+                </Col>  
         </Row>
 
         <Row>
