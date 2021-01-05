@@ -38,7 +38,7 @@ class Home extends Component {
         super(props);
 
         this.state = {
-            currentPrice: null,
+      yf_financialData_nasdaq: null,
             series: [{
                 data: [{
                     x: new Date(1538778600000),
@@ -307,14 +307,18 @@ class Home extends Component {
 
     async componentDidMount() {
         const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
-        const API = PROXY_URL +`https://query2.finance.yahoo.com/v10/finance/quoteSummary/NDAQ?modules=financialData`;
-        const response = await fetch(API);
+        const url = PROXY_URL +`https://query2.finance.yahoo.com/v10/finance/quoteSummary/NDAQ?modules=financialData`;
+        const response = await fetch(url);
         const data = await response.json();
-        console.log(data.result.O.financialData)
-        this.setState({ currentPrice: data.result.financialData.currentPrice })
-    }
+        this.setState({ yf_financialData_nasdaq: data.quoteSummary.result[0]});
+      }
 
 render() {
+    
+  
+      if (!this.state.yf_financialData_nasdaq) {
+        return <div>didn't get financialData</div>;
+      }
     return (
         <Container>
           <Row className="mb-3">
@@ -371,7 +375,7 @@ render() {
                         title="NASDAQ 100"
                         badgeTitle="NDX"
                         badgeColor="secondary"
-                        value="456"
+                        value={this.state.yf_financialData_nasdaq.financialData.currentPrice.raw}
                         valueTitle="vs 231 prev."
                         footerTitle="Change:"
                         footerTitleClassName="text-success"
