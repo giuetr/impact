@@ -547,6 +547,143 @@ render() {
                 <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
                     Key Financials
                 </CardHeader>
+                <Table responsive hover borderless className="table mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col" className="bt-0">Indicator</th>
+                            <th scope="col" className="text-right bt-0">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Market Cap
+                            </td>
+                            <td className="align-middle text-right">
+                            2.256T
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            EPS
+                            </td>
+                            <td className="align-middle text-right">
+                            0.52
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Revenue
+                            </td>
+                            <td className="align-middle text-right">
+                            190M
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            EBITDA
+                            </td>
+                            <td className="align-middle text-right">
+                            590M
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Cash
+                            </td>
+                            <td className="align-middle text-right">
+                            1.023B
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Debt
+                            </td>
+                            <td className="align-middle text-right">
+                            256M
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Cash Flow
+                            </td>
+                            <td className="align-middle text-right">
+                            256M
+                            </td>
+                        </tr>
+                    </tbody>
+                </Table>
+                </Card>
+
+                <Card className="d-flex flex-column">
+                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
+                    Top Peers
+                </CardHeader>
+                <Table responsive hover className="table mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col" className="bt-0">Company</th>
+                            <th scope="col" className="text-right bt-0">Ticker</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Advanced Micro Devices
+                            </td>
+                            <td className="align-middle text-right">
+                            <Badge color="info">AMD</Badge>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                              Tesla Motors
+                            </td>
+                            <td className="align-middle text-right">
+                            <Badge color="info">TSLA</Badge>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Micron
+                            </td>
+                            <td className="align-middle text-right">
+                            <Badge color="info">MU</Badge>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Facebook
+                            </td>
+                            <td className="align-middle text-right">
+                            <Badge color="info">FB</Badge>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Google
+                            </td>
+                            <td className="align-middle text-right">
+                            <Badge color="info">GOOG</Badge>
+                            </td>
+                        </tr>
+                    </tbody>
+                </Table>
+                </Card>
+
+              </CardDeck>
+                
+                </Col>  
+        </Row>
+
+        <Row>
+        <Col lg={ 12 }>
+              <CardDeck>
+              
+                <Card className="d-flex flex-column">
+                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
+                    Key Valuation Metrics
+                </CardHeader>
                 <Table responsive hover className="table mb-0">
                     <thead>
                         <tr>
@@ -561,60 +698,6 @@ render() {
                             </td>
                             <td className="align-middle text-right">
                             2.256T
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            EPS
-                            </td>
-                            <td className="align-middle text-right">
-                            0.52
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Revenue
-                            </td>
-                            <td className="align-middle text-right">
-                            190M
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            EBITDA
-                            </td>
-                            <td className="align-middle text-right">
-                            590M
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Cash
-                            </td>
-                            <td className="align-middle text-right">
-                            1.023B
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Debt
-                            </td>
-                            <td className="align-middle text-right">
-                            256M
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Cash Flow
-                            </td>
-                            <td className="align-middle text-right">
-                            256M
                             <i className="fa fa-caret-down text-danger ml-1"></i>
                             </td>
                         </tr>
@@ -635,13 +718,13 @@ render() {
 
                 <Card className="d-flex flex-column">
                 <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
-                    Top Peers
+                    Key technicals
                 </CardHeader>
                 <Table responsive hover className="table mb-0">
                     <thead>
                         <tr>
-                            <th scope="col" className="bt-0">Company</th>
-                            <th scope="col" className="text-right bt-0">Ticker</th>
+                            <th scope="col" className="bt-0">Indicator</th>
+                            <th scope="col" className="text-right bt-0">Value</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -804,7 +887,7 @@ render() {
                 </Col>
                 <Col lg={ 12 }>
                     <Card className="mb-3">
-                        <CardBody>
+                        <CardBody className="mb-0">
                             <CardTitle tag="h6">
                                 Insider Transactions
                             </CardTitle>
@@ -896,107 +979,6 @@ render() {
                         { /* END Table */}
                     </Card>
                 </Col>
-        </Row>
-
-        <Row>
-        <Col lg={ 12 }>
-              <CardDeck>
-              
-                <Card className="d-flex flex-column">
-                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
-                    Key Valuation Metrics
-                </CardHeader>
-                <Table responsive hover className="table mb-0">
-                    <thead>
-                        <tr>
-                            <th scope="col" className="bt-0">Indicator</th>
-                            <th scope="col" className="text-right bt-0">Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Market Cap
-                            </td>
-                            <td className="align-middle text-right">
-                            2.256T
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
-                            </td>
-                        </tr>
-                    </tbody>
-                </Table>
-                <CardFooter className="mt-auto flex-grow-0">
-                    <Media className="small">
-                        <Media left>
-                            <i className="fa fa-fw fa-info-circle mr-2"></i>
-                        </Media>
-                        <Media body>
-                            How do your users (visitors), sessions (visits) and pageviews 
-                            metrics for <abbr title="attribute" className="text-dark">www.webkom.com</abbr> compare to your targets over the last 30 days?
-                        </Media>
-                    </Media>
-                </CardFooter>
-                </Card>
-
-                <Card className="d-flex flex-column">
-                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
-                    Key technicals
-                </CardHeader>
-                <Table responsive hover className="table mb-0">
-                    <thead>
-                        <tr>
-                            <th scope="col" className="bt-0">Indicator</th>
-                            <th scope="col" className="text-right bt-0">Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Advanced Micro Devices
-                            </td>
-                            <td className="align-middle text-right">
-                            <Badge color="info">AMD</Badge>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                              Tesla Motors
-                            </td>
-                            <td className="align-middle text-right">
-                            <Badge color="info">TSLA</Badge>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Micron
-                            </td>
-                            <td className="align-middle text-right">
-                            <Badge color="info">MU</Badge>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Facebook
-                            </td>
-                            <td className="align-middle text-right">
-                            <Badge color="info">FB</Badge>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Google
-                            </td>
-                            <td className="align-middle text-right">
-                            <Badge color="info">GOOG</Badge>
-                            </td>
-                        </tr>
-                    </tbody>
-                </Table>
-                </Card>
-
-              </CardDeck>
-                
-                </Col>  
         </Row>
 
         <Row>
