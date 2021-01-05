@@ -19,6 +19,8 @@ import Widgets from './Widgets';
 
 import Home from './Home';
 
+import Data from './Data';
+
 import Cards from './Cards/Cards';
 import CardsHeaders from './Cards/CardsHeaders';
 
@@ -132,6 +134,7 @@ export const RoutedContent = () => {
             
             <Route path='/Home' exact component={Home} />
             <Route path='/Security' exact component={Security} />
+            <Route path='/Data' exact component={Data} />
 
             { /*    Cards Routes     */ }
             <Route path='/cards/cards' exact component={Cards} />
