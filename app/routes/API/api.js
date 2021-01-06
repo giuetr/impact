@@ -16,3 +16,14 @@ export async function getQuote(ticker) {
 };
 
 
+export async function getSummaryDetail(ticker) {
+    const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
+    const url = PROXY_URL + `https://query2.finance.yahoo.com/v10/finance/quoteSummary/`+ticker+`?modules=summaryDetail`;
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+};
+
+
+
+

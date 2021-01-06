@@ -6,6 +6,7 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
+import {getSummaryDetail} from '../API/api.js'
 
 
 import {
@@ -47,7 +48,7 @@ class Security extends Component {
         super(props);
 
         this.state = {
-            currentPrice: null,
+            yf_summary_detail: null,
             series: [{
                 data: [{
                     x: new Date(1538778600000),
@@ -315,15 +316,17 @@ class Security extends Component {
     
 
     async componentDidMount() {
-        const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
-        const API = PROXY_URL +`https://query2.finance.yahoo.com/v10/finance/quoteSummary/NDAQ?modules=financialData`;
-        const response = await fetch(API);
-        const data = await response.json();
-        console.log(data.result.O.financialData)
-        this.setState({ currentPrice: data.result.financialData.currentPrice })
+      const ticker = 'AAPL'
+      await getSummaryDetail(ticker)
+      .then(data => this.setState({ 
+        yf_summary_detail: data.quoteSummary.result[0].summaryDetail})   
+      )
     }
 
 render() {
+  if (!this.state.yf_summary_detail) {
+    return <div>didn't get summary detail</div>;
+  }
     return (
         <Container>
           <Row className="mb-3">
@@ -346,7 +349,7 @@ render() {
                 />
                 <div className="h3">
                   <span className="text-info mr-3">AAPL</span>
-                  <span>130.02</span>
+                  <span>{this.state.yf_summary_detail.open.fmt}</span>
                   <span className="small mr-3">USD</span>
                   <span className="text-danger">-0.77%</span>
                 </div>

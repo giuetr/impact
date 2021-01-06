@@ -5,7 +5,7 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
-import { getFinancialData,getQuote } from "../API/api.js";
+import { getQuote } from "../API/api.js";
 
 import {
     Container,
@@ -310,17 +310,16 @@ class Home extends Component {
       //^DJI -->djones
       //^NDX -->nasdaq 100
       //
-      let ticker = '^GSPC,^DJI,^NDX'
+      const ticker = '^GSPC,^DJI,^NDX'
       await getQuote(ticker)
-      .then(data => this.setState({ yf_financialData_SP500: data.quoteResponse.result[0],
+      .then(data => this.setState({ 
+        yf_financialData_SP500: data.quoteResponse.result[0],
         yf_financialData_djones: data.quoteResponse.result[1],
         yf_financialData_nasdaq: data.quoteResponse.result[2]})    
       )
       }
 
 render() {
-    
-  
       if (!this.state.yf_financialData_SP500) {
         return <div>didn't get financialData</div>;
       }
@@ -366,9 +365,9 @@ render() {
                         value={this.state.yf_financialData_SP500.regularMarketPrice}
                         valueTitle={"vs "+this.state.yf_financialData_SP500.regularMarketPreviousClose+" prev."}
                         footerTitle="Change:"
-                        footerTitleClassName="text-danger"
-                        footerValue="12%"
-                        footerIcon="caret-down"
+                        footerTitleClassName="text-success"
+                        footerValue={this.state.yf_financialData_SP500.regularMarketChangePercent+"%"}
+                        footerIcon="caret-up"
                     />
                 </CardBody>
             </Card>
