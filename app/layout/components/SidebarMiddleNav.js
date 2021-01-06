@@ -17,7 +17,7 @@ export const SidebarMiddleNav = () => (
         />
 
         <SidebarMenu.Item
-            icon={<i className="fa fa-fw fa-signal"></i>}
+            icon={<i className="fa fa-fw fa-diamond"></i>}
             title="Data"
             to='/Data'
         />
