@@ -5,8 +5,7 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
-
-
+import { getFinancialData,getQuote } from "../API/api.js";
 
 import {
     Container,
@@ -39,6 +38,8 @@ class Home extends Component {
 
         this.state = {
       yf_financialData_nasdaq: null,
+      yf_financialData_djones:null,
+      yf_financialData_SP500: null,
             series: [{
                 data: [{
                     x: new Date(1538778600000),
@@ -303,20 +304,24 @@ class Home extends Component {
         };
     }
 
-    
 
     async componentDidMount() {
-        const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
-        const url = PROXY_URL +`https://query2.finance.yahoo.com/v10/finance/quoteSummary/NDAQ?modules=financialData`;
-        const response = await fetch(url);
-        const data = await response.json();
-        this.setState({ yf_financialData_nasdaq: data.quoteSummary.result[0]});
+      //^GSPC -->SP500
+      //^DJI -->djones
+      //^NDX -->nasdaq 100
+      //
+      let ticker = '^GSPC,^DJI,^NDX'
+      await getQuote(ticker)
+      .then(data => this.setState({ yf_financialData_SP500: data.quoteResponse.result[0],
+        yf_financialData_djones: data.quoteResponse.result[1],
+        yf_financialData_nasdaq: data.quoteResponse.result[2]})    
+      )
       }
 
 render() {
     
   
-      if (!this.state.yf_financialData_nasdaq) {
+      if (!this.state.yf_financialData_SP500) {
         return <div>didn't get financialData</div>;
       }
     return (
@@ -341,7 +346,7 @@ render() {
                         title="Dow Jones Industrial"
                         badgeTitle="INDU"
                         badgeColor="primary"
-                        value="6.200"
+                        value={this.state.yf_financialData_djones.regularMarketPrice}
                         valueTitle="vs 4.891 prev."
                         footerTitle="Change:"
                         footerTitleClassName="text-success"
@@ -358,8 +363,8 @@ render() {
                         title="S&amp;P 500"
                         badgeTitle="SPX"
                         badgeColor="danger"
-                        value="75.938"
-                        valueTitle="vs 55.002 prev."
+                        value={this.state.yf_financialData_SP500.regularMarketPrice}
+                        valueTitle={"vs "+this.state.yf_financialData_SP500.regularMarketPreviousClose+" prev."}
                         footerTitle="Change:"
                         footerTitleClassName="text-danger"
                         footerValue="12%"
@@ -375,7 +380,7 @@ render() {
                         title="NASDAQ 100"
                         badgeTitle="NDX"
                         badgeColor="secondary"
-                        value={this.state.yf_financialData_nasdaq.financialData.currentPrice.raw}
+                        value={this.state.yf_financialData_nasdaq.regularMarketPrice}
                         valueTitle="vs 231 prev."
                         footerTitle="Change:"
                         footerTitleClassName="text-success"
