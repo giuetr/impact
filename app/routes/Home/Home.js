@@ -349,7 +349,7 @@ render() {
                         valueTitle={"vs "+this.state.yf_financialData_djones.regularMarketPreviousClose+" prev."}
                         footerTitle="Change:"
                         footerTitleClassName="text-success"
-                        footerValue={this.state.yf_financialData_djones.regularMarketChangePercent+"%"}
+                        footerValue={this.state.yf_financialData_djones.regularMarketChangePercent.toFixed(2)+"%"}
                         footerIcon="caret-up"
                     />
                 </CardBody>
@@ -366,7 +366,7 @@ render() {
                         valueTitle={"vs "+this.state.yf_financialData_SP500.regularMarketPreviousClose+" prev."}
                         footerTitle="Change:"
                         footerTitleClassName="text-success"
-                        footerValue={this.state.yf_financialData_SP500.regularMarketChangePercent+"%"}
+                        footerValue={this.state.yf_financialData_SP500.regularMarketChangePercent.toFixed(2)+"%"}
                         footerIcon="caret-up"
                     />
                 </CardBody>
@@ -383,7 +383,7 @@ render() {
                         valueTitle={"vs "+this.state.yf_financialData_nasdaq.regularMarketPreviousClose+" prev."}
                         footerTitle="Change:"
                         footerTitleClassName="text-success"
-                        footerValue={this.state.yf_financialData_nasdaq.regularMarketChangePercent+"%"}
+                        footerValue={this.state.yf_financialData_nasdaq.regularMarketChangePercent.toFixed(2)+"%"}
                         footerIcon="caret-up"
                     />
                 </CardBody>

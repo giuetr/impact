@@ -323,6 +323,10 @@ class Security extends Component {
       .then(data => this.setState({ 
         yf_summary_detail: data.quoteSummary.result[0].summaryDetail})   
       )
+      await getFinancialData(ticker)
+      .then(data => this.setState({ 
+        yf_financial_data: data.quoteSummary.result[0].financialData})   
+      )
     }
 
 render() {
