@@ -15,6 +15,7 @@ export async function getQuote(ticker) {
     return data;
 };
 
+// single stock calls
 
 export async function getSummaryDetail(ticker) {
     const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
@@ -23,7 +24,6 @@ export async function getSummaryDetail(ticker) {
     const data = await response.json();
     return data;
 };
-
 
 
 

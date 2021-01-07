@@ -6,7 +6,7 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-import {getSummaryDetail} from '../API/api.js'
+import {getSummaryDetail, getFinancialData} from '../API/api.js'
 
 
 import {
@@ -48,6 +48,8 @@ class Security extends Component {
         super(props);
 
         this.state = {
+            yf_financial_data
+            : null,
             yf_summary_detail: null,
             series: [{
                 data: [{
@@ -563,7 +565,7 @@ render() {
                             Market Cap
                             </td>
                             <td className="align-middle text-right">
-                            2.256T
+                            {this.state.yf_summary_detail.marketCap.fmt}
                             </td>
                         </tr>
                         <tr>
@@ -733,44 +735,61 @@ render() {
                     <tbody>
                         <tr>
                             <td className="align-middle text-inverse">
-                            Advanced Micro Devices
+                            Beta
                             </td>
                             <td className="align-middle text-right">
-                            <Badge color="info">AMD</Badge>
+                            {this.state.yf_summary_detail.beta.fmt}
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
-                              Tesla Motors
+                            50 Days Average
                             </td>
                             <td className="align-middle text-right">
-                            <Badge color="info">TSLA</Badge>
+                            {this.state.yf_summary_detail.fiftyDayAverage.fmt}
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
-                            Micron
+                              200 Days Average
                             </td>
                             <td className="align-middle text-right">
-                            <Badge color="info">MU</Badge>
+                            {this.state.yf_summary_detail.twoHundredDayAverage.fmt}
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
-                            Facebook
+                            52 Weeks High
                             </td>
                             <td className="align-middle text-right">
-                            <Badge color="info">FB</Badge>
+                            {this.state.yf_summary_detail.fiftyTwoWeekHigh.fmt}
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
-                            Google
+                            52 Weeks Low
                             </td>
                             <td className="align-middle text-right">
-                            <Badge color="info">GOOG</Badge>
+                            {this.state.yf_summary_detail.fiftyTwoWeekLow.fmt}
                             </td>
                         </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Volume
+                            </td>
+                            <td className="align-middle text-right">
+                            {this.state.yf_summary_detail.volume.fmt}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Avg. Volume Last 10 Days
+                            </td>
+                            <td className="align-middle text-right">
+                            {this.state.yf_summary_detail.averageVolume10days.fmt}
+                            </td>
+                        </tr>
+                        
                     </tbody>
                 </Table>
                 </Card>

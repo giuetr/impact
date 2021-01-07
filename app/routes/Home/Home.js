@@ -343,13 +343,13 @@ render() {
                 <CardBody>
                     <ProfileOverviewCard 
                         title="Dow Jones Industrial"
-                        badgeTitle="INDU"
+                        badgeTitle="DJI"
                         badgeColor="primary"
                         value={this.state.yf_financialData_djones.regularMarketPrice}
-                        valueTitle="vs 4.891 prev."
+                        valueTitle={"vs "+this.state.yf_financialData_djones.regularMarketPreviousClose+" prev."}
                         footerTitle="Change:"
                         footerTitleClassName="text-success"
-                        footerValue="23%"
+                        footerValue={this.state.yf_financialData_djones.regularMarketChangePercent+"%"}
                         footerIcon="caret-up"
                     />
                 </CardBody>
@@ -380,10 +380,10 @@ render() {
                         badgeTitle="NDX"
                         badgeColor="secondary"
                         value={this.state.yf_financialData_nasdaq.regularMarketPrice}
-                        valueTitle="vs 231 prev."
+                        valueTitle={"vs "+this.state.yf_financialData_nasdaq.regularMarketPreviousClose+" prev."}
                         footerTitle="Change:"
                         footerTitleClassName="text-success"
-                        footerValue="67%"
+                        footerValue={this.state.yf_financialData_nasdaq.regularMarketChangePercent+"%"}
                         footerIcon="caret-up"
                     />
                 </CardBody>
