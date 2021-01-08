@@ -114,6 +114,8 @@ import { DefaultSidebar } from './../layout/components/DefaultSidebar';
 import { SidebarANavbar } from './../layout/components/SidebarANavbar';
 import { SidebarASidebar } from './../layout/components/SidebarASidebar';
 import Security from './Security';
+import Politics from './Politics';
+
 
 //------ Route Definitions --------
 // eslint-disable-next-line no-unused-vars
@@ -135,6 +137,8 @@ export const RoutedContent = () => {
             <Route path='/Home' exact component={Home} />
             <Route path='/Security' exact component={Security} />
             <Route path='/Data' exact component={Data} />
+            <Route path='/Politics' exact component={Politics} />
+
 
             { /*    Cards Routes     */ }
             <Route path='/cards/cards' exact component={Cards} />
