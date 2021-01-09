@@ -28,6 +28,12 @@ export const SidebarMiddleNav = () => (
             to='/Politics'
         />
 
+        <SidebarMenu.Item
+            icon={<i className="fa fa-fw fa-file-text-o"></i>}
+            title="Insiders"
+            to='/Insiders'
+        />
+
 
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-home"></i>}

@@ -115,6 +115,7 @@ import { SidebarANavbar } from './../layout/components/SidebarANavbar';
 import { SidebarASidebar } from './../layout/components/SidebarASidebar';
 import Security from './Security';
 import Politics from './Politics';
+import Insiders from './Insiders';
 
 
 //------ Route Definitions --------
@@ -138,6 +139,7 @@ export const RoutedContent = () => {
             <Route path='/Security' exact component={Security} />
             <Route path='/Data' exact component={Data} />
             <Route path='/Politics' exact component={Politics} />
+            <Route path='/Insiders' exact component={Insiders} />
 
 
             { /*    Cards Routes     */ }
