@@ -318,7 +318,7 @@ class Security extends Component {
     
 
     async componentDidMount() {
-      const ticker = 'AAPL'
+      const ticker = 'AMD'
       await getSummaryDetail(ticker)
       .then(data => this.setState({ 
         yf_summary_detail: data.quoteSummary.result[0].summaryDetail})   
@@ -354,7 +354,7 @@ render() {
                     className=""
                 />
                 <div className="h3">
-                  <span className="text-info mr-3">AAPL</span>
+                  <span className="text-info mr-3">MU</span>
                   <span>{this.state.yf_summary_detail.open.fmt}</span>
                   <span className="small mr-3">USD</span>
                   <span className="text-danger">-0.77%</span>
@@ -940,7 +940,7 @@ render() {
                                     <SessionsByDevice 
                                         title="Buy"
                                         valuePercent="60"
-                                        valuePercentColor="text-info"
+                                        valuePercentColor="text-success"
                                         value="$201,345"
                                         valueColor="text-muted"
                                     />
@@ -956,8 +956,8 @@ render() {
                                 </Col>
                               </Row>
                               <Progress multi className="mb-2" style={{height: "5px"}}>
-                                  <Progress bar color="info" value="60" />
-                                  <Progress bar color="danger" value="50" />
+                                  <Progress animated bar color="success" value="60" />
+                                  <Progress animated bar color="danger" value="50" />
                               </Progress>
                             </Col>
 

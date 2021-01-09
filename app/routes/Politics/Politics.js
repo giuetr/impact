@@ -49,7 +49,9 @@ class Politics extends Component {
 
         this.state = {
             currentPrice: null,
-            
+            options: {},
+            series: [64, 55, 21, 17, 15],
+            labels: ['AAPL', 'TSLA', 'NVDA', 'AMD', 'FB'],
         };
     }
 
@@ -107,59 +109,113 @@ render() {
                         <TinyAreaChart />
                     </CardBody>
                 </Card>
+                <Card className="mb-3">
+                    <CardBody className="pb-0">
+                        <div className="d-flex mb-4 justify-content-center">
+                            <CardTitle tag="h5">
+                                Total Transactions
+                            </CardTitle>
+                        </div>
+                        <div className="text-center mb-4">
+                            <h2>
+                                52
+                            </h2>
+                            <div className="mb-1 text-success">
+                                <i className="fa mr-1 fa-caret-up"></i>
+                                15.23%
+                            </div>
+                            <div>
+                                Activity level: <span className="text-primary">Medium</span>
+                            </div>
+                        </div>
+                    </CardBody>
+                    <CardBody>
+                        <Progress animated striped value={45} />
+                    </CardBody>
+                </Card>
+                <Card className="mb-3">
+                    <CardBody className="pb-0">
+                        <div className="d-flex mb-4 justify-content-center">
+                            <CardTitle tag="h5">
+                                Most Traded Stock
+                            </CardTitle>
+                        </div>
+                        <div className="text-center mb-4">
+                            <h2>
+                                TSLA
+                            </h2>
+                            <div className="mb-3">
+                                <Badge color="info">LONG</Badge>
+                            </div>
+                            <div>
+                                Trend: <span className="text-info">STRONG</span>
+                            </div>
+                        </div>
+                    </CardBody>
+                    <CardBody>
+                    </CardBody>
+                </Card>
             </CardDeck>
-            
-            <CardColumns>
-              <Card className="mb-3">
-                <CardBody>
-                    <div className="d-flex">
-                        <Button color="link" size="sm" id="tooltipGridAddToFavorites">
-                            <i className="fa fa-star-o"></i>
-                        </Button>
-                        <UncontrolledTooltip placement="top" target="tooltipGridAddToFavorites">
-                            Add To Favorites
-                        </UncontrolledTooltip>
-                    </div>
 
-                    <div className="mb-4 mt-3 text-center">
-                        <a className="h3 text-decoration-none" href="#">
-                            Macro Vision
-                        </a>
-                        <div className="text-center mt-2">
-                            Frequency: <span className="text-info">Weekly</span>
+            <CardDeck>
+                <Card>
+                    <CardBody className="pb-0">
+                            <div className="d-flex mb-2 justify-content-center">
+                                <CardTitle tag="h5">
+                                    Stock Trading Activity
+                                </CardTitle>
+                            </div>
+                            <div className="donut pb-2">
+                                <Chart options={this.state.options} series={this.state.series} type="donut" width="380" />
+                            </div>
+                    </CardBody>
+                </Card>
+                <Card>
+                    <CardBody className="pb-0">
+                        <div className="d-flex mb-2 justify-content-center">
+                            <CardTitle tag="h5">
+                                Momentum
+                            </CardTitle>
                         </div>
-                        <div className="text-center">
-                            <i className="fa fa-map-marker mr-1"></i>
-                            FULL MARKET
+                        <div className="text-center mb-4">
+                            <h2>
+                                Bullish
+                            </h2>
+                            <div className="mb-3mb-1">
+                                <Badge color="success">LONG</Badge>
+                            </div>
+                            <div>
+                                Trend: <span className="text-info">STRONG</span>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div className="text-center mb-4">
-                        <div className="mb-2">
-                            <span className="small">
-                                Top users:
-                            </span>
-                        </div>
-                        <Badge pill color="info" className="mr-1">
-                            Investors
-                        </Badge>
-                        <Badge pill color="warning" className="mr-1">
-                            Traders
-                        </Badge>
-                        <Badge pill color="indigo">
-                            Hedge Funds
-                        </Badge>
-                    </div>
-                    <div className="text-center mb-4">
-                        <p className="mb-0">
-                            A set of aggregate and granular indicators and signals to get an informed outlook of the current and upcoming market trends. Curated with macroeconomic and technical metrics.
-                        </p>
-                        <Button className="mt-3" color="info">Free Access</Button>             
-                    </div>   
-                </CardBody>
-              </Card>
+                            <Row className="text-center">
+                                <Col sm={ 6 }>
+                                        <SessionsByDevice 
+                                            title="LONG"
+                                            valuePercent="60"
+                                            valuePercentColor="text-success"
+                                            value="$201,345"
+                                            valueColor="text-muted"
+                                        />
+                                </Col>
+                                <Col sm={ 6 }>
+                                        <SessionsByDevice 
+                                            title="SHORT"
+                                            valuePercent="50"
+                                            valuePercentColor="text-danger"
+                                            value="$134,201"
+                                            valueColor="text-muted"
+                                        />
+                                </Col>
+                            </Row>
+                            <Progress multi style={{height: "5px"}}>
+                                <Progress animated bar color="success" value="60" />
+                                <Progress animated bar color="danger" value="50" />
+                            </Progress>
+                    </CardBody>
+                </Card>
 
-            </CardColumns>
+            </CardDeck>
 
           </Container>
     </Container>

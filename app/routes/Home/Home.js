@@ -3,8 +3,6 @@ import Chart from "react-apexcharts";
 import faker from 'faker/locale/en_US';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
-import Highcharts from 'highcharts'
-import HighchartsReact from 'highcharts-react-official'
 import { getQuote } from "../API/api.js";
 
 import {
