@@ -6,7 +6,7 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-import {getSummaryDetail, getFinancialData} from '../API/api.js'
+import {getSummaryDetail, getFinancialData, getProfile} from '../API/api.js'
 
 
 import {
@@ -48,9 +48,10 @@ class Security extends Component {
         super(props);
 
         this.state = {
-            yf_financial_data
-            : null,
+            yf_profile: null,
+            yf_financial_data: null,
             yf_summary_detail: null,
+            yf_stats: null,
             series: [{
                 data: [{
                     x: new Date(1538778600000),
@@ -327,10 +328,19 @@ class Security extends Component {
       .then(data => this.setState({ 
         yf_financial_data: data.quoteSummary.result[0].financialData})   
       )
+      await getProfile(ticker)
+      .then(data => this.setState({ 
+        yf_profile: data.quoteSummary.result[0].assetProfile})   
+      )
+      await getStats(ticker)
+      .then(data => this.setState({ 
+        yf_stats: data.quoteSummary.result[0].defaultKeyStatistics})   
+      )
+      
     }
 
 render() {
-  if (!this.state.yf_summary_detail) {
+  if (!this.state.yf_summary_detail || !this.state.yf_financial_data || !this.state.yf_profile) {
     return <div>didn't get summary detail</div>;
   }
     return (
@@ -368,20 +378,20 @@ render() {
                 <div className="d-flex ml-auto align-self-start">
                   <div className="d-flex flex-column">
                     <div color="link" className="text-left pl-0 text-decoration-none mb-2 mr-5">
-                      Industry: <span className="text-muted">Consumer Electronics</span>
+                      Industry: <span className="text-muted">{this.state.yf_profile.industry}</span>
                     </div>
                     <div color="link" className="text-left pl-0 text-decoration-none mb-2 mr-5">
-                      Sector: <span className="text-muted">Technology</span>
+                      Sector: <span className="text-muted">{this.state.yf_profile.sector}</span>
                     </div>
                   </div>
                   <div className="d-flex flex-column">
                     <div color="link" className="text-left pl-0 text-decoration-none mb-2 mr-5">
                       <i className="fa fa-globe text-body mr-2"></i>
-                      <a href="#" target="_blank" className="text-info">www.apple.com</a>
+                      <a href="#" target="_blank" className="text-info">{this.state.yf_profile.website}</a>
                     </div>
                     <div color="link" className="text-left pl-0 text-decoration-none mb-2 mr-5">
                       <i className="fa fa-child text-body mr-2"></i>
-                      Employees: <span className="text-muted">147,000</span>
+                      Employees: <span className="text-muted">{this.state.yf_profile.fullTimeEmployees}</span>
                     </div>
                   </div>
                 </div>
@@ -442,7 +452,7 @@ render() {
                         title="PRICE TARGET"
                         badgeTitle="UP"
                         badgeColor="info"
-                        value="135.02"
+                        value={this.state.yf_financial_data.targetMeanPrice.raw}
                         valueTitle="+5% MoM"
                         footerTitle="Potential Return:"
                         footerTitleClassName="text-info"
@@ -451,15 +461,15 @@ render() {
                     />
                     <div className="d-flex justify-content-between mt-3">
                                 <div className="text-center">
-                                    <h6 className="mb-0">132</h6>
+                                    <h6 className="mb-0">{this.state.yf_financial_data.targetLowPrice.raw}</h6>
                                     <span>Min</span>
                                 </div>
                                 <div className="text-center">
-                                    <h6 className="mb-0">135.02</h6>
+                                    <h6 className="mb-0">{this.state.yf_financial_data.targetMedianPrice.raw}</h6>
                                     <span>Avg</span>
                                 </div>
                                 <div className="text-center">
-                                    <h6 className="mb-0">142</h6>
+                                    <h6 className="mb-0">{this.state.yf_financial_data.targetHighPrice.raw}</h6>
                                     <span>Max</span>
                                 </div>
                             </div>     
@@ -472,13 +482,13 @@ render() {
                 <CardBody>
                     <ProfileOverviewCard 
                         title="RECOMMENDATIONS"
-                        badgeTitle="LONG"
+                        badgeTitle={this.state.yf_financial_data.recommendationKey}
                         badgeColor="info"
-                        value="BUY"
+                        value={this.state.yf_financial_data.recommendationKey}
                         valueTitle="STRONG"
                         footerTitle="Analysts:"
                         footerTitleClassName="text-INFO"
-                        footerValue="30"
+                        footerValue={this.state.yf_financial_data.numberOfAnalystOpinions.fmt}
                         footerIcon=""
                     />
                     <div className="d-flex justify-content-between mt-3">
@@ -574,10 +584,10 @@ render() {
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
-                            EPS
+                            Op. Margin
                             </td>
                             <td className="align-middle text-right">
-                            0.52
+                            {this.state.yf_financial_data.operatingMargins.fmt}
                             </td>
                         </tr>
                         <tr>
@@ -585,7 +595,7 @@ render() {
                             Revenue
                             </td>
                             <td className="align-middle text-right">
-                            190M
+                            {this.state.yf_financial_data.totalRevenue.fmt}
                             </td>
                         </tr>
                         <tr>
@@ -593,7 +603,7 @@ render() {
                             EBITDA
                             </td>
                             <td className="align-middle text-right">
-                            590M
+                            {this.state.yf_financial_data.ebitda.fmt}
                             </td>
                         </tr>
                         <tr>
@@ -601,7 +611,7 @@ render() {
                             Cash
                             </td>
                             <td className="align-middle text-right">
-                            1.023B
+                            {this.state.yf_financial_data.totalCash.fmt}
                             </td>
                         </tr>
                         <tr>
@@ -609,7 +619,7 @@ render() {
                             Debt
                             </td>
                             <td className="align-middle text-right">
-                            256M
+                            {this.state.yf_financial_data.totalDebt.fmt}
                             </td>
                         </tr>
                         <tr>
@@ -617,7 +627,7 @@ render() {
                             Cash Flow
                             </td>
                             <td className="align-middle text-right">
-                            256M
+                            {this.state.yf_financial_data.freeCashflow.fmt}
                             </td>
                         </tr>
                     </tbody>
@@ -691,7 +701,7 @@ render() {
               
                 <Card className="d-flex flex-column">
                 <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
-                    Key Valuation Metrics
+                    Key Valuation
                 </CardHeader>
                 <Table responsive hover className="table mb-0">
                     <thead>
@@ -703,11 +713,47 @@ render() {
                     <tbody>
                         <tr>
                             <td className="align-middle text-inverse">
-                            Market Cap
+                            Revenue Growth
                             </td>
                             <td className="align-middle text-right">
-                            2.256T
-                            <i className="fa fa-caret-down text-danger ml-1"></i>
+                            {this.state.yf_financial_data.revenueGrowth.fmt}
+                            <i className="fa fa-caret-up text-success ml-1"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Earnings Growth
+                            </td>
+                            <td className="align-middle text-right">
+                            {this.state.yf_financial_data.earningsGrowth.fmt}
+                            <i className="fa fa-caret-up text-success ml-1"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Return on Equity
+                            </td>
+                            <td className="align-middle text-right">
+                            {this.state.yf_financial_data.returnOnEquity.fmt}
+                            <i className="fa fa-caret-up text-success ml-1"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Return on Assets
+                            </td>
+                            <td className="align-middle text-right">
+                            {this.state.yf_financial_data.returnOnAssets.fmt}
+                            <i className="fa fa-caret-up text-success ml-1"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Current Ratio
+                            </td>
+                            <td className="align-middle text-right">
+                            {this.state.yf_financial_data.currentRatio.fmt}
+                            <i className="fa fa-caret-up text-success ml-1"></i>
                             </td>
                         </tr>
                     </tbody>
@@ -727,7 +773,7 @@ render() {
 
                 <Card className="d-flex flex-column">
                 <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
-                    Key technicals
+                    Key Technicals
                 </CardHeader>
                 <Table responsive hover className="table mb-0">
                     <thead>
@@ -819,7 +865,7 @@ render() {
                                   title="OVERALL GOVERNANCE RISK"
                                   badgeTitle="HIGH RISK"
                                   badgeColor="danger"
-                                  value="10"
+                                  value={this.state.yf_profile.overallRisk}
                                   valueTitle="Vs. Sector Average: 7"
                                   footerTitle=""
                                   footerTitleClassName="text-info"
@@ -848,25 +894,25 @@ render() {
                                       <tr>
                                           <td className="text-inverse bt-0">Audit Risk</td>
                                           <td className="text-right bt-0">
-                                              <Badge color="success" pill>2</Badge>
+                                              <Badge color="success" pill>{this.state.yf_profile.auditRisk}</Badge>
                                           </td>
                                       </tr>
                                       <tr>
                                           <td className="text-inverse">Board Risk</td>
                                           <td className="text-right">
-                                              <Badge color="primary" pill>10</Badge>
+                                              <Badge color="primary" pill>{this.state.yf_profile.boardRisk}</Badge>
                                           </td>
                                       </tr>
                                       <tr>
                                           <td className="text-inverse">Compensantion Risk</td>
                                           <td className="text-right">
-                                              <Badge color="info" pill>10</Badge>
+                                              <Badge color="info" pill>{this.state.yf_profile.compensationRisk}</Badge>
                                           </td>
                                       </tr>
                                       <tr>
                                           <td className="text-inverse">Shareholders Rights Risk</td>
                                           <td className="text-right">
-                                              <Badge color="secondary" pill>10</Badge>
+                                              <Badge color="secondary" pill>{this.state.yf_profile.shareHolderRightsRisk}</Badge>
                                           </td>
                                       </tr>
                                   </tbody>
