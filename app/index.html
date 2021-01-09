@@ -25,11 +25,7 @@
 
   <!-- Loader Style -->
   <style>
-    @keyframes spin {
-      100% {
-        transform: rotate(360deg)
-      }
-    }
+ 
     .initial-loader-wrap {
       top: 0;
       left: 0;
@@ -131,7 +127,7 @@
                 setTimeout(function() {
                     bodyElement.removeChild(loaderElement);
                     bodyElement.classList.remove('loading', 'loaded');
-                }, 200);
+                },20);
             }
         });
     })();
