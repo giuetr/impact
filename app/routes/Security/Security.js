@@ -318,7 +318,7 @@ class Security extends Component {
     
 
     async componentDidMount() {
-      const ticker = 'NVDA'
+      const ticker = 'TSLA'
       await getAll(ticker)
       .then(data => this.setState({ 
         yf_all: data.quoteSummary.result[0]})   
@@ -1067,7 +1067,7 @@ render() {
                         <div className={ classes['table-scroll-wrap'] }>
                           <Table className="mb-0" hover responsive>
                               <tbody>
-                                {this.state.yf_all.insiderTransactions.transactions.map((i) => {
+                                {this.state.yf_all.insiderTransactions.transactions.slice(0, 10).map((i) => {
                                   return (
                                     <tr>
                                     <td className="align-middle text-inverse">
