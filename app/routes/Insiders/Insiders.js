@@ -6,6 +6,7 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
+import {getAll} from '../API/api.js'
 
 
 import {
@@ -48,7 +49,7 @@ class Insiders extends Component {
         super(props);
 
         this.state = {
-            currentPrice: null,
+            yf_all: null,
             options: {},
             series: [64, 55, 21, 17, 15],
             labels: ['AAPL', 'TSLA', 'NVDA', 'AMD', 'FB'],
@@ -56,7 +57,18 @@ class Insiders extends Component {
     }
 
 
+    async componentDidMount() {
+        const ticker = 'AMD'
+        await getAll(ticker)
+        .then(data => this.setState({ 
+          yf_all: data.quoteSummary.result[0]})   
+        )
+      }
+
 render() {
+    if (!this.state.yf_all) {
+        return <div>Loading Data</div>;
+      }
     return (
         <Container>
           <Row className="mb-3">
