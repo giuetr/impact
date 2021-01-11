@@ -540,12 +540,11 @@ render() {
                 </CardHeader>
                 {this.state.yf_trend.map((i) => {
                   return (
-                    <ListGroup className="text-center b-0">
+                    <ListGroup className="text-center">
                             <ListGroupItem tag="a" href="#" action><Badge color="info">{i.symbol}</Badge></ListGroupItem>
                     </ListGroup>
                   );
                 })}
-                  
                 </Card>
               </CardDeck>
               </Col>  
