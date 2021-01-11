@@ -1019,7 +1019,7 @@ render() {
                                   footerIcon=""
                               />
                             </Col>
-                            <Col lg={5}>
+                            <Col lg={4}>
                               <Row>
                                 <Col sm={ 6 }>
                                     <SessionsByDevice 
@@ -1044,6 +1044,35 @@ render() {
                                   <Progress animated bar color="success" value="60" />
                                   <Progress animated bar color="danger" value="50" />
                               </Progress>
+                            </Col>
+                            <Col sm={ 4 }>
+                              <Table size="sm">
+                                  <tbody>
+                                      <tr className="table-info">
+                                          <td className="text-inverse bt-0">Shareholders</td>
+                                          <td className="bt-0"></td>
+
+                                      </tr>
+                                      <tr>
+                                          <td className="text-inverse bt-0">Insider Shares %</td>
+                                          <td className="text-right text-info bt-0">
+                                              {this.state.yf_all.majorHoldersBreakdown.insidersPercentHeld.fmt}
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td className="text-inverse">Institutions Shares %</td>
+                                          <td className="text-right text-info">
+                                              {this.state.yf_all.majorHoldersBreakdown.institutionsPercentHeld.fmt}
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td className="text-inverse">Institutional owners</td>
+                                          <td className="text-right text-info">
+                                              {this.state.yf_all.majorHoldersBreakdown.institutionsCount.raw}
+                                          </td>
+                                      </tr>
+                                  </tbody>
+                              </Table>
                             </Col>
 
                             </Row>
@@ -1071,7 +1100,12 @@ render() {
                                   return (
                                     <tr>
                                     <td className="align-middle text-inverse">
+                                    <div>
                                     {i.filerName}
+                                    </div>
+                                    <span className="text-info">
+                                    {i.filerRelation}
+                                    </span>
                                     </td>
                                     <td className="align-middle">
                                     {i.transactionText}
