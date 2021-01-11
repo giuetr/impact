@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import Chart from "react-apexcharts";
 import faker from 'faker/locale/en_US';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import classes from './home.scss';
 
-import { getQuote } from "../API/api.js";
+import { getQuote, getTrending } from "../API/api.js";
 
 import {
     Container,
@@ -35,9 +36,10 @@ class Home extends Component {
         super(props);
 
         this.state = {
-      yf_financialData_nasdaq: null,
-      yf_financialData_djones:null,
-      yf_financialData_SP500: null,
+          yf_trend: null,
+          yf_financialData_nasdaq: null,
+          yf_financialData_djones:null,
+          yf_financialData_SP500: null,
             series: [{
                 data: [{
                     x: new Date(1538778600000),
@@ -315,10 +317,14 @@ class Home extends Component {
         yf_financialData_djones: data.quoteResponse.result[1],
         yf_financialData_nasdaq: data.quoteResponse.result[2]})    
       )
+      await getTrending()
+      .then(data => this.setState({ 
+        yf_trend: data.finance.result[0].quotes})    
+      )
       }
 
 render() {
-      if (!this.state.yf_financialData_SP500) {
+      if (!this.state.yf_financialData_SP500 || !this.state.yf_trend) {
         return <div>didn't get financialData</div>;
       }
     return (
@@ -427,16 +433,11 @@ render() {
             <Col lg={ 5 }>
               <CardDeck>
               <Card className="d-flex flex-column" height="336px">
-                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
+                <CardHeader className="bb-0 pt-3 bg-none" tag="h5">
                     US Sectors
                 </CardHeader>
+                <div className={ classes['table-scroll-wrap'] }>
                 <Table responsive hover className="table mb-0 table-striped" height="336px">
-                    <thead>
-                        <tr>
-                            <th scope="col" className="bt-0">Sector</th>
-                            <th scope="col" className="bt-0 text-right">Change</th>
-                        </tr>
-                    </thead>
                     <tbody>
                         <tr>
                             <td className="align-middle text-inverse">
@@ -528,78 +529,26 @@ render() {
                         </tr>
                     </tbody>
                 </Table>
-                <CardFooter className="mt-auto flex-grow-0">
-                    <Media className="small">
-                        <Media left>
-                            <i className="fa fa-fw fa-info-circle mr-2"></i>
-                        </Media>
-                        <Media body>
-                            How do your users (visitors), sessions (visits) and pageviews 
-                            metrics for <abbr title="attribute" className="text-dark">www.webkom.com</abbr> compare to your targets over the last 30 days?
-                        </Media>
-                    </Media>
-                </CardFooter>
+
+                </div>
+                
                 </Card>
 
                 <Card className="d-flex flex-column">
-                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
+                <CardHeader className="bb-0 pt-3 bg-none" tag="h5">
                     Most Active
                 </CardHeader>
-                <Table responsive hover className="table mb-0">
-                    <thead>
-                        <tr>
-                            <th scope="col" className="bt-0">Company</th>
-                            <th scope="col" className="text-right bt-0">Ticker</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Advanced Micro Devices
-                            </td>
-                            <td className="align-middle text-right">
-                            <Badge color="info">AMD</Badge>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                              Tesla Motors
-                            </td>
-                            <td className="align-middle text-right">
-                            <Badge color="info">TSLA</Badge>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Micron
-                            </td>
-                            <td className="align-middle text-right">
-                            <Badge color="info">MU</Badge>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Facebook
-                            </td>
-                            <td className="align-middle text-right">
-                            <Badge color="info">FB</Badge>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Google
-                            </td>
-                            <td className="align-middle text-right">
-                            <Badge color="info">GOOG</Badge>
-                            </td>
-                        </tr>
-                    </tbody>
-                </Table>
+                {this.state.yf_trend.map((i) => {
+                  return (
+                    <ListGroup className="text-center b-0">
+                            <ListGroupItem tag="a" href="#" action><Badge color="info">{i.symbol}</Badge></ListGroupItem>
+                    </ListGroup>
+                  );
+                })}
+                  
                 </Card>
-
               </CardDeck>
-                
-                </Col>  
+              </Col>  
         </Row>
 
         <Row>
