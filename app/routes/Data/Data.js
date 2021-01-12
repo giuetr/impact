@@ -318,6 +318,55 @@ render() {
                 </CardBody>
               </Card>
 
+              <Card className="mb-3">
+                <CardBody>
+                    <div className="d-flex">
+                        <Button color="link" size="sm" id="tooltipGridAddToFavorites">
+                            <i className="fa fa-star-o"></i>
+                        </Button>
+                        <UncontrolledTooltip placement="top" target="tooltipGridAddToFavorites">
+                            Add To Favorites
+                        </UncontrolledTooltip>
+                    </div>
+
+                    <div className="mb-4 mt-3 text-center">
+                        <a className="h3 text-decoration-none" href="#">
+                            ESG Leaders
+                        </a>
+                        <div className="text-center mt-2">
+                            Frequency: <span className="text-info">Weekly</span>
+                        </div>
+                        <div className="text-center">
+                            <i className="fa fa-map-marker mr-1"></i>
+                            EQUITY
+                        </div>
+                    </div>
+                    
+                    <div className="text-center mb-4">
+                        <div className="mb-2">
+                            <span className="small">
+                                Top users:
+                            </span>
+                        </div>
+                        <Badge pill color="info" className="mr-1">
+                            Investors
+                        </Badge>
+                        <Badge pill color="warning" className="mr-1">
+                            Banks
+                        </Badge>
+                        <Badge pill color="indigo">
+                            Hedge Funds
+                        </Badge>
+                    </div>
+                    <div className="text-center mb-4">
+                        <p className="mb-0">
+                            The companies leading the shift towards a sustainable future, organized by sector of innovation. Discover tomorrow's leaders.
+                        </p>
+                        <Button className="mt-3" color="info">Free Access</Button>             
+                    </div>   
+                </CardBody>
+              </Card>
+
             </CardColumns>
 
           </Container>
