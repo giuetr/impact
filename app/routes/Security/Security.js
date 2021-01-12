@@ -51,6 +51,7 @@ class Security extends Component {
         this.state = {
             yf_all: null,
             yf_peers: null,
+            date: new Date(),
             series: [{
                 data: [{
                     x: new Date(1538778600000),
@@ -318,6 +319,10 @@ class Security extends Component {
     
 
     async componentDidMount() {
+      this.timerID = setInterval(
+        () => this.tick(),
+        1000
+      );
       const ticker = 'TSLA'
       await getAll(ticker)
       .then(data => this.setState({ 
@@ -330,6 +335,11 @@ class Security extends Component {
       
     }
 
+    tick() {
+      this.setState({
+        date: new Date()
+      });
+    }  
 render() {
   if (!this.state.yf_all || !this.state.yf_peers) {
     return <div>didn't get summary detail</div>;
@@ -339,8 +349,8 @@ render() {
           <Row className="mb-3">
             <Col lg={ 12 }>
                 <h5 className="mb-0">
-                <span>1 January 2021 - </span>
-                <span className="text-info">05:12:00 PM</span>
+                <span>{this.state.date.toDateString()} </span>
+                <span className="text-info">{this.state.date.toLocaleTimeString()}</span>
                 <span className="small text-muted"> CET</span>
                 </h5>
                 <Badge color="info">MARKET OPEN</Badge>
