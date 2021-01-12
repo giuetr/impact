@@ -34,6 +34,13 @@ export const SidebarMiddleNav = () => (
             to='/Insiders'
         />
 
+        <SidebarMenu.Item
+            icon={<i className="fa fa-fw fa-envira"></i>}
+            title="ESGLeaders"
+            to='/ESGleaders'
+        />
+
+
 
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-home"></i>}
