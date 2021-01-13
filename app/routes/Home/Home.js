@@ -324,7 +324,7 @@ class Home extends Component {
       )
       await getMktnews()
       .then(data => this.setState({ 
-        yf_mktnws: data[0]})    
+        yf_mktnws: data})    
       )
       }
 
@@ -564,90 +564,45 @@ render() {
                                     Newsfeed
                                 </ListGroupItemHeading>
                             </ListGroupItem>
-                            <ListGroupItem tag="a" href="#" action>
-                                <span className="mt-2 d-flex h6 mb-1 text-info">
-                                    <span className="text-info">
-                                      {this.state.yf_mktnws.source}
+
+                            <div  className={ classes['table-scroll-wrap'] }>
+                              {this.state.yf_mktnws.slice(0, 20).map((i) =>{
+                                  return  (
+
+                                    <ListGroupItem tag="a" href={i.url} action target="_blank">
+                                    <Badge className="mt-2" color="primary">{i.category}</Badge>
+                                    <span className="mt-3 d-flex h6 mb-2 text-info">
+                                        <span className="text-info">
+                                          {i.source}
+                                        </span>
+                                        <span className="ml-auto small text-muted">
+                                            06:09 PM
+                                        </span>
+
                                     </span>
-                                    <span className="ml-auto small text-muted">
-                                        06:09 PM
-                                    </span>
-
-                                </span>
-                                <ListGroupItemHeading className="h5">
-                                  {this.state.yf_mktnws.headline}
-                                </ListGroupItemHeading>
-                                <ListGroupItemText className="mb-2">
-                                  {this.state.yf_mktnws.summary}
-                                </ListGroupItemText>
-                                
-                            </ListGroupItem>
-
-                            <ListGroupItem tag="a" href="#" action>
-                                <span className="mt-2 d-flex h6 mb-1 text-info">
-                                    <span className="text-info">
-                                        { faker.name.firstName() }
-                                    </span>
-                                    <span className="ml-auto small text-muted">
-                                        06:09 PM
-                                    </span>
-
-                                </span>
-                                <ListGroupItemHeading className="h5">
-                                    List group item heading
-                                </ListGroupItemHeading>
-                                <ListGroupItemText className="mb-2">
-                                    { faker.lorem.sentence() }
-                                </ListGroupItemText>
-                                
-                            </ListGroupItem>
-
-                            <ListGroupItem tag="a" href="#" action>
-                                <span className="mt-2 d-flex h6 mb-1 text-info">
-                                    <span className="text-info">
-                                        { faker.name.firstName() }
-                                    </span>
-                                    <span className="ml-auto small text-muted">
-                                        06:09 PM
-                                    </span>
-
-                                </span>
-                                <ListGroupItemHeading className="h5">
-                                    List group item heading
-                                </ListGroupItemHeading>
-                                <ListGroupItemText className="mb-2">
-                                    { faker.lorem.sentence() }
-                                </ListGroupItemText>
-                                
-                            </ListGroupItem>
-
-                            <ListGroupItem tag="a" href="#" action>
-                                <span className="mt-2 d-flex h6 mb-1 text-info">
-                                    <span className="text-info">
-                                        { faker.name.firstName() }
-                                    </span>
-                                    <span className="ml-auto small text-muted">
-                                        06:09 PM
-                                    </span>
-
-                                </span>
-                                <ListGroupItemHeading className="h5">
-                                    List group item heading
-                                </ListGroupItemHeading>
-                                <ListGroupItemText className="mb-2">
-                                    { faker.lorem.sentence() }
-                                </ListGroupItemText>
-                                
-                            </ListGroupItem>
+                                    <ListGroupItemHeading className="fw-600 h5">
+                                      {i.headline}
+                                    </ListGroupItemHeading>
+                                    <ListGroupItemText className="mb-2">
+                                      {i.summary}
+                                    </ListGroupItemText>
+                                    
+                                </ListGroupItem>
 
 
+                                  );
+                                })}
+
+                            </div>
+
+                            
                         </ListGroup>
                     </div>
             </Col>
             <Col lg={5}>
             <Card className="d-flex flex-column mt-5">
-                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
-                    Macro indicators
+                <CardHeader className="bb-0 pt-3 bg-none" tag="h5">
+                    Macro Outlook
                 </CardHeader>
                 <Table responsive hover className="table mb-0">
                     <thead>
