@@ -15,6 +15,17 @@ export async function getQuote(ticker) {
     return data;
 };
 
+
+// FInnhub API sandbox
+export async function getMktnews(ticker) {
+    const url = `https://finnhub.io/api/v1/news?category=general&token=bv21cgf48v6o5ed6o1ng`;
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+};
+
+
+
 // single stock calls
 
 export async function getSummaryDetail(ticker) {

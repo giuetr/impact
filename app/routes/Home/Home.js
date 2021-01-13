@@ -4,7 +4,7 @@ import faker from 'faker/locale/en_US';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import classes from './home.scss';
 
-import { getQuote, getTrending } from "../API/api.js";
+import { getQuote, getTrending, getMktnews } from "../API/api.js";
 
 import {
     Container,
@@ -37,6 +37,7 @@ class Home extends Component {
 
         this.state = {
           yf_trend: null,
+          yf_mktnws: null,
           yf_financialData_nasdaq: null,
           yf_financialData_djones:null,
           yf_financialData_SP500: null,
@@ -321,10 +322,14 @@ class Home extends Component {
       .then(data => this.setState({ 
         yf_trend: data.finance.result[0].quotes})    
       )
+      await getMktnews()
+      .then(data => this.setState({ 
+        yf_mktnws: data[0]})    
+      )
       }
 
 render() {
-      if (!this.state.yf_financialData_SP500 || !this.state.yf_trend) {
+      if (!this.state.yf_financialData_SP500 || !this.state.yf_trend || !this.state.yf_mktnws) {
         return <div>didn't get financialData</div>;
       }
     return (
@@ -562,7 +567,7 @@ render() {
                             <ListGroupItem tag="a" href="#" action>
                                 <span className="mt-2 d-flex h6 mb-1 text-info">
                                     <span className="text-info">
-                                        { faker.name.firstName() }
+                                      {this.state.yf_mktnws.source}
                                     </span>
                                     <span className="ml-auto small text-muted">
                                         06:09 PM
@@ -570,10 +575,10 @@ render() {
 
                                 </span>
                                 <ListGroupItemHeading className="h5">
-                                    List group item heading
+                                  {this.state.yf_mktnws.headline}
                                 </ListGroupItemHeading>
                                 <ListGroupItemText className="mb-2">
-                                    { faker.lorem.sentence() }
+                                  {this.state.yf_mktnws.summary}
                                 </ListGroupItemText>
                                 
                             </ListGroupItem>
