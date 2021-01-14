@@ -332,7 +332,6 @@ class Security extends Component {
       .then(data => this.setState({ 
         yf_peers: data.finance.result[0].recommendedSymbols})   
       )
-      
     }
 
     tick() {

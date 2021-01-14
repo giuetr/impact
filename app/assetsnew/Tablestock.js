@@ -1,6 +1,7 @@
 import React from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider from 'react-bootstrap-table2-toolkit';
+import filterFactory, { textFilter, selectFilter, numberFilter } from 'react-bootstrap-table2-filter';
 
 
 
@@ -31,40 +32,55 @@ var products = [{
   id: 1,
   name: "TSLA",
   price: 120,
+  esgscore: 30,
   rating: 'Top',
+  return1y: 0.1,
+  salesgrowth: 0.11,
+  pe: 9,
+  mktcap: 2000,
 }, {
   id: 2,
-  name: "AAPL",
-  price: 80,
-  rating: 'Good'
+  name: "NIO",
+  price: 11,
+  esgscore: 43,
+  rating: 'Good',
+  return1y: 0.12,
+  salesgrowth: 0.14,
+  pe: 14,
+  mktcap: 1000,
 }, {
   id: 3,
-  name: "AMD",
-  price: 123,
-  rating: 'Insufficient'
+  name: "MU",
+  price: 54,
+  esgscore: 12,
+  rating: 'Top',
+  return1y: 0.03,
+  salesgrowth: 0.05,
+  pe: 8,
+  mktcap: 800,
 }, {
   id: 4,
-  name: "AAPL",
-  price: 133,
-  rating: 'Average'
-}, {
-  id: 5,
-  name: "JNJ",
-  price: 423,
-  rating: 'Average'
-}];
+  name: "AMD",
+  price: 32,
+  esgscore: 33,
+  rating: 'Average',
+  return1y: 0.41,
+  salesgrowth: 0.21,
+  pe: 5,
+  mktcap: 950,
+},];
 
 
 
 
 const columns = [{
   dataField: 'id',
-  text: 'Ranking',
+  text: 'ESG Rank',
   sort: true,
   sortCaret
 }, {
   dataField: 'name',
-  text: 'Company',
+  text: 'Ticker',
   formatter: (cell) => (
     <span className="text-inverse">
         { cell }
@@ -73,6 +89,14 @@ const columns = [{
 }, {
   dataField: 'price',
   text: 'Price',
+  formatter: (cell) => (
+    <span className="text-info">
+        { cell }
+    </span>
+  ),
+}, {
+  dataField: 'esgscore',
+  text: 'ESG Score',
   sort: true,
   sortCaret,
   formatter: (cell) => (
@@ -82,7 +106,7 @@ const columns = [{
   )
 }, {
   dataField: 'rating',
-  text: 'Rating',
+  text: 'ESG Performance',
   formatter: (cell) => {
     const color = (status) => {
         const map = {
@@ -100,7 +124,28 @@ const columns = [{
         </Badge>
     );
 }
-}];
+}, {
+  dataField: 'return1y',
+  text: 'Return 1Y',
+  sort: true,
+  sortCaret
+}, {
+  dataField: 'salesgrowth',
+  text: 'Sales Growth',
+  sort: true,
+  sortCaret
+}, {
+  dataField: 'pe',
+  text: 'P/E',
+  sort: true,
+  sortCaret
+}, {
+  dataField: 'mktcap',
+  text: 'MarketCap',
+  sort: true,
+  sortCaret
+},
+];
 
 
 
@@ -128,6 +173,7 @@ class Tablestock extends React.Component {
                 classes="table-responsive-lg"
                 bordered={ false }
                 responsive
+                filter={ filterFactory() }
               >
               </BootstrapTable>
             </CardBody>

@@ -52,6 +52,16 @@ export async function getStats(ticker) {
     return data;
 };
 
+// chart
+export async function getChart(ticker) {
+    const PROXY_URL = 'https://q-proxy.herokuapp.com/';
+    const url = PROXY_URL + 'https://query1.finance.yahoo.com/v8/finance/chart/?symbol='+ticker+'&period1=1545431999&period2=1608561000&interval=1d';
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+};
+
+
 // peers given a ticker
 export async function getPeers(ticker) {
     const PROXY_URL = 'https://q-proxy.herokuapp.com/';
@@ -87,13 +97,3 @@ export async function getAll(ticker) {
     const data = await response.json();
     return data;
 };
-
-// chart
-export async function getChart(ticker) {
-    const PROXY_URL = 'https://q-proxy.herokuapp.com/';
-    const url = PROXY_URL + 'https://query1.finance.yahoo.com/v8/finance/chart/MSFT?symbol='+ticker+'&period1=0&period2=9999999999&interval=1d';
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
-};
-
