@@ -9,3 +9,4 @@ export * from './CustomSearch';
 export * from './LargeTable';
 export * from './SelectAll';
 export * from './SortTable';
+export * from './Stocktable';

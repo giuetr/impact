@@ -2,10 +2,8 @@ import React, {Component} from 'react';
 import Chart from "react-apexcharts";
 import faker from 'faker/locale/en_US';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-
-import Highcharts from 'highcharts'
-import HighchartsReact from 'highcharts-react-official'
-
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
 
 
 import {
@@ -62,7 +60,6 @@ render() {
                 <Badge color="info">MARKET OPEN</Badge>
             </Col>
           </Row>
-          
           <Container className="pl-0">
             <div className="d-flex mt-3 mb-5">
               <div>

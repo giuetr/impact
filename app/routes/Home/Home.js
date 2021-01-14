@@ -565,7 +565,7 @@ render() {
                                 </ListGroupItemHeading>
                             </ListGroupItem>
 
-                            <div  className={ classes['table-scroll-wrap'] }>
+                            <div  className={ classes['table-scroll-wrap2'] }>
                               {this.state.yf_mktnws.slice(0, 20).map((i) =>{
                                   return  (
 

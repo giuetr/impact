@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Chart from "react-apexcharts";
 import faker from 'faker/locale/en_US';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import Tablestock from '../../assetsnew';
 
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
@@ -228,6 +229,9 @@ render() {
                 </Card>
 
             </CardDeck>
+            <Row className="mt-3">
+              <Tablestock/>
+            </Row>
 
           </Container>
     </Container>
