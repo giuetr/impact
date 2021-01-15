@@ -64,7 +64,7 @@ render() {
             <div className="d-flex mt-3 mb-5">
               <div>
                   <HeaderMain 
-                      title="ESG Leaders"
+                      title="MegaTrends"
                       className=""
                   />
                   <div className="h3">

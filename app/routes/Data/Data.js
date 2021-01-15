@@ -331,7 +331,7 @@ render() {
 
                     <div className="mb-4 mt-3 text-center">
                         <a className="h3 text-decoration-none" href="#">
-                            ESG Leaders
+                            Mega<span className="fw-600">Trend</span>
                         </a>
                         <div className="text-center mt-2">
                             Frequency: <span className="text-info">Weekly</span>
