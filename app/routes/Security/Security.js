@@ -367,7 +367,7 @@ render() {
                   <span className="text-info mr-3">{this.state.yf_all.quoteType.symbol}</span>
                   <span>{this.state.yf_all.price.regularMarketPrice.raw}</span>
                   <span className="small mr-3">USD</span>
-                  <span className="text-success">{this.state.yf_all.price.regularMarketChangePercent.fmt}</span>
+                  <span style={{color: Math.sign(this.state.yf_all.price.regularMarketChangePercent.raw) > 0 ? "green" : "red"}}>{this.state.yf_all.price.regularMarketChangePercent.fmt}</span>
                 </div>
 
             </div>
@@ -685,45 +685,40 @@ render() {
                             <td className="align-middle text-inverse">
                             Revenue Growth
                             </td>
-                            <td className="align-middle text-right text-info">
+                            <td className="align-middle text-right" style={{color: Math.sign(this.state.yf_all.financialData.revenueGrowth.raw) > 0 ? "#33AE9A" : "red"}}>
                             {this.state.yf_all.financialData.revenueGrowth.fmt}
-                            <i className="fa fa-caret-up text-success ml-1"></i>
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Earnings Growth
                             </td>
-                            <td className="align-middle text-right text-info">
+                            <td className="align-middle text-right" style={{color: Math.sign(this.state.yf_all.financialData.operatingMargins.raw) > 0 ? "#33AE9A" : "red"}}>
                             {this.state.yf_all.financialData.operatingMargins.fmt}
-                            <i className="fa fa-caret-up text-success ml-1"></i>
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Operating Margins
                             </td>
-                            <td className="align-middle text-right text-info">
+                            <td className="align-middle text-right" style={{color: Math.sign(this.state.yf_all.financialData.returnOnEquity.raw) > 0 ? "#33AE9A" : "red"}}>
                             {this.state.yf_all.financialData.returnOnEquity.fmt}
-                            <i className="fa fa-caret-up text-success ml-1"></i>
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Return on Equity
                             </td>
-                            <td className="align-middle text-right text-info">
+                            <td className="align-middle text-right" style={{color: Math.sign(this.state.yf_all.financialData.returnOnEquity.raw) > 0 ? "#33AE9A" : "red"}}>
                             {this.state.yf_all.financialData.returnOnEquity.fmt}
-                            <i className="fa fa-caret-up text-success ml-1"></i>
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Return on Assets
                             </td>
-                            <td className="align-middle text-right text-info">
+                            <td className="align-middle text-right" style={{color: Math.sign(this.state.yf_all.financialData.returnOnAssets.raw) > 0 ? "#33AE9A" : "red"}}>
                             {this.state.yf_all.financialData.returnOnAssets.fmt}
-                            <i className="fa fa-caret-up text-success ml-1"></i>
                             </td>
                         </tr>
                         <tr>
@@ -732,7 +727,6 @@ render() {
                             </td>
                             <td className="align-middle text-right text-info">
                             {this.state.yf_all.financialData.currentRatio.fmt}
-                            <i className="fa fa-caret-up text-success ml-1"></i>
                             </td>
                         </tr>
                         <tr>
@@ -741,7 +735,6 @@ render() {
                             </td>
                             <td className="align-middle text-right text-info">
                             {this.state.yf_all.defaultKeyStatistics.forwardPE.fmt}
-                            <i className="fa fa-caret-up text-success ml-1"></i>
                             </td>
                         </tr>
                         <tr>
@@ -750,7 +743,6 @@ render() {
                             </td>
                             <td className="align-middle text-right text-info">
                             {this.state.yf_all.defaultKeyStatistics.forwardEps.fmt}
-                            <i className="fa fa-caret-up text-success ml-1"></i>
                             </td>
                         </tr>
                         <tr>
@@ -759,7 +751,6 @@ render() {
                             </td>
                             <td className="align-middle text-right text-info">
                             {this.state.yf_all.defaultKeyStatistics.enterpriseToEbitda.fmt}
-                            <i className="fa fa-caret-up text-success ml-1"></i>
                             </td>
                         </tr>
                     </tbody>

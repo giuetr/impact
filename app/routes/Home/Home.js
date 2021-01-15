@@ -357,9 +357,10 @@ render() {
                         value={this.state.yf_financialData_djones.regularMarketPrice}
                         valueTitle={"vs "+this.state.yf_financialData_djones.regularMarketPreviousClose+" prev."}
                         footerTitle="Change:"
-                        footerTitleClassName="text-success"
+                        footerTitleClassName={Math.sign(this.state.yf_financialData_djones.regularMarketChangePercent) > 0 ? "text-success" : "text-danger"}
                         footerValue={this.state.yf_financialData_djones.regularMarketChangePercent.toFixed(2)+"%"}
-                        footerIcon="caret-up"
+                        footerIcon={Math.sign(this.state.yf_financialData_djones.regularMarketChangePercent) > 0 ? "caret-up" : "caret-down"}
+
                     />
                 </CardBody>
             </Card>
@@ -374,9 +375,9 @@ render() {
                         value={this.state.yf_financialData_SP500.regularMarketPrice}
                         valueTitle={"vs "+this.state.yf_financialData_SP500.regularMarketPreviousClose+" prev."}
                         footerTitle="Change:"
-                        footerTitleClassName="text-success"
+                        footerTitleClassName={Math.sign(this.state.yf_financialData_SP500.regularMarketChangePercent) > 0 ? "text-success" : "text-danger"}
                         footerValue={this.state.yf_financialData_SP500.regularMarketChangePercent.toFixed(2)+"%"}
-                        footerIcon="caret-up"
+                        footerIcon={Math.sign(this.state.yf_financialData_SP500.regularMarketChangePercent) > 0 ? "caret-up" : "caret-down"}
                     />
                 </CardBody>
             </Card>
@@ -391,9 +392,9 @@ render() {
                         value={this.state.yf_financialData_nasdaq.regularMarketPrice}
                         valueTitle={"vs "+this.state.yf_financialData_nasdaq.regularMarketPreviousClose+" prev."}
                         footerTitle="Change:"
-                        footerTitleClassName="text-success"
+                        footerTitleClassName={Math.sign(this.state.yf_financialData_nasdaq.regularMarketChangePercent) > 0 ? "text-success" : "text-danger"}
                         footerValue={this.state.yf_financialData_nasdaq.regularMarketChangePercent.toFixed(2)+"%"}
-                        footerIcon="caret-up"
+                        footerIcon={Math.sign(this.state.yf_financialData_nasdaq.regularMarketChangePercent) > 0 ? "caret-up" : "caret-down"}
                     />
                 </CardBody>
             </Card>

@@ -30,7 +30,8 @@ const sortCaret = (order) => {
 
 var products = [{
   id: 1,
-  name: "TSLA",
+  ticker: "TSLA",
+  name: "Tesla Inc.",
   price: 120,
   esgscore: 30,
   rating: 'Top',
@@ -40,7 +41,8 @@ var products = [{
   mktcap: 2000,
 }, {
   id: 2,
-  name: "NIO",
+  ticker: "NIO",
+  name: "Nio Inc.",
   price: 11,
   esgscore: 43,
   rating: 'Good',
@@ -50,7 +52,8 @@ var products = [{
   mktcap: 1000,
 }, {
   id: 3,
-  name: "MU",
+  ticker: "MU",
+  name: "Micron Technology Inc.",
   price: 54,
   esgscore: 12,
   rating: 'Top',
@@ -60,7 +63,8 @@ var products = [{
   mktcap: 800,
 }, {
   id: 4,
-  name: "AMD",
+  ticker: "AMD",
+  name: "Advanced Micro Devices, Inc.",
   price: 32,
   esgscore: 33,
   rating: 'Average',
@@ -79,13 +83,21 @@ const columns = [{
   sort: true,
   sortCaret
 }, {
-  dataField: 'name',
+  dataField: 'ticker',
   text: 'Ticker',
+  formatter: (cell) => (
+    <span className="text-inverse fw-500">
+        { cell }
+    </span>
+  ),
+},  {
+  dataField: 'name',
+  text: 'Company',
   formatter: (cell) => (
     <span className="text-inverse">
         { cell }
     </span>
-  )
+  ),
 }, {
   dataField: 'price',
   text: 'Price',
