@@ -6,7 +6,8 @@ import { ThemeConsumer } from '../../../components/Theme';
 
 const logos = {
     'white': require('./../../../images/logos/logo-white.svg'),
-    'primary': require('./../../../images/logos/logo.png'),
+    //'primary': require('./../../../images/logos/logo.png'),
+    'primary': require('./../../../images/logos/logo-dataspark-tl.svg'),
     'success': require('./../../../images/logos/logo-success.svg'),
     'warning': require('./../../../images/logos/logo-warning.svg'),
     'danger': require('./../../../images/logos/logo-danger.svg'),
