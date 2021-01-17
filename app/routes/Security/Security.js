@@ -8,6 +8,7 @@ import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
 import {getAll, getPeers, getChart} from '../API/api.js'
+import TradingViewWidget, { Themes } from 'react-tradingview-widget';
 
 
 import {
@@ -549,13 +550,18 @@ render() {
             <Col lg={ 7 }>
                 <Card className="mb-3">
                     <CardBody>
-                        <div className="chart-candlestick">
-                            <Chart
-                            options={this.state.options}
-                            series={this.state.series}
-                            type="candlestick"
-                            width="100%"
-                            />
+                        
+                        <div>
+                        <TradingViewWidget
+                            symbol={this.state.yf_all.quoteType.symbol}
+                            theme={Themes.LIGHT}
+                            locale="en"
+                            interval= "D"
+                            allow_symbol_change={false} 
+                            height={370}
+                            width="auto"
+                            save_image= {false}                       
+                          />
                         </div>
 
                     </CardBody>
