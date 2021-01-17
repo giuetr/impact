@@ -560,7 +560,7 @@ render() {
                             allow_symbol_change={false} 
                             height={370}
                             width="auto"
-                            save_image= {false}                       
+                            save_image= {false}
                           />
                         </div>
 
