@@ -571,7 +571,7 @@ render() {
                                   return  (
 
                                     <ListGroupItem tag="a" href={i.url} action target="_blank">
-                                    <Badge className="mt-2" color="primary">{i.category}</Badge>
+                                    <Badge className="mt-2" color={i.category == "top news" ? "red" : "primary"}>{i.category}</Badge>
                                     <span className="mt-3 d-flex h6 mb-2 text-info">
                                         <span className="text-info">
                                           {i.source}

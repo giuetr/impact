@@ -7,7 +7,7 @@ import classes from './security.scss';
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-import {getAll, getPeers} from '../API/api.js'
+import {getAll, getPeers, getChart} from '../API/api.js'
 
 
 import {
@@ -51,6 +51,7 @@ class Security extends Component {
         this.state = {
             yf_all: null,
             yf_peers: null,
+            yf_chart: null,
             date: new Date(),
             series: [{
                 data: [{
@@ -331,6 +332,10 @@ class Security extends Component {
       await getPeers(ticker)
       .then(data => this.setState({ 
         yf_peers: data.finance.result[0].recommendedSymbols})   
+      )
+      await getChart(ticker)
+      .then(data => this.setState({ 
+        yf_chart: data.chart.result[0]})   
       )
     }
 
