@@ -697,6 +697,7 @@ render() {
                             Revenue Growth
                             </td>
                             <td className="align-middle text-right" style={{color: Math.sign(this.state.yf_all.financialData.revenueGrowth.raw) > 0 ? "#33AE9A" : "red"}}>
+                            <i className={Math.sign(this.state.yf_all.financialData.revenueGrowth.raw) > 0 ? "fa fa-caret-up mr-2" : "fa fa-caret-down mr-2"}></i>
                             {this.state.yf_all.financialData.revenueGrowth.fmt}
                             </td>
                         </tr>
@@ -705,6 +706,7 @@ render() {
                             Earnings Growth
                             </td>
                             <td className="align-middle text-right" style={{color: Math.sign(this.state.yf_all.financialData.operatingMargins.raw) > 0 ? "#33AE9A" : "red"}}>
+                            <i className={Math.sign(this.state.yf_all.financialData.operatingMargins.raw) > 0 ? "fa fa-caret-up mr-2" : "fa fa-caret-down mr-2"}></i>
                             {this.state.yf_all.financialData.operatingMargins.fmt}
                             </td>
                         </tr>
@@ -712,8 +714,9 @@ render() {
                             <td className="align-middle text-inverse">
                             Operating Margins
                             </td>
-                            <td className="align-middle text-right" style={{color: Math.sign(this.state.yf_all.financialData.returnOnEquity.raw) > 0 ? "#33AE9A" : "red"}}>
-                            {this.state.yf_all.financialData.returnOnEquity.fmt}
+                            <td className="align-middle text-right" style={{color: Math.sign(this.state.yf_all.financialData.operatingMargins.raw) > 0 ? "#33AE9A" : "red"}}>
+                            <i className={Math.sign(this.state.yf_all.financialData.operatingMargins.raw) > 0 ? "fa fa-caret-up mr-2" : "fa fa-caret-down mr-2"}></i>
+                            {this.state.yf_all.financialData.operatingMargins.fmt}
                             </td>
                         </tr>
                         <tr>
@@ -721,6 +724,7 @@ render() {
                             Return on Equity
                             </td>
                             <td className="align-middle text-right" style={{color: Math.sign(this.state.yf_all.financialData.returnOnEquity.raw) > 0 ? "#33AE9A" : "red"}}>
+                            <i className={Math.sign(this.state.yf_all.financialData.returnOnEquity.raw) > 0 ? "fa fa-caret-up mr-2" : "fa fa-caret-down mr-2"}></i>
                             {this.state.yf_all.financialData.returnOnEquity.fmt}
                             </td>
                         </tr>
@@ -729,6 +733,7 @@ render() {
                             Return on Assets
                             </td>
                             <td className="align-middle text-right" style={{color: Math.sign(this.state.yf_all.financialData.returnOnAssets.raw) > 0 ? "#33AE9A" : "red"}}>
+                            <i className={Math.sign(this.state.yf_all.financialData.returnOnAssets.raw) > 0 ? "fa fa-caret-up mr-2" : "fa fa-caret-down mr-2"}></i>
                             {this.state.yf_all.financialData.returnOnAssets.fmt}
                             </td>
                         </tr>

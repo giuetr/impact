@@ -43,6 +43,7 @@ import { HeaderMain } from "../components/HeaderMain";
 import {
     SessionsByDevice
   } from "../components/Analytics/SessionsByDevice";
+import InsidersTable from '../../assetsnew/InsidersTable';
   
 
 class Insiders extends Component {
@@ -192,7 +193,7 @@ render() {
                     <CardBody className="pb-0">
                         <div className="d-flex mb-2 justify-content-center">
                             <CardTitle tag="h5">
-                                Momentum
+                                Momentum: <span className="text-info">January 2021</span>
                             </CardTitle>
                         </div>
                         <div className="text-center mb-4">
@@ -235,7 +236,7 @@ render() {
 
             </CardDeck>
             <Row className="mt-3">
-              <Tablestock/>
+              <InsidersTable/>
             </Row>
 
           </Container>
