@@ -36,7 +36,7 @@ export const SidebarMiddleNav = () => (
 
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-envira"></i>}
-            title="ESGLeaders"
+            title="MegaTrends"
             to='/ESGleaders'
         />
 

@@ -7,7 +7,7 @@ import Tablestock from '../../assetsnew';
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-import {getAll} from '../API/api.js'
+import {getAll, getESG} from '../API/api.js'
 
 
 import {
@@ -50,6 +50,7 @@ class Insiders extends Component {
         super(props);
 
         this.state = {
+            yf_esg: null,
             yf_all: null,
             options: {},
             series: [64, 55, 21, 17, 15],
@@ -63,6 +64,10 @@ class Insiders extends Component {
         await getAll(ticker)
         .then(data => this.setState({ 
           yf_all: data.quoteSummary.result[0]})   
+        )
+        await getESG(ticker)
+        .then(data => this.setState({ 
+          yf_esg: data})   
         )
       }
 

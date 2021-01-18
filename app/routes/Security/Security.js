@@ -587,7 +587,7 @@ render() {
                             <td className="align-middle text-inverse">
                             Market Cap
                             </td>
-                            <td className="align-middle text-right">
+                            <td className="align-middle text-right text-info">
                             {this.state.yf_all.summaryDetail.marketCap.fmt}
                             </td>
                         </tr>
@@ -595,7 +595,7 @@ render() {
                             <td className="align-middle text-inverse">
                             Revenue
                             </td>
-                            <td className="align-middle text-right">
+                            <td className="align-middle text-right text-info">
                             {this.state.yf_all.financialData.totalRevenue.fmt}
                             </td>
                         </tr>
@@ -603,7 +603,7 @@ render() {
                             <td className="align-middle text-inverse">
                             Gross Margin
                             </td>
-                            <td className="align-middle text-right">
+                            <td className="align-middle text-right text-info">
                             {this.state.yf_all.financialData.grossMargins.fmt}
                             </td>
                         </tr>
@@ -611,7 +611,7 @@ render() {
                             <td className="align-middle text-inverse">
                             EBITDA
                             </td>
-                            <td className="align-middle text-right">
+                            <td className="align-middle text-right text-info">
                             {this.state.yf_all.financialData.ebitda.fmt}
                             </td>
                         </tr>
@@ -619,7 +619,7 @@ render() {
                             <td className="align-middle text-inverse">
                             Cash
                             </td>
-                            <td className="align-middle text-right">
+                            <td className="align-middle text-right text-info">
                             {this.state.yf_all.financialData.totalCash.fmt}
                             </td>
                         </tr>
@@ -627,7 +627,7 @@ render() {
                             <td className="align-middle text-inverse">
                             Debt
                             </td>
-                            <td className="align-middle text-right">
+                            <td className="align-middle text-right text-info">
                             {this.state.yf_all.financialData.totalDebt.fmt}
                             </td>
                         </tr>
@@ -635,7 +635,7 @@ render() {
                             <td className="align-middle text-inverse">
                             Cash Flow
                             </td>
-                            <td className="align-middle text-right">
+                            <td className="align-middle text-right text-info">
                             {this.state.yf_all.financialData.freeCashflow.fmt}
                             </td>
                         </tr>
@@ -651,7 +651,7 @@ render() {
                     <thead>
                         <tr>
                             <th scope="col" className="bt-0">Ticker</th>
-                            <th scope="col" className="text-right bt-0">Score</th>
+                            <th scope="col" className="text-right bt-0">Similarity Score</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -662,7 +662,7 @@ render() {
                             <Badge color="info">{i.symbol}</Badge>
                             </td>
                             <td className="align-middle text-inverse text-right">
-                            {i.score}
+                            {i.score.toFixed(3)}
                             </td>
                           </tr>
                         );
@@ -804,7 +804,7 @@ render() {
                             50 Days Average
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.summaryDetail.fiftyDayAverage.fmt}
+                            $ {this.state.yf_all.summaryDetail.fiftyDayAverage.fmt}
                             </td>
                         </tr>
                         <tr>
@@ -812,7 +812,7 @@ render() {
                               200 Days Average
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.summaryDetail.twoHundredDayAverage.fmt}
+                            $ {this.state.yf_all.summaryDetail.twoHundredDayAverage.fmt}
                             </td>
                         </tr>
                         <tr>
@@ -820,7 +820,7 @@ render() {
                             52 Weeks High
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.summaryDetail.fiftyTwoWeekHigh.fmt}
+                            $ {this.state.yf_all.summaryDetail.fiftyTwoWeekHigh.fmt}
                             </td>
                         </tr>
                         <tr>
@@ -828,7 +828,7 @@ render() {
                             52 Weeks Low
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.summaryDetail.fiftyTwoWeekLow.fmt}
+                            $ {this.state.yf_all.summaryDetail.fiftyTwoWeekLow.fmt}
                             </td>
                         </tr>
                         <tr>
