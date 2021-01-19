@@ -459,15 +459,15 @@ render() {
                 <CardBody>
                     <ProfileOverviewCard 
                         title="PRICE TARGET"
-                        badgeTitle="UP"
-                        badgeColor="info"
+                        badgeTitle="Real Time"
+                        badgeColor="primary"
                         value={this.state.yf_all.financialData.targetMeanPrice.raw}
                         valueTitle=""
                         footerClassName="h5"
                         footerTitle="Potential Return:"
                         footerTitleClassName={Math.sign(this.gainTarget()) > 0 ? "text-info h5" : "text-danger h5"}
                         footerValue={this.gainTarget().toFixed(2)+"%"}
-                        footerIcon={Math.sign(this.gainTarget()) > 0 ? "+" : "-"}
+                        footerIcon={Math.sign(this.gainTarget()) > 0 ? "caret-up" : "caret-down"}
                     />
                     <div className="d-flex justify-content-between mt-3">
                                 <div className="text-center">
