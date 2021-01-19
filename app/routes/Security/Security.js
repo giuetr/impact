@@ -318,7 +318,12 @@ class Security extends Component {
         };
     }
 
-    
+    gainTarget() {
+      const price = this.state.yf_all.price.regularMarketPrice.raw;
+      const target = this.state.yf_all.financialData.targetMeanPrice.raw;
+      const result = ((target / price)-1)*100;
+      return result;
+   }
 
     async componentDidMount() {
       this.timerID = setInterval(
@@ -373,7 +378,7 @@ render() {
                   <span className="text-info mr-3">{this.state.yf_all.quoteType.symbol}</span>
                   <span>{this.state.yf_all.price.regularMarketPrice.raw}</span>
                   <span className="small mr-3">USD</span>
-                  <span style={{color: Math.sign(this.state.yf_all.price.regularMarketChangePercent.raw) > 0 ? "green" : "red"}}>{this.state.yf_all.price.regularMarketChangePercent.fmt}</span>
+                  <span style={{color: Math.sign(this.state.yf_all.price.regularMarketChangePercent.raw) > 0 ? "#1BB934" : "red"}}>{this.state.yf_all.price.regularMarketChangePercent.fmt}</span>
                 </div>
 
             </div>
@@ -457,11 +462,12 @@ render() {
                         badgeTitle="UP"
                         badgeColor="info"
                         value={this.state.yf_all.financialData.targetMeanPrice.raw}
-                        valueTitle="+5% MoM"
+                        valueTitle=""
+                        footerClassName="h5"
                         footerTitle="Potential Return:"
-                        footerTitleClassName="text-info"
-                        footerValue="5%"
-                        footerIcon="caret-up"
+                        footerTitleClassName={Math.sign(this.gainTarget()) > 0 ? "text-info h5" : "text-danger h5"}
+                        footerValue={this.gainTarget().toFixed(2)+"%"}
+                        footerIcon={Math.sign(this.gainTarget()) > 0 ? "+" : "-"}
                     />
                     <div className="d-flex justify-content-between mt-3">
                                 <div className="text-center">
