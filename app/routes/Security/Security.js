@@ -325,7 +325,7 @@ class Security extends Component {
         () => this.tick(),
         1000
       );
-      const ticker = 'TSLA'
+      const ticker = 'NVDA'
       await getAll(ticker)
       .then(data => this.setState({ 
         yf_all: data.quoteSummary.result[0]})   
@@ -1127,10 +1127,10 @@ render() {
                                     {i.transactionText}
                                     </td>
                                     <td className="align-middle">
-                                    {i.shares.longFmt}
+                                    {i.shares.raw}
                                     </td>
                                     <td className="align-middle text-info">
-                                    $ {i.value.longFmt}
+                                    $ {i.value.raw}
                                     </td>
                                     <td className="align-middle">
                                     {i.startDate.fmt}
