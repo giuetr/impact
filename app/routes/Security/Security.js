@@ -524,7 +524,7 @@ render() {
                     <ProfileOverviewCard 
                         title="SENTIMENT"
                         badgeTitle="Real time"
-                        badgeColor="success"
+                        badgeColor="primary"
                         value="87%"
                         valueTitle="BULLISH"
                         footerTitle="Trend:"

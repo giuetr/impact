@@ -40,6 +40,12 @@ export const SidebarMiddleNav = () => (
             to='/ESGleaders'
         />
 
+        <SidebarMenu.Item
+            icon={<i className="fa fa-fw fa-bullseye"></i>}
+            title="Leaders"
+            to='/Leaders'
+        />
+
 
 
         <SidebarMenu.Item

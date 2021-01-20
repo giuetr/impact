@@ -117,6 +117,7 @@ import Security from './Security';
 import Politics from './Politics';
 import Insiders from './Insiders';
 import ESGLeaders from './ESGLeaders';
+import Leaders from './Leaders';
 
 
 //------ Route Definitions --------
@@ -142,6 +143,7 @@ export const RoutedContent = () => {
             <Route path='/Politics' exact component={Politics} />
             <Route path='/Insiders' exact component={Insiders} />
             <Route path='/ESGLeaders' exact component={ESGLeaders} />
+            <Route path='/Leaders' exact component={Leaders} />
 
 
             { /*    Cards Routes     */ }
