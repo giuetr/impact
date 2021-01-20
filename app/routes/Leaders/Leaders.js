@@ -43,7 +43,6 @@ import { HeaderMain } from "../components/HeaderMain";
 import {
     SessionsByDevice
   } from "../components/Analytics/SessionsByDevice";
-import InsidersTable from '../../assetsnew/InsidersTable';
 import {
   TinyDonutChart
 } from "../components/Monitor/TinyDonutChart";
@@ -51,6 +50,7 @@ import {
 class Leaders extends Component {
     constructor(props) {
         super(props);
+        
 
         this.state = {
             yf_esg: null,
@@ -58,6 +58,35 @@ class Leaders extends Component {
             options: {},
             series: [64, 55, 21, 17, 15],
             labels: ['AAPL', 'TSLA', 'NVDA', 'AMD', 'FB'],
+
+            series2: [{
+                name: 'TEAM 1',
+                data: [
+                    ["TSLA",16.4, 5.4],
+                    
+                  ]
+              }],
+              options2: {
+                chart: {
+                    height: 350,
+                    type: 'scatter',
+                    zoom: {
+                      enabled: true,
+                      type: 'xy'
+                    }
+                  },
+                  xaxis: {
+                    tickAmount: 10,
+                    labels: {
+                      formatter: function(val) {
+                        return parseFloat(val).toFixed(1)
+                      }
+                    }
+                  },
+                  yaxis: {
+                    tickAmount: 7
+                  }
+              },
         };
     }
 
@@ -112,7 +141,7 @@ render() {
                         <div>
                             <div className="mb-4">
                                 <h5 className="mb-1 text-info">TOTAL COMPANIES</h5>
-                                <p>Real Time Sustainability Profile</p>
+                                <p>Weekly Snapshot</p>
                             </div>
                             <div className="mb-3 d-flex">
                                 <div className="ml-2 align-self-center">
@@ -157,15 +186,15 @@ render() {
                                 <div className="d-flex justify-content-between mt-3">
                                     <div className="text-center">
                                         <h6 className="mb-0">12%</h6>
-                                        <span><Badge color="danger">SPY</Badge></span>
+                                        <span><Badge pill color="danger">SPY</Badge></span>
                                     </div>
                                     <div className="text-center">
                                         <h6 className="mb-0">15%</h6>
-                                        <span><Badge color="secondary">NDX</Badge></span>
+                                        <span><Badge pill color="secondary">NDX</Badge></span>
                                     </div>
                                     <div className="text-center">
                                         <h6 className="mb-0">7%</h6>
-                                        <span><Badge color="primary">DJI</Badge></span>
+                                        <span><Badge pill color="primary">DJI</Badge></span>
                                     </div>
                                 </div>
                         </div>
@@ -209,7 +238,7 @@ render() {
                     <CardBody>
                         <div>
                             <div className="mb-4">
-                                <h5 className="mb-1 text-info">SENTIMENT</h5>
+                                <h5 className="mb-1 text-info">TREND</h5>
                                 <p>Key Metrics</p>
                             </div>
                             <div className="mb-3 d-flex">
@@ -220,16 +249,16 @@ render() {
                             </div>
                                 <div className="d-flex justify-content-between mt-3">
                                     <div className="text-center">
-                                        <h6 className="mb-0">3%</h6>
-                                        <span>Volatility</span>
+                                        <h6 className="mb-0"><Badge color="info">BULLISH</Badge></h6>
+                                        <span>Sentiment</span>
                                     </div>
                                     <div className="text-center">
-                                        <h6 className="mb-0">10</h6>
-                                        <span>P/E</span>
+                                        <h6 className="mb-0"><Badge color="warning">AVERAGE</Badge></h6>
+                                        <span>Momentum</span>
                                     </div>
                                     <div className="text-center">
-                                        <h6 className="mb-0">3.2</h6>
-                                        <span>Beta</span>
+                                        <h6 className="mb-0">300T</h6>
+                                        <span>Volume</span>
                                     </div>
                                 </div>
                         </div>
@@ -239,84 +268,23 @@ render() {
         </CardDeck>
 
             <CardDeck>
-                <Card className="mb-3">
+                <Card>
                     <CardBody className="pb-0">
-                        <div className="d-flex mb-4 justify-content-center">
+                        <div className="d-flex mb-2 justify-content-center">
                             <CardTitle tag="h5">
-                                Total Value Traded
+                                Performance vs. ESG Scores
                             </CardTitle>
                         </div>
-                        <div className="text-center mb-4">
-                            <h2>
-                               $2,890.12
-                            </h2>
-                            <div className="mb-1 text-success">
-                                <i className="fa mr-1 fa-caret-up"></i>
-                                23.34%
-                            </div>
-                            <div>
-                                Month: <span className="text-info">December 2020</span>
-                            </div>
-                        </div>
-                    </CardBody>
-                    <CardBody className="p-0">
-                        <TinyAreaChart />
-                    </CardBody>
-                </Card>
-                <Card className="mb-3">
-                    <CardBody className="pb-0">
-                        <div className="d-flex mb-4 justify-content-center">
-                            <CardTitle tag="h5">
-                                Total Transactions
-                            </CardTitle>
-                        </div>
-                        <div className="text-center mb-4">
-                            <h2>
-                                52
-                            </h2>
-                            <div className="mb-1 text-success">
-                                <i className="fa mr-1 fa-caret-up"></i>
-                                15.23%
-                            </div>
-                            <div>
-                                Activity level: <span className="text-primary">Medium</span>
-                            </div>
-                        </div>
-                    </CardBody>
-                    <CardBody>
-                        <Progress animated striped value={45} />
-                    </CardBody>
-                </Card>
-                <Card className="mb-3">
-                    <CardBody className="pb-0">
-                        <div className="d-flex mb-4 justify-content-center">
-                            <CardTitle tag="h5">
-                                Most Traded Stock
-                            </CardTitle>
-                        </div>
-                        <div className="text-center mb-4">
-                            <h2>
-                                TSLA
-                            </h2>
-                            <div className="mb-3">
-                                <Badge color="info">LONG</Badge>
-                            </div>
-                            <div>
-                                Trend: <span className="text-info">STRONG</span>
-                            </div>
-                        </div>
-                    </CardBody>
-                    <CardBody>
-                    </CardBody>
-                </Card>
-            </CardDeck>
 
-            <CardDeck>
+                        <Chart options={this.state.options2} series={this.state.series2} type="scatter"/>
+
+                    </CardBody>
+                </Card>
                 <Card>
                     <CardBody className="pb-0">
                             <div className="d-flex mb-2 justify-content-center">
                                 <CardTitle tag="h5">
-                                    Stock Trading Activity
+                                    Sectors
                                 </CardTitle>
                             </div>
                             <div className="donut pb-2">
@@ -324,54 +292,10 @@ render() {
                             </div>
                     </CardBody>
                 </Card>
-                <Card>
-                    <CardBody className="pb-0">
-                        <div className="d-flex mb-2 justify-content-center">
-                            <CardTitle tag="h5">
-                                Momentum: <span className="text-info">January 2021</span>
-                            </CardTitle>
-                        </div>
-                        <div className="text-center mb-4">
-                            <h2>
-                                Bullish
-                            </h2>
-                            <div className="mb-3mb-1">
-                                <Badge color="success">LONG</Badge>
-                            </div>
-                            <div>
-                                Trend: <span className="text-info">STRONG</span>
-                            </div>
-                        </div>
-                            <Row className="text-center">
-                                <Col sm={ 6 }>
-                                        <SessionsByDevice 
-                                            title="LONG"
-                                            valuePercent="60"
-                                            valuePercentColor="text-success"
-                                            value="$201,345"
-                                            valueColor="text-muted"
-                                        />
-                                </Col>
-                                <Col sm={ 6 }>
-                                        <SessionsByDevice 
-                                            title="SHORT"
-                                            valuePercent="50"
-                                            valuePercentColor="text-danger"
-                                            value="$134,201"
-                                            valueColor="text-muted"
-                                        />
-                                </Col>
-                            </Row>
-                            <Progress multi style={{height: "5px"}}>
-                                <Progress animated bar color="success" value="60" />
-                                <Progress animated bar color="danger" value="50" />
-                            </Progress>
-                    </CardBody>
-                </Card>
 
             </CardDeck>
             <Row className="mt-3">
-              <InsidersTable/>
+              <Tablestock/>
             </Row>
 
           </Container>
