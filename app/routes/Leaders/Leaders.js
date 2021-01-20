@@ -62,10 +62,10 @@ class Leaders extends Component {
             series2: [{
                 name: 'TEAM 1',
                 data: [
-                    ["TSLA",16.4, 5.4],
-                    
+                    [16.4, 5.4]
                   ]
-              }],
+              },
+            ],
               options2: {
                 chart: {
                     height: 350,
@@ -75,6 +75,9 @@ class Leaders extends Component {
                       type: 'xy'
                     }
                   },
+                  dataLabels: {
+                    enabled: true,
+                    },
                   xaxis: {
                     tickAmount: 10,
                     labels: {
