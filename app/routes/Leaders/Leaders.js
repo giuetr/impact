@@ -60,34 +60,64 @@ class Leaders extends Component {
             labels: ['AAPL', 'TSLA', 'NVDA', 'AMD', 'FB'],
 
             series2: [{
-                name: 'TEAM 1',
-                data: [
-                    [16.4, 5.4]
-                  ]
+                data: 
+                [{
+                    x: 1,
+                    y: 2.14,
+                    name: 'lol'
+                }, {
+                    x: 1.2,
+                    y: 2.19,
+                    name: 'hey'
+                }, {
+                    x: 1.8,
+                    y: 2.43,
+                    name: 'mike'
+                }, {
+                    x: 2.3,
+                    y: 3.8,
+                    name: 'BE'
+                }, {
+                    x: 2.6,
+                    y: 4.14,
+                    name: 'aye'
+                }, {
+                    x: 2.9,
+                    y: 5.4,
+                    name: 'ral'
+                }]
               },
             ],
               options2: {
                 chart: {
                     height: 350,
                     type: 'scatter',
-                    zoom: {
-                      enabled: true,
-                      type: 'xy'
-                    }
                   },
-                  dataLabels: {
-                    enabled: true,
-                    },
+                  
                   xaxis: {
-                    tickAmount: 10,
-                    labels: {
-                      formatter: function(val) {
-                        return parseFloat(val).toFixed(1)
+                    
+                  },
+                  yaxis: {
+                    
+                  },
+                  tooltip: {
+                    y: {
+                      formatter: function (val) {
+                        return val + "K"
                       }
                     }
                   },
-                  yaxis: {
-                    tickAmount: 7
+                  fill: {
+                    type: 'gradient',
+                    gradient: {
+                      shade: 'light',
+                      shadeIntensity: 0.25,
+                      gradientToColors: undefined,
+                      inverseColors: true,
+                      opacityFrom: 0.85,
+                      opacityTo: 0.85,
+                      stops: [50, 0, 100]
+                    },
                   }
               },
         };
