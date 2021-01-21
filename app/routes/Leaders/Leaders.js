@@ -55,40 +55,61 @@ class Leaders extends Component {
         this.state = {
             yf_esg: null,
             yf_all: null,
-            options: {},
-            series: [64, 55, 21, 17, 15],
-            labels: ['AAPL', 'TSLA', 'NVDA', 'AMD', 'FB'],
+            options: {
+                chart: {
+                    height: 350,
+                    type: 'treemap'
+                  }
+            },
+            series: [{
+                data:[{
+                    x: 'Technology',
+                    y: 218
+                  },
+                  {
+                    x: 'IT',
+                    y: 149
+                  },
+                  {
+                    x: 'Agriculture',
+                    y: 184
+                  },
+                  {
+                    x: 'Consumer Staple',
+                    y: 55
+                  },]
+            }],
 
             series2: [{
                 data: 
                 [{
                     x: 1,
                     y: 2.14,
-                    name: 'lol'
+                    z: 'title1'
                 }, {
                     x: 1.2,
                     y: 2.19,
-                    name: 'hey'
+                    z: 'hey'
                 }, {
                     x: 1.8,
                     y: 2.43,
-                    name: 'mike'
+                    z: 'mike'
                 }, {
                     x: 2.3,
                     y: 3.8,
-                    name: 'BE'
+                    z: 'BE'
                 }, {
                     x: 2.6,
                     y: 4.14,
-                    name: 'aye'
+                    z: 'aye'
                 }, {
                     x: 2.9,
                     y: 5.4,
-                    name: 'ral'
+                    z: 'ral'
                 }]
               },
             ],
-              options2: {
+            options2: {
                 chart: {
                     height: 350,
                     type: 'scatter',
@@ -102,10 +123,13 @@ class Leaders extends Component {
                   },
                   tooltip: {
                     y: {
-                      formatter: function (val) {
-                        return val + "K"
-                      }
-                    }
+                        formatter: undefined,
+                        title: 'ESG: '
+                    },
+                    z: {
+                        formatter: undefined,
+                        title: 'Title: '
+                    },
                   },
                   fill: {
                     type: 'gradient',
@@ -321,7 +345,7 @@ render() {
                                 </CardTitle>
                             </div>
                             <div className="donut pb-2">
-                                <Chart options={this.state.options} series={this.state.series} type="donut" width="380" />
+                                <Chart options={this.state.options} series={this.state.series} type="treemap"/>
                             </div>
                     </CardBody>
                 </Card>
