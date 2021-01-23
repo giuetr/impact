@@ -330,7 +330,7 @@ class Security extends Component {
         () => this.tick(),
         1000
       );
-      const ticker = 'NVDA'
+      const ticker = 'TSLA'
       await getAll(ticker)
       .then(data => this.setState({ 
         yf_all: data.quoteSummary.result[0]})   
@@ -1136,7 +1136,7 @@ render() {
                                     {i.shares.raw}
                                     </td>
                                     <td className="align-middle text-info">
-                                    $ {i.value.raw}
+                                    {i.hasOwnProperty('value') ? i.value.raw : ''}
                                     </td>
                                     <td className="align-middle">
                                     {i.startDate.fmt}
