@@ -5,7 +5,7 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
-
+import PoliticsTable from '../../assetsnew'
 
 
 import {
@@ -216,6 +216,9 @@ render() {
                 </Card>
 
             </CardDeck>
+            <Row className="mt-3">
+              <PoliticsTable/>
+            </Row>
 
           </Container>
     </Container>

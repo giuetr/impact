@@ -31,37 +31,59 @@ var products = [{
   id: 1,
   ticker: "TSLA",
   name: "Tesla Inc.",
-  purchases: 120,
-  sales: 30,
-  totbought: 200000,
-  totsold: 103012,
-  lsratio: 0.3,
-  returnperiod: 12.3,
+  senator: "Michael Jones",
+  value: "$ 1000-5000",
+  date: "12/31/2020",
+  price: 120,
+  trade: 'Sale',
   return1y: 0.1,
-},{
+  salesgrowth: 0.11,
+}, {
   id: 2,
-  ticker: "AAPL",
-  name: "Apple Inc.",
-  purchases: 312,
-  sales: 555,
-  totbought: 2000123,
-  totsold: 65003,
-  lsratio: 1,
-  returnperiod: 10.3,
-  return1y: 0.3,
-}];
+  ticker: "NIO",
+  name: "Nio Inc.",
+  senator: "Henry Williams",
+  value: "$ 10000-50000",
+  date: "12/31/2020",
+  price: 11,
+  trade: 'Purchase',
+  return1y: 0.12,
+  salesgrowth: 0.14,
+}, {
+  id: 3,
+  ticker: "MU",
+  name: "Micron Technology Inc.",
+  senator: "Jane Wilde",
+  value: "$ 100000-500000",
+  date: "12/10/2020",
+  price: 54,
+  trade: 'Purchase',
+  return1y: 0.03,
+  salesgrowth: 0.05,
+}, {
+  id: 4,
+  ticker: "AMD",
+  name: "Advanced Micro Devices, Inc.",
+  senator: "Mary Ross",
+  value: "$ 100000-500000",
+  date: "12/01/2021",
+  price: 32,
+  trade: 'Sale',
+  return1y: 0.41,
+  salesgrowth: 0.21,
+},];
 
 
 
 
 const columns = [{
   dataField: 'id',
-  text: 'Id'
+  text: 'ID'
 }, {
   dataField: 'ticker',
   text: 'Ticker',
   formatter: (cell) => (
-    <span className="text-inverse">
+    <span className="text-info fw-500">
         { cell }
     </span>
   ),
@@ -73,74 +95,66 @@ const columns = [{
         { cell }
     </span>
   ),
-}, {
-  dataField: 'purchases',
-  text: 'Trades Long',
+},  {
+  dataField: 'senator',
+  text: 'Senator',
+  sort: true,
+  sortCaret
+},  {
+  dataField: 'value',
+  text: 'Value',
+  sort: true,
+  sortCaret
+},{
+  dataField: 'date',
+  text: 'Date',
   sort: true,
   sortCaret
 }, {
-  dataField: 'sales',
-  text: 'Trades Shorts',
-  sort: true,
-  sortCaret
-}, {
-  dataField: 'totbought',
-  text: 'Shares Long',
+  dataField: 'price',
+  text: 'Price',
   formatter: (cell) => (
     <span className="text-info">
         { cell }
     </span>
   ),
 }, {
-  dataField: 'totsold',
-  text: 'Shares Short',
-  formatter: (cell) => (
-    <span className="text-danger">
-        { cell }
-    </span>
-  ),
-}, {
-  dataField: 'lsratio',
-  text: 'L/S Ratio',
+  dataField: 'trade',
+  text: 'Trade',
+  sort: true,
+  sortCaret,
   formatter: (cell) => {
-    const color = (cell) => {
-      const color = cell = 1 ? 'text-success' : 'text-danger';
-      return { color };
+    const color = (status) => {
+        const map = {
+            'Purchase': 'success',
+            'Sale': 'danger'
+        };
+        return map[status];
     }
 
     return (
-        <span className={ color(cell) }>
+        <Badge color={ color(cell) }>
             { cell }
-        </span>
+        </Badge>
     );
   }
-},  {
-  dataField: 'returnperiod',
-  text: 'Return Ref. Date',
-  sort: true,
-  sortCaret,
-  formatter: (cell) => (
-    <span>
-        { cell } %
-    </span>
-  ),
-}, {
+},{
   dataField: 'return1y',
   text: 'Return 1Y',
   sort: true,
-  sortCaret,
-  formatter: (cell) => (
-    <span>
-        { cell } %
-    </span>
-  ),
-}
+  sortCaret
+}, {
+  dataField: 'salesgrowth',
+  text: 'Sales Growth',
+  sort: true,
+  sortCaret
+},
 ];
 
 
 
 
-class InsidersTable extends React.Component {
+class PoliticsTable extends React.Component {
   constructor(props) {
     super(props);
 
@@ -175,4 +189,4 @@ class InsidersTable extends React.Component {
   }
 }
 
-export default InsidersTable;
+export default PoliticsTable;

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Chart from "react-apexcharts";
 import faker from 'faker/locale/en_US';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import Tablestock from '../../assetsnew';
+import InsidersTable from '../../assetsnew';
 
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
@@ -43,7 +43,6 @@ import { HeaderMain } from "../components/HeaderMain";
 import {
     SessionsByDevice
   } from "../components/Analytics/SessionsByDevice";
-import InsidersTable from '../../assetsnew/InsidersTable';
   
 
 class Insiders extends Component {
