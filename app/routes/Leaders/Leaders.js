@@ -2,12 +2,11 @@ import React, {Component} from 'react';
 import Chart from "react-apexcharts";
 import faker from 'faker/locale/en_US';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import Tablestock from '../../assetsnew';
-
+import TableStock from '../../assetsnew/TableStock'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-import {getAll, getESG} from '../API/api.js'
+import {getAll, getESG, getQuote} from '../API/api.js'
 
 
 import {
@@ -55,6 +54,7 @@ class Leaders extends Component {
         this.state = {
             yf_esg: null,
             yf_all: null,
+            merge_all_esg: null,
             options: {
                 chart: {
                     height: 350,
@@ -149,21 +149,33 @@ class Leaders extends Component {
 
 
     async componentDidMount() {
-        const ticker = 'AMD'
+        const ticker = 'CRM'
         await getAll(ticker)
         .then(data => this.setState({ 
           yf_all: data.quoteSummary.result[0]})   
         )
         await getESG(ticker)
         .then(data => this.setState({ 
-          yf_esg: data})   
+          yf_esg: data[0]})   
         )
+        await getQuote(ticker)
+        .then(data => this.setState({ 
+          yf_quote: data.quoteResponse.result[0]})   
+        )
+        
+        
       }
 
+
+     
 render() {
-    if (!this.state.yf_all) {
+    if (!this.state.yf_all || !this.state.yf_esg) {
         return <div>Loading Data</div>;
       }
+      
+      const  merge_all_esg= { ...this.state.yf_esg, ...this.state.yf_quote};
+      //const merge_all_esg = [].concat(this.state.yf_esg, this.state.yf_all);
+      console.log(merge_all_esg);
     return (
         <Container>
           <Row className="mb-3">
@@ -352,10 +364,11 @@ render() {
 
             </CardDeck>
             <Row className="mt-3">
-              <Tablestock/>
+              <TableStock/>
             </Row>
 
           </Container>
+          
     </Container>
     );
   } //render

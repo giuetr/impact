@@ -330,7 +330,7 @@ class Security extends Component {
         () => this.tick(),
         1000
       );
-      const ticker = 'TSLA'
+      const ticker = 'AAPL'
       await getAll(ticker)
       .then(data => this.setState({ 
         yf_all: data.quoteSummary.result[0]})   
@@ -380,7 +380,6 @@ render() {
                   <span className="small mr-3">USD</span>
                   <span style={{color: Math.sign(this.state.yf_all.price.regularMarketChangePercent.raw) > 0 ? "#1BB934" : "red"}}>{this.state.yf_all.price.regularMarketChangePercent.fmt}</span>
                 </div>
-
             </div>
 
                 
@@ -426,8 +425,12 @@ render() {
                                 <TinyDonutChart />
                                 <div className="ml-2 align-self-center">
                                     <span>ESG Score</span>
-                                    <h2 className="mb-0">{this.state.yf_all.esgScores.totalEsg.fmt}</h2>
-                                    <span>Peer avg: <span className="text-info">{this.state.yf_all.esgScores.peerEsgScorePerformance.avg.toFixed(0)}</span></span>
+                                    <h2 className="mb-0">
+                                    {this.state.yf_all.hasOwnProperty('esgScores')&&this.state.yf_all.esgScores.hasOwnProperty('totalEsg') ? this.state.yf_all.esgScores.totalEsg.fmt : ''}
+                                      </h2>
+                                    <span>Peer avg: <span className="text-info">
+                                    {this.state.yf_all.hasOwnProperty('esgScores')&&this.state.yf_all.esgScores.hasOwnProperty('peerEsgScorePerformance') ? this.state.yf_all.esgScores.peerEsgScorePerformance.avg.toFixed(0) : ''}
+                                    </span></span>
                                 </div>
                             </div>
                             <div className="d-flex justify-content-between">
@@ -435,19 +438,25 @@ render() {
                                     <div className="small mb-2">
                                         <i className="fa fa-circle fa-fw text-info"></i> Environmental
                                     </div>
-                                    <h6 className="mb-0">{this.state.yf_all.esgScores.environmentScore.fmt}</h6>
+                                    <h6 className="mb-0">
+                                    {this.state.yf_all.hasOwnProperty('esgScores')&&this.state.yf_all.esgScores.hasOwnProperty('environmentScore') ? this.state.yf_all.esgScores.environmentScore.fmt : ''}
+                                     </h6>
                                 </div>
                                 <div className="text-left">
                                     <div className="small mb-2">
                                         <i className="fa fa-circle fa-fw text-primary"></i> Social
                                     </div>
-                                    <h6 className="mb-0">{this.state.yf_all.esgScores.socialScore.fmt}</h6>
+                                    <h6 className="mb-0">
+                                    {this.state.yf_all.hasOwnProperty('esgScores')&&this.state.yf_all.esgScores.hasOwnProperty('socialScore') ? this.state.yf_all.esgScores.socialScore.fmt : ''}
+                                      </h6>
                                 </div>
                                 <div className="text-left">
                                     <div className="small mb-2">
                                         <i className="fa fa-circle fa-fw text-gray-300"></i> Governance
                                     </div>
-                                    <h6 className="mb-0">{this.state.yf_all.esgScores.governanceScore.fmt}</h6>
+                                    <h6 className="mb-0">
+                                    {this.state.yf_all.hasOwnProperty('esgScores')&&this.state.yf_all.esgScores.hasOwnProperty('governanceScore') ? this.state.yf_all.esgScores.governanceScore.fmt : ''}
+                                     </h6>
                                 </div>
                             </div>
                         </div>
@@ -642,7 +651,7 @@ render() {
                             Cash Flow
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.financialData.freeCashflow.fmt}
+                          {this.state.yf_all.financialData.freeCashflow.fmt}
                             </td>
                         </tr>
                     </tbody>
