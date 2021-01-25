@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Chart from "react-apexcharts";
 import faker from 'faker/locale/en_US';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import InsidersTable from '../../assetsnew';
+import InsidersTable from '../../assetsnew/InsidersTable';
 
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
@@ -106,20 +106,19 @@ render() {
                 <Card className="mb-3">
                     <CardBody className="pb-0">
                         <div className="d-flex mb-4 justify-content-center">
-                            <CardTitle tag="h5">
-                                Total Value Traded
+                            <CardTitle tag="h5" className="text-info">
+                                TOTAL TRADES
                             </CardTitle>
                         </div>
                         <div className="text-center mb-4">
                             <h2>
-                               $2,890.12
+                               321
                             </h2>
-                            <div className="mb-1 text-success">
-                                <i className="fa mr-1 fa-caret-up"></i>
-                                23.34%
+                            <div className="mt-2">
+                                LONG: <span className="text-info">124</span>
                             </div>
                             <div>
-                                Month: <span className="text-info">December 2020</span>
+                                SHORT: <span className="text-danger">101</span>
                             </div>
                         </div>
                     </CardBody>
@@ -130,17 +129,19 @@ render() {
                 <Card className="mb-3">
                     <CardBody className="pb-0">
                         <div className="d-flex mb-4 justify-content-center">
-                            <CardTitle tag="h5">
-                                Total Transactions
+                            <CardTitle tag="h5" className="text-info">
+                                TOTAL SHARES
                             </CardTitle>
                         </div>
-                        <div className="text-center mb-4">
+                        <div className="text-center mb-0">
                             <h2>
-                                52
+                                20301232
                             </h2>
-                            <div className="mb-1 text-success">
-                                <i className="fa mr-1 fa-caret-up"></i>
-                                15.23%
+                            <div className="mt-2">
+                                LONG: <span className="text-info">1123124</span>
+                            </div>
+                            <div>
+                                SHORT: <span className="text-danger">4023012</span>
                             </div>
                             <div>
                                 Activity level: <span className="text-primary">Medium</span>
@@ -154,86 +155,75 @@ render() {
                 <Card className="mb-3">
                     <CardBody className="pb-0">
                         <div className="d-flex mb-4 justify-content-center">
-                            <CardTitle tag="h5">
-                                Most Traded Stock
+                            <CardTitle tag="h5" className="text-info">
+                                MOST TRADED STOCKS
                             </CardTitle>
                         </div>
-                        <div className="text-center mb-4">
-                            <h2>
-                                TSLA
-                            </h2>
-                            <div className="mb-3">
-                                <Badge color="info">LONG</Badge>
-                            </div>
-                            <div>
-                                Trend: <span className="text-info">STRONG</span>
-                            </div>
+                        <div>
+                            <p className="mb-0">
+                            <i className="fa fa-circle text-success mr-2"></i> 
+                                Long
+                            </p>
+                            <h4 className="mt-0">
+                            <Badge color="success">TSLA</Badge> - <span className="text-info">3000000</span> <span className="small">Shares</span>
+                            </h4>
+                        </div>
+                        <div class="hr-text hr-text-center mb-2 mt-2"><span>vs.</span></div>
+                        <div>
+                            <p className="mb-0">
+                            <i className="fa fa-circle text-danger mr-2"></i> 
+                                Short
+                            </p>
+                            <h4 className="mt-0 mb-0">
+                            <Badge color="danger">AMD</Badge> - <span className="text-info">200200</span> <span className="small">Shares</span>
+                            </h4>
                         </div>
                     </CardBody>
                     <CardBody>
                     </CardBody>
                 </Card>
-            </CardDeck>
-
-            <CardDeck>
-                <Card>
-                    <CardBody className="pb-0">
-                            <div className="d-flex mb-2 justify-content-center">
-                                <CardTitle tag="h5">
-                                    Stock Trading Activity
-                                </CardTitle>
-                            </div>
-                            <div className="donut pb-2">
-                                <Chart options={this.state.options} series={this.state.series} type="donut" width="380" />
-                            </div>
-                    </CardBody>
-                </Card>
-                <Card>
+                <Card className="mb-3">
                     <CardBody className="pb-0">
                         <div className="d-flex mb-2 justify-content-center">
-                            <CardTitle tag="h5">
-                                Momentum: <span className="text-info">January 2021</span>
+                            <CardTitle tag="h5" className="text-info">
+                                L/S MOMENTUM
                             </CardTitle>
                         </div>
-                        <div className="text-center mb-4">
-                            <h2>
-                                Bullish
+                        <div className="text-center mb-3">
+                            <h2 className="text-info">
+                            <i class="fa mr-1 fa-caret-up"></i>
+                                1.3%
                             </h2>
-                            <div className="mb-3mb-1">
+                            <div className="">
                                 <Badge color="success">LONG</Badge>
                             </div>
-                            <div>
-                                Trend: <span className="text-info">STRONG</span>
-                            </div>
                         </div>
-                            <Row className="text-center">
+                            <Row className="mt-2 text-center">
                                 <Col sm={ 6 }>
-                                        <SessionsByDevice 
-                                            title="LONG"
-                                            valuePercent="60"
-                                            valuePercentColor="text-success"
-                                            value="$201,345"
-                                            valueColor="text-muted"
-                                        />
+                                    <div className="mb-2">
+                                        LONG
+                                    </div>
+                                    <h2 className="text-info">
+                                        80%
+                                    </h2>
                                 </Col>
                                 <Col sm={ 6 }>
-                                        <SessionsByDevice 
-                                            title="SHORT"
-                                            valuePercent="50"
-                                            valuePercentColor="text-danger"
-                                            value="$134,201"
-                                            valueColor="text-muted"
-                                        />
+                                    <div className="mb-2">
+                                        SHORT
+                                    </div>
+                                    <h2 className="text-danger">
+                                        20%
+                                    </h2>
                                 </Col>
                             </Row>
                             <Progress multi style={{height: "5px"}}>
-                                <Progress animated bar color="success" value="60" />
-                                <Progress animated bar color="danger" value="50" />
+                                <Progress animated bar color="info" value="80" />
+                                <Progress animated bar color="danger" value="20" />
                             </Progress>
                     </CardBody>
                 </Card>
-
             </CardDeck>
+
             <Row className="mt-3">
               <InsidersTable/>
             </Row>
