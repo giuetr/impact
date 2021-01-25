@@ -113,3 +113,12 @@ export async function getESG(ticker) {
     const data = await response.json();
     return data;
 };
+
+
+// economic calendar
+export async function getEcon(ticker) {
+    const url = `https://finnhub.io/api/v1/calendar/economic?token=bv21cgf48v6o5ed6o1ng`;
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+};

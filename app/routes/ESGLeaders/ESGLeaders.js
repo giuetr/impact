@@ -68,7 +68,7 @@ render() {
                       className=""
                   />
                   <div className="h3">
-                    <span className="text-info mr-3">The Top Performers in the ESG Space</span>
+                    <span className="text-info mr-3">A Radar on tomorrow's Innovation and Sustainability Leaders</span>
                   </div>
 
               </div>
@@ -78,17 +78,12 @@ render() {
               <Card className="mb-3">
                 <CardBody className="pb-0">
                     <div className="d-flex">
-                        <Button color="link" size="sm" id="tooltipGridAddToFavorites">
-                            <i className="fa fa-star-o"></i>
-                        </Button>
-                        <UncontrolledTooltip placement="top" target="tooltipGridAddToFavorites">
-                            Add To Favorites
-                        </UncontrolledTooltip>
+                            <i className="fa fa-envira text-primary"></i>
                     </div>
 
                     <div className="mb-4 mt-3 text-left">
                         <a className="h3 text-decoration-none" href="#">
-                            Green Energy
+                            Clean Energy
                         </a>
                         <div className="text-left mt-2">
                             Number of companies: <span className="text-info">13</span>
@@ -97,23 +92,23 @@ render() {
                     
                     <div className="text-left mb-4">
                         <div className="mb-2">
-                            <span className="small">
-                                Top companies:
+                            <span className="small text-primary">
+                                Trending Now:
                             </span>
                         </div>
                         <Badge pill color="primary" className="mr-1">
-                            PLUG
+                            FCEL
                         </Badge>
                         <Badge pill color="primary" className="mr-1">
-                            ENPH
+                            PLUG
                         </Badge>
                         <Badge pill color="primary">
-                            FCEL
+                            SPWR
                         </Badge>
                     </div>
                     <div className="text-left mb-4">
                         <p className="mb-0">
-                            Companies active in the renewable and clean energy space
+                            Renewable and clean energy leaders
                         </p>
                         <Button className="mt-3" color="primary">Explore</Button>             
                     </div>   
@@ -128,17 +123,12 @@ render() {
               <Card className="mb-3">
                 <CardBody className="pb-0">
                     <div className="d-flex">
-                        <Button color="link" size="sm" id="tooltipGridAddToFavorites">
-                            <i className="fa fa-star-o"></i>
-                        </Button>
-                        <UncontrolledTooltip placement="top" target="tooltipGridAddToFavorites">
-                            Add To Favorites
-                        </UncontrolledTooltip>
+                        <i className="fa fa-envira text-primary"></i>
                     </div>
 
                     <div className="mb-4 mt-3 text-left">
                         <a className="h3 text-decoration-none" href="#">
-                            Smart Buildings
+                            Ultra Tech
                         </a>
                         <div className="text-left mt-2">
                             Number of companies: <span className="text-info">7</span>
@@ -147,23 +137,23 @@ render() {
                     
                     <div className="text-left mb-4">
                         <div className="mb-2">
-                            <span className="small">
-                                Top companies:
+                            <span className="small text-primary">
+                                Trending Now:
                             </span>
                         </div>
                         <Badge pill color="primary" className="mr-1">
-                            PLUG
+                            AAPL
                         </Badge>
                         <Badge pill color="primary" className="mr-1">
-                            ENPH
+                            CSCO
                         </Badge>
                         <Badge pill color="primary">
-                            FCEL
+                            AMD
                         </Badge>
                     </div>
                     <div className="text-left mb-4">
                         <p className="mb-0">
-                            Companies active in the renewable and clean energy space
+                            Companies leading innovation
                         </p>
                         <Button className="mt-3" color="primary">Explore</Button>             
                     </div>   
@@ -175,6 +165,277 @@ render() {
                 </CardFooter>
               </Card>
 
+
+
+              <Card className="mb-3">
+                <CardBody className="pb-0">
+                    <div className="d-flex">
+                        <i className="fa fa-envira text-primary"></i>
+                    </div>
+
+                    <div className="mb-4 mt-3 text-left">
+                        <a className="h3 text-decoration-none" href="#">
+                            EV &amp; Self-Driving
+                        </a>
+                        <div className="text-left mt-2">
+                            Number of companies: <span className="text-info">7</span>
+                        </div>
+                    </div>
+                    
+                    <div className="text-left mb-4">
+                        <div className="mb-2">
+                            <span className="small text-primary">
+                                Trending Now:
+                            </span>
+                        </div>
+                        <Badge pill color="primary" className="mr-1">
+                            TSLA
+                        </Badge>
+                        <Badge pill color="primary" className="mr-1">
+                            NIO
+                        </Badge>
+                        <Badge pill color="primary">
+                            F
+                        </Badge>
+                    </div>
+                    <div className="text-left mb-4">
+                        <p className="mb-0">
+                            Leaders and Pioneers of the EV space
+                        </p>
+                        <Button className="mt-3" color="primary">Explore</Button>             
+                    </div>   
+                </CardBody>
+                <CardFooter className="d-flex">
+                    <span className="align-self-center">
+                        #Real-Time Update
+                    </span>
+                </CardFooter>
+              </Card>
+
+              <Card className="mb-3">
+                <CardBody className="pb-0">
+                    <div className="d-flex">
+                        <i className="fa fa-envira text-primary"></i>
+                    </div>
+
+                    <div className="mb-4 mt-3 text-left">
+                        <a className="h3 text-decoration-none" href="#">
+                            Future of Food
+                        </a>
+                        <div className="text-left mt-2">
+                            Number of companies: <span className="text-info">7</span>
+                        </div>
+                    </div>
+                    
+                    <div className="text-left mb-4">
+                        <div className="mb-2">
+                            <span className="small text-primary">
+                                Trending Now:
+                            </span>
+                        </div>
+                        <Badge pill color="primary" className="mr-1">
+                            KR
+                        </Badge>
+                        <Badge pill color="primary" className="mr-1">
+                            WMT
+                        </Badge>
+                        <Badge pill color="primary">
+                            BYND
+                        </Badge>
+                    </div>
+                    <div className="text-left mb-4">
+                        <p className="mb-0">
+                            The NextGen food and nutrition paradigm 
+                        </p>
+                        <Button className="mt-3" color="primary">Explore</Button>             
+                    </div>   
+                </CardBody>
+                <CardFooter className="d-flex">
+                    <span className="align-self-center">
+                        #Real-Time Update
+                    </span>
+                </CardFooter>
+              </Card>
+
+              <Card className="mb-3">
+                <CardBody className="pb-0">
+                    <div className="d-flex">
+                        <i className="fa fa-envira text-primary"></i>
+                    </div>
+
+                    <div className="mb-4 mt-3 text-left">
+                        <a className="h3 text-decoration-none" href="#">
+                            Future Health
+                        </a>
+                        <div className="text-left mt-2">
+                            Number of companies: <span className="text-info">7</span>
+                        </div>
+                    </div>
+                    
+                    <div className="text-left mb-4">
+                        <div className="mb-2">
+                            <span className="small text-primary">
+                                Trending Now:
+                            </span>
+                        </div>
+                        <Badge pill color="primary" className="mr-1">
+                            SDC
+                        </Badge>
+                        <Badge pill color="primary" className="mr-1">
+                            TWST
+                        </Badge>
+                        <Badge pill color="primary">
+                            MCRB
+                        </Badge>
+                    </div>
+                    <div className="text-left mb-4">
+                        <p className="mb-0">
+                            Healthcare Innovators
+                        </p>
+                        <Button className="mt-3" color="primary">Explore</Button>             
+                    </div>   
+                </CardBody>
+                <CardFooter className="d-flex">
+                    <span className="align-self-center">
+                        #Real-Time Update
+                    </span>
+                </CardFooter>
+              </Card>
+              
+              <Card className="mb-3">
+                <CardBody className="pb-0">
+                    <div className="d-flex">
+                        <i className="fa fa-envira text-primary"></i>
+                    </div>
+
+                    <div className="mb-4 mt-3 text-left">
+                        <a className="h3 text-decoration-none" href="#">
+                            Smart Cities &amp; Building
+                        </a>
+                        <div className="text-left mt-2">
+                            Number of companies: <span className="text-info">7</span>
+                        </div>
+                    </div>
+                    
+                    <div className="text-left mb-4">
+                        <div className="mb-2">
+                            <span className="small text-primary">
+                                Trending Now:
+                            </span>
+                        </div>
+                        <Badge pill color="primary" className="mr-1">
+                            GE
+                        </Badge>
+                        <Badge pill color="primary" className="mr-1">
+                            CSCO
+                        </Badge>
+                        <Badge pill color="primary">
+                            QCOM
+                        </Badge>
+                    </div>
+                    <div className="text-left mb-4">
+                        <p className="mb-0">
+                            Behind the cities of tomorrow
+                        </p>
+                        <Button className="mt-3" color="primary">Explore</Button>             
+                    </div>   
+                </CardBody>
+                <CardFooter className="d-flex">
+                    <span className="align-self-center">
+                        #Real-Time Update
+                    </span>
+                </CardFooter>
+              </Card>
+
+              <Card className="mb-3">
+                <CardBody className="pb-0">
+                    <div className="d-flex">
+                        <i className="fa fa-envira text-primary"></i>
+                    </div>
+
+                    <div className="mb-4 mt-3 text-left">
+                        <a className="h3 text-decoration-none" href="#">
+                            NextGen AI
+                        </a>
+                        <div className="text-left mt-2">
+                            Number of companies: <span className="text-info">7</span>
+                        </div>
+                    </div>
+                    
+                    <div className="text-left mb-4">
+                        <div className="mb-2">
+                            <span className="small text-primary">
+                                Trending Now:
+                            </span>
+                        </div>
+                        <Badge pill color="primary" className="mr-1">
+                            FARO
+                        </Badge>
+                        <Badge pill color="primary" className="mr-1">
+                            ALTR
+                        </Badge>
+                        <Badge pill color="primary">
+                            SLAB
+                        </Badge>
+                    </div>
+                    <div className="text-left mb-4">
+                        <p className="mb-0">
+                            Beyond Tech
+                        </p>
+                        <Button className="mt-3" color="primary">Explore</Button>             
+                    </div>   
+                </CardBody>
+                <CardFooter className="d-flex">
+                    <span className="align-self-center">
+                        #Real-Time Update
+                    </span>
+                </CardFooter>
+              </Card>
+
+              <Card className="mb-3">
+                <CardBody className="pb-0">
+                    <div className="d-flex">
+                        <i className="fa fa-envira text-primary"></i>
+                    </div>
+
+                    <div className="mb-4 mt-3 text-left">
+                        <a className="h3 text-decoration-none" href="#">
+                            CyberSec 2.0
+                        </a>
+                        <div className="text-left mt-2">
+                            Number of companies: <span className="text-info">7</span>
+                        </div>
+                    </div>
+                    
+                    <div className="text-left mb-4">
+                        <div className="mb-2">
+                            <span className="small text-primary">
+                                Trending Now:
+                            </span>
+                        </div>
+                        <Badge pill color="primary" className="mr-1">
+                            FEYE
+                        </Badge>
+                        <Badge pill color="primary" className="mr-1">
+                            CRWD
+                        </Badge>
+                        <Badge pill color="primary">
+                            DOCU
+                        </Badge>
+                    </div>
+                    <div className="text-left mb-4">
+                        <p className="mb-0">
+                            Building future resiliency
+                        </p>
+                        <Button className="mt-3" color="primary">Explore</Button>             
+                    </div>   
+                </CardBody>
+                <CardFooter className="d-flex">
+                    <span className="align-self-center">
+                        #Real-Time Update
+                    </span>
+                </CardFooter>
+              </Card>
 
 
             </CardColumns>

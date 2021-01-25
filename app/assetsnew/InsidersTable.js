@@ -86,6 +86,8 @@ const columns = [{
 }, {
   dataField: 'totbought',
   text: 'Shares Long',
+  sort: true,
+  sortCaret,
   formatter: (cell) => (
     <span className="text-info">
         { cell }
@@ -94,6 +96,8 @@ const columns = [{
 }, {
   dataField: 'totsold',
   text: 'Shares Short',
+  sort: true,
+  sortCaret,
   formatter: (cell) => (
     <span className="text-danger">
         { cell }
