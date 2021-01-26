@@ -197,7 +197,7 @@ render() {
                       className=""
                   />
                   <div className="h3">
-                    <span className="text-info mr-3">Explore our data assets</span>
+                    <span className="text-info mr-3">Leaders and Pioneers of the EV space</span>
                   </div>
 
               </div>

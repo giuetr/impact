@@ -78,7 +78,7 @@ render() {
                       className=""
                   />
                   <div className="h3">
-                    <span className="text-info mr-3">Explore our data assets</span>
+                    <span className="text-info mr-3">Market insights from the US Senators trading activity</span>
                   </div>
 
               </div>

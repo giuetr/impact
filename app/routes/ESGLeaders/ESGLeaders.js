@@ -68,7 +68,7 @@ render() {
                       className=""
                   />
                   <div className="h3">
-                    <span className="text-info mr-3">A Radar on tomorrow's Innovation and Sustainability Leaders</span>
+                    <span className="text-info mr-3">A radar on tomorrow's Innovation and Sustainability Leaders</span>
                   </div>
 
               </div>
