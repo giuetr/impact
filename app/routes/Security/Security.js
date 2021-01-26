@@ -50,9 +50,68 @@ class Security extends Component {
         super(props);
 
         this.state = {
+
+          //stati relativi al risultato dei metodi in API
             yf_all: null,
             yf_peers: null,
             yf_chart: null,
+          //stati campi
+          shortName: null,
+          shortName:null,
+          symbol:null,
+          regularMarket_raw:null,
+          regularMarketChangePercent_raw:null,
+          regularMarketChangePercent_fmt:null,
+          industry:null,
+          sector:null,
+          website:null,
+          fullTimeEmployees:null,
+          targetMeanraw:null,
+          targetLowraw:null,
+          targetMedianraw:null,
+          targetHighraw:null,
+          recommendationKey:null,
+          numberOfAnalystOpinions_fmt:null,
+          symbol:null,
+          marketCap_fmt:null,
+          totalRevenue_fmt:null,
+          grossMargins_fmt:null,
+          ebitda_fmt:null,
+          totalCash_fmt:null,
+          totalDebt_fmt:null,
+          freeCashflow_fmt:null,
+          revenueGrowth_raw:null,
+          operatingMargins_raw:null,
+          operatingMargins_fmt:null,
+          returnOnEquity_raw:null,
+          returnOnEquity_fmt:null,
+          returnOnAssets_raw:null,
+          returnOnAssets_fmt:null,
+          currentRatio_fmt:null,
+          forwardPE_fmt:null,
+          forwardEps_fmt:null,
+          enterpriseToEbitda_fmt:null,
+          beta_fmt:null,
+          fiftyDayAverage_fmt:null,
+          twoHundredDayAverage_fmt:null,
+          fiftyTwoWeekHigh_fmt:null,
+          fiftyTwoWeekLow_fmt:null,
+          volume_fmt:null,
+          averageVolume10days_fmt:null,
+          sharesShort_fmt:null,
+          sharesShortPriorMonth_fmt:null,
+          shortPercentOfFloat_fmt:null,
+          overallRisk:null,
+          auditRisk:null,
+          boardRisk:null,
+          compensationRisk:null,
+          shareHolderRightsRisk:null,
+          netSharePurchaseActivity_buyInfoShares_fmt:null,
+          netSharePurchaseActivity_sellInfoShares_fmt:null,
+          majorHoldersBreakdown_insidersPercentHeld_fmt:null,
+          majorHoldersBreakdown_institutionsPercentHeld_fmt:null,
+          majorHoldersBreakdown_institutionsCount_raw:null,
+
             date: new Date(),
             series: [{
                 data: [{
@@ -320,8 +379,9 @@ class Security extends Component {
 
     gainTarget() {
       const price = this.state.yf_all.price.regularMarketPrice.raw;
-      const target = this.state.yf_all.financialData.targetMeanPrice.raw;
+      const target = this.state.targetMean_raw;
       const result = ((target / price)-1)*100;
+      
       return result;
    }
 
@@ -330,11 +390,69 @@ class Security extends Component {
         () => this.tick(),
         1000
       );
-      const ticker = 'AAPL'
+      const ticker = 'AMD'
       await getAll(ticker)
       .then(data => this.setState({ 
         yf_all: data.quoteSummary.result[0]})   
+      ).then(data => this.setState({ 
+        shortName: this.state.yf_all.quoteType.shortName,
+        symbol: this.state.yf_all.quoteType.symbol,
+        regularMarket_raw: this.state.yf_all.price.regularMarketPrice.raw,
+        regularMarketChangePercent_raw: this.state.yf_all.price.regularMarketChangePercent.raw,
+        regularMarketChangePercent_fmt: this.state.yf_all.price.regularMarketChangePercent.fmt,
+        industry: this.state.yf_all.assetProfile.industry,
+        sector: this.state.yf_all.assetProfile.sector,
+        website: this.state.yf_all.assetProfile.website,
+        fullTimeEmployees: this.state.yf_all.assetProfile.fullTimeEmployees,
+        targetMean_raw: this.state.yf_all.financialData.targetMeanPrice.raw,
+        targetLow_raw: this.state.yf_all.financialData.targetLowPrice.raw,
+        targetMedian_raw: this.state.yf_all.financialData.targetMedianPrice.raw,
+        targetHigh_raw: this.state.yf_all.financialData.targetHighPrice.raw,
+        recommendationKey: this.state.yf_all.financialData.recommendationKey,
+        numberOfAnalystOpinions_fmt: this.state.yf_all.financialData.numberOfAnalystOpinions.fmt,
+        marketCap_fmt: this.state.yf_all.summaryDetail.marketCap.fmt,
+        totalRevenue_fmt: this.state.yf_all.financialData.totalRevenue.fmt,
+        grossMargins_fmt: this.state.yf_all.financialData.grossMargins.fmt,
+        ebitda_fmt: this.state.yf_all.financialData.ebitda.fmt,
+        totalCash_fmt: this.state.yf_all.financialData.totalCash.fmt,
+        totalDebt_fmt: this.state.yf_all.financialData.totalDebt.fmt,
+        freeCashflow_fmt: this.state.yf_all.financialData.freeCashflow.fmt,
+        revenueGrowth_raw: this.state.yf_all.financialData.revenueGrowth.raw,
+        operatingMargins_raw: this.state.yf_all.financialData.operatingMargins.raw,
+        operatingMargins_fmt: this.state.yf_all.financialData.operatingMargins.fmt,
+        returnOnEquity_raw: this.state.yf_all.financialData.returnOnEquity.raw,
+        returnOnEquity_fmt: this.state.yf_all.financialData.returnOnEquity.fmt,
+        returnOnAssets_raw: this.state.yf_all.financialData.returnOnAssets.raw,
+        returnOnAssets_fmt: this.state.yf_all.financialData.returnOnAssets.fmt,
+        currentRatio_fmt: this.state.yf_all.financialData.currentRatio.fmt,
+        forwardPE_fmt: this.state.yf_all.defaultKeyStatistics.forwardPE.fmt,
+        forwardEps_fmt: this.state.yf_all.defaultKeyStatistics.forwardEps.fmt,
+        enterpriseToEbitda_fmt: this.state.yf_all.defaultKeyStatistics.enterpriseToEbitda.fmt,
+        beta_fmt: this.state.yf_all.summaryDetail.beta.fmt,
+        fiftyDayAverage_fmt: this.state.yf_all.summaryDetail.fiftyDayAverage.fmt,
+        twoHundredDayAverage_fmt: this.state.yf_all.summaryDetail.twoHundredDayAverage.fmt,
+        fiftyTwoWeekHigh_fmt: this.state.yf_all.summaryDetail.fiftyTwoWeekHigh.fmt,
+        fiftyTwoWeekLow_fmt: this.state.yf_all.summaryDetail.fiftyTwoWeekLow.fmt,
+        volume_fmt: this.state.yf_all.summaryDetail.volume.fmt,
+        averageVolume10days_fmt: this.state.yf_all.summaryDetail.averageVolume10days.fmt,
+        sharesShort_fmt: this.state.yf_all.defaultKeyStatistics.sharesShort.fmt,
+        sharesShortPriorMonth_fmt: this.state.yf_all.defaultKeyStatistics.sharesShortPriorMonth.fmt,
+        shortPercentOfFloat_fmt: this.state.yf_all.defaultKeyStatistics.shortPercentOfFloat.fmt,
+        overallRisk: this.state.yf_all.assetProfile.overallRisk,
+        auditRisk: this.state.yf_all.assetProfile.auditRisk,
+        boardRisk: this.state.yf_all.assetProfile.boardRisk,
+        compensationRisk: this.state.yf_all.assetProfile.compensationRisk,
+        shareHolderRightsRisk: this.state.yf_all.assetProfile.shareHolderRightsRisk,
+        buyInfoShares_fmt: this.state.yf_all.netSharePurchaseActivity.buyInfoShares.fmt,
+        sellInfoShares_fmt: this.state.yf_all.netSharePurchaseActivity.sellInfoShares.fmt,
+        insidersPercentHeld_fmt: this.state.yf_all.majorHoldersBreakdown.insidersPercentHeld.fmt,
+        institutionsPercentHeld_fmt: this.state.yf_all.majorHoldersBreakdown.institutionsPercentHeld.fmt,
+        institutionsCount_raw: this.state.yf_all.majorHoldersBreakdown.institutionsCount.raw
+      })   
       )
+
+
+      
       await getPeers(ticker)
       .then(data => this.setState({ 
         yf_peers: data.finance.result[0].recommendedSymbols})   
@@ -350,10 +468,15 @@ class Security extends Component {
         date: new Date()
       });
     }  
+
+
+    
 render() {
   if (!this.state.yf_all || !this.state.yf_peers) {
     return <div>didn't get summary detail</div>;
   }
+
+
     return (
         <Container>
           <Row className="mb-3">
@@ -371,14 +494,14 @@ render() {
           <div className="d-flex mt-3 mb-5">
             <div>
                 <HeaderMain 
-                    title={this.state.yf_all.quoteType.shortName}
+                    title={this.state.shortName}
                     className=""
                 />
                 <div className="h3">
-                  <span className="text-info mr-3">{this.state.yf_all.quoteType.symbol}</span>
-                  <span>{this.state.yf_all.price.regularMarketPrice.raw}</span>
+                  <span className="text-info mr-3">{this.state.symbol}</span>
+                  <span>{this.state.regularMarket_raw}</span>
                   <span className="small mr-3">USD</span>
-                  <span style={{color: Math.sign(this.state.yf_all.price.regularMarketChangePercent.raw) > 0 ? "#1BB934" : "red"}}>{this.state.yf_all.price.regularMarketChangePercent.fmt}</span>
+                  <span style={{color: Math.sign(this.state.regularMarketChangePercent_raw) > 0 ? "#1BB934" : "red"}}>{this.state.regularMarketChangePercent_fmt}</span>
                 </div>
             </div>
 
@@ -388,20 +511,20 @@ render() {
                 <div className="d-flex ml-auto align-self-start">
                   <div className="d-flex flex-column">
                     <div color="link" className="text-left pl-0 text-decoration-none mb-2 mr-5">
-                      Industry: <span className="text-muted">{this.state.yf_all.assetProfile.industry}</span>
+                      Industry: <span className="text-muted">{this.state.industry}</span>
                     </div>
                     <div color="link" className="text-left pl-0 text-decoration-none mb-2 mr-5">
-                      Sector: <span className="text-muted">{this.state.yf_all.assetProfile.sector}</span>
+                      Sector: <span className="text-muted">{this.state.sector}</span>
                     </div>
                   </div>
                   <div className="d-flex flex-column">
                     <div color="link" className="text-left pl-0 text-decoration-none mb-2 mr-5">
                       <i className="fa fa-globe text-body mr-2"></i>
-                      <a href="#" target="_blank" className="text-info">{this.state.yf_all.assetProfile.website}</a>
+                      <a href="#" target="_blank" className="text-info">{this.state.website}</a>
                     </div>
                     <div color="link" className="text-left pl-0 text-decoration-none mb-2 mr-5">
                       <i className="fa fa-child text-body mr-2"></i>
-                      Employees: <span className="text-muted">{this.state.yf_all.assetProfile.fullTimeEmployees}</span>
+                      Employees: <span className="text-muted">{this.state.fullTimeEmployees}</span>
                     </div>
                   </div>
                 </div>
@@ -470,7 +593,7 @@ render() {
                         title="PRICE TARGET"
                         badgeTitle="Real Time"
                         badgeColor="primary"
-                        value={this.state.yf_all.financialData.targetMeanPrice.raw}
+                        value={this.state.targetMean_raw}
                         valueTitle=""
                         footerClassName="h5"
                         footerTitle="Potential Return:"
@@ -480,15 +603,15 @@ render() {
                     />
                     <div className="d-flex justify-content-between mt-3">
                                 <div className="text-center">
-                                    <h6 className="mb-0">{this.state.yf_all.financialData.targetLowPrice.raw}</h6>
+                                    <h6 className="mb-0">{this.state.targetLow_raw}</h6>
                                     <span>Min</span>
                                 </div>
                                 <div className="text-center">
-                                    <h6 className="mb-0">{this.state.yf_all.financialData.targetMedianPrice.raw}</h6>
+                                    <h6 className="mb-0">{this.state.targetMedian_raw}</h6>
                                     <span>Avg</span>
                                 </div>
                                 <div className="text-center">
-                                    <h6 className="mb-0">{this.state.yf_all.financialData.targetHighPrice.raw}</h6>
+                                    <h6 className="mb-0">{this.state.targetHigh_raw}</h6>
                                     <span>Max</span>
                                 </div>
                             </div>     
@@ -501,13 +624,13 @@ render() {
                 <CardBody>
                     <ProfileOverviewCard 
                         title="RECOMMENDATIONS"
-                        badgeTitle={this.state.yf_all.financialData.recommendationKey}
+                        badgeTitle={this.state.recommendationKey}
                         badgeColor="info"
-                        value={this.state.yf_all.financialData.recommendationKey}
+                        value={this.state.recommendationKey}
                         valueTitle="STRONG"
                         footerTitle="Analysts:"
                         footerTitleClassName="text-INFO"
-                        footerValue={this.state.yf_all.financialData.numberOfAnalystOpinions.fmt}
+                        footerValue={this.state.numberOfAnalystOpinions_fmt}
                         footerIcon=""
                     />
                     <div className="d-flex justify-content-between mt-3">
@@ -568,7 +691,7 @@ render() {
                         
                         <div>
                         <TradingViewWidget
-                            symbol={this.state.yf_all.quoteType.symbol}
+                            symbol={this.state.symbol}
                             theme={Themes.LIGHT}
                             locale="en"
                             interval= "D"
@@ -603,7 +726,7 @@ render() {
                             Market Cap
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.summaryDetail.marketCap.fmt}
+                            {this.state.marketCap_fmt}
                             </td>
                         </tr>
                         <tr>
@@ -611,7 +734,7 @@ render() {
                             Revenue
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.financialData.totalRevenue.fmt}
+                            {this.state.totalRevenue_fmt}
                             </td>
                         </tr>
                         <tr>
@@ -619,7 +742,7 @@ render() {
                             Gross Margin
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.financialData.grossMargins.fmt}
+                            {this.state.grossMargins_fmt}
                             </td>
                         </tr>
                         <tr>
@@ -627,7 +750,7 @@ render() {
                             EBITDA
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.financialData.ebitda.fmt}
+                            {this.state.ebitda_fmt}
                             </td>
                         </tr>
                         <tr>
@@ -635,7 +758,7 @@ render() {
                             Cash
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.financialData.totalCash.fmt}
+                            {this.state.totalCash_fmt}
                             </td>
                         </tr>
                         <tr>
@@ -643,7 +766,7 @@ render() {
                             Debt
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.financialData.totalDebt.fmt}
+                            {this.state.totalDebt_fmt}
                             </td>
                         </tr>
                         <tr>
@@ -651,7 +774,7 @@ render() {
                             Cash Flow
                             </td>
                             <td className="align-middle text-right text-info">
-                          {this.state.yf_all.financialData.freeCashflow.fmt}
+                          {this.state.freeCashflow_fmt}
                             </td>
                         </tr>
                     </tbody>
@@ -711,8 +834,8 @@ render() {
                             <td className="align-middle text-inverse">
                             Revenue Growth
                             </td>
-                            <td className="align-middle text-right" style={{color: Math.sign(this.state.yf_all.financialData.revenueGrowth.raw) > 0 ? "#33AE9A" : "red"}}>
-                            <i className={Math.sign(this.state.yf_all.financialData.revenueGrowth.raw) > 0 ? "fa fa-caret-up mr-2" : "fa fa-caret-down mr-2"}></i>
+                            <td className="align-middle text-right" style={{color: Math.sign(this.state.revenueGrowth_raw) > 0 ? "#33AE9A" : "red"}}>
+                            <i className={Math.sign(this.state.revenueGrowth_raw) > 0 ? "fa fa-caret-up mr-2" : "fa fa-caret-down mr-2"}></i>
                             {this.state.yf_all.financialData.revenueGrowth.fmt}
                             </td>
                         </tr>
@@ -720,36 +843,36 @@ render() {
                             <td className="align-middle text-inverse">
                             Earnings Growth
                             </td>
-                            <td className="align-middle text-right" style={{color: Math.sign(this.state.yf_all.financialData.operatingMargins.raw) > 0 ? "#33AE9A" : "red"}}>
-                            <i className={Math.sign(this.state.yf_all.financialData.operatingMargins.raw) > 0 ? "fa fa-caret-up mr-2" : "fa fa-caret-down mr-2"}></i>
-                            {this.state.yf_all.financialData.operatingMargins.fmt}
+                            <td className="align-middle text-right" style={{color: Math.sign(this.state.operatingMargins_raw) > 0 ? "#33AE9A" : "red"}}>
+                            <i className={Math.sign(this.state.operatingMargins_raw) > 0 ? "fa fa-caret-up mr-2" : "fa fa-caret-down mr-2"}></i>
+                            {this.state.operatingMargins_fmt}
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Operating Margins
                             </td>
-                            <td className="align-middle text-right" style={{color: Math.sign(this.state.yf_all.financialData.operatingMargins.raw) > 0 ? "#33AE9A" : "red"}}>
-                            <i className={Math.sign(this.state.yf_all.financialData.operatingMargins.raw) > 0 ? "fa fa-caret-up mr-2" : "fa fa-caret-down mr-2"}></i>
-                            {this.state.yf_all.financialData.operatingMargins.fmt}
+                            <td className="align-middle text-right" style={{color: Math.sign(this.state.operatingMargins_raw) > 0 ? "#33AE9A" : "red"}}>
+                            <i className={Math.sign(this.state.operatingMargins_raw) > 0 ? "fa fa-caret-up mr-2" : "fa fa-caret-down mr-2"}></i>
+                            {this.state.operatingMargins_fmt}
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Return on Equity
                             </td>
-                            <td className="align-middle text-right" style={{color: Math.sign(this.state.yf_all.financialData.returnOnEquity.raw) > 0 ? "#33AE9A" : "red"}}>
-                            <i className={Math.sign(this.state.yf_all.financialData.returnOnEquity.raw) > 0 ? "fa fa-caret-up mr-2" : "fa fa-caret-down mr-2"}></i>
-                            {this.state.yf_all.financialData.returnOnEquity.fmt}
+                            <td className="align-middle text-right" style={{color: Math.sign(this.state.returnOnEquity_raw) > 0 ? "#33AE9A" : "red"}}>
+                            <i className={Math.sign(this.state.returnOnEquity_raw) > 0 ? "fa fa-caret-up mr-2" : "fa fa-caret-down mr-2"}></i>
+                            {this.state.returnOnEquity_fmt}
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Return on Assets
                             </td>
-                            <td className="align-middle text-right" style={{color: Math.sign(this.state.yf_all.financialData.returnOnAssets.raw) > 0 ? "#33AE9A" : "red"}}>
-                            <i className={Math.sign(this.state.yf_all.financialData.returnOnAssets.raw) > 0 ? "fa fa-caret-up mr-2" : "fa fa-caret-down mr-2"}></i>
-                            {this.state.yf_all.financialData.returnOnAssets.fmt}
+                            <td className="align-middle text-right" style={{color: Math.sign(this.state.returnOnAssets_raw) > 0 ? "#33AE9A" : "red"}}>
+                            <i className={Math.sign(this.state.returnOnAssets_raw) > 0 ? "fa fa-caret-up mr-2" : "fa fa-caret-down mr-2"}></i>
+                            {this.state.returnOnAssets_fmt}
                             </td>
                         </tr>
                         <tr>
@@ -757,7 +880,7 @@ render() {
                             Current Ratio
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.financialData.currentRatio.fmt}
+                            {this.state.currentRatio_fmt}
                             </td>
                         </tr>
                         <tr>
@@ -765,7 +888,7 @@ render() {
                             Forward PE
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.defaultKeyStatistics.forwardPE.fmt}
+                            {this.state.forwardPE_fmt}
                             </td>
                         </tr>
                         <tr>
@@ -773,7 +896,7 @@ render() {
                             Forward EPS
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.defaultKeyStatistics.forwardEps.fmt}
+                            {this.state.forwardEps_fmt}
                             </td>
                         </tr>
                         <tr>
@@ -781,7 +904,7 @@ render() {
                             Enterprise to EBITDA
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.defaultKeyStatistics.enterpriseToEbitda.fmt}
+                            {this.state.enterpriseToEbitda_fmt}
                             </td>
                         </tr>
                     </tbody>
@@ -816,7 +939,7 @@ render() {
                             Beta
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.summaryDetail.beta.fmt}
+                            {this.state.beta_fmt}
                             </td>
                         </tr>
                         <tr>
@@ -824,7 +947,7 @@ render() {
                             50 Days Average
                             </td>
                             <td className="align-middle text-right text-info">
-                            $ {this.state.yf_all.summaryDetail.fiftyDayAverage.fmt}
+                            $ {this.state.fiftyDayAverage_fmt}
                             </td>
                         </tr>
                         <tr>
@@ -832,7 +955,7 @@ render() {
                               200 Days Average
                             </td>
                             <td className="align-middle text-right text-info">
-                            $ {this.state.yf_all.summaryDetail.twoHundredDayAverage.fmt}
+                            $ {this.state.twoHundredDayAverage_fmt}
                             </td>
                         </tr>
                         <tr>
@@ -840,7 +963,7 @@ render() {
                             52 Weeks High
                             </td>
                             <td className="align-middle text-right text-info">
-                            $ {this.state.yf_all.summaryDetail.fiftyTwoWeekHigh.fmt}
+                            $ {this.state.fiftyTwoWeekHigh_fmt}
                             </td>
                         </tr>
                         <tr>
@@ -848,7 +971,7 @@ render() {
                             52 Weeks Low
                             </td>
                             <td className="align-middle text-right text-info">
-                            $ {this.state.yf_all.summaryDetail.fiftyTwoWeekLow.fmt}
+                            $ {this.state.fiftyTwoWeekLow_fmt}
                             </td>
                         </tr>
                         <tr>
@@ -856,7 +979,7 @@ render() {
                             Volume
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.summaryDetail.volume.fmt}
+                            {this.state.volume_fmt}
                             </td>
                         </tr>
                         <tr>
@@ -864,7 +987,7 @@ render() {
                             Avg. Volume Last 10 Days
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.summaryDetail.averageVolume10days.fmt}
+                            {this.state.averageVolume10days_fmt}
                             </td>
                         </tr>
                         <tr>
@@ -872,7 +995,7 @@ render() {
                             Shorted Shares
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.defaultKeyStatistics.sharesShort.fmt} <span className="text-muted">vs. {this.state.yf_all.defaultKeyStatistics.sharesShortPriorMonth.fmt} MoM</span>
+                            {this.state.sharesShort_fmt} <span className="text-muted">vs. {this.state.sharesShortPriorMonth_fmt} MoM</span>
                             </td>
                         </tr>
                         <tr>
@@ -880,7 +1003,7 @@ render() {
                             Short % of Float
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.defaultKeyStatistics.shortPercentOfFloat.fmt}
+                            {this.state.shortPercentOfFloat_fmt}
                             </td>
                         </tr>
                         
@@ -909,7 +1032,7 @@ render() {
                                   title="OVERALL GOVERNANCE RISK"
                                   badgeTitle="HIGH RISK"
                                   badgeColor="danger"
-                                  value={this.state.yf_all.assetProfile.overallRisk}
+                                  value={this.state.overallRisk}
                                   valueTitle="Vs. Sector Average: 7"
                                   footerTitle=""
                                   footerTitleClassName="text-info"
@@ -938,25 +1061,25 @@ render() {
                                       <tr>
                                           <td className="text-inverse bt-0">Audit Risk</td>
                                           <td className="text-right bt-0">
-                                              <Badge color="success" pill>{this.state.yf_all.assetProfile.auditRisk}</Badge>
+                                              <Badge color="success" pill>{this.state.auditRisk}</Badge>
                                           </td>
                                       </tr>
                                       <tr>
                                           <td className="text-inverse">Board Risk</td>
                                           <td className="text-right">
-                                              <Badge color="primary" pill>{this.state.yf_all.assetProfile.boardRisk}</Badge>
+                                              <Badge color="primary" pill>{this.state.boardRisk}</Badge>
                                           </td>
                                       </tr>
                                       <tr>
                                           <td className="text-inverse">Compensantion Risk</td>
                                           <td className="text-right">
-                                              <Badge color="info" pill>{this.state.yf_all.assetProfile.compensationRisk}</Badge>
+                                              <Badge color="info" pill>{this.state.compensationRisk}</Badge>
                                           </td>
                                       </tr>
                                       <tr>
                                           <td className="text-inverse">Shareholders Rights Risk</td>
                                           <td className="text-right">
-                                              <Badge color="secondary" pill>{this.state.yf_all.assetProfile.shareHolderRightsRisk}</Badge>
+                                              <Badge color="secondary" pill>{this.state.shareHolderRightsRisk}</Badge>
                                           </td>
                                       </tr>
                                   </tbody>
@@ -1057,7 +1180,7 @@ render() {
                                         title="Buy"
                                         valuePercent="60"
                                         valuePercentColor="text-success"
-                                        value={this.state.yf_all.netSharePurchaseActivity.buyInfoShares.fmt}
+                                        value={this.state.buyInfoShares_fmt}
                                         valueColor="text-muted"
                                     />
                                 </Col>
@@ -1066,7 +1189,7 @@ render() {
                                         title="Sell"
                                         valuePercent="50"
                                         valuePercentColor="text-danger"
-                                        value={this.state.yf_all.netSharePurchaseActivity.sellInfoShares.fmt}
+                                        value={this.state.sellInfoShares_fmt}
                                         valueColor="text-muted"
                                     />
                                 </Col>
@@ -1087,19 +1210,19 @@ render() {
                                       <tr>
                                           <td className="text-inverse bt-0">Insider Shares %</td>
                                           <td className="text-right text-info bt-0">
-                                              {this.state.yf_all.majorHoldersBreakdown.insidersPercentHeld.fmt}
+                                              {this.state.insidersPercentHeld_fmt}
                                           </td>
                                       </tr>
                                       <tr>
                                           <td className="text-inverse">Institutions Shares %</td>
                                           <td className="text-right text-info">
-                                              {this.state.yf_all.majorHoldersBreakdown.institutionsPercentHeld.fmt}
+                                              {this.state.institutionsPercentHeld_fmt}
                                           </td>
                                       </tr>
                                       <tr>
                                           <td className="text-inverse">Institutional owners</td>
                                           <td className="text-right text-info">
-                                              {this.state.yf_all.majorHoldersBreakdown.institutionsCount.raw}
+                                              {this.state.institutionsCount_raw}
                                           </td>
                                       </tr>
                                   </tbody>
@@ -1132,23 +1255,23 @@ render() {
                                     <tr>
                                     <td className="align-middle text-inverse">
                                     <div>
-                                    {i.filerName}
+                                    {i.hasOwnProperty('filerName') ? i.filerName : ''}                                    
                                     </div>
                                     <span className="text-info">
-                                    {i.filerRelation}
+                                    {i.hasOwnProperty('filerRelation') ? i.filerRelation : ''}
                                     </span>
                                     </td>
                                     <td className="align-middle">
-                                    {i.transactionText}
+                                    {i.hasOwnProperty('transactionText') ? i.transactionText : ''}                 
                                     </td>
                                     <td className="align-middle">
-                                    {i.shares.raw}
+                                    {i.hasOwnProperty('shares') ? i.shares.raw : ''}
                                     </td>
                                     <td className="align-middle text-info">
                                     {i.hasOwnProperty('value') ? i.value.raw : ''}
                                     </td>
                                     <td className="align-middle">
-                                    {i.startDate.fmt}
+                                    {i.hasOwnProperty('startDate') ? i.startDate.fmt : ''}
                                     </td>
                                     <td className="align-middle text-right">
                                     <Badge color="danger">SHORT</Badge>
