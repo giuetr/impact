@@ -78,27 +78,67 @@ render() {
             </div>
             
             <CardColumns>
+            
+                <Card className="mb-3">
+                    <CardBody>
+                        <div className="d-flex">
+                            <i className="fa fa-diamond m-2"></i>
+                        </div>
+
+                        <div className="mb-4 mt-3 text-center">
+                            <a className="h3 text-decoration-none" href="#">
+                                Mega<span className="fw-600">Trend</span>
+                            </a>
+                            <div className="text-center mt-2">
+                                Frequency: <span className="text-info">Weekly</span>
+                            </div>
+                            <div className="text-center">
+                                <i className="fa fa-map-marker mr-1"></i>
+                                EQUITY
+                            </div>
+                        </div>
+                        
+                        <div className="text-center mb-4">
+                            <div className="mb-2">
+                                <span className="small">
+                                    Top users:
+                                </span>
+                            </div>
+                            <Badge pill color="primary" className="mr-1">
+                                Investors
+                            </Badge>
+                            <Badge pill color="warning" className="mr-1">
+                                Banks
+                            </Badge>
+                            <Badge pill color="pink">
+                                Hedge Funds
+                            </Badge>
+                        </div>
+                        <div className="text-center mb-4">
+                            <p className="mb-0">
+                                The companies leading the shift towards a sustainable future, organized by sector of innovation. Discover tomorrow's leaders.
+                            </p>
+                            <Button className="mt-3" color="primary">Free Access</Button>             
+                        </div>   
+                    </CardBody>
+                </Card>
+
               <Card className="mb-3">
                 <CardBody>
                     <div className="d-flex">
-                        <Button color="link" size="sm" id="tooltipGridAddToFavorites">
-                            <i className="fa fa-star-o"></i>
-                        </Button>
-                        <UncontrolledTooltip placement="top" target="tooltipGridAddToFavorites">
-                            Add To Favorites
-                        </UncontrolledTooltip>
+                        <i className="fa fa-diamond m-2"></i>
                     </div>
 
                     <div className="mb-4 mt-3 text-center">
                         <a className="h3 text-decoration-none" href="#">
-                            Macro Vision
+                            Shorts &amp; Squeezes
                         </a>
                         <div className="text-center mt-2">
                             Frequency: <span className="text-info">Weekly</span>
                         </div>
                         <div className="text-center">
                             <i className="fa fa-map-marker mr-1"></i>
-                            FULL MARKET
+                            EQUITY
                         </div>
                     </div>
                     
@@ -108,21 +148,18 @@ render() {
                                 Top users:
                             </span>
                         </div>
-                        <Badge pill color="info" className="mr-1">
-                            Investors
-                        </Badge>
-                        <Badge pill color="warning" className="mr-1">
+                        <Badge pill color="yellow" className="mr-1">
                             Traders
                         </Badge>
-                        <Badge pill color="indigo">
+                        <Badge pill color="pink">
                             Hedge Funds
                         </Badge>
                     </div>
                     <div className="text-center mb-4">
                         <p className="mb-0">
-                            A set of aggregate and granular indicators and signals to get an informed outlook of the current and upcoming market trends. Curated with macroeconomic and technical metrics.
+                            Instantly visualize short squeezes, stocks with high short interest and predict contrarian moves before the rest of the market.
                         </p>
-                        <Button className="mt-3" color="info">Free Access</Button>             
+                        <Button className="mt-3" color="primary">Free Access</Button>             
                     </div>   
                 </CardBody>
               </Card>
@@ -130,12 +167,7 @@ render() {
               <Card className="mb-3">
                 <CardBody>
                     <div className="d-flex">
-                        <Button color="link" size="sm" id="tooltipGridAddToFavorites">
-                            <i className="fa fa-star-o"></i>
-                        </Button>
-                        <UncontrolledTooltip placement="top" target="tooltipGridAddToFavorites">
-                            Add To Favorites
-                        </UncontrolledTooltip>
+                        <i className="fa fa-diamond m-2"></i>
                     </div>
 
                     <div className="mb-4 mt-3 text-center">
@@ -157,10 +189,10 @@ render() {
                                 Top users:
                             </span>
                         </div>
-                        <Badge pill color="info" className="mr-1">
+                        <Badge pill color="primary" className="mr-1">
                             Investors
                         </Badge>
-                        <Badge pill color="indigo">
+                        <Badge pill color="pink">
                             Hedge Funds
                         </Badge>
                     </div>
@@ -168,7 +200,7 @@ render() {
                         <p className="mb-0">
                             The latest trends and insights from the corporate insider trading activity of US equities. An in-depth look at flows, momentum and changes coming from the most informed shareholders.
                         </p>
-                        <Button className="mt-3" color="info">Free Access</Button>             
+                        <Button className="mt-3" color="primary">Free Access</Button>             
                     </div>   
                 </CardBody>
               </Card>
@@ -176,12 +208,7 @@ render() {
               <Card className="mb-3">
                 <CardBody>
                     <div className="d-flex">
-                        <Button color="link" size="sm" id="tooltipGridAddToFavorites">
-                            <i className="fa fa-star-o"></i>
-                        </Button>
-                        <UncontrolledTooltip placement="top" target="tooltipGridAddToFavorites">
-                            Add To Favorites
-                        </UncontrolledTooltip>
+                        <i className="fa fa-diamond m-2"></i>
                     </div>
 
                     <div className="mb-4 mt-3 text-center">
@@ -203,10 +230,10 @@ render() {
                                 Top users:
                             </span>
                         </div>
-                        <Badge pill color="info" className="mr-1">
+                        <Badge pill color="primary" className="mr-1">
                             Investors
                         </Badge>
-                        <Badge pill color="indigo">
+                        <Badge pill color="pink">
                             Hedge Funds
                         </Badge>
                     </div>
@@ -214,7 +241,7 @@ render() {
                         <p className="mb-0">
                             Unlock the return potential of many different ESG factors by gaining a privileged view of the ESG profile of US Equities.
                         </p>
-                        <Button className="mt-3" color="info">Free Access</Button>             
+                        <Button className="mt-3" color="primary">Free Access</Button>             
                     </div>   
                 </CardBody>
               </Card>
@@ -222,12 +249,7 @@ render() {
               <Card className="mb-3">
                 <CardBody>
                     <div className="d-flex">
-                        <Button color="link" size="sm" id="tooltipGridAddToFavorites">
-                            <i className="fa fa-star-o"></i>
-                        </Button>
-                        <UncontrolledTooltip placement="top" target="tooltipGridAddToFavorites">
-                            Add To Favorites
-                        </UncontrolledTooltip>
+                        <i className="fa fa-diamond m-2"></i>
                     </div>
 
                     <div className="mb-4 mt-3 text-center">
@@ -249,13 +271,13 @@ render() {
                                 Top users:
                             </span>
                         </div>
-                        <Badge pill color="info" className="mr-1">
+                        <Badge pill color="primary" className="mr-1">
                             Investors
                         </Badge>
-                        <Badge pill color="warning" className="mr-1">
+                        <Badge pill color="yellow" className="mr-1">
                             Traders
                         </Badge>
-                        <Badge pill color="indigo">
+                        <Badge pill color="pink">
                             Hedge Funds
                         </Badge>
                     </div>
@@ -263,7 +285,7 @@ render() {
                         <p className="mb-0">
                             Discover how corporations are actually acting to reduce their environmental impact and empower your prediction of their future performance.
                         </p>
-                        <Button className="mt-3" color="info">Free Access</Button>             
+                        <Button className="mt-3" color="primary">Free Access</Button>             
                     </div>   
                 </CardBody>
               </Card>
@@ -272,12 +294,7 @@ render() {
               <Card className="mb-3">
                 <CardBody>
                     <div className="d-flex">
-                        <Button color="link" size="sm" id="tooltipGridAddToFavorites">
-                            <i className="fa fa-star-o"></i>
-                        </Button>
-                        <UncontrolledTooltip placement="top" target="tooltipGridAddToFavorites">
-                            Add To Favorites
-                        </UncontrolledTooltip>
+                        <i className="fa fa-diamond m-2"></i>
                     </div>
 
                     <div className="mb-4 mt-3 text-center">
@@ -299,13 +316,13 @@ render() {
                                 Top users:
                             </span>
                         </div>
-                        <Badge pill color="info" className="mr-1">
+                        <Badge pill color="primary" className="mr-1">
                             Investors
                         </Badge>
-                        <Badge pill color="warning" className="mr-1">
+                        <Badge pill color="yellow" className="mr-1">
                             Traders
                         </Badge>
-                        <Badge pill color="indigo">
+                        <Badge pill color="pink">
                             Hedge Funds
                         </Badge>
                     </div>
@@ -313,59 +330,12 @@ render() {
                         <p className="mb-0">
                             An updated set of actionable insights, metrics and KPIs from the trading and investing activity of the US Senate and House Members. 
                         </p>
-                        <Button className="mt-3" color="info">Free Access</Button>             
+                        <Button className="mt-3" color="primary">Free Access</Button>             
                     </div>   
                 </CardBody>
               </Card>
 
-              <Card className="mb-3">
-                <CardBody>
-                    <div className="d-flex">
-                        <Button color="link" size="sm" id="tooltipGridAddToFavorites">
-                            <i className="fa fa-star-o"></i>
-                        </Button>
-                        <UncontrolledTooltip placement="top" target="tooltipGridAddToFavorites">
-                            Add To Favorites
-                        </UncontrolledTooltip>
-                    </div>
-
-                    <div className="mb-4 mt-3 text-center">
-                        <a className="h3 text-decoration-none" href="#">
-                            Mega<span className="fw-600">Trend</span>
-                        </a>
-                        <div className="text-center mt-2">
-                            Frequency: <span className="text-info">Weekly</span>
-                        </div>
-                        <div className="text-center">
-                            <i className="fa fa-map-marker mr-1"></i>
-                            EQUITY
-                        </div>
-                    </div>
-                    
-                    <div className="text-center mb-4">
-                        <div className="mb-2">
-                            <span className="small">
-                                Top users:
-                            </span>
-                        </div>
-                        <Badge pill color="info" className="mr-1">
-                            Investors
-                        </Badge>
-                        <Badge pill color="warning" className="mr-1">
-                            Banks
-                        </Badge>
-                        <Badge pill color="indigo">
-                            Hedge Funds
-                        </Badge>
-                    </div>
-                    <div className="text-center mb-4">
-                        <p className="mb-0">
-                            The companies leading the shift towards a sustainable future, organized by sector of innovation. Discover tomorrow's leaders.
-                        </p>
-                        <Button className="mt-3" color="info">Free Access</Button>             
-                    </div>   
-                </CardBody>
-              </Card>
+              
 
             </CardColumns>
 

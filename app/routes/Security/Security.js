@@ -129,7 +129,7 @@ class Security extends Component {
         () => this.tick(),
         1000
       );
-      const ticker = 'GME'
+      const ticker = 'XOM'
       await getAll(ticker)
       .then(data => this.setState({ 
         yf_all: data.quoteSummary.result[0]})   

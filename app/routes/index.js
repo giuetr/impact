@@ -119,6 +119,7 @@ import Insiders from './Insiders';
 import Shorts from './Shorts';
 import Esg500 from './ESG500';
 import ESGLeaders from './ESGLeaders';
+import Carbon from './Carbon';
 import Leaders from './Leaders';
 
 
@@ -145,6 +146,7 @@ export const RoutedContent = () => {
             <Route path='/Politics' exact component={Politics} />
             <Route path='/Insiders' exact component={Insiders} />
             <Route path='/Shorts' exact component={Shorts} />
+            <Route path='/Carbon' exact component={Carbon} />
             <Route path='/Esg500' exact component={Esg500} />
             <Route path='/ESGLeaders' exact component={ESGLeaders} />
             <Route path='/Leaders' exact component={Leaders} />

@@ -41,6 +41,12 @@ export const SidebarMiddleNav = () => (
         />
 
         <SidebarMenu.Item
+            icon={<i className="fa fa-fw fa-certificate"></i>}
+            title="Carbon"
+            to='/Carbon'
+        />
+
+        <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-sun-o"></i>}
             title="Esg500"
             to='/Esg500'
