@@ -15,6 +15,14 @@ export async function getQuote(ticker) {
     return data;
 };
 
+// US Sectors
+export async function getSectors(ticker) {
+    const PROXY_URL = 'https://q-proxy.herokuapp.com/';
+    const url = PROXY_URL + `https://query1.finance.yahoo.com/v7/finance/quote?symbols=XLY,XLRE,XLU,XLK,XLP,XLV,XLC,XLF,XLE,XLI,XLB`;
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+};
 
 // FInnhub API sandbox
 export async function getMktnews(ticker) {

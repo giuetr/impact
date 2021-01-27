@@ -1,3 +1,3 @@
-import InsidersTable from './InsidersTable';
+import Tablestock from './TableStock';
 
-export default InsidersTable;
+export default Tablestock;

@@ -4,7 +4,7 @@ import faker from 'faker/locale/en_US';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import classes from './home.scss';
 
-import { getQuote, getTrending, getMktnews } from "../API/api.js";
+import { getQuote, getTrending, getMktnews, getSectors } from "../API/api.js";
 import TradingViewWidget, { Themes } from 'react-tradingview-widget';
 
 import {
@@ -37,6 +37,7 @@ class Home extends Component {
         super(props);
 
         this.state = {
+          yf_sectors: null,
           yf_trend: null,
           yf_mktnws: null,
           yf_financialData_nasdaq: null,
@@ -57,6 +58,10 @@ class Home extends Component {
         yf_financialData_SP500: data.quoteResponse.result[0],
         yf_financialData_djones: data.quoteResponse.result[1],
         yf_financialData_nasdaq: data.quoteResponse.result[2]})    
+      )
+      await getSectors()
+      .then(data => this.setState({ 
+        yf_sectors: data.quoteResponse.result})    
       )
       await getTrending()
       .then(data => this.setState({ 
@@ -193,88 +198,80 @@ render() {
                             <td className="align-middle text-inverse">
                             Energy
                             </td>
-                            <td className="align-right">
-                            0.31%
+                            <td className={Math.sign(this.state.yf_sectors[8].regularMarketChangePercent) > 0 ? "text-info" : "text-danger"} >
+                            {this.state.yf_sectors[8].regularMarketChangePercent.toFixed(2)} %
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Materials
                             </td>
-                            <td className="align-right">
-                            0.31%
+                            <td className={Math.sign(this.state.yf_sectors[10].regularMarketChangePercent) > 0 ? "text-info" : "text-danger"} >
+                            {this.state.yf_sectors[10].regularMarketChangePercent.toFixed(2)} %
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Industrials
                             </td>
-                            <td className="align-right">
-                            -0.31%
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Cons. Discretionary
-                            </td>
-                            <td className="align-middle">
-                            -0.31%
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Real Estate
-                            </td>
-                            <td className="align-right">
-                            -0.31%
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-inverse">
-                            Utilities
-                            </td>
-                            <td className="align-right">
-                            -0.31%
+                            <td className={Math.sign(this.state.yf_sectors[9].regularMarketChangePercent) > 0 ? "text-info" : "text-danger"} >
+                            {this.state.yf_sectors[9].regularMarketChangePercent.toFixed(2)} %
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Financials
                             </td>
-                            <td className="align-right">
-                            -0.31%
+                            <td className={Math.sign(this.state.yf_sectors[7].regularMarketChangePercent) > 0 ? "text-info" : "text-danger"} >
+                            {this.state.yf_sectors[7].regularMarketChangePercent.toFixed(2)} %
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
-                            Health Care
+                            Real Estate
                             </td>
-                            <td className="align-right">
-                            -0.31%
+                            <td className={Math.sign(this.state.yf_sectors[1].regularMarketChangePercent) > 0 ? "text-info" : "text-danger"} >
+                            {this.state.yf_sectors[1].regularMarketChangePercent.toFixed(2)} %
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Technology
                             </td>
-                            <td className="align-right">
-                            -0.31%
+                            <td className={Math.sign(this.state.yf_sectors[3].regularMarketChangePercent) > 0 ? "text-info" : "text-danger"} >
+                            {this.state.yf_sectors[3].regularMarketChangePercent.toFixed(2)} %
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Health Care
+                            </td>
+                            <td className={Math.sign(this.state.yf_sectors[5].regularMarketChangePercent) > 0 ? "text-info" : "text-danger"} >
+                            {this.state.yf_sectors[5].regularMarketChangePercent.toFixed(2)} %
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Utilities
+                            </td>
+                            <td className={Math.sign(this.state.yf_sectors[2].regularMarketChangePercent) > 0 ? "text-info" : "text-danger"} >
+                            {this.state.yf_sectors[2].regularMarketChangePercent.toFixed(2)} %
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Cons. Staples
                             </td>
-                            <td className="align-right">
-                            -0.31%
+                            <td className={Math.sign(this.state.yf_sectors[4].regularMarketChangePercent) > 0 ? "text-info" : "text-danger"} >
+                            {this.state.yf_sectors[4].regularMarketChangePercent.toFixed(2)} %
                             </td>
                         </tr>
                         <tr>
                             <td className="align-middle text-inverse">
                             Communication
                             </td>
-                            <td className="align-right">
-                              -0.31%
+                            <td className={Math.sign(this.state.yf_sectors[6].regularMarketChangePercent) > 0 ? "text-info" : "text-danger"} >
+                            {this.state.yf_sectors[6].regularMarketChangePercent.toFixed(2)} %
                             </td>
                         </tr>
                     </tbody>
