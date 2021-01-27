@@ -116,6 +116,7 @@ import { SidebarASidebar } from './../layout/components/SidebarASidebar';
 import Security from './Security';
 import Politics from './Politics';
 import Insiders from './Insiders';
+import Esg500 from './ESG500';
 import ESGLeaders from './ESGLeaders';
 import Leaders from './Leaders';
 
@@ -142,6 +143,7 @@ export const RoutedContent = () => {
             <Route path='/Data' exact component={Data} />
             <Route path='/Politics' exact component={Politics} />
             <Route path='/Insiders' exact component={Insiders} />
+            <Route path='/Esg500' exact component={Esg500} />
             <Route path='/ESGLeaders' exact component={ESGLeaders} />
             <Route path='/Leaders' exact component={Leaders} />
 
