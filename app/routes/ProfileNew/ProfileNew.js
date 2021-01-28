@@ -43,7 +43,7 @@ const ProfileNew = () => (
                         </Media>
                     </Media>
                 </Col>
-                <Col lg={ 12 }>
+                <Col lg={ 8 }>
                     <Card>
                         <CardBody>
                             <div className="d-flex mb-4">

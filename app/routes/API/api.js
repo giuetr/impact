@@ -34,6 +34,15 @@ export async function getMktnews(ticker) {
 
 
 
+// Finnhub Sentiment Stock
+export async function getSent(ticker) {
+    const PROXY_URL = 'https://q-proxy.herokuapp.com/';
+    const url = PROXY_URL + `https://finnhub.io/api/v1/news-sentiment?symbol=`+ticker+`&token=bv21cgf48v6o5ed6o1ng`;
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+};
+
 // single stock calls
 
 export async function getSummaryDetail(ticker) {
