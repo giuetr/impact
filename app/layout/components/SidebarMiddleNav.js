@@ -64,6 +64,12 @@ export const SidebarMiddleNav = () => (
             to='/Leaders'
         />
 
+        <SidebarMenu.Item
+            icon={<i className="fa fa-fw fa-bookmark"></i>}
+            title="ProfileNew"
+            to='/ProfileNew'
+        />
+
 
 
         <SidebarMenu.Item

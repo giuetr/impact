@@ -121,6 +121,8 @@ import Esg500 from './ESG500';
 import ESGLeaders from './ESGLeaders';
 import Carbon from './Carbon';
 import Leaders from './Leaders';
+import ProfileNew from './ProfileNew';
+
 
 
 //------ Route Definitions --------
@@ -150,6 +152,8 @@ export const RoutedContent = () => {
             <Route path='/Esg500' exact component={Esg500} />
             <Route path='/ESGLeaders' exact component={ESGLeaders} />
             <Route path='/Leaders' exact component={Leaders} />
+            <Route path='/ProfileNew' exact component={ProfileNew} />
+
 
 
             { /*    Cards Routes     */ }
