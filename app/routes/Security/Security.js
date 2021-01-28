@@ -7,7 +7,7 @@ import classes from './security.scss';
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-import {getAll, getPeers, getChart} from '../API/api.js'
+import {getAll, getPeers, getChart, getSent} from '../API/api.js'
 import TradingViewWidget, { Themes } from 'react-tradingview-widget';
 
 
@@ -50,6 +50,9 @@ class Security extends Component {
         super(props);
 
         this.state = {
+
+        //stato per stock sent
+            fh_sent: null,
 
           //stati relativi al risultato dei metodi in API
             yf_all: null,
@@ -129,7 +132,7 @@ class Security extends Component {
         () => this.tick(),
         1000
       );
-      const ticker = 'XOM'
+      const ticker = 'JNJ'
       await getAll(ticker)
       .then(data => this.setState({ 
         yf_all: data.quoteSummary.result[0]})   
@@ -189,7 +192,6 @@ class Security extends Component {
         institutionsCount_raw: this.state.yf_all.majorHoldersBreakdown.institutionsCount.raw
       })   
       )
-
 
       
       await getPeers(ticker)
