@@ -31,7 +31,7 @@ const ProfileNew = () => (
             />
             { /* START Content */}
             <Row>
-                <Col lg={ 12 }>
+                <Col lg={ 8 }>
                     <Media className="mb-3">
                         <Media body>
                             <h5 className="mb-1 mt-0">
