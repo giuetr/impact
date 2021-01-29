@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Chart from "react-apexcharts";
 import faker from 'faker/locale/en_US';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import TableStock from '../../assetsnew/Tablestock';
 
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
@@ -45,8 +44,9 @@ import {
   } from "../components/Analytics/SessionsByDevice";
 import {
     TinyDonutChart
-  } from "../components/Monitor/TinyDonutChart"
-  
+  } from "../components/Monitor/TinyDonutChart";
+import CarbonTable from '../../assetsnew/CarbonTable.js';
+
 
 class Carbon extends Component {
     constructor(props) {
@@ -167,7 +167,7 @@ render() {
 
 
             <Row className="mt-3">
-                <TableStock/>
+                <CarbonTable/>
             </Row>
 
           </Container>
