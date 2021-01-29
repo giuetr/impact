@@ -132,7 +132,7 @@ class Security extends Component {
         () => this.tick(),
         1000
       );
-      const ticker = 'JNJ'
+      const ticker = 'AAPL'
       await getAll(ticker)
       .then(data => this.setState({ 
         yf_all: data.quoteSummary.result[0]})   
@@ -198,6 +198,9 @@ class Security extends Component {
       .then(data => this.setState({ 
         yf_peers: data.finance.result[0].recommendedSymbols})   
       )
+
+      
+
       await getChart(ticker)
       .then(data => this.setState({ 
         yf_chart: data.chart.result[0]})   
@@ -213,7 +216,7 @@ class Security extends Component {
 
     
 render() {
-  if (!this.state.yf_all || !this.state.yf_peers) {
+  if (!this.state.yf_all ) {
     return <div>didn't get summary detail</div>;
   }
 
@@ -534,18 +537,24 @@ render() {
                         </tr>
                     </thead>
                     <tbody>
-                      {this.state.yf_peers.map((i) => {
+
+                      {this.state.yf_peers?
+                      
+                      this.state.yf_peers.map((i) => {
                         return (
                           <tr>
                             <td className="align-middle">
-                            <Badge color="info">{i.symbol}</Badge>
+                            <Badge color="info">
+                             {i.symbol}
+                               </Badge>
                             </td>
                             <td className="align-middle text-inverse text-right">
-                            {i.score.toFixed(3)}
+                             {i.score.toFixed(3)}
+                        
                             </td>
                           </tr>
                         );
-                      })}
+                      }):''}
                     </tbody>
                 </Table>
                 </Card>
@@ -990,8 +999,10 @@ render() {
 
                         <div className={ classes['table-scroll-wrap'] }>
                           <Table className="mb-0" hover responsive>
+      
                               <tbody>
-                                {this.state.yf_all.insiderTransactions.transactions.slice(0, 10).map((i) => {
+                              {this.state.yf_all.hasOwnProperty('insiderTransactions') ?
+                                this.state.yf_all.insiderTransactions.transactions.slice(0, 10).map((i) => {
                                   return (
                                     <tr>
                                     <td className="align-middle text-inverse">
@@ -1019,8 +1030,11 @@ render() {
                                     </td>
                                 </tr>
                                   );
-                                })}
+                                })
+                           :'' }
+                            
                               </tbody>
+                          
                           </Table>
                         </div>
                         
