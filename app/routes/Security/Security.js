@@ -217,7 +217,7 @@ class Security extends Component {
     
 render() {
   if (!this.state.yf_all ) {
-    return <div>didn't get summary detail</div>;
+    return <div>Loading Data Engine <i className="fa fa-fw fa-leaf text-info"></i></div>;
   }
 
 

@@ -75,7 +75,7 @@ class Home extends Component {
 
 render() {
       if (!this.state.yf_financialData_SP500 || !this.state.yf_trend || !this.state.yf_mktnws) {
-        return <div>didn't get financialData</div>;
+        return <div>Loading Data Engine <i className="fa fa-fw fa-leaf text-info"></i></div>;
       }
     return (
         <Container>

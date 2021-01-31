@@ -18,10 +18,10 @@ var config = {
     srcHtmlLayout:          path.join(root, 'app', 'index.html'),
 
     // Site Config ====================================================
-    siteTitle:              'Qvan Spark',
-    siteDescription:        'Finance Analytics',
+    siteTitle:              'DataSpark',
+    siteDescription:        'Financial, ESG and Alternative Data Analytics Cloud Platform',
     siteCannonicalUrl:      'http://localhost:4100',
-    siteKeywords:           'Finance Analytics',
+    siteKeywords:           'Financial, ESG and Alternative Data Analytics Cloud Platform',
     scssIncludes:           []
 }
 
