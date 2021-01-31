@@ -1,6 +1,8 @@
 import React from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import filterFactory, { textFilter, selectFilter, numberFilter } from 'react-bootstrap-table2-filter';
+import ToolkitProvider, { Search, CSVExport } from 'react-bootstrap-table2-toolkit';
+import paginationFactory from 'react-bootstrap-table2-paginator';
 
 
 
@@ -18,6 +20,8 @@ import {
   Badge
 } from '../components'
 
+const { SearchBar } = Search;
+const { ExportCSVButton } = CSVExport;
 
 const sortCaret = (order) => {
   if (!order)
@@ -170,16 +174,44 @@ class PoliticsTable extends React.Component {
         <div>
           <Card>
             <CardBody>
-              <BootstrapTable
+              <ToolkitProvider
+                keyField="id"
                 data={ products }
-                keyField='id'
-                columns={ columns }
-                classes="table-responsive-lg"
-                bordered={ false }
-                responsive
+                columns={columns}
                 filter={ filterFactory() }
+                search
+                exportCSV={ {
+                  fileName: 'politicians_trading.csv',
+                  separator: ',',
+                  noAutoBOM: false
+                } }
               >
-              </BootstrapTable>
+                {
+                  props => (
+                    <div>
+                      <div className="d-flex justify-content-between mb-3">
+                      <SearchBar {...props.searchProps}
+                        placeholder="Search..."
+                      />
+                      <ExportCSVButton { ...props.csvProps } className="p-0">
+                        <Button color="info" outline>
+                          <i className="fa fa-download mr-2"></i>
+                                Export
+                        </Button>
+                      </ExportCSVButton>
+                      </div>
+                      <BootstrapTable
+                        { ...props.baseProps }
+                        classes="table-responsive-lg"
+                        bordered={ false }
+                        responsive
+                        pagination={ paginationFactory() }
+                      />
+                      <br />
+                    </div>
+                  )
+                }
+              </ToolkitProvider>
             </CardBody>
           </Card>
         </div>

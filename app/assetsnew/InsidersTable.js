@@ -1,6 +1,8 @@
 import React from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
-import filterFactory, { textFilter, selectFilter, numberFilter } from 'react-bootstrap-table2-filter';
+import filterFactory, { textFilter, selectFilter, numberFilter} from 'react-bootstrap-table2-filter';
+import ToolkitProvider, { Search, CSVExport } from 'react-bootstrap-table2-toolkit';
+import paginationFactory from 'react-bootstrap-table2-paginator';
 
 
 
@@ -17,6 +19,9 @@ import {
   Col,
   Badge
 } from '../components'
+
+const { SearchBar } = Search;
+const { ExportCSVButton } = CSVExport;
 
 
 const sortCaret = (order) => {
@@ -49,6 +54,39 @@ var products = [{
   lsratio: 1,
   returnperiod: 10.3,
   return1y: 0.3,
+},{
+  id: 3,
+  ticker: "NVDA",
+  name: "Nvidia Corp.",
+  purchases: 11,
+  sales: 90,
+  totbought: 12412,
+  totsold: 9000,
+  lsratio: 3,
+  returnperiod: 20.3,
+  return1y: 0.9,
+},{
+  id: 4,
+  ticker: "MU",
+  name: "Micron Technology",
+  purchases: 101,
+  sales: 25,
+  totbought: 899,
+  totsold: 7332,
+  lsratio: 10.4,
+  returnperiod: 9.3,
+  return1y: 0.5,
+},{
+  id: 5,
+  ticker: "JNJ",
+  name: "Johnson and Johnson",
+  purchases: 88,
+  sales: 61,
+  totbought: 2831723,
+  totsold: 293123,
+  lsratio: 9,
+  returnperiod: 3,
+  return1y: 0.7,
 }];
 
 
@@ -67,12 +105,7 @@ const columns = [{
   ),
 },  {
   dataField: 'name',
-  text: 'Company',
-  formatter: (cell) => (
-    <span className="text-inverse">
-        { cell }
-    </span>
-  ),
+  text: 'Company'
 }, {
   dataField: 'purchases',
   text: 'Trades Long',
@@ -94,6 +127,8 @@ const columns = [{
 }, {
   dataField: 'totsold',
   text: 'Shares Short',
+  sort: true,
+  sortCaret,
   formatter: (cell) => (
     <span className="text-danger">
         { cell }
@@ -102,6 +137,8 @@ const columns = [{
 }, {
   dataField: 'lsratio',
   text: 'L/S Ratio',
+  sort: true,
+  sortCaret,
   formatter: (cell) => {
     const color = (cell) => {
       const color = cell = 1 ? 'text-success' : 'text-danger';
@@ -156,16 +193,44 @@ class InsidersTable extends React.Component {
         <div>
           <Card>
             <CardBody>
-              <BootstrapTable
+              <ToolkitProvider
+                keyField="id"
                 data={ products }
-                keyField='id'
-                columns={ columns }
-                classes="table-responsive-lg"
-                bordered={ false }
-                responsive
+                columns={columns}
                 filter={ filterFactory() }
+                search
+                exportCSV={ {
+                  fileName: 'insiders_transactions.csv',
+                  separator: ',',
+                  noAutoBOM: false
+                } }
               >
-              </BootstrapTable>
+                {
+                  props => (
+                    <div>
+                      <div className="d-flex justify-content-between mb-3">
+                      <SearchBar {...props.searchProps}
+                        placeholder="Search..."
+                      />
+                      <ExportCSVButton { ...props.csvProps } className="p-0">
+                        <Button color="info" outline>
+                          <i className="fa fa-download mr-2"></i>
+                                Export
+                        </Button>
+                      </ExportCSVButton>
+                      </div>
+                      <BootstrapTable
+                        { ...props.baseProps }
+                        classes="table-responsive-lg"
+                        bordered={ false }
+                        responsive
+                        pagination={ paginationFactory() }
+                      />
+                      <br />
+                    </div>
+                  )
+                }
+              </ToolkitProvider>
             </CardBody>
           </Card>
         </div>
