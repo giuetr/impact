@@ -12,6 +12,7 @@ import { NavbarActivityFeed } from './NavbarActivityFeed';
 import { NavbarMessages } from './NavbarMessages';
 import { NavbarUser } from './NavbarUser';
 import { LogoThemed } from './../../routes/components/LogoThemed/LogoThemed';
+import { NavbarSearch } from './NavbarSearch';
 
 export const DefaultNavbar = () => (
     <Navbar light expand="xs" fluid>
@@ -27,6 +28,7 @@ export const DefaultNavbar = () => (
            
         </Nav>
         <Nav navbar className="ml-auto">
+            <NavbarSearch className="mr-2" />
             <NavbarActivityFeed />
             <NavbarMessages className="ml-2" />
             <NavbarUser className="ml-2" />
