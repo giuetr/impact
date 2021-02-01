@@ -115,9 +115,9 @@ export async function getAll(ticker) {
     return data;
 };
 
-export async function getAllESG(ticker) {
+export async function getAllESG() {
     const PROXY_URL = 'https://q-proxy.herokuapp.com/';
-    const url =  'https://qvan1.herokuapp.com/ESG';
+    const url = PROXY_URL+ 'https://qvan1.herokuapp.com/ESG';
     const response = await fetch(url);
     const data = await response.json();
     return data;
@@ -125,12 +125,37 @@ export async function getAllESG(ticker) {
 
 export async function getESG(ticker) {
     const PROXY_URL = 'https://q-proxy.herokuapp.com/';
-    const url =  'https://qvan1.herokuapp.com/ESG/'+ticker;
+    const url = PROXY_URL+ 'https://qvan1.herokuapp.com/ESG/'+ticker;
     const response = await fetch(url);
     const data = await response.json();
     return data;
 };
 
+
+export async function getfData() {
+    const PROXY_URL =PROXY_URL+'https://q-proxy.herokuapp.com/';
+    const url =  'https://qvan1.herokuapp.com/fdata';
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+};
+
+
+export async function getfdata(ticker) {
+    const PROXY_URL = PROXY_URL+'https://q-proxy.herokuapp.com/';
+    const url =  'https://qvan1.herokuapp.com/fdata/'+ticker;
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+};
+
+export async function getmegatrends(category) {
+    const PROXY_URL = PROXY_URL+'https://q-proxy.herokuapp.com/';
+    const url =  'https://qvan1.herokuapp.com/megatrends/'+category;
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+};
 
 // economic calendar
 export async function getEcon(ticker) {

@@ -109,12 +109,17 @@ class Security extends Component {
           boardRisk:null,
           compensationRisk:null,
           shareHolderRightsRisk:null,
-          netSharePurchaseActivity_buyInfoShares_fmt:null,
-          netSharePurchaseActivity_sellInfoShares_fmt:null,
-          majorHoldersBreakdown_insidersPercentHeld_fmt:null,
-          majorHoldersBreakdown_institutionsPercentHeld_fmt:null,
-          majorHoldersBreakdown_institutionsCount_raw:null,
-
+          buyInfoShares_fmt:null,
+          sellInfoShares_fmt:null,
+          insidersPercentHeld_fmt:null,
+          institutionsPercentHeld_fmt:null,
+          institutionsCount_raw:null,
+          totalEsg_fmt:null,
+          peerEsgScorePerformance_avg:null,
+          environmentScore_fmt:null,
+          socialScore_fmt:null,
+          governanceScore_fmt:null,
+          ticker: 'BBBY',
             date: new Date(),
         };
     }
@@ -132,8 +137,8 @@ class Security extends Component {
         () => this.tick(),
         1000
       );
-      const ticker = 'AAPL'
-      await getAll(ticker)
+   
+      await getAll(this.state.ticker)
       .then(data => this.setState({ 
         yf_all: data.quoteSummary.result[0]})   
       ).then(data => this.setState({ 
@@ -189,19 +194,24 @@ class Security extends Component {
         sellInfoShares_fmt: this.state.yf_all.netSharePurchaseActivity.sellInfoShares.fmt,
         insidersPercentHeld_fmt: this.state.yf_all.majorHoldersBreakdown.insidersPercentHeld.fmt,
         institutionsPercentHeld_fmt: this.state.yf_all.majorHoldersBreakdown.institutionsPercentHeld.fmt,
-        institutionsCount_raw: this.state.yf_all.majorHoldersBreakdown.institutionsCount.raw
+        institutionsCount_raw: this.state.yf_all.majorHoldersBreakdown.institutionsCount.raw,
+        totalEsg_fmt:this.state.yf_all.esgScores.totalEsg.fmt,
+        peerEsgScorePerformance_avg:this.state.yf_all.esgScores.peerEsgScorePerformance.avg.toFixed(0),
+        environmentScore_fmt:this.state.yf_all.esgScores.environmentScore.fmt,
+        socialScore_fmt:this.state.yf_all.esgScores.socialScore.fmt,
+        governanceScore_fmt:this.state.yf_all.esgScores.governanceScore.fmt
       })   
       )
 
       
-      await getPeers(ticker)
+      await getPeers(this.state.ticker)
       .then(data => this.setState({ 
         yf_peers: data.finance.result[0].recommendedSymbols})   
       )
 
       
 
-      await getChart(ticker)
+      await getChart(this.state.ticker)
       .then(data => this.setState({ 
         yf_chart: data.chart.result[0]})   
       )
@@ -218,6 +228,7 @@ class Security extends Component {
 render() {
   if (!this.state.yf_all ) {
     return <div>Loading Data Engine <i className="fa fa-fw fa-spinner fa-spin text-info"></i></div>;
+
   }
 
 
@@ -242,7 +253,7 @@ render() {
                     className=""
                 />
                 <div className="h3">
-                  <span className="text-info mr-3">{this.state.symbol}</span>
+                  <span className="text-info mr-3">{this.state.ticker}</span>
                   <span>{this.state.regularMarket_raw}</span>
                   <span className="small mr-3">USD</span>
                   <span style={{color: Math.sign(this.state.regularMarketChangePercent_raw) > 0 ? "#1BB934" : "red"}}>{this.state.regularMarketChangePercent_fmt}</span>
@@ -293,10 +304,10 @@ render() {
                                 <div className="ml-2 align-self-center">
                                     <span>ESG Score</span>
                                     <h2 className="mb-0">
-                                    {this.state.yf_all.hasOwnProperty('esgScores')&&this.state.yf_all.esgScores.hasOwnProperty('totalEsg') ? this.state.yf_all.esgScores.totalEsg.fmt : ''}
+                                    {this.state.yf_all.hasOwnProperty('esgScores')&&this.state.yf_all.esgScores.hasOwnProperty('totalEsg') ? this.state.totalEsg_fmt : ''}
                                       </h2>
                                     <span>Peer avg: <span className="text-info">
-                                    {this.state.yf_all.hasOwnProperty('esgScores')&&this.state.yf_all.esgScores.hasOwnProperty('peerEsgScorePerformance') ? this.state.yf_all.esgScores.peerEsgScorePerformance.avg.toFixed(0) : ''}
+                                    {this.state.yf_all.hasOwnProperty('esgScores')&&this.state.yf_all.esgScores.hasOwnProperty('peerEsgScorePerformance') ? this.state.peerEsgScorePerformance_avg : ''}
                                     </span></span>
                                 </div>
                             </div>
@@ -306,7 +317,7 @@ render() {
                                         <i className="fa fa-circle fa-fw text-info"></i> Environmental
                                     </div>
                                     <h6 className="mb-0">
-                                    {this.state.yf_all.hasOwnProperty('esgScores')&&this.state.yf_all.esgScores.hasOwnProperty('environmentScore') ? this.state.yf_all.esgScores.environmentScore.fmt : ''}
+                                    {this.state.yf_all.hasOwnProperty('esgScores')&&this.state.yf_all.esgScores.hasOwnProperty('environmentScore') ? this.state.environmentScore_fmt : ''}
                                      </h6>
                                 </div>
                                 <div className="text-left">
@@ -314,7 +325,7 @@ render() {
                                         <i className="fa fa-circle fa-fw text-primary"></i> Social
                                     </div>
                                     <h6 className="mb-0">
-                                    {this.state.yf_all.hasOwnProperty('esgScores')&&this.state.yf_all.esgScores.hasOwnProperty('socialScore') ? this.state.yf_all.esgScores.socialScore.fmt : ''}
+                                    {this.state.yf_all.hasOwnProperty('esgScores')&&this.state.yf_all.esgScores.hasOwnProperty('socialScore') ? this.state.socialScore_fmt : ''}
                                       </h6>
                                 </div>
                                 <div className="text-left">
@@ -322,7 +333,7 @@ render() {
                                         <i className="fa fa-circle fa-fw text-gray-300"></i> Governance
                                     </div>
                                     <h6 className="mb-0">
-                                    {this.state.yf_all.hasOwnProperty('esgScores')&&this.state.yf_all.esgScores.hasOwnProperty('governanceScore') ? this.state.yf_all.esgScores.governanceScore.fmt : ''}
+                                    {this.state.yf_all.hasOwnProperty('esgScores')&&this.state.yf_all.esgScores.hasOwnProperty('governanceScore') ? this.state.governanceScore_fmt : ''}
                                      </h6>
                                 </div>
                             </div>
@@ -435,7 +446,7 @@ render() {
                         
                         <div>
                         <TradingViewWidget
-                            symbol={this.state.symbol}
+                            symbol={this.state.ticker}
                             theme={Themes.LIGHT}
                             locale="en"
                             interval= "D"
@@ -859,7 +870,7 @@ render() {
                                   {this.state.yf_all.assetProfile.companyOfficers[0].title}
                                   </td>
                                   <td className="text-info">
-                                  $ {this.state.yf_all.assetProfile.companyOfficers[0].totalPay.longFmt}
+                                  $ {this.state.yf_all.assetProfile.companyOfficers[0].hasOwnProperty('totalPay') ? this.state.yf_all.assetProfile.companyOfficers[0].totalPay.longFmt : ''}
                                   </td>
                                   <td className="align-middle text-right text-primary">
                                   {this.state.yf_all.assetProfile.companyOfficers[0].age}
@@ -873,7 +884,7 @@ render() {
                                   {this.state.yf_all.assetProfile.companyOfficers[1].title}
                                   </td>
                                   <td className="text-info">
-                                  $ {this.state.yf_all.assetProfile.companyOfficers[1].totalPay.longFmt}
+                                  $ {this.state.yf_all.assetProfile.companyOfficers[1].hasOwnProperty('totalPay') ? this.state.yf_all.assetProfile.companyOfficers[1].totalPay.longFmt : ''}
                                   </td>
                                   <td className="align-middle text-right text-primary">
                                   {this.state.yf_all.assetProfile.companyOfficers[1].age}
@@ -887,7 +898,8 @@ render() {
                                   {this.state.yf_all.assetProfile.companyOfficers[2].title}
                                   </td>
                                   <td className="text-info">
-                                  $ {this.state.yf_all.assetProfile.companyOfficers[2].totalPay.longFmt}
+                                  $ {this.state.yf_all.assetProfile.companyOfficers[2].hasOwnProperty('totalPay') ? this.state.yf_all.assetProfile.companyOfficers[2].totalPay.longFmt : ''}
+
                                   </td>
                                   <td className="align-middle text-right text-primary">
                                   {this.state.yf_all.assetProfile.companyOfficers[2].age}

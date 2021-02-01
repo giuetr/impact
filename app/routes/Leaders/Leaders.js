@@ -6,7 +6,7 @@ import TableStock from '../../assetsnew/TableStock'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-import {getAll, getESG, getQuote} from '../API/api.js'
+import { getQuote, getmegatrends} from '../API/api.js'
 
 
 import {
@@ -45,6 +45,7 @@ import {
 import {
   TinyDonutChart
 } from "../components/Monitor/TinyDonutChart";
+import { object, symbol } from 'prop-types';
 
 class Leaders extends Component {
     constructor(props) {
@@ -52,9 +53,11 @@ class Leaders extends Component {
         
 
         this.state = {
-            yf_esg: null,
-            yf_all: null,
-            merge_all_esg: null,
+            category:'EV',
+            ticker:'NXPI,AAPL,IFX,ETN,DD,XPEV,SBE,NEP,,CLNE,AMD,CON,QCOM,LI,RIDE,GM,F,NKLA,CTS,GRMN,APTV,KNDI,NIO,ABBN,ADI,NVDA,TSLA,INTC,GOOGL,BMW,ADNT',
+            megatrends: null,
+            merged_flow: null,
+            yf_quote: null,
             options: {
                 chart: {
                     height: 350,
@@ -149,33 +152,35 @@ class Leaders extends Component {
 
 
     async componentDidMount() {
-        const ticker = 'CRM'
-        await getAll(ticker)
-        .then(data => this.setState({ 
-          yf_all: data.quoteSummary.result[0]})   
-        )
-        await getESG(ticker)
-        .then(data => this.setState({ 
-          yf_esg: data[0]})   
-        )
-        await getQuote(ticker)
-        .then(data => this.setState({ 
-          yf_quote: data.quoteResponse.result[0]})   
-        )
-        
-        
-      }
-
-
-     
-render() {
-    if (!this.state.yf_all || !this.state.yf_esg) {
-        return <div>Loading Data Engine <i className="fa fa-fw fa-spinner fa-spin text-info"></i></div>;
-      }
       
-      const  merge_all_esg= { ...this.state.yf_esg, ...this.state.yf_quote};
-      //const merge_all_esg = [].concat(this.state.yf_esg, this.state.yf_all);
-      console.log(merge_all_esg);
+       await getQuote(this.state.ticker)
+        .then(data => this.setState({ 
+        yf_quote: data.quoteResponse.result})   
+        )     
+        await getmegatrends(this.state.category)
+        .then(data =>this.setState({
+            megatrends: data})
+        )
+    
+       
+      
+
+      }
+       
+     
+      
+  
+render() {
+    if (  !this.state.megatrends || !this.state.yf_quote) {
+        return <div>Loading Data Engine <i className="fa fa-fw fa-spinner fa-spin text-info"></i></div>;
+
+      }
+      const final_pre = {...this.state.megatrends, ...this.state.yf_quote }
+      const final_pre1 = Object.entries(final_pre);
+      const final =  final_pre1.filter(function(final_pre1) {
+        return final_pre1[1].CATEGORY;
+    });
+      console.log(final)
     return (
         <Container>
           <Row className="mb-3">
@@ -364,7 +369,32 @@ render() {
 
             </CardDeck>
             <Row className="mt-3">
-              <TableStock/>
+            <Table responsive hover className="table mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col" className="bt-0">Ticker</th>
+                            <th scope="col" className="text-right bt-0">Similarity Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                   
+                      {final.map((i) => {
+                         return (
+                          <tr>
+                            <td className="align-middle">
+                            <Badge color="info">
+                             {i[1].symbol}
+                               </Badge>
+                            </td>
+                            <td className="align-middle text-inverse text-right">
+                             {i[1].CATEGORY}
+                        
+                            </td>
+                          </tr>
+                        );
+                    })}
+                    </tbody>
+                </Table>
             </Row>
 
           </Container>
