@@ -170,7 +170,7 @@ class Leaders extends Component {
      
 render() {
     if (!this.state.yf_all || !this.state.yf_esg) {
-        return <div>Loading Data Engine <i className="fa fa-fw fa-leaf text-info"></i></div>;
+        return <div>Loading Data Engine <i className="fa fa-fw fa-spinner fa-spin text-info"></i></div>;
       }
       
       const  merge_all_esg= { ...this.state.yf_esg, ...this.state.yf_quote};
