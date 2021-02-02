@@ -146,7 +146,7 @@ render() {
             { /* START Card Widget */}
             { /* START Card Widget */}
             <Card type="border" color="success" className="mb-3">
-                <CardBody className="table-success">
+                <CardBody>
                     <ProfileOverviewCard 
                         title="MARKET BIAS"
                         badgeTitle="Real time"

@@ -119,7 +119,7 @@ class Security extends Component {
           environmentScore_fmt:null,
           socialScore_fmt:null,
           governanceScore_fmt:null,
-          ticker: 'PLTR',
+          ticker: 'BBBY',
             date: new Date(),
         };
     }
@@ -407,7 +407,7 @@ render() {
             { /* START Card Widget */}
             { /* START Card Widget */}
             <Card type="border" color="success" className="mb-3">
-                <CardBody className="table-success">
+                <CardBody>
                     <ProfileOverviewCard 
                         title="SENTIMENT"
                         badgeTitle="Real time"
@@ -497,7 +497,7 @@ render() {
                             Gross Margin
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.grossMargins_fmt}
+                            {this.state.yf_all.financialData.grossMargins.raw}
                             </td>
                         </tr>
                         <tr>
