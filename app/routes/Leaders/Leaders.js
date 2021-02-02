@@ -54,7 +54,7 @@ class Leaders extends Component {
 
         this.state = {
             category:'EV',
-            ticker:'NXPI,AAPL,IFX,ETN,DD,XPEV,SBE,NEP,,CLNE,AMD,CON,QCOM,LI,RIDE,GM,F,NKLA,CTS,GRMN,APTV,KNDI,NIO,ABBN,ADI,NVDA,TSLA,INTC,GOOGL,BMW,ADNT',
+            ticker:'NXPI,AAPL,IFX,ETN,DD,XPEV,SBE,NEP,CLNE,AMD,CON,QCOM,LI,RIDE,GM,F,NKLA,CTS,GRMN,APTV,KNDI,NIO,ABBN,ADI,NVDA,TSLA,INTC,GOOGL,BMW,ADNT',
             megatrends: null,
             merged_flow: null,
             yf_quote: null,
@@ -149,7 +149,7 @@ class Leaders extends Component {
               },
         };
     }
-
+   
 
     async componentDidMount() {
       
@@ -161,26 +161,30 @@ class Leaders extends Component {
         .then(data =>this.setState({
             megatrends: data})
         )
-    
-       
-      
-
       }
        
-     
+  
       
+     
+      mergeArrayObjects(){
+        return this.state.megatrends.map((item,i)=>{
+           if(item.id === this.state.yf_quote[i].id){
+               //merging two objects
+             return Object.assign({},item,this.state.yf_quote[i])
+           }
+        })
+      }
+  
   
 render() {
     if (  !this.state.megatrends || !this.state.yf_quote) {
-        return <div>Loading Data Engine <i className="fa fa-fw fa-spinner fa-spin text-info"></i></div>;
-
+        return <div>Loading Data Engine <i className="fa fa-fw fa-spinner fa-spin text-info"></i></div>;   
       }
-      const final_pre = {...this.state.megatrends, ...this.state.yf_quote }
-      const final_pre1 = Object.entries(final_pre);
-      const final =  final_pre1.filter(function(final_pre1) {
-        return final_pre1[1].CATEGORY;
-    });
-      console.log(final)
+      var merged = _.merge(_.keyBy(this.state.megatrends, 'symbol'), _.keyBy(this.state.yf_quote, 'symbol'));
+      var values = _.values(merged);
+      console.log(values);
+      const final = Object.entries(values);
+     // console.log(final_pre)
     return (
         <Container>
           <Row className="mb-3">
@@ -388,6 +392,10 @@ render() {
                             </td>
                             <td className="align-middle text-inverse text-right">
                              {i[1].CATEGORY}
+                        
+                            </td>
+                            <td className="align-middle text-inverse text-right">
+                             {i[1].ESG_SCORE}
                         
                             </td>
                           </tr>
