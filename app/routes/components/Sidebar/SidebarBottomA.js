@@ -15,9 +15,14 @@ const SidebarBottomA = () => (
     <React.Fragment>
         { /* START Desktop */ }
         <Sidebar.HideSlim>
-            <Sidebar.Section className="pb-0">
-                <VersionSelector sidebar dashboard="Airframe" />
-            </Sidebar.Section>
+            {
+                /* 
+                <Sidebar.Section className="pb-0">
+                    <VersionSelector sidebar dashboard="Airframe" />
+                </Sidebar.Section>
+                */
+            }
+            
             <Sidebar.Section>
                 <FooterAuth className="text-muted" />
             </Sidebar.Section>
@@ -28,14 +33,22 @@ const SidebarBottomA = () => (
         <Sidebar.ShowSlim>
             <Sidebar.Section className="text-center">
                 { /* Slim Version Selector */ }
-                <VersionSelector
-                    dashboard="Airframe"
-                    sidebar
-                    compact
-                    render={() => (
-                        <i className="fa fa-fw fa-toggle-on"></i>
-                    )}
-                />
+
+
+                {
+                /* 
+                    <VersionSelector
+                        dashboard="Airframe"
+                        sidebar
+                        compact
+                        render={() => (
+                            <i className="fa fa-fw fa-toggle-on"></i>
+                        )}
+                    />
+                */
+                }
+
+                
 
                 { /* Footer Text as Tooltip */ }
                 <Button

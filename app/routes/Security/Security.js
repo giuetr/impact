@@ -119,7 +119,7 @@ class Security extends Component {
           environmentScore_fmt:null,
           socialScore_fmt:null,
           governanceScore_fmt:null,
-          ticker: 'BBBY',
+          ticker: 'AAPL',
             date: new Date(),
         };
     }
@@ -159,7 +159,7 @@ class Security extends Component {
         numberOfAnalystOpinions_fmt: this.state.yf_all.financialData.numberOfAnalystOpinions.fmt,
         marketCap_fmt: this.state.yf_all.summaryDetail.marketCap.fmt,
         totalRevenue_fmt: this.state.yf_all.financialData.totalRevenue.fmt,
-        grossMargins_fmt: this.state.yf_all.financialData.grossMargins.fmt,
+        grossMargins_fmt: this.state.yf_all.financialData.grossMargins.fmt, 
         ebitda_fmt: this.state.yf_all.financialData.ebitda.fmt,
         totalCash_fmt: this.state.yf_all.financialData.totalCash.fmt,
         totalDebt_fmt: this.state.yf_all.financialData.totalDebt.fmt,
@@ -497,7 +497,7 @@ render() {
                             Gross Margin
                             </td>
                             <td className="align-middle text-right text-info">
-                            {this.state.yf_all.financialData.grossMargins.raw}
+                            {this.state.grossMargins_fmt}
                             </td>
                         </tr>
                         <tr>

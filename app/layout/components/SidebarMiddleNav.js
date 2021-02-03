@@ -246,6 +246,7 @@ export const SidebarMiddleNav = () => (
             href='https://webkom.gitbook.io/spin/v/airframe/airframe-react/documentation-react'
         />
         { /* -------- Versions ---------*/ }
+        
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-folder-open-o"></i>}
             title="Versions"
