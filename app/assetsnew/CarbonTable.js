@@ -17,7 +17,8 @@ import {
   CardFooter,
   CardColumns,
   Col,
-  Badge
+  Badge,
+  UncontrolledTooltip,
 } from '../components'
 
 
@@ -228,10 +229,13 @@ class CarbonTable extends React.Component {
                         placeholder="Search..."
                       />
                       <ExportCSVButton { ...props.csvProps } className="p-0">
-                        <Button color="info" outline>
+                        <Button color="info" outline id="UncontrolledTooltipTop">
                           <i className="fa fa-download mr-2"></i>
                                 Export
                         </Button>
+                          <UncontrolledTooltip placement="top" target="UncontrolledTooltipTop">
+                                Upgrade your plan to export data
+                          </UncontrolledTooltip>
                       </ExportCSVButton>
                       </div>
                       <BootstrapTable
