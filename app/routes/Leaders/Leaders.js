@@ -46,6 +46,7 @@ import {
   TinyDonutChart
 } from "../components/Monitor/TinyDonutChart";
 import { object, symbol } from 'prop-types';
+import Tablestock from '../../assetsnew/TableStock';
 
 class Leaders extends Component {
     constructor(props) {
@@ -151,6 +152,7 @@ class Leaders extends Component {
     }
    
 
+
     async componentDidMount() {
       
        await getQuote(this.state.ticker)
@@ -182,9 +184,10 @@ render() {
       }
       var merged = _.merge(_.keyBy(this.state.megatrends, 'symbol'), _.keyBy(this.state.yf_quote, 'symbol'));
       var values = _.values(merged);
-      console.log(values);
+     // console.log(values);
       const final = Object.entries(values);
-     // console.log(final_pre)
+
+  
     return (
         <Container>
           <Row className="mb-3">
@@ -377,7 +380,17 @@ render() {
                     <thead>
                         <tr>
                             <th scope="col" className="bt-0">Ticker</th>
-                            <th scope="col" className="text-right bt-0">Similarity Score</th>
+                            <th scope="col" className="text-right bt-0">Company</th>
+                            <th scope="col" className="text-right bt-0">Price</th>
+                            <th scope="col" className="text-right bt-0">ESG Score</th>
+                            <th scope="col" className="text-right bt-0">ESG Performance</th>
+                            <th scope="col" className="text-right bt-0">1D Change</th>
+                            <th scope="col" className="text-right bt-0">1M Return</th>
+                            <th scope="col" className="text-right bt-0">1Y Return</th>
+                            <th scope="col" className="text-right bt-0">EPS</th>
+                            <th scope="col" className="text-right bt-0">P/E</th>
+                            <th scope="col" className="text-right bt-0">MarketCap</th>
+                            <th scope="col" className="text-right bt-0">Beta</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -390,21 +403,53 @@ render() {
                              {i[1].symbol}
                                </Badge>
                             </td>
+
+                            <td className="align-middle">
+                            <Badge color="info">
+                             {i[1].shortName}
+                               </Badge>
+                            </td>
                             <td className="align-middle text-inverse text-right">
-                             {i[1].CATEGORY}
+                             {i[1].regularMarketPrice}
                         
                             </td>
                             <td className="align-middle text-inverse text-right">
                              {i[1].ESG_SCORE}
-                        
                             </td>
+                            <td className="align-middle text-inverse text-right">
+                             {i[1].ESG_PERFORMANCE}
+                            </td>
+                            <td className="align-middle text-inverse text-right">
+                             {i[1].CHANGE1D}
+                            </td>
+                            <td className="align-middle text-inverse text-right">
+                             {i[1].RETURN1M}
+                            </td>
+                            <td className="align-middle text-inverse text-right">
+                             {i[1].RETURN1Y}
+                            </td>
+                            <td className="align-middle text-inverse text-right">
+                             {i[1].EPS}
+                            </td>
+                            <td className="align-middle text-inverse text-right">
+                             {i[1].PE}
+                            </td>
+                            <td className="align-middle text-inverse text-right">
+                             {i[1].MKTCAP}
+                            </td>
+                            <td className="align-middle text-inverse text-right">
+                             {i[1].BETA}
+                            </td>
+                            
                           </tr>
                         );
                     })}
                     </tbody>
                 </Table>
             </Row>
-
+<Row>
+    <Tablestock></Tablestock>
+</Row>
           </Container>
           
     </Container>

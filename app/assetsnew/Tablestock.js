@@ -4,7 +4,7 @@ import filterFactory, { textFilter, selectFilter, numberFilter } from 'react-boo
 import ToolkitProvider, { Search, CSVExport } from 'react-bootstrap-table2-toolkit';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 
-
+//react BootstrapTable (tablenext)
 
 
 import {
