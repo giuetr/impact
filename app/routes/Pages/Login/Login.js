@@ -21,7 +21,7 @@ const Login = () => (
         <EmptyLayout.Section center>
             { /* START Header */}
             <HeaderAuth 
-                title="Sign In to Application"
+                title="Welcome back"
             />
             { /* END Header */}
             { /* START Form */}
@@ -31,9 +31,11 @@ const Login = () => (
                         Email Adress
                     </Label>
                     <Input type="email" name="email" id="emailAdress" placeholder="Enter email..." className="bg-white" />
+                    {/*
                     <FormText color="muted">
                         We&amp;ll never share your email with anyone else.
                     </FormText>
+                    */}
                 </FormGroup>
                 <FormGroup>
                     <Label for="password">
@@ -61,7 +63,7 @@ const Login = () => (
                     Forgot Password
                 </Link>
                 <Link to="/pages/register" className="ml-auto text-decoration-none">
-                    Register
+                    Sign Up
                 </Link>
             </div>
             { /* END Bottom Links */}
