@@ -33,6 +33,15 @@ const Register = () => (
                     <Input type="text" name="text" id="username" placeholder="Enter a Username..." className="bg-white" />
                 </FormGroup>
                 <FormGroup>
+                    <Label for="emailAdress">
+                        Email Adress
+                    </Label>
+                    <Input type="email" name="email" id="emailAdress" placeholder="Enter email..." className="bg-white" />
+                    <FormText color="muted">
+                        We&amp;ll never share your email with anyone else.
+                    </FormText>
+                </FormGroup>
+                <FormGroup>
                     <Label for="password">
                         Password
                     </Label>
@@ -44,15 +53,7 @@ const Register = () => (
                     </Label>
                     <Input type="password" name="password" id="repeatPassword" placeholder="Password..." className="bg-white" />
                 </FormGroup>
-                <FormGroup>
-                    <Label for="emailAdress">
-                        Email Adress
-                    </Label>
-                    <Input type="email" name="email" id="emailAdress" placeholder="Enter email..." className="bg-white" />
-                    <FormText color="muted">
-                        We&amp;ll never share your email with anyone else.
-                    </FormText>
-                </FormGroup>
+                
                 <FormGroup>
                     <CustomInput type="checkbox" id="acceptTerms" label="Accept Terms and Privacy Policy" inline />
                 </FormGroup>
@@ -68,7 +69,7 @@ const Register = () => (
             </Form>
             { /* END Form */}
             { /* START Bottom Links */}
-            <div className="d-flex mb-5">
+            <div className="d-flex mb-3">
                 <Link to="/pages/forgot-password" className="text-decoration-none">
                     Forgot Password
                 </Link>

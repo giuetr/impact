@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import Chart from "react-apexcharts";
 import faker from 'faker/locale/en_US';
-import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import classes from './home.scss';
 
 import { getQuote, getTrending, getMktnews, getSectors } from "../API/api.js";
 import TradingViewWidget, { Themes } from 'react-tradingview-widget';
+import Mktstatus from '../components/Mktstatus/Mktstatus';
 
 import {
     Container,
@@ -79,16 +79,7 @@ render() {
       }
     return (
         <Container>
-          <Row className="mb-3">
-            <Col lg={ 12 }>
-                <h5 className="mb-0">
-                <span>1 January 2021 - </span>
-                <span className="text-info">05:12:00 PM</span>
-                <span className="small text-muted"> CET</span>
-                </h5>
-                <Badge color="info">MARKET OPEN</Badge>
-            </Col>
-          </Row>
+            <Mktstatus/>
        
         { /* START Section 1 */}
         <CardDeck>

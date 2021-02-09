@@ -9,6 +9,7 @@ import HighchartsReact from 'highcharts-react-official'
 
 import {getAll, getPeers, getChart, getSent} from '../API/api.js'
 import TradingViewWidget, { Themes } from 'react-tradingview-widget';
+import Mktstatus from '../components/Mktstatus/Mktstatus';
 
 
 import {
@@ -121,6 +122,7 @@ class Security extends Component {
           governanceScore_fmt:null,
           ticker: 'PLTR',
             date: new Date(),
+
         };
     }
 
@@ -133,10 +135,6 @@ class Security extends Component {
    }
 
     async componentDidMount() {
-      this.timerID = setInterval(
-        () => this.tick(),
-        1000
-      );
    
       await getAll(this.state.ticker)
       .then(data => this.setState({ 
@@ -217,11 +215,6 @@ class Security extends Component {
       )
     }
 
-    tick() {
-      this.setState({
-        date: new Date()
-      });
-    }  
 
 
     
@@ -234,16 +227,8 @@ render() {
 
     return (
         <Container>
-          <Row className="mb-3">
-            <Col lg={ 12 }>
-                <h5 className="mb-0">
-                <span>{this.state.date.toDateString()} </span>
-                <span className="text-info">{this.state.date.toLocaleTimeString()}</span>
-                <span className="small text-muted"> CET</span>
-                </h5>
-                <Badge color="info">MARKET OPEN</Badge>
-            </Col>
-          </Row>
+            <Mktstatus/>
+
           <Container className="pl-0">
 
           <div className="d-flex mt-3 mb-5">
