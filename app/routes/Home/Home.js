@@ -147,7 +147,7 @@ render() {
                         footerTitle="Signal strength:"
                         footerTitleClassName="text-primary"
                         footerValue="AVERAGE"
-                        footerIcon="caret-up"
+                        footerIcon="signal"
                     />
                 </CardBody>
             </Card>
