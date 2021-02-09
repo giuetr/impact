@@ -132,7 +132,7 @@ class Security extends Component {
       const result = ((target / price)-1)*100;
       
       return result;
-   }
+    }
 
     async componentDidMount() {
    
@@ -1041,6 +1041,8 @@ render() {
                 </Col>
         </Row>
 
+        {/*
+        
         <Row>
             <Col  lg={ 12 }>
             <div className="mb-5 mt-5">
@@ -1131,9 +1133,8 @@ render() {
                     </div>
             </Col>
         </Row>
-
         
-        
+        */}
 
     </Container>
     );

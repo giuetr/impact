@@ -1,10 +1,9 @@
 import React from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
-import filterFactory, { textFilter, selectFilter, numberFilter } from 'react-bootstrap-table2-filter';
+import filterFactory, { textFilter, selectFilter, numberFilter} from 'react-bootstrap-table2-filter';
 import ToolkitProvider, { Search, CSVExport } from 'react-bootstrap-table2-toolkit';
 import paginationFactory from 'react-bootstrap-table2-paginator';
-import { getQuote, getmegatrends} from '../routes/API/api'
-//react BootstrapTable (tablenext)
+
 
 
 import {
@@ -33,200 +32,110 @@ const sortCaret = (order) => {
 };
 
 
-
+var products = [{
+  id: 1,
+  ticker: "TSLA",
+  name: "Tesla Inc.",
+  shares_out: 123124124,
+  public_out: 93912031,
+  shorts_tot: 390919000,
+  change_prev: -2.93,
+  percent_float: 0.3,
+  returnperiod: 12.3,
+}];
 
 
 
 
 const columns = [{
+  dataField: 'id',
+  text: 'Id'
+}, {
   dataField: 'ticker',
   text: 'Ticker',
-  formatter: (cell) => (
-    <span className="text-inverse fw-500">
-        { cell }
-    </span>
-  ),
-},  {
-  dataField: 'name',
-  text: 'Company',
   formatter: (cell) => (
     <span className="text-inverse">
         { cell }
     </span>
   ),
+},  {
+  dataField: 'name',
+  text: 'Company'
 }, {
-  dataField: 'price',
-  text: 'Price',
+  dataField: 'shares_out',
+  text: 'Total Shares',
+  sort: true,
+  sortCaret
+}, {
+  dataField: 'public_out',
+  text: 'Public Float',
+  sort: true,
+  sortCaret
+}, {
+  dataField: 'shorts_tot',
+  text: 'Total Shorted Shares',
+  sort: true,
+  sortCaret,
   formatter: (cell) => (
-    <span className="text-info">
+    <span className="text-danger">
         { cell }
     </span>
   ),
 }, {
-  dataField: 'esgscore',
-  text: 'ESG Score',
+  dataField: 'change_prev',
+  text: 'Change from Prev.',
+  sort: true,
+  sortCaret,
+  style: (cell) => {
+    if (cell > 0) {
+      return {
+        color: '#33AE9A'
+      };
+    }
+    return {
+       color: '#ED1C24'
+    };
+  },
+}, {
+  dataField: 'percent_float',
+  text: 'Percent of float',
   sort: true,
   sortCaret,
   formatter: (cell) => (
-    <span className="text-info">
+    <span className="text-primary">
         { cell }
     </span>
-  )
-}, {
-  dataField: 'rating',
-  text: 'ESG Performance',
-  formatter: (cell) => {
-    const color = (status) => {
-        const map = {
-            'OUT_PERF': 'success',
-            'Good': 'info',
-            'Average': 'warning',
-            'UNDER_PERF': 'danger'
-        };
-        return map[status];
-    }
-
-    return (
-        <Badge color={ color(cell) }>
-            { cell }
-        </Badge>
-    );
-}
-}, {
-  dataField: 'change1d',
-  text: '1D Change',
-  sort: true,
-  sortCaret,
-  style: (cell, row, rowIndex, colIndex) => {
-    if (cell > 0) {
-      return {
-        color: '#33AE9A'
-      };
-    }
-    return {
-       color: '#ED1C24'
-    };
-  },
-  formatter: (cell) => (
-    <span>
-        { cell } %
-    </span>
-  )
-}, {
-  dataField: 'change1m',
-  text: '1M Change',
-  sort: true,
-  sortCaret,
-  style: (cell, row, rowIndex, colIndex) => {
-    if (cell > 0) {
-      return {
-        color: '#33AE9A'
-      };
-    }
-    return {
-       color: '#ED1C24'
-    };
-  },
-  formatter: (cell) => (
-    <span>
-        { cell } %
-    </span>
-  )
-},  {
-  dataField: 'change1y',
-  text: '1Y Change',
-  sort: true,
-  sortCaret,
-  style: (cell, row, rowIndex, colIndex) => {
-    if (cell > 0) {
-      return {
-        color: '#33AE9A'
-      };
-    }
-    return {
-       color: '#ED1C24'
-    };
-  },
-  formatter: (cell) => (
-    <span>
-        { cell } %
-    </span>
-  )
-},  {
-  dataField: 'eps',
-  text: 'EPS',
-  sort: true,
-  sortCaret
-},  {
-  dataField: 'pe',
-  text: 'P/E',
-  sort: true,
-  sortCaret
-},  {
-  dataField: 'mktcap',
-  text: 'MarketCap',
-  sort: true,
-  sortCaret
-},  {
-  dataField: 'beta',
-  text: 'Beta',
-  sort: true,
-  sortCaret
+  ),
 }
 ];
 
 
 
 
-class Tablestock extends React.Component {
+class ShortsTable extends React.Component {
   constructor(props) {
     super(props);
 
     this.options = {
-     
+      
     };
   }
 
-    
-
-
-
-   
   render() {
-  
-   
-   var counter=0
-    var products = this.props.items.map(function(i) {
-      return {
-        id: counter++,
-        ticker: i[1].symbol,
-        name: i[1].shortName,
-        price: i[1].regularMarketPrice,
-        esgscore: i[1].ESG_SCORE,
-        rating: i[1].ESG_PERFORMANCE,
-        change1d: i[1].CHANGE1D,
-        change1m: i[1].RETURN1M,
-        change1y: i[1].RETURN1Y,
-        eps: i[1].EPS,
-        pe: i[1].PE,
-        mktcap: i[1].MKTCAP,
-        beta: i[1].BETA
-      };
-  });
     return (
       
       <Container>
         <div>
           <Card>
             <CardBody>
-            <ToolkitProvider
+              <ToolkitProvider
                 keyField="id"
                 data={ products }
                 columns={columns}
                 filter={ filterFactory() }
                 search
                 exportCSV={ {
-                  fileName: 'companies_export.csv',
+                  fileName: 'insiders_transactions.csv',
                   separator: ',',
                   noAutoBOM: false
                 } }
@@ -266,4 +175,4 @@ class Tablestock extends React.Component {
   }
 }
 
-export default Tablestock;
+export default ShortsTable;

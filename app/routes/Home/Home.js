@@ -136,17 +136,17 @@ render() {
             </Card>
             { /* START Card Widget */}
             { /* START Card Widget */}
-            <Card type="border" color="success" className="mb-3">
+            <Card type="border" color={Math.sign(this.state.yf_financialData_SP500.regularMarketChangePercent) > 0 ? "success" : "danger"} className="mb-3">
                 <CardBody>
                     <ProfileOverviewCard 
                         title="MARKET BIAS"
-                        badgeTitle="Real time"
-                        badgeColor="success"
-                        value="87%"
-                        valueTitle="BULLISH"
-                        footerTitle="Previous:"
-                        footerTitleClassName="text-success"
-                        footerValue="8%"
+                        badgeTitle="Real-Time"
+                        badgeColor="primary"
+                        value={Math.sign(this.state.yf_financialData_SP500.regularMarketChangePercent) > 0 ? "LONG" : "SHORT"}
+                        valueTitle="Daily"
+                        footerTitle="Signal strength:"
+                        footerTitleClassName="text-primary"
+                        footerValue="AVERAGE"
                         footerIcon="caret-up"
                     />
                 </CardBody>
@@ -157,7 +157,7 @@ render() {
 
         <Row>
             <Col lg={ 7 }>
-                <Card className="mb-3">
+                <Card>
                     <CardBody>
                     <div>
                         <TradingViewWidget
@@ -289,12 +289,98 @@ render() {
         </Row>
 
         <Row>
-            <Col  lg={ 7 }>
-            <div className="mb-5 mt-5">
+            <Col  lg={ 6 }>
+                    <div className="mb-5 mt-3">
                         <ListGroup>
                             <ListGroupItem active>
                                 <ListGroupItemHeading className="h4 mt-2">
-                                    Newsfeed
+                                    Top ESG News
+                                </ListGroupItemHeading>
+                            </ListGroupItem>
+                            <div  className={ classes['table-scroll-wrap2'] }>
+                                <ListGroupItem tag="a" href="https://www.bloomberg.com/news/articles/2021-02-09/fossil-fuel-pollution-kills-millions-more-than-scientists-knew?srnd=green" action target="_blank">
+                                    <Badge className="mt-2" color={"info"}>Environment</Badge>
+                                    <span className="mt-3 d-flex h6 mb-2 text-info">
+                                        <span className="text-info">
+                                            Bloomberg
+                                        </span>
+                                        <span className="ml-auto small text-muted">
+                                            9 Feb 2021
+                                        </span>
+
+                                    </span>
+                                    <ListGroupItemHeading className="fw-500 h5">
+                                        Fossil Fuel Pollution 
+                                    </ListGroupItemHeading>
+                                    <ListGroupItemText className="mb-2">
+                                        Pollution Kills 8.7 Million a Year, Twice Previous Estimate
+                                    </ListGroupItemText>
+                                </ListGroupItem>
+                                <ListGroupItem tag="a" href="https://www.bloomberg.com/news/articles/2021-02-08/climate-seen-as-next-race-for-global-supremacy-bofa-says?srnd=green" action target="_blank">
+                                    <Badge className="mt-2" color={"info"}>Environment</Badge>
+                                    <span className="mt-3 d-flex h6 mb-2 text-info">
+                                        <span className="text-info">
+                                            Bloomberg
+                                        </span>
+                                        <span className="ml-auto small text-muted">
+                                            9 Feb 2021
+                                        </span>
+
+                                    </span>
+                                    <ListGroupItemHeading className="fw-500 h5">
+                                        The race for climate innovation
+                                    </ListGroupItemHeading>
+                                    <ListGroupItemText className="mb-2">
+                                        Climate Is Next Race for Global Supremacy, Bank of America Says
+                                    </ListGroupItemText>
+                                </ListGroupItem>
+                                <ListGroupItem tag="a" href="https://www.bloomberg.com/news/articles/2021-02-09/russia-energy-stocks-get-boost-from-biden-s-green-push?srnd=green" action target="_blank">
+                                    <Badge className="mt-2" color={"info"}>Environment</Badge>
+                                    <span className="mt-3 d-flex h6 mb-2 text-info">
+                                        <span className="text-info">
+                                            Bloomberg
+                                        </span>
+                                        <span className="ml-auto small text-muted">
+                                            9 Feb 2021
+                                        </span>
+
+                                    </span>
+                                    <ListGroupItemHeading className="fw-500 h5">
+                                        Biden’s Green Push
+                                    </ListGroupItemHeading>
+                                    <ListGroupItemText className="mb-2">
+                                        Russian Energy Stocks Get Boost From Biden’s Green Push
+                                    </ListGroupItemText>
+                                </ListGroupItem>
+                                <ListGroupItem tag="a" href="https://www.atmmarketplace.com/news/bridgestone-americas-unveils-11-billion-sustainably-linked-credit-facility/" action target="_blank">
+                                    <Badge className="mt-2" color={"primary"}>Innovation</Badge>
+                                    <span className="mt-3 d-flex h6 mb-2 text-info">
+                                        <span className="text-info">
+                                            ATMMarketplace
+                                        </span>
+                                        <span className="ml-auto small text-muted">
+                                            9 Feb 2021
+                                        </span>
+
+                                    </span>
+                                    <ListGroupItemHeading className="fw-500 h5">
+                                        Bridgestone Americas ESG bond
+                                    </ListGroupItemHeading>
+                                    <ListGroupItemText className="mb-2">
+                                        Bridgestone Americas unveils $1.1 billion sustainably linked credit facility
+                                    </ListGroupItemText>
+                                </ListGroupItem>
+                            </div>
+                            
+                        </ListGroup>
+                    </div>
+            </Col>
+            <Col  lg={ 6 }>
+            <div className="mb-5 mt-3">
+                        <ListGroup>
+                            <ListGroupItem active>
+                                <ListGroupItemHeading className="h4 mt-2">
+                                    Market Newsfeed
                                 </ListGroupItemHeading>
                             </ListGroupItem>
 
@@ -313,7 +399,7 @@ render() {
                                         </span>
 
                                     </span>
-                                    <ListGroupItemHeading className="fw-600 h5">
+                                    <ListGroupItemHeading className="fw-500 h5">
                                       {i.headline}
                                     </ListGroupItemHeading>
                                     <ListGroupItemText className="mb-2">
@@ -332,6 +418,10 @@ render() {
                         </ListGroup>
                     </div>
             </Col>
+
+
+            {/*
+
             <Col lg={5}>
             <Card className="d-flex flex-column mt-5">
                 <CardHeader className="bb-0 pt-3 bg-none" tag="h5">
@@ -377,6 +467,9 @@ render() {
                 </Card>
                 
             </Col>
+
+            */}
+            
         </Row>
 
         
