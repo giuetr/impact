@@ -375,80 +375,9 @@ render() {
                 </Card>
 
             </CardDeck>
-            <Row className="mt-3">
-            <Table responsive hover className="table mb-0">
-                    <thead>
-                        <tr>
-                            <th scope="col" className="bt-0">Ticker</th>
-                            <th scope="col" className="text-right bt-0">Company</th>
-                            <th scope="col" className="text-right bt-0">Price</th>
-                            <th scope="col" className="text-right bt-0">ESG Score</th>
-                            <th scope="col" className="text-right bt-0">ESG Performance</th>
-                            <th scope="col" className="text-right bt-0">1D Change</th>
-                            <th scope="col" className="text-right bt-0">1M Return</th>
-                            <th scope="col" className="text-right bt-0">1Y Return</th>
-                            <th scope="col" className="text-right bt-0">EPS</th>
-                            <th scope="col" className="text-right bt-0">P/E</th>
-                            <th scope="col" className="text-right bt-0">MarketCap</th>
-                            <th scope="col" className="text-right bt-0">Beta</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                   
-                      {final.map((i) => {
-                         return (
-                          <tr>
-                            <td className="align-middle">
-                            <Badge color="info">
-                             {i[1].symbol}
-                               </Badge>
-                            </td>
-
-                            <td className="align-middle">
-                            <Badge color="info">
-                             {i[1].shortName}
-                               </Badge>
-                            </td>
-                            <td className="align-middle text-inverse text-right">
-                             {i[1].regularMarketPrice}
-                        
-                            </td>
-                            <td className="align-middle text-inverse text-right">
-                             {i[1].ESG_SCORE}
-                            </td>
-                            <td className="align-middle text-inverse text-right">
-                             {i[1].ESG_PERFORMANCE}
-                            </td>
-                            <td className="align-middle text-inverse text-right">
-                             {i[1].CHANGE1D}
-                            </td>
-                            <td className="align-middle text-inverse text-right">
-                             {i[1].RETURN1M}
-                            </td>
-                            <td className="align-middle text-inverse text-right">
-                             {i[1].RETURN1Y}
-                            </td>
-                            <td className="align-middle text-inverse text-right">
-                             {i[1].EPS}
-                            </td>
-                            <td className="align-middle text-inverse text-right">
-                             {i[1].PE}
-                            </td>
-                            <td className="align-middle text-inverse text-right">
-                             {i[1].MKTCAP}
-                            </td>
-                            <td className="align-middle text-inverse text-right">
-                             {i[1].BETA}
-                            </td>
-                            
-                          </tr>
-                        );
-                    })}
-                    </tbody>
-                </Table>
-            </Row>
+           
 <Row>
-    <Tablestock></Tablestock>
+    <Tablestock items={final} />
 </Row>
           </Container>
           

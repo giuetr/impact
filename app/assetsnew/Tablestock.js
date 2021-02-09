@@ -3,7 +3,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import filterFactory, { textFilter, selectFilter, numberFilter } from 'react-bootstrap-table2-filter';
 import ToolkitProvider, { Search, CSVExport } from 'react-bootstrap-table2-toolkit';
 import paginationFactory from 'react-bootstrap-table2-paginator';
-
+import { getQuote, getmegatrends} from '../routes/API/api'
 //react BootstrapTable (tablenext)
 
 
@@ -33,63 +33,7 @@ const sortCaret = (order) => {
 };
 
 
-var products = [{
-  id: 1,
-  ticker: "TSLA",
-  name: "Tesla Inc.",
-  price: 120,
-  esgscore: 30,
-  rating: 'Top',
-  change1d: 22,
-  change1m: 21,
-  change1y: 32,
-  eps: 3,
-  pe: 1,
-  mktcap: 324124,
-  beta: 2
-}, {
-  id: 2,
-  ticker: "NIO",
-  name: "Nio Inc.",
-  price: 11,
-  esgscore: 43,
-  rating: 'Good',
-  change1d: 32,
-  change1m: 12,
-  change1y: 43,
-  eps: 6,
-  pe: 21,
-  mktcap: 959934,
-  beta: 5
-}, {
-  id: 3,
-  ticker: "MU",
-  name: "Micron Technology Inc.",
-  price: 54,
-  esgscore: 12,
-  rating: 'Top',
-  change1d: 21,
-  change1m: 11,
-  change1y: -12,
-  eps: 7,
-  pe: 1,
-  mktcap: 988423,
-  beta: 4
-}, {
-  id: 4,
-  ticker: "AMD",
-  name: "Advanced Micro Devices, Inc.",
-  price: 32,
-  esgscore: 33,
-  rating: 'Average',
-  change1d: -2,
-  change1m: -32,
-  change1y: 24,
-  eps: 10,
-  pe: 22,
-  mktcap: 4828323,
-  beta: 0.3
-},];
+
 
 
 
@@ -239,11 +183,36 @@ class Tablestock extends React.Component {
     super(props);
 
     this.options = {
-      
+     
     };
   }
 
+    
+
+
+
+   
   render() {
+  
+   
+   var counter=0
+    var products = this.props.items.map(function(i) {
+      return {
+        id: counter++,
+        ticker: i[1].symbol,
+        name: i[1].shortName,
+        price: i[1].regularMarketPrice,
+        esgscore: i[1].ESG_SCORE,
+        rating: i[1].ESG_PERFORMANCE,
+        change1d: i[1].CHANGE1D,
+        change1m: i[1].RETURN1M,
+        change1y: i[1].RETURN1Y,
+        eps: i[1].EPS,
+        pe: i[1].PE,
+        mktcap: i[1].MKTCAP,
+        beta: i[1].BETA
+      };
+  });
     return (
       
       <Container>
