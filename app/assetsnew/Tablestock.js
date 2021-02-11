@@ -57,6 +57,8 @@ const columns = [{
 }, {
   dataField: 'price',
   text: 'Price',
+  sort: true,
+  sortCaret,
   formatter: (cell) => (
     <span className="text-info">
         { cell }
@@ -75,19 +77,20 @@ const columns = [{
 }, {
   dataField: 'rating',
   text: 'ESG Performance',
+  sort: true,
+  sortCaret,
   formatter: (cell) => {
     const color = (status) => {
         const map = {
             'OUT_PERF': 'success',
-            'Good': 'info',
-            'Average': 'warning',
+            'AVG_PERF': 'yellow',
             'UNDER_PERF': 'danger'
         };
         return map[status];
     }
 
     return (
-        <Badge color={ color(cell) }>
+        <Badge color={ color(cell) } pill>
             { cell }
         </Badge>
     );

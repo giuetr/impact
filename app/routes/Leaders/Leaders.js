@@ -376,7 +376,7 @@ render() {
 
             </CardDeck>
            
-<Row>
+<Row className="mt-3">
     <Tablestock items={final} />
 </Row>
           </Container>
