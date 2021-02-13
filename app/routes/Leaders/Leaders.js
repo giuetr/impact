@@ -51,10 +51,13 @@ import Tablestock from '../../assetsnew/TableStock';
 class Leaders extends Component {
     constructor(props) {
         super(props);
-        
+       
 
         this.state = {
-            category:'EV',
+            tickers:null,
+            arr_megatrends:null,
+            arr_tickers:null,
+            category:'FF',
             ticker:'NXPI,AAPL,IFX,ETN,DD,XPEV,SBE,NEP,CLNE,AMD,CON,QCOM,LI,RIDE,GM,F,NKLA,CTS,GRMN,APTV,KNDI,NIO,ABBN,ADI,NVDA,TSLA,INTC,GOOGL,BMW,ADNT',
             megatrends: null,
             merged_flow: null,
@@ -155,18 +158,38 @@ class Leaders extends Component {
 
     async componentDidMount() {
       
-       await getQuote(this.state.ticker)
-        .then(data => this.setState({ 
-        yf_quote: data.quoteResponse.result})   
-        )     
+         
+
+
+        /* nel then di getmegatrends ho sintetizzato questa serie di operazioni
+    const arr_megatrends= _.values(this.state.megatrends);
+    const arr_tickers = arr_megatrends.map(function(i) {
+        return (
+           i.symbol
+      );
+    });
+    const tickers = arr_tickers.toString();
+    console.log(tickers)
+*/
         await getmegatrends(this.state.category)
         .then(data =>this.setState({
-            megatrends: data})
-        )
-      }
-       
-  
+            megatrends: data,
+            tickers: _.values(data).map(function(i) {
+                return (
+                   i.symbol
+              );
+            }).toString()
+            }),
+                getQuote(this.state.tickers)
+      .then(data => this.setState({ 
+      yf_quote: data.quoteResponse.result})   
+      )
+            )
       
+       
+    
+
+    }
      
       mergeArrayObjects(){
         return this.state.megatrends.map((item,i)=>{
@@ -187,7 +210,7 @@ render() {
      // console.log(values);
       const final = Object.entries(values);
 
-  
+      console.log(window.location.pathname);
     return (
         <Container>
           <Row className="mb-3">
@@ -376,7 +399,7 @@ render() {
 
             </CardDeck>
            
-<Row className="mt-3">
+<Row>
     <Tablestock items={final} />
 </Row>
           </Container>
