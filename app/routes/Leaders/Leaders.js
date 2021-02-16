@@ -51,14 +51,39 @@ import Tablestock from '../../assetsnew/TableStock';
 class Leaders extends Component {
     constructor(props) {
         super(props);
-       
+        var settore;
+        switch (this.props.match.params.pillar) {
+            case 'CE':
+              settore = "Clean Energy";
+              break;
+            case 'EV' :
+                settore = "EV & Self-Driving";
+              break;
+            case 'FF':
+                settore = "Future of Food";
+              break;
+            case 'AI':
+                settore = "NextGen AI";
+              break;
+            case 'XT':
+                settore = "Ultra Tech";
+              break;
+            case 'SB':
+                settore = "CyberSec 2.0";
+              break;
+            case 'CS':
+                settore = "Smart Cities & Building";
+            break;
+            case 'FH':
+                settore = "Future Health";
+          }
 
         this.state = {
             tickers:null,
             arr_megatrends:null,
             arr_tickers:null,
-            category:'FF',
-            ticker:'NXPI,AAPL,IFX,ETN,DD,XPEV,SBE,NEP,CLNE,AMD,CON,QCOM,LI,RIDE,GM,F,NKLA,CTS,GRMN,APTV,KNDI,NIO,ABBN,ADI,NVDA,TSLA,INTC,GOOGL,BMW,ADNT',
+            pillar:this.props.match.params.pillar,
+            settore:settore,
             megatrends: null,
             merged_flow: null,
             yf_quote: null,
@@ -156,11 +181,7 @@ class Leaders extends Component {
    
 
 
-    async componentDidMount() {
-      
-         
-
-
+    async componentWillMount() {
         /* nel then di getmegatrends ho sintetizzato questa serie di operazioni
     const arr_megatrends= _.values(this.state.megatrends);
     const arr_tickers = arr_megatrends.map(function(i) {
@@ -171,7 +192,7 @@ class Leaders extends Component {
     const tickers = arr_tickers.toString();
     console.log(tickers)
 */
-        await getmegatrends(this.state.category)
+        await getmegatrends(this.state.pillar)
         .then(data =>this.setState({
             megatrends: data,
             tickers: _.values(data).map(function(i) {
@@ -179,30 +200,25 @@ class Leaders extends Component {
                    i.symbol
               );
             }).toString()
-            }),
-                getQuote(this.state.tickers)
-      .then(data => this.setState({ 
-      yf_quote: data.quoteResponse.result})   
-      )
-            )
-      
+            })
        
-    
-
+            )
+            getQuote(this.state.tickers)
+        .then(data => this.setState({ 
+        yf_quote: data.quoteResponse.result})   
+        )
     }
-     
-      mergeArrayObjects(){
-        return this.state.megatrends.map((item,i)=>{
-           if(item.id === this.state.yf_quote[i].id){
-               //merging two objects
-             return Object.assign({},item,this.state.yf_quote[i])
-           }
-        })
-      }
-  
+    
+ 
+
+
+    
   
 render() {
-    if (  !this.state.megatrends || !this.state.yf_quote) {
+    
+
+    
+    if (!this.state.megatrends ) {
         return <div>Loading Data Engine <i className="fa fa-fw fa-spinner fa-spin text-info"></i></div>;   
       }
       var merged = _.merge(_.keyBy(this.state.megatrends, 'symbol'), _.keyBy(this.state.yf_quote, 'symbol'));
@@ -210,7 +226,6 @@ render() {
      // console.log(values);
       const final = Object.entries(values);
 
-      console.log(window.location.pathname);
     return (
         <Container>
           <Row className="mb-3">
@@ -220,7 +235,7 @@ render() {
                 <span className="text-info">05:12:00 PM</span>
                 <span className="small text-muted"> CET</span>
                 </h5>
-                <Badge color="info">MARKET OPEN</Badge>
+                <Badge color="info">MARKET OPEN </Badge>
             </Col>
           </Row>
           
@@ -228,11 +243,11 @@ render() {
             <div className="d-flex mt-3 mb-5">
               <div>
                   <HeaderMain 
-                      title="EV and Self-Driving"
+                      title={this.state.settore}
                       className=""
                   />
                   <div className="h3">
-                    <span className="text-info mr-3">Leaders and Pioneers of the EV space</span>
+                    <span className="text-info mr-3">Leaders and Pioneers of the {this.state.settore} space</span>
                   </div>
 
               </div>

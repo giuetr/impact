@@ -4,7 +4,7 @@ import faker from 'faker/locale/en_US';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-
+import {Link} from 'react-router-dom'
 
 import {
     Container,
@@ -45,7 +45,16 @@ class ESGLeaders extends Component {
             
         };
     }
-
+/*
+	CE -->Clean Energy
+	EV -->EV & Self-Driving
+	FF -->Future of Food
+	AI -->NextGen AI
+	XT -->Ultra Tech
+	SB -->CyberSec 2.0
+	CS -->Smart Cities & Building
+	FH-->Future Health
+*/
 
 render() {
     return (
@@ -70,7 +79,6 @@ render() {
                   <div className="h3">
                     <span className="text-info mr-3">A radar on tomorrow's Innovation and Sustainability Leaders</span>
                   </div>
-
               </div>
             </div>
             
@@ -110,7 +118,7 @@ render() {
                         <p className="mb-0">
                             Renewable and clean energy leaders
                         </p>
-                        <Button className="mt-3" color="primary">Explore</Button>             
+                        <Link to="/Leaders/CE"><Button className="mt-3" color="primary">Explore</Button></Link>                 
                     </div>   
                 </CardBody>
                 <CardFooter className="d-flex">
@@ -155,7 +163,8 @@ render() {
                         <p className="mb-0">
                             Companies leading innovation
                         </p>
-                        <Button className="mt-3" color="primary">Explore</Button>             
+                        
+                        <Link to="/Leaders/XT"><Button className="mt-3" color="primary">Explore</Button></Link>             
                     </div>   
                 </CardBody>
                 <CardFooter className="d-flex">
@@ -202,7 +211,7 @@ render() {
                         <p className="mb-0">
                             Leaders and Pioneers of the EV space
                         </p>
-                        <Button className="mt-3" color="primary">Explore</Button>             
+                        <Link to="/Leaders/EV"><Button className="mt-3" color="primary">Explore</Button></Link>           
                     </div>   
                 </CardBody>
                 <CardFooter className="d-flex">
@@ -247,7 +256,7 @@ render() {
                         <p className="mb-0">
                             The NextGen food and nutrition paradigm 
                         </p>
-                        <Button className="mt-3" color="primary">Explore</Button>             
+                        <Link to="/Leaders/FF"><Button className="mt-3" color="primary">Explore</Button></Link>             
                     </div>   
                 </CardBody>
                 <CardFooter className="d-flex">
@@ -292,7 +301,7 @@ render() {
                         <p className="mb-0">
                             Healthcare Innovators
                         </p>
-                        <Button className="mt-3" color="primary">Explore</Button>             
+                        <Link to="/Leaders/FH"><Button className="mt-3" color="primary">Explore</Button></Link>             
                     </div>   
                 </CardBody>
                 <CardFooter className="d-flex">
@@ -337,7 +346,7 @@ render() {
                         <p className="mb-0">
                             Behind the cities of tomorrow
                         </p>
-                        <Button className="mt-3" color="primary">Explore</Button>             
+                        <Link to="/Leaders/CS"><Button className="mt-3" color="primary">Explore</Button></Link>           
                     </div>   
                 </CardBody>
                 <CardFooter className="d-flex">
@@ -354,14 +363,14 @@ render() {
                     </div>
 
                     <div className="mb-4 mt-3 text-left">
-                        <a className="h3 text-decoration-none" href="#">
+                        <a className="h3 text-decoration-none" >
                             NextGen AI
                         </a>
                         <div className="text-left mt-2">
                             Number of companies: <span className="text-info">7</span>
                         </div>
                     </div>
-                    
+                     
                     <div className="text-left mb-4">
                         <div className="mb-2">
                             <span className="small text-primary">
@@ -382,7 +391,7 @@ render() {
                         <p className="mb-0">
                             Beyond Tech
                         </p>
-                        <Button className="mt-3" color="primary">Explore</Button>             
+                        <Link to="/Leaders/AI"><Button className="mt-3" color="primary">Explore</Button></Link>           
                     </div>   
                 </CardBody>
                 <CardFooter className="d-flex">
@@ -427,7 +436,7 @@ render() {
                         <p className="mb-0">
                             Building future resiliency
                         </p>
-                        <Button className="mt-3" color="primary">Explore</Button>             
+                        <Link to="/Leaders/SB"><Button className="mt-3" color="primary">Explore</Button></Link>             
                     </div>   
                 </CardBody>
                 <CardFooter className="d-flex">

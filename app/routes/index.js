@@ -151,7 +151,7 @@ export const RoutedContent = () => {
             <Route path='/Carbon' exact component={Carbon} />
             <Route path='/Esg500' exact component={Esg500} />
             <Route path='/ESGLeaders' exact component={ESGLeaders} />
-            <Route path='/Leaders' exact component={Leaders} />
+            <Route path='/Leaders/:pillar' exact component={Leaders} />
             <Route path='/ProfileNew' exact component={ProfileNew} />
 
 
