@@ -16,22 +16,10 @@ import {
     Button,
     Card,
     CardBody,
-    CardDeck,
-    CardHeader,
-    CardFooter,
     CardTitle,
-    CardColumns,
     Col,
     Badge,
-    ListGroup,
-    ListGroupItem,
-    ListGroupItemHeading,
-    ListGroupItemText,
-    Progress,
-    Table,
-    Media,
-    UncontrolledTooltip,
-    UncontrolledButtonDropdown,
+    Table
 } from '../../components'
 import {
     ProfileOverviewCard
