@@ -19,8 +19,18 @@ export const SidebarMiddleNav = () => (
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-diamond"></i>}
             title="Data"
-            to='/Data'
-        />
+        >
+            <SidebarMenu.Item title="Data Overview" to='/Data' exact />
+            <SidebarMenu.Item title="MegaTrends" to='/ESGleaders' exact />
+            <SidebarMenu.Item title="Insiders Trading" to='/Insiders' exact />
+            <SidebarMenu.Item title="Carbon Leaders" to='/Carbon' exact />
+            <SidebarMenu.Item title="Shorts &amp; Squeezes" to='/Shorts' exact />
+            <SidebarMenu.Item title="ESG 500" to='/Esg500' exact />
+            <SidebarMenu.Item title="Politicians Trading" to='/Politics' exact />
+
+
+
+        </SidebarMenu.Item>
 
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-bank"></i>}
