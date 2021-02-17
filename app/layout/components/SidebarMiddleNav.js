@@ -5,7 +5,7 @@ import { SidebarMenu } from './../../components';
 export const SidebarMiddleNav = () => (
     <SidebarMenu>
         <SidebarMenu.Item
-            icon={<i className="fa fa-fw fa-home"></i>}
+            icon={<i className="fa fa-fw fa-envira"></i>}
             title="Home"
             to='/Home'
         />
@@ -27,10 +27,13 @@ export const SidebarMiddleNav = () => (
             <SidebarMenu.Item title="Shorts &amp; Squeezes" to='/Shorts' exact />
             <SidebarMenu.Item title="ESG 500" to='/Esg500' exact />
             <SidebarMenu.Item title="Politicians Trading" to='/Politics' exact />
-
-
-
         </SidebarMenu.Item>
+
+        <SidebarMenu.Item
+            icon={<i className="fa fa-fw fa-user"></i>}
+            title="Profile"
+            to='/ProfileNew'
+        />
 
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-bank"></i>}
@@ -74,11 +77,7 @@ export const SidebarMiddleNav = () => (
             to='/Leaders'
         />
 
-        <SidebarMenu.Item
-            icon={<i className="fa fa-fw fa-bookmark"></i>}
-            title="ProfileNew"
-            to='/ProfileNew'
-        />
+        
 
 
 
