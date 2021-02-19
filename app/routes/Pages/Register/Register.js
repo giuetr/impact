@@ -28,18 +28,41 @@ const Register = () => (
             <Form className="mb-3">
                 <FormGroup>
                     <Label for="username">
-                        Username
+                        First Name
                     </Label>
-                    <Input type="text" name="text" id="username" placeholder="Enter a Username..." className="bg-white" />
+                    <Input type="text" name="text" id="username" placeholder="Enter your first name..." className="bg-white" />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="username">
+                        Last Name
+                    </Label>
+                    <Input type="text" name="text" id="username" placeholder="Enter your last name..." className="bg-white" />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="jobType">
+                        Job Type
+                    </Label>
+                        <CustomInput 
+                            type="select" 
+                            name="customSelect" 
+                            id="jobType"
+                            className="bg-white"
+                        >
+                            <option value="">Select...</option>
+                            <option>Individual Investor</option>
+                            <option>Trader</option>
+                            <option>Financial Advisor</option>
+                            <option>Asset Manager</option>
+                            <option>Investment Banking / Private Equity</option>
+                            <option>Academy</option>
+                            <option>Other</option>
+                        </CustomInput>
                 </FormGroup>
                 <FormGroup>
                     <Label for="emailAdress">
                         Email Adress
                     </Label>
                     <Input type="email" name="email" id="emailAdress" placeholder="Enter email..." className="bg-white" />
-                    <FormText color="muted">
-                        We&amp;ll never share your email with anyone else.
-                    </FormText>
                 </FormGroup>
                 <FormGroup>
                     <Label for="password">
