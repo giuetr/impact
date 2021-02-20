@@ -34,44 +34,6 @@ const sortCaret = (order) => {
 };
 
 
-var products = [{
-  ticker: "TSLA",
-  name: "Tesla Inc.",
-  price: 132,
-  emissions: 123123123,
-  change1d: 30,
-  change1m: 1,
-  change1y: 4,
-  eps: 0.3,
-  pe: 12.3,
-  mktcap: 201023231,
-  beta: 4,
-}, {
-  ticker: "MU",
-  name: "Micron Technology",
-  price: 31,
-  emissions: 23123123,
-  change1d: 32,
-  change1m: 12,
-  change1y: 43,
-  eps: 0.3,
-  pe: 12.3,
-  mktcap: 0.1,
-  beta: 3,
-}, {
-  ticker: "FB",
-  name: "Facebook",
-  price: 48,
-  emissions: 4667762,
-  change1d: 9,
-  change1m: 18,
-  change1y: -24,
-  eps: 12,
-  pe: 9,
-  mktcap: 12391233,
-  beta: 7
-}
-];
 
 
 
@@ -203,6 +165,27 @@ class CarbonTable extends React.Component {
   }
 
   render() {
+
+  
+    
+      var products = this.props.items.map(function(i) {
+        return {
+          ticker: i[1].Symbol,
+          name: i[1].shortName,
+          price: i[1].regularMarketPrice,
+          emissions: i[1].ghc_emissions,
+          change1d: i[1].CHANGE1D,
+          change1m: i[1].RETURN1M,
+          change1y: i[1].RETURN1Y,
+          eps: i[1].EPS,
+          pe: i[1].PE,
+          mktcap: i[1].MKTCAP,
+          beta: i[1].BETA
+        };
+    });
+
+
+
     return (
       
       <Container>

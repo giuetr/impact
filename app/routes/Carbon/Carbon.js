@@ -6,7 +6,7 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-import {getAll, getESG} from '../API/api.js'
+import { getQuote, getCarbon} from '../API/api.js'
 
 
 import {
@@ -53,8 +53,9 @@ class Carbon extends Component {
         super(props);
 
         this.state = {
-            yf_esg: null,
-            yf_all: null,
+            tickers:null,
+            carbon: null,
+            yf_quote: null,
             options: {},
             series: [64, 55, 21, 17, 15],
             labels: ['AAPL', 'TSLA', 'NVDA', 'AMD', 'FB'],
@@ -63,21 +64,30 @@ class Carbon extends Component {
 
 
     async componentDidMount() {
-        const ticker = 'AMD'
-        await getAll(ticker)
+        await getCarbon()
+        .then(data =>this.setState({
+            carbon: data,
+            tickers: _.values(data).map(function(i) {
+                return (
+                   i.Symbol
+              );
+            }).toString()
+            })
+       
+            )
+            getQuote(this.state.tickers)
         .then(data => this.setState({ 
-          yf_all: data.quoteSummary.result[0]})   
-        )
-        await getESG(ticker)
-        .then(data => this.setState({ 
-          yf_esg: data})   
+        yf_quote: data.quoteResponse.result})   
         )
       }
 
 render() {
-    if (!this.state.yf_all) {
+    if (!this.state.carbon) {
         return <div>Loading Data Engine <i className="fa fa-fw fa-spinner fa-spin text-info"></i></div>;
       }
+      var merged = _.merge(_.keyBy(this.state.carbon, 'Symbol'), _.keyBy(this.state.yf_quote, 'symbol'));
+      var values = _.values(merged);
+      const final = Object.entries(values);
     return (
         <Container>
           <Row className="mb-3">
@@ -167,7 +177,7 @@ render() {
 
 
             <Row className="mt-3">
-                <CarbonTable/>
+                <CarbonTable items={final}/>
             </Row>
 
           </Container>
