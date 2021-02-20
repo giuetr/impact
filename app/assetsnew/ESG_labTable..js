@@ -21,6 +21,8 @@ import {
 } from '../components'
 
 
+
+
 const { SearchBar } = Search;
 const { ExportCSVButton } = CSVExport;
 
@@ -35,7 +37,7 @@ const sortCaret = (order) => {
 
 
 
-class InsidersTable extends React.Component {
+class ESG_labTable extends React.Component {
   constructor(props) {
     super(props);
 
@@ -48,15 +50,18 @@ var counter=0
     var products = this.props.items.map(function(i) {
       return {
         id: counter++,
-        ticker: i[1].symbol,
-        name: i[1].shortName,
+        ticker: i[1].Symbol,
+        name: i[1].Security,
         price: i[1].regularMarketPrice,
-        purchases: i[1].Purchases,
-        sales: i[1].Sales,
-        totbought: i[1].Total_Bought,
-        totsold: i[1].Avg_Shares_Sold,
-        lsratio: i[1].Buy_Sell_Ratio,
-        returnperiod: i[1].Period_Return
+        esg_score: i[1].tot_esg,
+        esg_performance: i[1].esg_perf,
+        change1d: i[1].CHANGE1D,
+        return1m: i[1].RETURN1M,
+        return1y: i[1].RETURN1Y,
+        eps: i[1].EPS,
+        pe: i[1].PE,
+        mktcap: i[1].MKTCAP,
+        beta: i[1].BETA
       };
   });
 
@@ -81,61 +86,96 @@ const columns = [{
   sortCaret
 },
  {
-  dataField: 'purchases',
-  text: 'Trades Long',
+  dataField: 'esg_score',
+  text: 'Esg Score',
   sort: true,
   sortCaret
 },
  {
-  dataField: 'sales',
-  text: 'Trades Shorts',
+  dataField: 'esg_performance',
+  text: 'Esg Performance',
   sort: true,
   sortCaret
-}, {
-  dataField: 'totbought',
-  text: 'Shares Long',
-  formatter: (cell) => (
-    <span className="text-info">
-        { cell }
-    </span>
-  ),
-}, {
-  dataField: 'totsold',
-  text: 'Shares Short',
-  sort: true,
-  sortCaret,
-  formatter: (cell) => (
-    <span className="text-danger">
-        { cell }
-    </span>
-  ),
-}, {
-  dataField: 'lsratio',
-  text: 'L/S Ratio',
-  sort: true,
-  sortCaret,
-  formatter: (cell) => {
-    const color = (cell) => {
-      const color = cell = 1 ? 'text-success' : 'text-danger';
-      return { color };
-    }
- 
-    return (
-        <span className={ color(cell) }>
-            { cell }
-        </span>
-    );
-  }
 },  {
-  dataField: 'returnperiod',
-  text: 'Return Ref. Date',
+  dataField: 'change1d',
+  text: '1D Change',
   sort: true,
   sortCaret,
+  style: (cell, row, rowIndex, colIndex) => {
+    if (cell > 0) {
+      return {
+        color: '#33AE9A'
+      };
+    }
+    return {
+       color: '#ED1C24'
+    };
+  },
   formatter: (cell) => (
     <span>
         { cell } %
     </span>
-  ),
+  )
+}, {
+  dataField: 'return1m',
+  text: '1M Change',
+  sort: true,
+  sortCaret,
+  style: (cell, row, rowIndex, colIndex) => {
+    if (cell > 0) {
+      return {
+        color: '#33AE9A'
+      };
+    }
+    return {
+       color: '#ED1C24'
+    };
+  },
+  formatter: (cell) => (
+    <span>
+        { cell } %
+    </span>
+  )
+},  {
+  dataField: 'return1y',
+  text: '1Y Change',
+  sort: true,
+  sortCaret,
+  style: (cell, row, rowIndex, colIndex) => {
+    if (cell > 0) {
+      return {
+        color: '#33AE9A'
+      };
+    }
+    return {
+       color: '#ED1C24'
+    };
+  },
+  formatter: (cell) => (
+    <span>
+        { cell } %
+    </span>
+  )
+},  {
+  dataField: 'eps',
+  text: 'EPS',
+  sort: true,
+  sortCaret
+},  {
+  dataField: 'pe',
+  text: 'P/E',
+  sort: true,
+  sortCaret
+},  {
+  dataField: 'mktcap',
+  text: 'MarketCap',
+  sort: true,
+  sortCaret
+},  {
+  dataField: 'beta',
+  text: 'Beta',
+  sort: true,
+  sortCaret
 }
 ];
 
@@ -197,4 +237,4 @@ const columns = [{
   }
 }
 
-export default InsidersTable;
+export default ESG_labTable;

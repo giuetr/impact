@@ -166,8 +166,6 @@ class CarbonTable extends React.Component {
 
   render() {
 
-  
-    
       var products = this.props.items.map(function(i) {
         return {
           ticker: i[1].Symbol,

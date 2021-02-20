@@ -7,7 +7,8 @@ import InsidersTable from '../../assetsnew/InsidersTable';
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-import {getAll, getESG} from '../API/api.js'
+import { getQuote, getESG_lab} from '../API/api.js'
+
 
 
 import {
@@ -34,6 +35,7 @@ import {
 import {
     TinyDonutChart
   } from "../components/Monitor/TinyDonutChart"
+import ESG_labTable from '../../assetsnew/ESG_labTable.';
   
 
 class Esg500 extends Component {
@@ -41,8 +43,9 @@ class Esg500 extends Component {
         super(props);
 
         this.state = {
-            yf_esg: null,
-            yf_all: null,
+            tickers:null,
+            esg_lab: null,
+            yf_quote: null,
             options: {},
             series: [64, 55, 21, 17, 15],
             labels: ['AAPL', 'TSLA', 'NVDA', 'AMD', 'FB'],
@@ -51,21 +54,30 @@ class Esg500 extends Component {
 
 
     async componentDidMount() {
-        const ticker = 'AMD'
-        await getAll(ticker)
+        await getESG_lab()
+        .then(data =>this.setState({
+            esg_lab: data,
+            tickers: _.values(data).map(function(i) {
+                return (
+                   i.Symbol
+              );
+            }).toString()
+            })
+       
+            )
+            getQuote(this.state.tickers)
         .then(data => this.setState({ 
-          yf_all: data.quoteSummary.result[0]})   
-        )
-        await getESG(ticker)
-        .then(data => this.setState({ 
-          yf_esg: data})   
+        yf_quote: data.quoteResponse.result})   
         )
       }
 
 render() {
-    if (!this.state.yf_all) {
+    if (!this.state.esg_lab) {
         return <div>Loading Data Engine <i className="fa fa-fw fa-spinner fa-spin text-info"></i></div>;
       }
+      var merged = _.merge(_.keyBy(this.state.esg_lab, 'Symbol'), _.keyBy(this.state.yf_quote, 'symbol'));
+      var values = _.values(merged);
+      const final = Object.entries(values);
     return (
         <Container>
           <Row className="mb-3">
@@ -210,7 +222,7 @@ render() {
 
 
             <Row className="mt-3">
-                <InsidersTable/>
+                <ESG_labTable items={final}/>
             </Row>
 
           </Container>
