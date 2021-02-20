@@ -20,6 +20,9 @@ import {
   Badge
 } from '../components'
 
+
+
+
 const { SearchBar } = Search;
 const { ExportCSVButton } = CSVExport;
 
@@ -32,65 +35,33 @@ const sortCaret = (order) => {
 };
 
 
-var products = [{
-  id: 1,
-  ticker: "TSLA",
-  name: "Tesla Inc.",
-  purchases: 120,
-  sales: 30,
-  totbought: 200000,
-  totsold: 103012,
-  lsratio: 0.3,
-  returnperiod: 12.3,
-  return1y: 0.1,
-},{
-  id: 2,
-  ticker: "AAPL",
-  name: "Apple Inc.",
-  purchases: 312,
-  sales: 555,
-  totbought: 2000123,
-  totsold: 65003,
-  lsratio: 1,
-  returnperiod: 10.3,
-  return1y: 0.3,
-},{
-  id: 3,
-  ticker: "NVDA",
-  name: "Nvidia Corp.",
-  purchases: 11,
-  sales: 90,
-  totbought: 12412,
-  totsold: 9000,
-  lsratio: 3,
-  returnperiod: 20.3,
-  return1y: 0.9,
-},{
-  id: 4,
-  ticker: "MU",
-  name: "Micron Technology",
-  purchases: 101,
-  sales: 25,
-  totbought: 899,
-  totsold: 7332,
-  lsratio: 10.4,
-  returnperiod: 9.3,
-  return1y: 0.5,
-},{
-  id: 5,
-  ticker: "JNJ",
-  name: "Johnson and Johnson",
-  purchases: 88,
-  sales: 61,
-  totbought: 2831723,
-  totsold: 293123,
-  lsratio: 9,
-  returnperiod: 3,
-  return1y: 0.7,
-}];
 
 
+class InsidersTable extends React.Component {
+  constructor(props) {
+    super(props);
 
+    this.options = {
+      
+    };
+  }
+  render() {
+var counter=0
+    var products = this.props.items.map(function(i) {
+      return {
+        id: counter++,
+        ticker: i[1].symbol,
+        name: i[1].shortName,
+        price: i[1].regularMarketPrice,
+        purchases: i[1].Purchases,
+        sales: i[1].Sales,
+        totbought: i[1].Total_Bought,
+        totsold: i[1].Avg_Shares_Sold,
+        lsratio: i[1].Buy_Sell_Ratio,
+        returnperiod: i[1].Period_Return,
+        return1y: 'i[1].?'
+      };
+  });
 
 const columns = [{
   dataField: 'id',
@@ -106,12 +77,19 @@ const columns = [{
 },  {
   dataField: 'name',
   text: 'Company'
-}, {
+},{
+  dataField: 'price',
+  text: 'Price',
+  sort: true,
+  sortCaret
+},
+ {
   dataField: 'purchases',
   text: 'Trades Long',
   sort: true,
   sortCaret
-}, {
+},
+ {
   dataField: 'sales',
   text: 'Trades Shorts',
   sort: true,
@@ -144,7 +122,7 @@ const columns = [{
       const color = cell = 1 ? 'text-success' : 'text-danger';
       return { color };
     }
-
+ 
     return (
         <span className={ color(cell) }>
             { cell }
@@ -177,16 +155,8 @@ const columns = [{
 
 
 
-class InsidersTable extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.options = {
-      
-    };
-  }
 
-  render() {
     return (
       
       <Container>

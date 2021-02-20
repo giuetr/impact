@@ -164,3 +164,29 @@ export async function getEcon(ticker) {
     const data = await response.json();
     return data;
 };
+
+
+export async function getInsider() {
+    const PROXY_URL = 'https://q-proxy.herokuapp.com/';
+    const url = PROXY_URL+ 'https://qvan1.herokuapp.com/insider';
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+};
+
+export async function getCarbon() {
+    const PROXY_URL = 'https://q-proxy.herokuapp.com/';
+    const url = PROXY_URL+ 'https://qvan1.herokuapp.com/carbon';
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+};
+export async function getESG_lab() {
+    const PROXY_URL = 'https://q-proxy.herokuapp.com/';
+    const url = PROXY_URL+ 'https://qvan1.herokuapp.com/ESG_lab';
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+};
+
+

@@ -5,7 +5,7 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
-
+import {Link} from 'react-router-dom'
 
 
 import {
@@ -118,7 +118,8 @@ render() {
                             <p className="mb-0">
                                 The companies leading the shift towards a sustainable future, organized by sector of innovation. Discover tomorrow's leaders.
                             </p>
-                            <Button className="mt-3" color="primary">Free Access</Button>             
+                            <Link to="/ESGleaders"><Button className="mt-3" color="primary">Free Access</Button></Link>
+                                        
                         </div>   
                     </CardBody>
                 </Card>
@@ -200,7 +201,7 @@ render() {
                         <p className="mb-0">
                             The latest trends and insights from the corporate insider trading activity of US equities. An in-depth look at flows, momentum and changes coming from the most informed shareholders.
                         </p>
-                        <Button className="mt-3" color="primary">Free Access</Button>             
+                        <Link to="/Insiders"><Button className="mt-3" color="primary">Free Access</Button></Link>          
                     </div>   
                 </CardBody>
               </Card>
@@ -241,7 +242,7 @@ render() {
                         <p className="mb-0">
                             Unlock the return potential of many different ESG factors by gaining a privileged view of the ESG profile of US Equities.
                         </p>
-                        <Button className="mt-3" color="primary">Free Access</Button>             
+                        <Link to="/Esg500"><Button className="mt-3" color="primary">Free Access</Button></Link>             
                     </div>   
                 </CardBody>
               </Card>
@@ -285,7 +286,7 @@ render() {
                         <p className="mb-0">
                             Discover how corporations are actually acting to reduce their environmental impact and empower your prediction of their future performance.
                         </p>
-                        <Button className="mt-3" color="primary">Free Access</Button>             
+                        <Link to="/Carbon"><Button className="mt-3" color="primary">Free Access</Button></Link>               
                     </div>   
                 </CardBody>
               </Card>

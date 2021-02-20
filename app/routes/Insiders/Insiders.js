@@ -7,7 +7,7 @@ import InsidersTable from '../../assetsnew/InsidersTable';
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-import {getAll, getESG} from '../API/api.js'
+import { getQuote, getInsider} from '../API/api.js'
 
 
 import {
@@ -50,8 +50,12 @@ class Insiders extends Component {
         super(props);
 
         this.state = {
-            yf_esg: null,
-            yf_all: null,
+            
+            yf_quote: null,
+            tickers:null,
+            arr_tickers:null,
+            insider: null,
+            merged_flow: null,
             options: {},
             series: [64, 55, 21, 17, 15],
             labels: ['AAPL', 'TSLA', 'NVDA', 'AMD', 'FB'],
@@ -60,21 +64,31 @@ class Insiders extends Component {
 
 
     async componentDidMount() {
-        const ticker = 'AMD'
-        await getAll(ticker)
+        await getInsider()
+        .then(data =>this.setState({
+            insider: data,
+            tickers: _.values(data).map(function(i) {
+                return (
+                   i.Symbol
+              );
+            }).toString()
+            })
+       
+            )
+            getQuote(this.state.tickers)
         .then(data => this.setState({ 
-          yf_all: data.quoteSummary.result[0]})   
-        )
-        await getESG(ticker)
-        .then(data => this.setState({ 
-          yf_esg: data})   
+        yf_quote: data.quoteResponse.result})   
         )
       }
 
 render() {
-    if (!this.state.yf_all) {
+    if (!this.state.insider) {
         return <div>Loading Data Engine <i className="fa fa-fw fa-spinner fa-spin text-info"></i></div>;
       }
+      var merged = _.merge(_.keyBy(this.state.insider, 'Symbol'), _.keyBy(this.state.yf_quote, 'symbol'));
+      var values = _.values(merged);
+     // console.log(values);
+      const final = Object.entries(values);
     return (
         <Container>
           <Row className="mb-3">
@@ -225,7 +239,7 @@ render() {
             </CardDeck>
 
             <Row className="mt-3">
-              <InsidersTable/>
+              <InsidersTable items={final}/>
             </Row>
 
           </Container>

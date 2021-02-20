@@ -47,7 +47,7 @@ import {
 } from "../components/Monitor/TinyDonutChart";
 import { object, symbol } from 'prop-types';
 import Tablestock from '../../assetsnew/TableStock';
-
+ 
 class Leaders extends Component {
     constructor(props) {
         super(props);
@@ -68,10 +68,10 @@ class Leaders extends Component {
             case 'XT':
                 settore = "Ultra Tech";
               break;
-            case 'SB':
+            case 'CS':
                 settore = "CyberSec 2.0";
               break;
-            case 'CS':
+            case 'SB':
                 settore = "Smart Cities & Building";
             break;
             case 'FH':
