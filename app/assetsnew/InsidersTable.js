@@ -62,7 +62,9 @@ var counter=0
 
 const columns = [{
   dataField: 'id',
-  text: 'Id'
+  text: 'Id',
+  sort: true,
+  sortCaret,
 }, {
   dataField: 'ticker',
   text: 'Ticker',
@@ -94,6 +96,8 @@ const columns = [{
 }, {
   dataField: 'totbought',
   text: 'Shares Long',
+  sort: true,
+  sortCaret,
   formatter: (cell) => (
     <span className="text-info">
         { cell }
@@ -131,6 +135,16 @@ const columns = [{
   text: 'Return Ref. Date',
   sort: true,
   sortCaret,
+  style: (cell, row, rowIndex, colIndex) => {
+    if (cell > 0) {
+      return {
+        color: '#33AE9A'
+      };
+    }
+    return {
+       color: '#ED1C24'
+    };
+  },
   formatter: (cell) => (
     <span>
         { cell } %

@@ -54,7 +54,7 @@ var counter=0
         name: i[1].Security,
         price: i[1].regularMarketPrice,
         esg_score: i[1].tot_esg,
-        esg_performance: i[1].esg_perf,
+        //esg_performance: i[1].esg_perf,
         change1d: i[1].CHANGE1D,
         return1m: i[1].RETURN1M,
         return1y: i[1].RETURN1Y,
@@ -87,16 +87,15 @@ const columns = [{
 },
  {
   dataField: 'esg_score',
-  text: 'Esg Score',
+  text: 'ESG Risk',
   sort: true,
-  sortCaret
-},
- {
-  dataField: 'esg_performance',
-  text: 'Esg Performance',
-  sort: true,
-  sortCaret
-},  {
+  sortCaret,
+  formatter: (cell) => (
+    <span className="text-primary">
+        { cell }
+    </span>
+  ),
+}, {
   dataField: 'change1d',
   text: '1D Change',
   sort: true,

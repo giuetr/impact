@@ -66,11 +66,11 @@ const columns = [{
   ),
 }, {
   dataField: 'esgscore',
-  text: 'ESG Score',
+  text: 'ESG Risk',
   sort: true,
   sortCaret,
   formatter: (cell) => (
-    <span className="text-info">
+    <span className="text-primary">
         { cell }
     </span>
   )
