@@ -188,5 +188,28 @@ export async function getESG_lab() {
     const data = await response.json();
     return data;
 };
+export async function getShort() {
+    const PROXY_URL = 'https://q-proxy.herokuapp.com/';
+    const url = PROXY_URL+ 'https://qvan1.herokuapp.com/short';
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+};
+export async function getSenator() {
+    const PROXY_URL = 'https://q-proxy.herokuapp.com/';
+    const url = PROXY_URL+ 'https://qvan1.herokuapp.com/senator';
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+};
+
+
+export async function getQuote_internal() {
+    const PROXY_URL = 'https://q-proxy.herokuapp.com/';
+    const url = PROXY_URL+ 'https://qvan1.herokuapp.com/quote';
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+};
 
 

@@ -31,51 +31,6 @@ const sortCaret = (order) => {
 };
 
 
-var products = [{
-  id: 1,
-  ticker: "TSLA",
-  name: "Tesla Inc.",
-  senator: "Michael Jones",
-  value: "$ 1000-5000",
-  date: "12/31/2020",
-  price: 120,
-  trade: 'Sale',
-  return1y: 0.1,
-  salesgrowth: 0.11,
-}, {
-  id: 2,
-  ticker: "NIO",
-  name: "Nio Inc.",
-  senator: "Henry Williams",
-  value: "$ 10000-50000",
-  date: "12/31/2020",
-  price: 11,
-  trade: 'Purchase',
-  return1y: 0.12,
-  salesgrowth: 0.14,
-}, {
-  id: 3,
-  ticker: "MU",
-  name: "Micron Technology Inc.",
-  senator: "Jane Wilde",
-  value: "$ 100000-500000",
-  date: "12/10/2020",
-  price: 54,
-  trade: 'Purchase',
-  return1y: 0.03,
-  salesgrowth: 0.05,
-}, {
-  id: 4,
-  ticker: "AMD",
-  name: "Advanced Micro Devices, Inc.",
-  senator: "Mary Ross",
-  value: "$ 100000-500000",
-  date: "12/01/2021",
-  price: 32,
-  trade: 'Sale',
-  return1y: 0.41,
-  salesgrowth: 0.21,
-},];
 
 
 
@@ -86,6 +41,8 @@ const columns = [{
 }, {
   dataField: 'ticker',
   text: 'Ticker',
+  sort: true,
+  sortCaret,
   formatter: (cell) => (
     <span className="text-info fw-500">
         { cell }
@@ -142,17 +99,7 @@ const columns = [{
         </Badge>
     );
   }
-},{
-  dataField: 'return1y',
-  text: 'Return 1Y',
-  sort: true,
-  sortCaret
-}, {
-  dataField: 'salesgrowth',
-  text: 'Sales Growth',
-  sort: true,
-  sortCaret
-},
+}
 ];
 
 
@@ -168,6 +115,21 @@ class PoliticsTable extends React.Component {
   }
 
   render() {
+    var counter=0
+var products = this.props.items.map(function(i) {
+  return {
+    id: counter++,
+    ticker: i[1].ticker,
+    name: i[1].shortName,
+    senator: i[1].senator,
+    value: i[1].amount,
+    date: i[1].transaction_date,
+    price: i[1].amount,
+    trade: i[1].type,
+    change_from_last: i[1].change_from_last,
+    percent_of_float: i[1].percent_of_float
+  };
+});
     return (
       
       <Container>
