@@ -11,6 +11,7 @@ import {
 import { NavbarActivityFeed } from './NavbarActivityFeed';
 import { NavbarMessages } from './NavbarMessages';
 import { NavbarUser } from './NavbarUser';
+import { NavbarProfile } from './NavbarProfile';
 import { LogoThemed } from './../../routes/components/LogoThemed/LogoThemed';
 import { NavbarSearch } from './NavbarSearch';
 
@@ -31,6 +32,7 @@ export const DefaultNavbar = () => (
             <NavbarSearch className="mr-2" />
             <NavbarActivityFeed />
             <NavbarMessages className="ml-2" />
+            <NavbarProfile className="ml-2" />
             <NavbarUser className="ml-2" />
         </Nav>
     </Navbar>

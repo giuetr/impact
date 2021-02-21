@@ -35,48 +35,7 @@ export const SidebarMiddleNav = () => (
             to='/ProfileNew'
         />
 
-        <SidebarMenu.Item
-            icon={<i className="fa fa-fw fa-bank"></i>}
-            title="Politics"
-            to='/Politics'
-        />
-
-        <SidebarMenu.Item
-            icon={<i className="fa fa-fw fa-file-text-o"></i>}
-            title="Insiders"
-            to='/Insiders'
-        />
-
-        <SidebarMenu.Item
-            icon={<i className="fa fa-fw fa-bookmark"></i>}
-            title="Shorts"
-            to='/Shorts'
-        />
-
-        <SidebarMenu.Item
-            icon={<i className="fa fa-fw fa-certificate"></i>}
-            title="Carbon"
-            to='/Carbon'
-        />
-
-        <SidebarMenu.Item
-            icon={<i className="fa fa-fw fa-sun-o"></i>}
-            title="Esg500"
-            to='/Esg500'
-        />
-
-        <SidebarMenu.Item
-            icon={<i className="fa fa-fw fa-envira"></i>}
-            title="MegaTrends"
-            to='/ESGleaders'
-        />
-
-        <SidebarMenu.Item
-            icon={<i className="fa fa-fw fa-bullseye"></i>}
-            title="Leaders"
-            to='/Leaders'
-        />
-
+        
         
 
 
