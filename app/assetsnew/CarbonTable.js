@@ -143,7 +143,12 @@ const columns = [{
   dataField: 'mktcap',
   text: 'MarketCap',
   sort: true,
-  sortCaret
+  sortCaret,
+  formatter: (cell) => (
+    <span>
+        { cell.toLocaleString(undefined, {maximumFractionDigits:2}) }
+    </span>
+  )
 },  {
   dataField: 'beta',
   text: 'Beta',

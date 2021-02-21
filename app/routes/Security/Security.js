@@ -287,7 +287,7 @@ render() {
                             <div className="mb-3 d-flex">
                                 <TinyDonutChart />
                                 <div className="ml-2 align-self-center">
-                                    <span>ESG Score</span>
+                                    <span>ESG Risk</span>
                                     <h2 className="mb-0">
                                     {this.state.yf_all.hasOwnProperty('esgScores')&&this.state.yf_all.esgScores.hasOwnProperty('totalEsg') ? this.state.totalEsg_fmt : ''}
                                       </h2>

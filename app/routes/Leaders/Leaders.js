@@ -386,6 +386,8 @@ render() {
             { /* START Card Widget */}
         </CardDeck>
 
+        {/*
+
             <CardDeck>
                 <Card>
                     <CardBody className="pb-0">
@@ -411,8 +413,11 @@ render() {
                             </div>
                     </CardBody>
                 </Card>
-
             </CardDeck>
+        
+        */}
+
+            
            
 <Row>
     <Tablestock items={final} />

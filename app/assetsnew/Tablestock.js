@@ -169,7 +169,12 @@ const columns = [{
   dataField: 'mktcap',
   text: 'MarketCap',
   sort: true,
-  sortCaret
+  sortCaret,
+  formatter: (cell) => (
+    <span>
+        { cell.toLocaleString(undefined, {maximumFractionDigits:2}) }
+    </span>
+  )
 },  {
   dataField: 'beta',
   text: 'Beta',
@@ -242,7 +247,7 @@ class Tablestock extends React.Component {
                         placeholder="Search..."
                       />
                       <ExportCSVButton { ...props.csvProps } className="p-0">
-                        <Button color="info" outline>
+                        <Button color="info" outline disabled>
                           <i className="fa fa-download mr-2"></i>
                                 Export
                         </Button>
