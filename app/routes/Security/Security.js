@@ -121,7 +121,6 @@ class Security extends Component {
           socialScore_fmt:null,
           governanceScore_fmt:null,
           ticker: 'AAPL',
-          earningsDate:null,
           date: new Date(),
 
         };
@@ -206,7 +205,6 @@ class Security extends Component {
         environmentScore_fmt:this.state.yf_all.esgScores.environmentScore.fmt,
         socialScore_fmt:this.state.yf_all.esgScores.socialScore.fmt,
         governanceScore_fmt:this.state.yf_all.esgScores.governanceScore.fmt,
-        earningsDate:this.state.yf_all.calendarEvents.earnings.earningsDate,
       })   
       )
 
@@ -216,12 +214,6 @@ class Security extends Component {
         yf_peers: data.finance.result[0].recommendedSymbols})   
       )
 
-      
-
-      await getChart(this.state.ticker)
-      .then(data => this.setState({ 
-        yf_chart: data.chart.result[0]})   
-      )
     }
 
 
@@ -394,27 +386,27 @@ render() {
                 <CardBody>
                     <ProfileOverviewCard 
                         title="EARNINGS DATE"
-                        badgeTitle="2021-04-28"
+                        badgeTitle={this.state.yf_all.calendarEvents.earnings.earningsDate[0].fmt}
                         badgeColor="primary"
-                        value="0.98"
+                        value={this.state.yf_all.earningsTrend.trend[0].earningsEstimate.avg.raw}
                         valueTitle="ESTIMATE"
                         footerTitle="Growth:"
                         footerTitleClassName="text-success"
-                        footerValue="53.10%"
+                        footerValue={this.state.yf_all.earningsTrend.trend[0].earningsEstimate.growth.fmt}
                         footerIcon="caret-up"
                     />
                     <div className="d-flex justify-content-between mt-3">
                                 <div className="text-center">
                                     <h6 className="mb-0 text-danger">LOW</h6>
-                                    <span>0.85</span>
+                                    <span>{this.state.yf_all.earningsTrend.trend[0].earningsEstimate.low.raw}</span>
                                 </div>
                                 <div className="text-center">
                                     <h6 className="mb-0 text-secondary">AVG</h6>
-                                    <span>0.98</span>
+                                    <span>{this.state.yf_all.earningsTrend.trend[0].earningsEstimate.avg.raw}</span>
                                 </div>
                                 <div className="text-center">
                                     <h6 className="mb-0 text-info">HIGH</h6>
-                                    <span>1.09</span>
+                                    <span>{this.state.yf_all.earningsTrend.trend[0].earningsEstimate.high.raw}</span>
                                 </div>
                             </div> 
                 </CardBody>

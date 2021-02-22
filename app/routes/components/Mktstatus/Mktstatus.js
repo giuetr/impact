@@ -64,7 +64,7 @@ class Mktstatus extends React.Component {
                 <h5 className="mb-0">
                 <span>{this.state.date.toDateString()} </span>
                 <span className="text-info">{this.state.date.toLocaleTimeString()}</span>
-                <span className="small text-muted"> CET</span>
+                {/* <span className="small text-muted"> CET</span> */}
                 </h5>
                 {this.Mktstatus()}
             </Col>
