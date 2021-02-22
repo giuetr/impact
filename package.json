@@ -52,6 +52,8 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "@owczar/dashboard-style--airframe": "^0.1.13",
+    "@stripe/react-stripe-js": "^1.2.2",
+    "@stripe/stripe-js": "^1.12.1",
     "ag-grid-community": "^21.0.1",
     "ag-grid-react": "^21.0.1",
     "apexcharts": "^3.23.1",

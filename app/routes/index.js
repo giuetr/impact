@@ -122,6 +122,7 @@ import ESGLeaders from './ESGLeaders';
 import Carbon from './Carbon';
 import Leaders from './Leaders';
 import ProfileNew from './ProfileNew';
+import Checkout from './Checkout';
 
 
 
@@ -153,6 +154,7 @@ export const RoutedContent = () => {
             <Route path='/ESGLeaders' exact component={ESGLeaders} />
             <Route path='/Leaders/:pillar' exact component={Leaders} />
             <Route path='/ProfileNew' exact component={ProfileNew} />
+            <Route path='/Checkout' exact component={Checkout} />
 
 
 

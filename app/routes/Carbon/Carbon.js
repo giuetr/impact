@@ -139,10 +139,10 @@ render() {
                                 </div>
                                 <div className="text-center mb-4">
                                     <h2 className="text-yellow">
-                                    43712138
+                                    43,712,138
                                     </h2>
                                     <div className="mt-2">
-                                    Units of metric tons of carbon dioxide equivalent using GWP's from IPCC's AR4
+                                    Units of metric tons of carbon dioxide
                                     </div>
                                 </div>
                                   
