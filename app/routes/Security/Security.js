@@ -120,7 +120,7 @@ class Security extends Component {
           environmentScore_fmt:null,
           socialScore_fmt:null,
           governanceScore_fmt:null,
-          ticker: 'AAPL',
+          ticker: 'TSLA',
           date: new Date(),
 
         };
