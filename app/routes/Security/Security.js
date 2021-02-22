@@ -120,8 +120,9 @@ class Security extends Component {
           environmentScore_fmt:null,
           socialScore_fmt:null,
           governanceScore_fmt:null,
-          ticker: 'PLTR',
-            date: new Date(),
+          ticker: 'AAPL',
+          earningsDate:null,
+          date: new Date(),
 
         };
     }
@@ -132,6 +133,13 @@ class Security extends Component {
       const result = ((target / price)-1)*100;
       
       return result;
+    }
+
+    ceodiff() {
+        const salary = this.state.yf_all.assetProfile.companyOfficers[0].totalPay.raw;
+        const ceo_avg_salary = 7000000;
+        const diff_from_avg = ((salary / ceo_avg_salary)-1)*100;
+        return diff_from_avg;
     }
 
     async componentDidMount() {
@@ -154,7 +162,7 @@ class Security extends Component {
         targetMedian_raw: this.state.yf_all.financialData.targetMedianPrice.raw,
         targetHigh_raw: this.state.yf_all.financialData.targetHighPrice.raw,
         recommendationKey: this.state.yf_all.financialData.recommendationKey,
-        numberOfAnalystOpinions_fmt: this.state.yf_all.financialData.numberOfAnalystOpinions.fmt,
+        numberOfAnalystOpinions_fmt: this.state.yf_all.financialData.numberOfAnalystOpinions.raw,
         marketCap_fmt: this.state.yf_all.summaryDetail.marketCap.fmt,
         totalRevenue_fmt: this.state.yf_all.financialData.totalRevenue.fmt,
         grossMargins_fmt: this.state.yf_all.financialData.grossMargins.fmt, 
@@ -197,7 +205,8 @@ class Security extends Component {
         peerEsgScorePerformance_avg:this.state.yf_all.esgScores.peerEsgScorePerformance.avg.toFixed(0),
         environmentScore_fmt:this.state.yf_all.esgScores.environmentScore.fmt,
         socialScore_fmt:this.state.yf_all.esgScores.socialScore.fmt,
-        governanceScore_fmt:this.state.yf_all.esgScores.governanceScore.fmt
+        governanceScore_fmt:this.state.yf_all.esgScores.governanceScore.fmt,
+        earningsDate:this.state.yf_all.calendarEvents.earnings.earningsDate,
       })   
       )
 
@@ -373,20 +382,10 @@ render() {
                         footerValue={this.state.numberOfAnalystOpinions_fmt}
                         footerIcon=""
                     />
-                    <div className="d-flex justify-content-between mt-3">
-                                <div className="text-center">
-                                    <h6 className="mb-0 text-danger">SELL</h6>
-                                    <span>3</span>
-                                </div>
-                                <div className="text-center">
-                                    <h6 className="mb-0 text-secondary">HOLD</h6>
-                                    <span>10</span>
-                                </div>
-                                <div className="text-center">
-                                    <h6 className="mb-0 text-info">BUY</h6>
-                                    <span>17</span>
-                                </div>
-                            </div> 
+                    <div className="d-flex mt-3">
+                        <span>Analysts interest:</span>
+                        <span className={this.state.numberOfAnalystOpinions_fmt > 10 ? "fw-600 text-info ml-auto" : "fw-600 text-warning ml-auto"}>{this.state.numberOfAnalystOpinions_fmt > 10 ? "HIGH" : "MEDIUM"}</span>   
+                    </div> 
                 </CardBody>
             </Card>
             { /* START Card Widget */}
@@ -394,28 +393,28 @@ render() {
             <Card type="border" color="success" className="mb-3">
                 <CardBody>
                     <ProfileOverviewCard 
-                        title="SENTIMENT"
-                        badgeTitle="Real time"
+                        title="EARNINGS DATE"
+                        badgeTitle="2021-04-28"
                         badgeColor="primary"
-                        value="87%"
-                        valueTitle="BULLISH"
-                        footerTitle="Trend:"
+                        value="0.98"
+                        valueTitle="ESTIMATE"
+                        footerTitle="Growth:"
                         footerTitleClassName="text-success"
-                        footerValue="8%"
+                        footerValue="53.10%"
                         footerIcon="caret-up"
                     />
                     <div className="d-flex justify-content-between mt-3">
                                 <div className="text-center">
-                                    <h6 className="mb-0 text-danger">SELL</h6>
-                                    <span>3</span>
+                                    <h6 className="mb-0 text-danger">LOW</h6>
+                                    <span>0.85</span>
                                 </div>
                                 <div className="text-center">
-                                    <h6 className="mb-0 text-secondary">HOLD</h6>
-                                    <span>10</span>
+                                    <h6 className="mb-0 text-secondary">AVG</h6>
+                                    <span>0.98</span>
                                 </div>
                                 <div className="text-center">
-                                    <h6 className="mb-0 text-info">BUY</h6>
-                                    <span>17</span>
+                                    <h6 className="mb-0 text-info">HIGH</h6>
+                                    <span>1.09</span>
                                 </div>
                             </div> 
                 </CardBody>
@@ -661,8 +660,7 @@ render() {
                             <i className="fa fa-fw fa-info-circle mr-2"></i>
                         </Media>
                         <Media body>
-                            How do your users (visitors), sessions (visits) and pageviews 
-                            metrics for <abbr title="attribute" className="text-dark">www.webkom.com</abbr> compare to your targets over the last 30 days?
+                            Company financials are continuously updated
                         </Media>
                     </Media>
                 </CardFooter>
@@ -755,6 +753,16 @@ render() {
                         
                     </tbody>
                 </Table>
+                <CardFooter className="mt-auto flex-grow-0">
+                    <Media className="small">
+                        <Media left>
+                            <i className="fa fa-fw fa-info-circle mr-2"></i>
+                        </Media>
+                        <Media body>
+                            Company technicals are continuously updated
+                        </Media>
+                    </Media>
+                </CardFooter>
                 </Card>
 
               </CardDeck>
@@ -776,8 +784,8 @@ render() {
                               <Col sm={ 4 }>
                               <ProfileOverviewCard 
                                   title="OVERALL GOVERNANCE RISK"
-                                  badgeTitle="HIGH RISK"
-                                  badgeColor="danger"
+                                  badgeTitle={Math.sign(this.state.overallRisk) > 4 ? "HIGH RISK" : "LOW RISK"}
+                                  badgeColor={Math.sign(this.state.overallRisk) > 4 ? "danger" : "info"}
                                   value={this.state.overallRisk}
                                   valueTitle="Vs. Sector Average: 7"
                                   footerTitle=""
@@ -790,10 +798,10 @@ render() {
                               <Col sm={ 4 }>
                               <ProfileOverviewCard 
                                   title="EXEC. PAY"
-                                  badgeTitle="TOP PERFORMER"
-                                  badgeColor="info"
-                                  value="-55%"
-                                  valueTitle="lower than market average"
+                                  badgeTitle={Math.sign(this.ceodiff()) < 0 ? "TOP PERFORMER" : "UNDER PERFORMER"}
+                                  badgeColor={Math.sign(this.ceodiff()) < 0 ? "info" : "danger"}
+                                  value={this.ceodiff().toFixed(2)+" %"}
+                                  valueTitle={Math.sign(this.ceodiff()) < 0 ? "Lower than market average" : "Higher than market average"}
                                   footerTitle=""
                                   footerTitleClassName="text-info"
                                   footerValue=""
