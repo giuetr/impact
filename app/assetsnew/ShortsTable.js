@@ -5,7 +5,7 @@ import ToolkitProvider, { Search, CSVExport } from 'react-bootstrap-table2-toolk
 import paginationFactory from 'react-bootstrap-table2-paginator';
 
 
-
+ 
 import {
   Container,
   Row,
@@ -32,21 +32,6 @@ const sortCaret = (order) => {
 };
 
 
-var products = [{
-  id: 1,
-  ticker: "TSLA",
-  name: "Tesla Inc.",
-  shares_out: 123124124,
-  public_out: 93912031,
-  shorts_tot: 390919000,
-  change_prev: -2.93,
-  percent_float: 0.3,
-  returnperiod: 12.3,
-}];
-
-
-
-
 const columns = [{
   dataField: 'id',
   text: 'Id'
@@ -58,21 +43,35 @@ const columns = [{
         { cell }
     </span>
   ),
-},  {
+}
+,  {
   dataField: 'name',
   text: 'Company'
+}
+/* ,{
+  dataField: 'price',
+  text: 'Price',
+  sort: true,
+  sortCaret
+}
+*/
+, {
+  dataField: 'short_interest_date',
+  text: 'Interest Date',
+  sort: true,
+  sortCaret
 }, {
-  dataField: 'shares_out',
+  dataField: 'shares_outstanding',
   text: 'Total Shares',
   sort: true,
   sortCaret
 }, {
-  dataField: 'public_out',
+  dataField: 'public_float',
   text: 'Public Float',
   sort: true,
   sortCaret
 }, {
-  dataField: 'shorts_tot',
+  dataField: 'shares_sold_short',
   text: 'Total Shorted Shares',
   sort: true,
   sortCaret,
@@ -82,7 +81,7 @@ const columns = [{
     </span>
   ),
 }, {
-  dataField: 'change_prev',
+  dataField: 'change_from_last',
   text: 'Change from Prev.',
   sort: true,
   sortCaret,
@@ -97,7 +96,7 @@ const columns = [{
     };
   },
 }, {
-  dataField: 'percent_float',
+  dataField: 'percent_of_float',
   text: 'Percent of float',
   sort: true,
   sortCaret,
@@ -122,6 +121,21 @@ class ShortsTable extends React.Component {
   }
 
   render() {
+    var counter=0
+    var products = this.props.items.map(function(i) {
+      return {
+        id: counter++,
+        ticker: i[1].symbol,
+        name: i[1].shortName,
+      //  price: i[1].regularMarketPrice,
+        shares_outstanding: i[1].shares_outstanding,
+        public_float: i[1].public_float,
+        short_interest_date: i[1].short_interest_date,
+        shares_sold_short: i[1].shares_sold_short,
+        change_from_last: i[1].change_from_last,
+        percent_of_float: i[1].percent_of_float
+      };
+  });
     return (
       
       <Container>

@@ -160,7 +160,7 @@ render() {
                         <p className="mb-0">
                             Instantly visualize short squeezes, stocks with high short interest and predict contrarian moves before the rest of the market.
                         </p>
-                        <Button className="mt-3" color="primary">Free Access</Button>             
+                        <Link to="/Shorts"><Button className="mt-3" color="primary">Free Access</Button></Link>                
                     </div>   
                 </CardBody>
               </Card>
@@ -331,7 +331,7 @@ render() {
                         <p className="mb-0">
                             An updated set of actionable insights, metrics and KPIs from the trading and investing activity of the US Senate and House Members. 
                         </p>
-                        <Button className="mt-3" color="primary">Free Access</Button>             
+                        <Link to="/Politics"><Button className="mt-3" color="primary">Free Access</Button></Link>              
                     </div>   
                 </CardBody>
               </Card>

@@ -7,7 +7,7 @@ import ShortsTable from '../../assetsnew/ShortsTable';
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-import {getAll, getESG} from '../API/api.js'
+import { getQuote_internal, getShort} from '../API/api.js'
 
 
 import {
@@ -53,8 +53,9 @@ class Shorts extends Component {
         super(props);
 
         this.state = {
-            yf_esg: null,
-            yf_all: null,
+            tickers:null,
+            shorts: null,
+            yf_quote: null,
             options: {},
             series: [64, 55, 21, 17, 15],
             labels: ['AAPL', 'TSLA', 'NVDA', 'AMD', 'FB'],
@@ -63,21 +64,31 @@ class Shorts extends Component {
 
 
     async componentDidMount() {
-        const ticker = 'AMD'
-        await getAll(ticker)
-        .then(data => this.setState({ 
-          yf_all: data.quoteSummary.result[0]})   
-        )
-        await getESG(ticker)
-        .then(data => this.setState({ 
-          yf_esg: data})   
-        )
+        await getShort()
+        .then(data =>this.setState({
+            shorts: data,
+            tickers: _.values(data).map(function(i) {
+                return (
+                   i.symbol
+              );
+            }).toString()
+            })
+       
+            )
+            getQuote_internal()
+            .then(data => this.setState({ 
+            yf_quote: data})   
+            )
       }
 
 render() {
-    if (!this.state.yf_all) {
+    if (!this.state.shorts) {
         return <div>Loading Data Engine <i className="fa fa-fw fa-spinner fa-spin text-info"></i></div>;
       }
+      var merged = _.merge(_.keyBy(this.state.shorts, 'symbol'), _.keyBy(this.state.yf_quote, 'symbol'));
+      var values = _.values(merged);
+     // console.log(values);
+      const final = Object.entries(values);
     return (
         <Container>
           <Row className="mb-3">
@@ -173,7 +184,7 @@ render() {
 
 
             <Row className="mt-3">
-                <ShortsTable/>
+                <ShortsTable items={final}/>
             </Row>
 
           </Container>

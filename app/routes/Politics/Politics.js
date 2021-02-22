@@ -6,8 +6,8 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import PoliticsTable from '../../assetsnew/PoliticsTable'
-
-
+import { getQuote_internal, getSenator} from '../API/api.js'
+ 
 import {
     Container,
     Row,
@@ -48,6 +48,9 @@ class Politics extends Component {
         super(props);
 
         this.state = {
+            tickers:null,
+            senators: null,
+            yf_quote: null,
             currentPrice: null,
             options: {},
             series: [64, 55, 21, 17, 15],
@@ -55,8 +58,32 @@ class Politics extends Component {
         };
     }
 
+    async componentWillMount() {
+        await getSenator()
+        .then(data =>this.setState({
+            senators: data,
+            tickers: _.values(data).map(function(i) {
+                return (
+                   i.ticker
+              );
+            }).toString()
+            })
+       
+            )
+            getQuote_internal()
+        .then(data => this.setState({ 
+        yf_quote: data})   
+        )
+    }
 
 render() {
+    if (!this.state.senators ) {
+        return <div>Loading Data Engine <i className="fa fa-fw fa-spinner fa-spin text-info"></i></div>;   
+      }
+      var merged = _.merge(_.keyBy(this.state.senators, 'ticker'), _.keyBy(this.state.yf_quote, 'symbol'));
+      var values = _.values(merged);
+     // console.log(values);
+      const final = Object.entries(values);
     return (
         <Container>
           <Row className="mb-3">
@@ -207,7 +234,7 @@ render() {
 
 
             <Row className="mt-3">
-              <PoliticsTable/>
+              <PoliticsTable items={final}/>
             </Row>
 
           </Container>
