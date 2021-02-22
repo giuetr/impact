@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Chart from "react-apexcharts";
 import faker from 'faker/locale/en_US';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import Mktstatus from '../components/Mktstatus/Mktstatus';
 
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
@@ -90,16 +91,7 @@ render() {
       const final = Object.entries(values);
     return (
         <Container>
-          <Row className="mb-3">
-            <Col lg={ 12 }>
-                <h5 className="mb-0">
-                <span>1 January 2021 - </span>
-                <span className="text-info">05:12:00 PM</span>
-                <span className="small text-muted"> CET</span>
-                </h5>
-                <Badge color="info">MARKET OPEN</Badge>
-            </Col>
-          </Row>
+            <Mktstatus/>
           
           <Container className="pl-0">
             <div className="d-flex mt-3 mb-5">

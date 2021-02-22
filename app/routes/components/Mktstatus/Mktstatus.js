@@ -1,4 +1,5 @@
 import React from 'react';
+import MarCal from 'marcal';
 
 
 import {
@@ -9,6 +10,15 @@ import {
 
 
 
+const mar_cal = new MarCal();
+
+const is_nyse_open = mar_cal.isMarketOpen();
+if (is_nyse_open) {
+  console.log('NYSE is open')
+} else {
+  console.log('NYSE is closed')
+}
+
 
 class Mktstatus extends React.Component {
   constructor(props) {
@@ -17,6 +27,19 @@ class Mktstatus extends React.Component {
     this.state = {
       date: new Date(),
     };
+  }
+
+  Mktstatus() {
+    const status = mar_cal.isMarketOpen();
+    if (status) {
+      return (
+        <Badge color="info">MARKET OPEN</Badge>
+      );
+    } else {
+      return (
+        <Badge color="danger">MARKET CLOSED</Badge>
+      );
+    }
   }
 
   async componentDidMount() {
@@ -43,7 +66,7 @@ class Mktstatus extends React.Component {
                 <span className="text-info">{this.state.date.toLocaleTimeString()}</span>
                 <span className="small text-muted"> CET</span>
                 </h5>
-                <Badge color="info">MARKET OPEN</Badge>
+                {this.Mktstatus()}
             </Col>
         </Row>
       

@@ -63,6 +63,7 @@
     "holderjs": "^2.9.6",
     "isomorphic-fetch": "^3.0.0",
     "lodash": "^4.17.11",
+    "marcal": "0.0.4",
     "moment": "^2.24.0",
     "node-fetch": "^2.6.0",
     "numeral": "^2.0.6",

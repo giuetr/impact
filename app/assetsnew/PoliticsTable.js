@@ -88,7 +88,8 @@ const columns = [{
     const color = (status) => {
         const map = {
             'Purchase': 'success',
-            'Sale': 'danger'
+            'Sale (Partial)': 'danger',
+            'Sale (Full)': 'danger'
         };
         return map[status];
     }
