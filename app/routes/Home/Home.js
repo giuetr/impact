@@ -90,8 +90,8 @@ render() {
                         title="Dow Jones Industrial"
                         badgeTitle="DJI"
                         badgeColor="primary"
-                        value={this.state.yf_financialData_djones.regularMarketPrice}
-                        valueTitle={"vs "+this.state.yf_financialData_djones.regularMarketPreviousClose+" prev."}
+                        value={this.state.yf_financialData_djones.regularMarketPrice.toLocaleString()}
+                        valueTitle={"vs "+this.state.yf_financialData_djones.regularMarketPreviousClose.toLocaleString()+" prev."}
                         footerTitle="Change:"
                         footerTitleClassName={Math.sign(this.state.yf_financialData_djones.regularMarketChangePercent) > 0 ? "text-success" : "text-danger"}
                         footerValue={this.state.yf_financialData_djones.regularMarketChangePercent.toFixed(2)+"%"}
@@ -108,8 +108,8 @@ render() {
                         title="S&amp;P 500"
                         badgeTitle="SPX"
                         badgeColor="danger"
-                        value={this.state.yf_financialData_SP500.regularMarketPrice}
-                        valueTitle={"vs "+this.state.yf_financialData_SP500.regularMarketPreviousClose+" prev."}
+                        value={this.state.yf_financialData_SP500.regularMarketPrice.toLocaleString()}
+                        valueTitle={"vs "+this.state.yf_financialData_SP500.regularMarketPreviousClose.toLocaleString()+" prev."}
                         footerTitle="Change:"
                         footerTitleClassName={Math.sign(this.state.yf_financialData_SP500.regularMarketChangePercent) > 0 ? "text-success" : "text-danger"}
                         footerValue={this.state.yf_financialData_SP500.regularMarketChangePercent.toFixed(2)+"%"}
@@ -125,8 +125,8 @@ render() {
                         title="NASDAQ 100"
                         badgeTitle="NDX"
                         badgeColor="secondary"
-                        value={this.state.yf_financialData_nasdaq.regularMarketPrice}
-                        valueTitle={"vs "+this.state.yf_financialData_nasdaq.regularMarketPreviousClose+" prev."}
+                        value={this.state.yf_financialData_nasdaq.regularMarketPrice.toLocaleString()}
+                        valueTitle={"vs "+this.state.yf_financialData_nasdaq.regularMarketPreviousClose.toLocaleString()+" prev."}
                         footerTitle="Change:"
                         footerTitleClassName={Math.sign(this.state.yf_financialData_nasdaq.regularMarketChangePercent) > 0 ? "text-success" : "text-danger"}
                         footerValue={this.state.yf_financialData_nasdaq.regularMarketChangePercent.toFixed(2)+"%"}

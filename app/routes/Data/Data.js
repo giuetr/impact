@@ -87,7 +87,7 @@ render() {
 
                         <div className="mb-4 mt-3 text-center">
                             <a className="h3 text-decoration-none" href="#">
-                                Mega<span className="fw-600">Trend</span>
+                                Mega<span className="fw-600">Trends</span>
                             </a>
                             <div className="text-center mt-2">
                                 Frequency: <span className="text-info">Weekly</span>
@@ -132,7 +132,7 @@ render() {
 
                     <div className="mb-4 mt-3 text-center">
                         <a className="h3 text-decoration-none" href="#">
-                            Shorts &amp; Squeezes
+                            <span className="fw-600">Shorts</span> &amp; Squeezes
                         </a>
                         <div className="text-center mt-2">
                             Frequency: <span className="text-info">Weekly</span>
@@ -173,7 +173,7 @@ render() {
 
                     <div className="mb-4 mt-3 text-center">
                         <a className="h3 text-decoration-none" href="#">
-                            Insider Trends
+                        <span className="fw-600">Insider</span> Trends
                         </a>
                         <div className="text-center mt-2">
                             Frequency: <span className="text-info">Weekly</span>
@@ -214,7 +214,7 @@ render() {
 
                     <div className="mb-4 mt-3 text-center">
                         <a className="h3 text-decoration-none" href="#">
-                            ESG Lab
+                            <span className="fw-600">ESG</span> Lab
                         </a>
                         <div className="text-center mt-2">
                             Frequency: <span className="text-info">Weekly</span>
@@ -240,7 +240,7 @@ render() {
                     </div>
                     <div className="text-center mb-4">
                         <p className="mb-0">
-                            Unlock the return potential of many different ESG factors by gaining a privileged view of the ESG profile of US Equities.
+                            Unlock the return potential of ESG factors by gaining a privileged view of the ESG profile of US Equities.
                         </p>
                         <Link to="/Esg500"><Button className="mt-3" color="primary">Free Access</Button></Link>             
                     </div>   
@@ -255,7 +255,7 @@ render() {
 
                     <div className="mb-4 mt-3 text-center">
                         <a className="h3 text-decoration-none" href="#">
-                            Carbon Leaders
+                            <span className="fw-600">Carbon</span> Leaders
                         </a>
                         <div className="text-center mt-2">
                             Frequency: <span className="text-info">Monthly</span>
@@ -284,7 +284,7 @@ render() {
                     </div>
                     <div className="text-center mb-4">
                         <p className="mb-0">
-                            Discover how corporations are actually acting to reduce their environmental impact and empower your prediction of their future performance.
+                            The carbon emissions of hundreds of corporations. Discover the actual envirnomental impact of these companies and empower your prediction of their future performance.
                         </p>
                         <Link to="/Carbon"><Button className="mt-3" color="primary">Free Access</Button></Link>               
                     </div>   
@@ -300,7 +300,7 @@ render() {
 
                     <div className="mb-4 mt-3 text-center">
                         <a className="h3 text-decoration-none" href="#">
-                            Politicians Trading
+                            <span className="fw-600">Politicians</span> Trading
                         </a>
                         <div className="text-center mt-2">
                             Frequency: <span className="text-info">Weekly</span>
