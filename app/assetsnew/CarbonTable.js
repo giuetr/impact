@@ -66,7 +66,7 @@ const columns = [{
   sortCaret,
   formatter: (cell) => (
     <span className="text-yellow">
-        { cell }
+        { Intl.NumberFormat('en-US').format(cell) }
     </span>
   ),
 }, {
@@ -126,7 +126,7 @@ const columns = [{
   },
   formatter: (cell) => (
     <span>
-        { cell } %
+        { parseFloat(cell) } %
     </span>
   )
 },  {
@@ -146,7 +146,7 @@ const columns = [{
   sortCaret,
   formatter: (cell) => (
     <span>
-        { cell.toLocaleString(undefined, {maximumFractionDigits:2}) }
+        { Intl.NumberFormat('en-US', { minimumFractionDigits: 0, style: 'currency', currency: 'USD'}).format(cell) }
     </span>
   )
 },  {
