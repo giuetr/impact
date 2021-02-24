@@ -390,7 +390,7 @@ render() {
                             <p className="mb-3">
                                 Overview of the fund sustainability imprint
                             </p>
-                            <Button className="mb-3" color="primary">ESG Disclosure</Button>
+                            <Button className="mb-3" color="primary">ESG Report</Button>
                             <Row>
                             <Col sm={4}>
                             <div className="d-flex mb-4 justify-content-center">
