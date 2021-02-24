@@ -18,8 +18,8 @@ var config = {
     srcHtmlLayout:          path.join(root, 'app', 'index.html'),
 
     // Site Config ====================================================
-    siteTitle:              'DataSpark',
-    siteDescription:        'Financial, ESG and Alternative Data Analytics Cloud Platform',
+    siteTitle:              'Impact',
+    siteDescription:        'Portfolio Management Platform for Sustainable Finance',
     siteCannonicalUrl:      'http://localhost:4100',
     siteKeywords:           'Financial, ESG and Alternative Data Analytics Cloud Platform',
     scssIncludes:           []
