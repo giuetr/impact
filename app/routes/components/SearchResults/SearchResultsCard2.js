@@ -4,11 +4,10 @@ import faker from 'faker/locale/en_US';
 import { 
     Card,
     Badge,
-    CardBody,
-} from './../../../components';
-import {Link} from 'react-router-dom'
+    CardBody
+} from '../../../components';
 
-import { randomArray } from './../../../utilities';
+import { randomArray } from '../../../utilities';
 
 const stars = [
     <span key="stars5">
@@ -48,11 +47,13 @@ const stars = [
     </span>,
 ];
 
-const SearchResultsCard = () => (
+const SearchResultsCard2 = () => (
     <React.Fragment>
         <Card className="mb-3">
             <CardBody>
-                <Link className="h4 text-decoration-none" to="/Leaders/AI">Iberian Fund Tracker Equity US</Link>
+                <a href="#" className="h4 text-decoration-none">
+                EM USD Sovereign + BONDS 
+                </a>
                 <br />
                 <div className="mb-3 mt-2">
                     <span className="fw-600 text-primary">
@@ -60,7 +61,7 @@ const SearchResultsCard = () => (
                     </span>
                     <span className="mx-2">·</span>
                     <span className="fw-600 text-info">
-                        16 % YTD
+                        7 % YTD
                     </span>
                     <span className="mx-2">·</span>
                     <span>
@@ -68,23 +69,24 @@ const SearchResultsCard = () => (
                     </span>
                 </div>
                 <div className="mb-2">
-                    <Badge pill color="warning">
-                        Equity
+                    <Badge pill color="primary">
+                        Fixed-Income
                     </Badge>
                     <span className="mx-2">·</span>
                     <span>
-                        ESG Risk: <span className="fw-600 text-info">31/100</span>
+                        ESG Risk: <span className="fw-600 text-info">48/100</span>
                     </span>
                     <span className="mx-2">·</span>
                     { randomArray(stars) }
                     
                 </div>
                 <p className="mb-0">
-                    The fund aims to outperform the US Equity broad market performance by offering exposure to a selected set of equities among the largest and most traded listed on the NYSE.
+                    The EM USD Sovereign + BONDS  tracks US dollar-denominated bonds issued by governments and semi-public institutions in emerging markets. All maturities are included. Rating: Mixed.
+
                 </p>
             </CardBody>
         </Card>
     </React.Fragment>
 )
 
-export { SearchResultsCard };
+export { SearchResultsCard2 };

@@ -21,7 +21,7 @@ const SearchResultsLeftNav = () => (
             <NavItem>
                 <NavLink href="#" className="small d-flex px-1">
                     <span>
-                        Navigation
+                        Asset Class
                     </span>
                     <i className="fa fa-angle-down align-self-center ml-auto"></i>
                 </NavLink>
@@ -30,13 +30,13 @@ const SearchResultsLeftNav = () => (
                 <NavLink tag={ RouterNavLink } to="/apps/search-results" className="d-flex">
                     All Results
                     <Badge pill color="secondary" className="ml-auto align-self-center">
-                        12
+                        25
                     </Badge>
                 </NavLink>
             </NavItem>
             <NavItem>
                 <NavLink tag={ RouterNavLink } to="/apps/images-results" className="d-flex">
-                    Images
+                    Equity
                     <Badge pill color="secondary" className="ml-auto align-self-center">
                         5
                     </Badge>
@@ -44,7 +44,7 @@ const SearchResultsLeftNav = () => (
             </NavItem>
             <NavItem>
                 <NavLink tag={ RouterNavLink } to="/apps/videos-results" className="d-flex">
-                    Videos
+                    Fixed Income
                     <Badge pill color="secondary" className="ml-auto align-self-center">
                         10
                     </Badge>
@@ -52,7 +52,39 @@ const SearchResultsLeftNav = () => (
             </NavItem>
             <NavItem>
                 <NavLink tag={ RouterNavLink } to="/apps/users-results" className="d-flex">
-                    Users
+                    Commodity
+                    <Badge pill color="secondary" className="ml-auto align-self-center">
+                        2
+                    </Badge>
+                </NavLink>
+            </NavItem>
+            <NavItem>
+                <NavLink tag={ RouterNavLink } to="/apps/users-results" className="d-flex">
+                    Private Equity
+                    <Badge pill color="secondary" className="ml-auto align-self-center">
+                        3
+                    </Badge>
+                </NavLink>
+            </NavItem>
+            <NavItem>
+                <NavLink tag={ RouterNavLink } to="/apps/users-results" className="d-flex">
+                    Real Estate
+                    <Badge pill color="secondary" className="ml-auto align-self-center">
+                        2
+                    </Badge>
+                </NavLink>
+            </NavItem>
+            <NavItem>
+                <NavLink tag={ RouterNavLink } to="/apps/users-results" className="d-flex">
+                    Venture Capital
+                    <Badge pill color="secondary" className="ml-auto align-self-center">
+                        1
+                    </Badge>
+                </NavLink>
+            </NavItem>
+            <NavItem>
+                <NavLink tag={ RouterNavLink } to="/apps/users-results" className="d-flex">
+                    Cross-Asset
                     <Badge pill color="secondary" className="ml-auto align-self-center">
                         2
                     </Badge>
@@ -65,7 +97,7 @@ const SearchResultsLeftNav = () => (
             <NavItem>
                 <NavLink href="#" className="small d-flex px-1">
                     <span>
-                        Category
+                        Performance
                     </span>
                     <i className="fa fa-angle-down align-self-center ml-auto"></i>
                 </NavLink>
@@ -73,30 +105,40 @@ const SearchResultsLeftNav = () => (
             <NavItem>
                 <NavLink href="#" className="d-flex">
                     <span>
-                        { faker.commerce.department() }
+                        &#62; 30%
                     </span>
                     <span className="small ml-auto align-self-center text-body">
-                        ({ faker.finance.mask() })
+                        (11)
                     </span>
                 </NavLink>
             </NavItem>
             <NavItem>
                 <NavLink href="#" className="d-flex">
                     <span>
-                        { faker.commerce.department() }
+                        &#62; 25%
                     </span>
                     <span className="small ml-auto align-self-center text-body">
-                        ({ faker.finance.mask() })
+                        (6)
                     </span>
                 </NavLink>
             </NavItem>
             <NavItem>
                 <NavLink href="#" className="d-flex">
                     <span>
-                        { faker.commerce.department() }
+                        &#62; 15%
                     </span>
                     <span className="small ml-auto align-self-center text-body">
-                        ({ faker.finance.mask() })
+                        (4)
+                    </span>
+                </NavLink>
+            </NavItem>
+            <NavItem>
+                <NavLink href="#" className="d-flex">
+                    <span>
+                        &#62; 7%
+                    </span>
+                    <span className="small ml-auto align-self-center text-body">
+                        (4)
                     </span>
                 </NavLink>
             </NavItem>
@@ -107,79 +149,36 @@ const SearchResultsLeftNav = () => (
             <NavItem className="mb-2">
                 <NavLink href="#" className="small d-flex px-1">
                     <span>
-                        Rating
+                        ESG Risk
                     </span>
                     <i className="fa fa-angle-down align-self-center ml-auto"></i>
                 </NavLink>
             </NavItem>
             <NavItem className="d-flex px-2 mb-2">
-                <CustomInput type="radio" id="radio1" name="rating" label="Clothing" inline defaultChecked />
+                <CustomInput type="radio" id="radio1" name="rating" label="Top Performer" inline defaultChecked />
                 <span className="small ml-auto align-self-center">
-                    ({ faker.finance.mask() })
+                    (13)
                 </span>
             </NavItem>
             <NavItem className="d-flex px-2 mb-2">
-                <CustomInput type="radio" id="radio2" name="rating" label="Baby" inline />
+                <CustomInput type="radio" id="radio2" name="rating" label="Average Performer" inline />
                 <span className="small ml-auto align-self-center">
-                    ({ faker.finance.mask() })
+                    (10)
                 </span>
             </NavItem>
             <NavItem className="d-flex px-2 mb-2">
-                <CustomInput type="radio" id="radio3" name="rating" label="Jewelery" inline />
+                <CustomInput type="radio" id="radio3" name="rating" label="Under performer" inline />
                 <span className="small ml-auto align-self-center">
-                    ({ faker.finance.mask() })
-                </span>
-            </NavItem>
-            <NavItem className="d-flex px-2 mb-2">
-                <CustomInput type="radio" id="radio4" name="rating" label="Games" inline />
-                <span className="small ml-auto align-self-center">
-                    ({ faker.finance.mask() })
+                    (2)
                 </span>
             </NavItem>
         </Nav>
         { /* END Rating */}
-        { /* START Tags */}
         <Nav vertical className="mb-3">
             <NavItem className="mb-2">
                 <NavLink href="#" className="small d-flex px-1">
                     <span>
-                        Tags
-                    </span>
-                    <i className="fa fa-angle-down align-self-center ml-auto"></i>
-                </NavLink>
-            </NavItem>
-            <NavItem className="d-flex px-2 mb-2">
-                <CustomInput type="checkbox" id="checkbox1" label="Garden" inline defaultChecked />
-                <span className="small ml-auto align-self-center">
-                    ({ faker.finance.mask() })
-                </span>
-            </NavItem>
-            <NavItem className="d-flex px-2 mb-2">
-                <CustomInput type="checkbox" id="checkbox2" label="Beauty" inline />
-                <span className="small ml-auto align-self-center">
-                    ({ faker.finance.mask() })
-                </span>
-            </NavItem>
-            <NavItem className="d-flex px-2 mb-2">
-                <CustomInput type="checkbox" id="checkbox3" label="Clothing" inline />
-                <span className="small ml-auto align-self-center">
-                    ({ faker.finance.mask() })
-                </span>
-            </NavItem>
-            <NavItem className="d-flex px-2 mb-2">
-                <CustomInput type="checkbox" id="checkbox4" label="Games" inline />
-                <span className="small ml-auto align-self-center">
-                    ({ faker.finance.mask() })
-                </span>
-            </NavItem>
-        </Nav>
-        { /* END Tags */}
-        { /* START Price */}
-        <Nav vertical className="mb-3">
-            <NavItem className="mb-2">
-                <NavLink href="#" className="small d-flex px-1">
-                    <span>
-                        Price
+                        Share Price
                     </span>
                     <i className="fa fa-angle-down align-self-center ml-auto"></i>
                 </NavLink>
@@ -189,8 +188,33 @@ const SearchResultsLeftNav = () => (
                     <InputGroupAddon addonType="prepend">
                         $
                     </InputGroupAddon>
-                    <Input placeholder="Min: 5" className="bg-white" />
-                    <Input placeholder="Max: 87" className="bg-white" />
+                    <Input placeholder="Min: 5M" className="bg-white" />
+                    <Input placeholder="Max: 500M" className="bg-white" />
+                    <InputGroupAddon addonType="append">
+                        <Button color="secondary" outline>
+                            <i className="fa fa-check"></i>
+                        </Button>
+                    </InputGroupAddon> 
+                </InputGroup>
+            </NavItem>
+        </Nav>
+        { /* START Price */}
+        <Nav vertical className="mb-3">
+            <NavItem className="mb-2">
+                <NavLink href="#" className="small d-flex px-1">
+                    <span>
+                        NAV
+                    </span>
+                    <i className="fa fa-angle-down align-self-center ml-auto"></i>
+                </NavLink>
+            </NavItem>
+            <NavItem className="d-flex p-0">
+                <InputGroup>
+                    <InputGroupAddon addonType="prepend">
+                        $
+                    </InputGroupAddon>
+                    <Input placeholder="Min: 5M" className="bg-white" />
+                    <Input placeholder="Max: 500M" className="bg-white" />
                     <InputGroupAddon addonType="append">
                         <Button color="secondary" outline>
                             <i className="fa fa-check"></i>
@@ -205,45 +229,24 @@ const SearchResultsLeftNav = () => (
             <NavItem className="mb-2">
                 <NavLink href="#" className="small d-flex px-1">
                     <span>
-                        Shipping
+                        Fund Domicile
                     </span>
                     <i className="fa fa-angle-down align-self-center ml-auto"></i>
                 </NavLink>
             </NavItem>
             <NavItem className="d-flex p-0">
                 <CustomInput type="select" name="select" id="shipping">
-                    <option>England</option>
+                    <option>Spain</option>
                     <option>United States</option>
-                    <option>Canada</option>
+                    <option>UK</option>
                     <option>Australia</option>
                     <option>Other...</option>
                 </CustomInput>
             </NavItem>
         </Nav>
         { /* END Shipping */}
-        { /* START Sales */}
-        <Nav vertical className="mb-4">
-            <NavItem className="mb-2">
-                <NavLink href="#" className="small d-flex px-1">
-                    <span>
-                        Sales
-                    </span>
-                    <i className="fa fa-angle-down align-self-center ml-auto"></i>
-                </NavLink>
-            </NavItem>
-            <NavItem className="d-flex p-0">
-                <CustomInput type="select" name="select" id="sales">
-                    <option>England</option>
-                    <option>United States</option>
-                    <option>Canada</option>
-                    <option>Australia</option>
-                    <option>Other...</option>
-                </CustomInput>
-            </NavItem>
-        </Nav>
-        { /* END Sales */}
-        <Button color="primary" block>
-            Confirm Changes
+        <Button color="info" block>
+            Search
         </Button>
         <Button color="link" block>
             Reset to Default

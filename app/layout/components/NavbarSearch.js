@@ -19,7 +19,7 @@ const NavbarSearch = (props) => (
     <FormGroup { ...props } row>
         <Col sm={12}>
             <InputGroup>
-                <Input placeholder="Search for companies" style={{background: "#ffff"}}/>
+                <Input placeholder="Search" style={{background: "#ffff"}}/>
                 <InputGroupAddon addonType="append">
                     <Button color="info">
                         <i className="fa fa-search" />

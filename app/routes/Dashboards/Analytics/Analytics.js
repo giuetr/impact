@@ -105,7 +105,7 @@ export class Analytics extends React.Component {
                                 <UncontrolledButtonDropdown className="ml-auto flex-column">
                                     <DropdownToggle color="link" className="text-left pl-0 text-decoration-none mb-2">
                                         <i className="fa fa-globe text-body mr-2"></i>
-                                        www.webkom.co<i className="fa fa-angle-down text-body ml-2" />
+                                        www.qvan.tech<i className="fa fa-angle-down text-body ml-2" />
                                     </DropdownToggle>
                                     <div className="small">
                                         Last 30 Days vs Previous Period
@@ -115,10 +115,10 @@ export class Analytics extends React.Component {
                                             Select Site:
                                         </DropdownItem>
                                         <DropdownItem active>
-                                            www.webkom.co
+                                            qvan.tech
                                         </DropdownItem>
                                         <DropdownItem>
-                                            www.spin.webkom.co
+                                            impact.qvan.tech
                                         </DropdownItem>
                                         <DropdownItem divider />
                                         <DropdownItem>
@@ -135,7 +135,7 @@ export class Analytics extends React.Component {
                                         Last Month<i className="fa fa-angle-down text-body ml-2" />
                                     </DropdownToggle>
                                     <div className="small">
-                                        Jan 01, 2017 to Jan 31, 2017
+                                        Jan 24, 2021 to Feb 24, 2021
                                     </div>
                                     <DropdownMenu>
                                         <DropdownItem header>
@@ -167,7 +167,7 @@ export class Analytics extends React.Component {
                                         Previous Period<i className="fa fa-angle-down text-body ml-2" />
                                     </DropdownToggle>
                                     <div className="small">
-                                        Jan 01, 2017 to Jan 31, 2017
+                                        Jan 24, 2020 to Feb 24, 2020
                                     </div>
                                     <DropdownMenu>
                                         <DropdownItem header>
@@ -219,14 +219,14 @@ export class Analytics extends React.Component {
                         <Grid.Col { ...(applyColumn('metric-v-target-users', layouts)) }>
                             <Card>
                                 <CardHeader className="bb-0 pt-3 pb-0 bg-none" tag="h6">
-                                    <i className="fa fa-ellipsis-v text-body mr-2"></i> Users
+                                    <i className="fa fa-ellipsis-v text-body mr-2"></i> Investors
                                 </CardHeader>
                                 <CardBody className="pt-2">
                                     <MetricVsTarget 
                                         title="Users"
-                                        value="294,793"
-                                        progressbarColor="danger"
-                                        targetValue="169,001"
+                                        value="379"
+                                        progressbarColor="info"
+                                        targetValue="500"
                                     />
                                 </CardBody>
                                 <CardFooter>
@@ -235,8 +235,8 @@ export class Analytics extends React.Component {
                                             <i className="fa fa-fw fa-info-circle mr-2"></i>
                                         </Media>
                                         <Media body>
-                                            How do your users (visitors), sessions (visits) and pageviews 
-                                            metrics for <abbr title="attribute" className="text-dark">www.webkom.com</abbr> compare to your targets over the last 30 days?
+                                            Get additional analytics, metrics, data on
+                                             <abbr title="attribute" className="text-dark">www.qvan.tech</abbr>
                                         </Media>
                                     </Media>
                                 </CardFooter>
@@ -245,15 +245,15 @@ export class Analytics extends React.Component {
                         <Grid.Col { ...(applyColumn('metric-v-target-sessions', layouts)) }>
                             <Card>
                                 <CardHeader className="bb-0 pt-3 pb-0 bg-none" tag="h6">
-                                    <i className="fa fa-ellipsis-v text-body mr-2"></i> Sessions
+                                    <i className="fa fa-ellipsis-v text-body mr-2"></i> Portfolios Managed
                                 </CardHeader>
                                 <CardBody className="pt-2">
                                     <MetricVsTarget 
                                         title="Sessions"
-                                        value="529,747"
-                                        progressbarValue="67"
+                                        value="25"
+                                        progressbarValue="32"
                                         progressbarColor="primary"
-                                        targetValue="782,957"
+                                        targetValue="50"
                                     />
                                 </CardBody>
                                 <CardFooter>
@@ -262,8 +262,8 @@ export class Analytics extends React.Component {
                                             <i className="fa fa-fw fa-info-circle mr-2"></i>
                                         </Media>
                                         <Media body>
-                                            How do your users (visitors), sessions (visits) and pageviews 
-                                            metrics for <abbr title="attribute" className="text-dark">www.webkom.com</abbr> compare to your targets over the last 30 days?
+                                            Get additional analytics, metrics, data on
+                                             <abbr title="attribute" className="text-dark">www.qvan.tech</abbr>
                                         </Media>
                                     </Media>
                                 </CardFooter>
@@ -272,15 +272,15 @@ export class Analytics extends React.Component {
                         <Grid.Col { ...(applyColumn('metric-v-target-pageviews', layouts)) }>
                             <Card>
                                 <CardHeader className="bb-0 pt-3 pb-0 bg-none" tag="h6">
-                                    <i className="fa fa-ellipsis-v text-body mr-2"></i> Pageviews
+                                    <i className="fa fa-ellipsis-v text-body mr-2"></i> Average Investment
                                 </CardHeader>
                                 <CardBody className="pt-2">
                                     <MetricVsTarget 
                                         title="Pageviews"
-                                        value="1,763,981"
-                                        progressbarValue="34"
+                                        value="EUR 110,000"
+                                        progressbarValue="25"
                                         progressbarColor="secondary"
-                                        targetValue="1,567,334"
+                                        targetValue="EUR 500,000"
                                     />
                                 </CardBody>
                                 <CardFooter>
@@ -289,8 +289,8 @@ export class Analytics extends React.Component {
                                             <i className="fa fa-fw fa-info-circle mr-2"></i>
                                         </Media>
                                         <Media body>
-                                            How do your users (visitors), sessions (visits) and pageviews 
-                                            metrics for <abbr title="attribute" className="text-dark">www.webkom.com</abbr> compare to your targets over the last 30 days?
+                                            Get additional analytics, metrics, data on
+                                             <abbr title="attribute" className="text-dark">www.qvan.tech</abbr>
                                         </Media>
                                     </Media>
                                 </CardFooter>
@@ -299,7 +299,7 @@ export class Analytics extends React.Component {
                         <Grid.Col { ...(applyColumn('analytics-audience-metrics', layouts)) }>
                             <Card>
                                 <CardHeader className="bb-0 pt-3 pb-4 bg-none" tag="h6">
-                                    <i className="fa fa-ellipsis-v mr-2 text-body"></i> Analytics Audience Metrics
+                                    <i className="fa fa-ellipsis-v mr-2 text-body"></i> Investors Engagement Metrics
                                 </CardHeader>
                                 <CardBody className="d-flex flex-column">
                                     <Grid.Ready>
@@ -312,8 +312,8 @@ export class Analytics extends React.Component {
                                             <i className="fa fa-fw fa-info-circle mr-2"></i>
                                         </Media>
                                         <Media body>
-                                            How do your users (visitors), sessions (visits) and pageviews 
-                                            metrics for <abbr title="attribute" className="text-dark">www.webkom.com</abbr> compare to your targets over the last 30 days?
+                                            Get additional analytics, metrics, data on
+                                             <abbr title="attribute" className="text-dark">www.qvan.tech</abbr>
                                         </Media>
                                     </Media>
                                 </CardFooter>
@@ -337,7 +337,7 @@ export class Analytics extends React.Component {
                                     <tbody>
                                         <tr>
                                             <td className="align-middle text-inverse">
-                                                Organic Search
+                                                Platform Marketing
                                             </td>
                                             <td className="align-middle">
                                                 { faker.finance.amount() }
@@ -373,7 +373,7 @@ export class Analytics extends React.Component {
                                         </tr>
                                         <tr>
                                             <td className="align-middle text-inverse">
-                                                Social Media
+                                                Sales Rep
                                             </td>
                                             <td className="align-middle">
                                                 { faker.finance.amount() }
@@ -397,8 +397,8 @@ export class Analytics extends React.Component {
                                             <i className="fa fa-fw fa-info-circle mr-2"></i>
                                         </Media>
                                         <Media body>
-                                            How do your users (visitors), sessions (visits) and pageviews 
-                                            metrics for <abbr title="attribute" className="text-dark">www.webkom.com</abbr> compare to your targets over the last 30 days?
+                                            Get additional analytics, metrics, data on
+                                             <abbr title="attribute" className="text-dark">www.qvan.tech</abbr>
                                         </Media>
                                     </Media>
                                 </CardFooter>
@@ -412,13 +412,13 @@ export class Analytics extends React.Component {
                                 <CardBody className="d-flex flex-column">
                                     <div className={classes['sessions']}>
                                         <SessionByDevice 
-                                            title="Desktop"
-                                            color="purple"
+                                            title="Equity"
+                                            color="yellow"
                                             valuePercent="51,5"
                                             value="201,345"
                                         />
                                         <SessionByDevice 
-                                            title="Mobile"
+                                            title="Fixed Income"
                                             color="primary"
                                             valuePercent="34,4"
                                             value="134,201"
@@ -442,8 +442,8 @@ export class Analytics extends React.Component {
                                             <i className="fa fa-fw fa-info-circle mr-2"></i>
                                         </Media>
                                         <Media body>
-                                            How do your users (visitors), sessions (visits) and pageviews 
-                                            metrics for <abbr title="attribute" className="text-dark">www.webkom.com</abbr> compare to your targets over the last 30 days?
+                                            Get additional analytics, metrics, data on
+                                             <abbr title="attribute" className="text-dark">www.qvan.tech</abbr>
                                         </Media>
                                     </Media>
                                 </CardFooter>
@@ -584,8 +584,8 @@ export class Analytics extends React.Component {
                                             <i className="fa fa-fw fa-info-circle mr-2"></i>
                                         </Media>
                                         <Media body>
-                                            How do your users (visitors), sessions (visits) and pageviews 
-                                            metrics for <abbr title="attribute" className="text-dark">www.webkom.com</abbr> compare to your targets over the last 30 days?
+                                            Get additional analytics, metrics, data on
+                                             <abbr title="attribute" className="text-dark">www.qvan.tech</abbr>
                                         </Media>
                                     </Media>
                                 </CardFooter>

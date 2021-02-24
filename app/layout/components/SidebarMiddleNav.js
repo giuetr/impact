@@ -30,6 +30,12 @@ export const SidebarMiddleNav = () => (
         </SidebarMenu.Item>
 
         <SidebarMenu.Item
+            icon={<i className="fa fa-fw fa-search"></i>}
+            title="Portfolios"
+            to='/Apps/search-results'
+        />
+
+        <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-user"></i>}
             title="Profile"
             to='/ProfileNew'

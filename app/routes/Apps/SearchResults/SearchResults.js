@@ -12,13 +12,17 @@ import { SearchResultsHeader } from
     "../../components/SearchResults/SearchResultsHeader";
 import { SearchResultsCard } from
     "../../components/SearchResults/SearchResultsCard";
+import { SearchResultsCard2 } from
+    "../../components/SearchResults/SearchResultsCard2";
+import { SearchResultsCard3 } from
+    "../../components/SearchResults/SearchResultsCard3";
 import { Paginations } from "../../components/Paginations";
 
 const SearchResults = () => (
     <React.Fragment>
         <Container>
             <HeaderMain 
-                title="Search Results"
+                title="Funds Search"
                 className="mb-5 mt-4"
             />
             { /* START Content */}
@@ -29,8 +33,8 @@ const SearchResults = () => (
                 <Col lg={ 9 }>
                     <SearchResultsHeader />
                     <SearchResultsCard />
-                    <SearchResultsCard />
-                    <SearchResultsCard />
+                    <SearchResultsCard2 />
+                    <SearchResultsCard3 />
                     <SearchResultsCard />
                     <SearchResultsCard />
                     <SearchResultsCard />

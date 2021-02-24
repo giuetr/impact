@@ -8,7 +8,7 @@ const logos = {
     //'white': require('./../../../images/logos/logo-white.svg'),
     'white': require('./../../../images/logos/logo-dataspark-wt.svg'),
     //'primary': require('./../../../images/logos/logo.png'),
-    'primary': require('./../../../images/logos/logo-dataspark-tl.svg'),
+    'primary': require('./../../../images/logos/logo-impact.svg'),
     'success': require('./../../../images/logos/logo-success.svg'),
     'warning': require('./../../../images/logos/logo-warning.svg'),
     'danger': require('./../../../images/logos/logo-danger.svg'),

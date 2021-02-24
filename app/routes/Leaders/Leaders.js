@@ -32,6 +32,7 @@ import {
     Media,
     UncontrolledTooltip,
     UncontrolledButtonDropdown,
+    Link
 } from '../../components'
 import {
     ProfileOverviewCard
@@ -64,7 +65,7 @@ class Leaders extends Component {
                 settore = "Future of Food";
               break;
             case 'AI':
-                settore = "NextGen AI";
+                settore = "Iberian Fund Tracker Equity US";
               break;
             case 'XT':
                 settore = "Ultra Tech";
@@ -240,7 +241,7 @@ render() {
                       className=""
                   />
                   <div className="h3">
-                    <span className="text-info mr-3">Leaders and Pioneers of the {this.state.settore} space</span>
+                    <span className="text-info mr-3">Fund Overview</span>
                   </div>
 
               </div>
@@ -252,7 +253,7 @@ render() {
                     <CardBody>
                         <div>
                             <div className="mb-4">
-                                <h5 className="mb-1 text-info">TOTAL COMPANIES</h5>
+                                <h5 className="mb-1 text-info">TOTAL HOLDINGS</h5>
                                 <p>Weekly Snapshot</p>
                             </div>
                             <div className="mb-3 d-flex">
@@ -264,17 +265,17 @@ render() {
                             <div className="d-flex justify-content-between">
                                 <div className="text-left">
                                     <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-info"></i> Environmental
+                                        <i className="fa fa-circle fa-fw text-info"></i> Class: Equity
                                     </div>
                                 </div>
                                 <div className="text-left">
                                     <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-primary"></i> Social
+                                        <i className="fa fa-circle fa-fw text-primary"></i> Region: US
                                     </div>
                                 </div>
                                 <div className="text-left">
                                     <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-gray-300"></i> Governance
+                                        <i className="fa fa-circle fa-fw text-gray-300"></i> Risk: 4/10
                                     </div>
                                 </div>
                             </div>
@@ -287,12 +288,12 @@ render() {
                         <div>
                             <div className="mb-4">
                                 <h5 className="mb-1 text-info">PERFORMANCE</h5>
-                                <p>Average 1Y Return</p>
+                                <p> 1Y Return</p>
                             </div>
                             <div className="mb-3 d-flex">
                                 <div className="ml-2 align-self-center">
-                                    <h2 className="mb-0">12.07%</h2>
-                                    <span><span className="text-info">+2%</span> from Benchmark</span>
+                                    <h2 className="mb-0">16.02%</h2>
+                                    <span><span className="text-info">+7%</span> from Benchmark</span>
                                 </div>
                             </div>
                                 <div className="d-flex justify-content-between mt-3">
@@ -318,13 +319,13 @@ render() {
                     <CardBody>
                         <div>
                             <div className="mb-4">
-                                <h5 className="mb-1 text-info">VALUATION</h5>
+                                <h5 className="mb-1 text-info">VALUATION &amp; SIZE</h5>
                                 <p>Key Metrics</p>
                             </div>
                             <div className="mb-3 d-flex">
                                 <div className="ml-2 align-self-center">
                                     <h2 className="mb-0">350M</h2>
-                                    <span>Avg. <span className="text-info">MarketCap</span></span>
+                                    <span className="text-info">NAV</span>
                                 </div>
                             </div>
                                 <div className="d-flex justify-content-between mt-3">
@@ -355,7 +356,7 @@ render() {
                             </div>
                             <div className="mb-3 d-flex">
                                 <div className="ml-2 align-self-center">
-                                    <h2 className="mb-0">LONG</h2>
+                                    <h2 className="mb-0">Bullish</h2>
                                     <span>Avg. <span className="text-info">MarketCap</span></span>
                                 </div>
                             </div>
@@ -379,9 +380,125 @@ render() {
             { /* START Card Widget */}
         </CardDeck>
 
-        {/*
+        <Row className="mt-3">
+                <Col lg={ 12 }>
+                    <Card className="mb-3">
+                        <CardBody className="pb-0">
+                            <CardTitle tag="h5" className="text-info">
+                                ESG Profile
+                            </CardTitle>
+                            <p className="mb-3">
+                                Overview of the fund sustainability imprint
+                            </p>
+                            <Button className="mb-3" color="primary">ESG Disclosure</Button>
+                            <Row>
+                            <Col sm={4}>
+                            <div className="d-flex mb-4 justify-content-center">
+                            
+                            </div>
+                        <div className="text-center mb-4">
+                            <h2>
+                               TSLA
+                            </h2>
+                            <div className="mt-2">
+                                ESG Group: <span className="text-info">Consumer Cyclical</span>
+                            </div>
+                        </div>
+                            <CardBody className="p-0">
+                                <TinyAreaChart />
+                            </CardBody>
 
-            <CardDeck>
+                            </Col>    
+
+
+                            <Col sm={ 4 }>
+                                <div className="mb-4">
+                                    <div>
+                                        <h5 className="mb-1 text-info">ESG</h5>
+                                        <p>Average Risk Rating</p>
+                                    </div>
+                                    <div className="mb-3 d-flex">
+                                        <TinyDonutChart />
+                                        <div className="ml-2 align-self-center">
+                                            <span>ESG Score</span>
+                                            <h2 className="mb-0">
+                                            37
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div className="d-flex justify-content-between">
+                                        <div className="text-left">
+                                            <div className="small mb-2">
+                                                <i className="fa fa-circle fa-fw text-info"></i> Environmental
+                                            </div>
+                                            <h6 className="mb-0">
+                                            18
+                                            </h6>
+                                        </div>
+                                        <div className="text-left">
+                                            <div className="small mb-2">
+                                                <i className="fa fa-circle fa-fw text-primary"></i> Social
+                                            </div>
+                                            <h6 className="mb-0">
+                                            11
+                                            </h6>
+                                        </div>
+                                        <div className="text-left">
+                                            <div className="small mb-2">
+                                                <i className="fa fa-circle fa-fw text-gray-300"></i> Governance
+                                            </div>
+                                            <h6 className="mb-0">
+                                            8
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                  
+                              </Col>
+                              <Col sm={ 4 }>
+                              <Table size="sm">
+                                    <div className="mb-3">
+                                        <h5 className="text-info">CONTROVERSIES</h5> 
+                                        <p>Average: <span className="text-warning">3</span></p>
+                                    </div>
+                                  <tbody>
+                                      <tr>
+                                          <td className="text-inverse bt-0">Social Supply Chain Incidents</td>
+                                          <td className="text-right bt-0">
+                                              <Badge color="success" pill>1</Badge>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td className="text-inverse">Customer Incidents</td>
+                                          <td className="text-right">
+                                              <Badge color="primary" pill>1</Badge>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td className="text-inverse">Business Ethics Incidents</td>
+                                          <td className="text-right">
+                                              <Badge color="info" pill>1</Badge>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td className="text-inverse">Benchmark Average Controversies</td>
+                                          <td className="text-right">
+                                              1.3
+                                          </td>
+                                      </tr>
+                                  </tbody>
+                              </Table>
+                            </Col>
+                              
+                            </Row>
+                        </CardBody>
+                    </Card>
+                </Col>
+            </Row>
+
+
+
+            <CardDeck className="mb-3">
                 <Card>
                     <CardBody className="pb-0">
                         <div className="d-flex mb-2 justify-content-center">
@@ -408,7 +525,7 @@ render() {
                 </Card>
             </CardDeck>
         
-        */}
+
 
             
            
