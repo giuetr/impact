@@ -1,4 +1,4 @@
-# DataSpark React
+# IMPACT - ESG PLatform
 
 High Quality **Dashboard / Admin / Analytics template** that works great on any smartphone, tablet or desktop. Available as **Open Source as MIT license.**
 
