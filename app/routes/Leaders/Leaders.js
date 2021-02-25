@@ -244,8 +244,13 @@ render() {
                       className=""
                   />
                   <div className="h3">
-                    <span className="text-info mr-3">Fund Overview</span>
-                  </div>
+                  <span className="text-info mr-3">Equity</span>
+                  <span className="mx-2">·</span>
+                  <span>204.02</span>
+                  <span className="small mr-3">EUR</span>
+                  <span className="mx-2">·</span>
+                  <span style={{color: "#1BB934"}}>3.02%</span>
+                </div>
 
               </div>
             </div>
