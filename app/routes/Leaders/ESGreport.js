@@ -1,6 +1,5 @@
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
-import { HeaderMain } from "../components/HeaderMain";
+import { Page, Text, View, Document, StyleSheet, Image } from '@react-pdf/renderer';
 
 // Create styles
 const styles = StyleSheet.create({
@@ -24,13 +23,9 @@ const ESGreport = () => (
       </View>
       <View style={styles.section}>
         <Text>Section #2</Text>
-        <div>
-          <HeaderMain 
-            title={this.state.settore}
-            className=""
-          />
-        </div>
       </View>
     </Page>
   </Document>
 );
+
+export { ESGreport };

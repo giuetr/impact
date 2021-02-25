@@ -9,6 +9,8 @@ import Mktstatus from '../components/Mktstatus/Mktstatus';
 
 import { getQuote, getmegatrends} from '../API/api.js'
 
+import { PDFDownloadLink, Document, Page, Text } from '@react-pdf/renderer'
+import {ESGreport} from './ESGreport.js'
 
 import {
     Container,
@@ -49,7 +51,8 @@ import {
 } from "../components/Monitor/TinyDonutChart";
 import { object, symbol } from 'prop-types';
 import Tablestock from '../../assetsnew/TableStock';
- 
+
+
 class Leaders extends Component {
     constructor(props) {
         super(props);
@@ -390,7 +393,14 @@ render() {
                             <p className="mb-3">
                                 Overview of the fund sustainability imprint
                             </p>
-                            <Button className="mb-3" color="primary">ESG Report</Button>
+                            
+                            <div>
+                                <Button className="mb-3" color="primary">
+                                    <PDFDownloadLink style={{ color: 'white' }} document={<ESGreport />} fileName="esg_report.pdf">
+                                        {({ blob, url, loading, error }) => (loading ? 'Creating ESG Report...' : 'Download Report')}
+                                    </PDFDownloadLink>
+                                </Button>
+                            </div>
                             <Row>
                             <Col sm={4}>
                             <div className="d-flex mb-4 justify-content-center">
