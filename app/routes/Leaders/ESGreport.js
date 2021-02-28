@@ -4,14 +4,32 @@ import { Page, Text, View, Document, StyleSheet, Image } from '@react-pdf/render
 const ESGreport = () => (
   <Document>
     <Page style={styles.body}>
+      
+      <View style={styles.container}>
+        <View style={styles.leftColumn}>
+        <Image
+          src={require("./seguros.png")} 
+          style={styles.image1}
+      />
+        </View>
+        <View style={styles.rightColumn}>
+        <Text style={styles.lg1}>IMPACT</Text>
+
+        </View>
+      </View>
+      
       <Text style={styles.title}>ESG Report</Text>
-      <Text style={styles.author}>IMPACT</Text>
       <Text style={styles.maintext}>
         FUND NAME
       </Text>
       <Text style={styles.other}>
         Iberian Fund Tracker Equity US
       </Text>
+
+      <Image
+          src={require("./Esgscore.png")} 
+          style={styles.image}
+      />
       <Text style={styles.subtitle}>
         Sustainability Overview
       </Text>
@@ -92,10 +110,6 @@ const ESGreport = () => (
         Capítulo II: Que trata de la primera salida que de su tierra hizo el
         ingenioso Don Quijote
       </Text>
-      <Image
-        style={styles.image}
-        src="https://www.qvan.tech/img/htc_lg.png"
-      />
       <Text style={styles.text}>
         Hechas, pues, estas prevenciones, no quiso aguardar más tiempo a poner
         en efeto su pensamiento, apretándole a ello la falta que él pensaba que
@@ -192,6 +206,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     textAlign: 'center',
+    marginBottom: 50,
+  },
+  lg1: {
+    color: '#33AE9A',
+    fontSize: 17,
+    textAlign: 'right',
+    marginTop: 5,
   },
   author: {
     color: '#33AE9A',
@@ -222,9 +243,12 @@ const styles = StyleSheet.create({
     fontSize: 12,
     textAlign: 'justify',
   },
+  image1: {
+    width: '130px',
+  },
   image: {
     marginVertical: 15,
-    marginHorizontal: 100,
+    marginHorizontal: 15,
   },
   header: {
     fontSize: 29,
@@ -240,6 +264,19 @@ const styles = StyleSheet.create({
     right: 0,
     textAlign: 'center',
     color: 'grey',
+  },
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    marginBottom: 40,
+  },
+  leftColumn: {
+    flexDirection: 'row',
+    width: '50%',
+  },
+  rightColumn: {
+    flexDirection: 'row',
+    width: '50%',
   },
 });
 
