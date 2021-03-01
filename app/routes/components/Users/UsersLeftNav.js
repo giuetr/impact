@@ -14,7 +14,7 @@ const UsersLeftNav = () => (
             <Nav pills vertical>
                 <NavItem>
                     <NavLink href="#" active>
-                        All Contacts
+                        All Investors
                     </NavLink>
                 </NavItem>
                 <NavItem>
@@ -24,7 +24,7 @@ const UsersLeftNav = () => (
                 </NavItem>
                 <NavItem>
                     <NavLink href="#">
-                        Private
+                        Latest Onboarding
                     </NavLink>
                 </NavItem>
             </Nav>
@@ -33,42 +33,42 @@ const UsersLeftNav = () => (
         { /* START Left Nav  */}
         <div className="mb-4">
             <div className="small mb-3">
-                Tags
+                Network
             </div>
             <Nav pills vertical>
                 <NavItem>
                     <NavLink href="#" className="d-flex">
                         <i className="fa fa-fw fa-circle text-primary align-self-center mr-2"></i>
-                        Family
+                        Retail Large Size
                         <Badge color="secondary" pill className="ml-auto align-self-center">
-                            12
+                            2790
                         </Badge>
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#" className="d-flex">
                         <i className="fa fa-fw fa-circle text-info align-self-center mr-2"></i>
-                        Friends
+                        EU Target
                         <Badge color="secondary" pill className="ml-auto align-self-center">
-                            3
+                            3025
                         </Badge>
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#" className="d-flex">
                         <i className="fa fa-fw fa-circle text-success align-self-center mr-2"></i>
-                        Work
+                        Large Accounts
                         <Badge color="secondary" pill className="ml-auto align-self-center">
-                            67
+                            867
                         </Badge>
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#" className="d-flex">
                         <i className="fa fa-fw fa-circle text-warning align-self-center mr-2"></i>
-                        Trips
+                        New Prospects
                         <Badge color="secondary" pill className="ml-auto align-self-center">
-                            5
+                            1025
                         </Badge>
                     </NavLink>
                 </NavItem>
@@ -77,14 +77,14 @@ const UsersLeftNav = () => (
                         <i className="fa fa-fw fa-circle text-danger align-self-center mr-2"></i>
                         Other
                         <Badge color="secondary" pill className="ml-auto align-self-center">
-                            1
+                            1098
                         </Badge>
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#">
                         <i className="fa fa-fw fa-plus mr-2"></i>
-                        Add New Label
+                        Add New Network
                     </NavLink>
                 </NavItem>
             </Nav>

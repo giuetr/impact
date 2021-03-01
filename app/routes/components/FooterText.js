@@ -6,12 +6,12 @@ const FooterText = (props) => (
 		&copy; { props.year } All Rights Reserved {/* This is the &quot;{ props.name }&quot; built with { props.desc }. 
 		Designed and implemented by{' '} */} 
 		<a
-			href="https://www.dataspark.org"
+			href="https://www.qvan.tech"
 			target="_blank"
 			rel="noopener noreferrer"
 			className="sidebar__link"
 		>
-			dataspark.org
+			www.qvan.tech
 		</a>
 	</React.Fragment>
 )

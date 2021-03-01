@@ -298,6 +298,42 @@ render() {
                                 </ListGroupItemHeading>
                             </ListGroupItem>
                             <div  className={ classes['table-scroll-wrap2'] }>
+                                <ListGroupItem tag="a" href="https://www.bloomberg.com/news/articles/2021-03-01/europe-s-biggest-banks-face-new-green-asset-ratio-disclosure?srnd=green" action target="_blank">
+                                    <Badge className="mt-2" color={"primary"}>Disclosures</Badge>
+                                    <span className="mt-3 d-flex h6 mb-2 text-info">
+                                        <span className="text-info">
+                                            Bloomberg
+                                        </span>
+                                        <span className="ml-auto small text-muted">
+                                            1 Mar 2021
+                                        </span>
+
+                                    </span>
+                                    <ListGroupItemHeading className="fw-500 h5">
+                                        Europe’s Biggest Banks Face New Green Asset Ratio Disclosure
+                                    </ListGroupItemHeading>
+                                    <ListGroupItemText className="mb-2">
+                                        Europe’s biggest banks face new rules to disclose how much of their business contributes to climate change.
+                                    </ListGroupItemText>
+                                </ListGroupItem>
+                                <ListGroupItem tag="a" href="https://www.bloomberg.com/news/articles/2021-03-01/big-oil-s-net-zero-plans-show-the-hard-limits-of-carbon-offsets?srnd=green" action target="_blank">
+                                    <Badge className="mt-2" color={"info"}>Environment</Badge>
+                                    <span className="mt-3 d-flex h6 mb-2 text-info">
+                                        <span className="text-info">
+                                            Bloomberg
+                                        </span>
+                                        <span className="ml-auto small text-muted">
+                                            1 Mar 2021
+                                        </span>
+
+                                    </span>
+                                    <ListGroupItemHeading className="fw-500 h5">
+                                        Big Oil’s Net-Zero Plans Show the Hard Limits of Carbon Offsets
+                                    </ListGroupItemHeading>
+                                    <ListGroupItemText className="mb-2">
+                                    As more companies turn to offsets to lower their environmental impact, the total volume they need will quickly exceed the planet’s ability to provide them.
+                                    </ListGroupItemText>
+                                </ListGroupItem>
                                 <ListGroupItem tag="a" href="https://www.bloomberg.com/news/articles/2021-02-09/fossil-fuel-pollution-kills-millions-more-than-scientists-knew?srnd=green" action target="_blank">
                                     <Badge className="mt-2" color={"info"}>Environment</Badge>
                                     <span className="mt-3 d-flex h6 mb-2 text-info">
@@ -305,7 +341,7 @@ render() {
                                             Bloomberg
                                         </span>
                                         <span className="ml-auto small text-muted">
-                                            9 Feb 2021
+                                            28 Feb 2021
                                         </span>
 
                                     </span>
@@ -323,7 +359,7 @@ render() {
                                             Bloomberg
                                         </span>
                                         <span className="ml-auto small text-muted">
-                                            9 Feb 2021
+                                            27 Feb 2021
                                         </span>
 
                                     </span>
@@ -341,7 +377,7 @@ render() {
                                             Bloomberg
                                         </span>
                                         <span className="ml-auto small text-muted">
-                                            9 Feb 2021
+                                            19 Feb 2021
                                         </span>
 
                                     </span>
@@ -359,7 +395,7 @@ render() {
                                             ATMMarketplace
                                         </span>
                                         <span className="ml-auto small text-muted">
-                                            9 Feb 2021
+                                            13 Feb 2021
                                         </span>
 
                                     </span>

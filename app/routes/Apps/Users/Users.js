@@ -16,7 +16,7 @@ const Users = (props) => (
     <React.Fragment>
         <Container>
             <HeaderMain 
-                title="Users"
+                title="Investors"
                 className="mb-5 mt-4"
             />
             <Row>
@@ -25,7 +25,7 @@ const Users = (props) => (
                 </Col>
                 <Col lg={ 9 }>
                     <ProjectsSmHeader 
-                        subTitle={props.match.params.type === "list"?"Users List":"Users Grid"}
+                        subTitle={props.match.params.type === "list"?"Investors List":"Investors Grid"}
                         linkList="/apps/users/list"
                         linkGrid="/apps/users/grid"
                     />

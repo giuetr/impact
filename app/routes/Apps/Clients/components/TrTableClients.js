@@ -77,10 +77,20 @@ const TrTableClients = (props) => (
                 { faker.phone.phoneNumberFormat() }
             </td>
             <td className="align-middle text-right">
+                <Badge pill color="info">
+                    Active
+                </Badge>
+            </td>
+
+            {/*
+            <td className="align-middle text-right">
                 <Badge pill color={ randomArray(tag) }>
                     { faker.commerce.department() }
                 </Badge>
             </td>
+            */}
+
+            
         </tr>
     </React.Fragment>
 )

@@ -34,7 +34,7 @@ const Clients = () => (
     <React.Fragment>
         <Container>
             <HeaderMain 
-                title="Clients"
+                title="Investor Detail"
                 className="mb-5 mt-4"
             />
             { /* START Content */}
@@ -47,12 +47,12 @@ const Clients = () => (
                                     <Nav pills>
                                         <NavItem>
                                             <UncontrolledTabs.NavLink tabId="clients">
-                                                Clients
+                                                Retail
                                             </UncontrolledTabs.NavLink>
                                         </NavItem>
                                         <NavItem>
                                             <UncontrolledTabs.NavLink tabId="companies">
-                                                Companies
+                                                Institutional
                                             </UncontrolledTabs.NavLink>
                                         </NavItem>
                                     </Nav>
@@ -88,7 +88,7 @@ const Clients = () => (
                                                 <th className="bt-0">Name</th>
                                                 <th className="bt-0">Email</th>
                                                 <th className="text-right bt-0">Phone</th>
-                                                <th className="text-right bt-0">Label</th>
+                                                <th className="text-right bt-0">Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -131,7 +131,7 @@ const Clients = () => (
                                                 <th className="bt-0">Name</th>
                                                 <th className="bt-0">PM</th>
                                                 <th className="text-right bt-0">Phone</th>
-                                                <th className="text-right bt-0">Label</th>
+                                                <th className="text-right bt-0">Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -217,16 +217,16 @@ const Clients = () => (
                             <div className="text-center pb-1">
                                 <ul className="list-inline">
                                     <li className="list-inline-item text-center">
-                                        <h2 className="mb-1">23</h2>
-                                        <span>Contracts</span>
+                                        <h2 className="mb-1">15</h2>
+                                        <span>Investments</span>
+                                    </li>
+                                    <li className="list-inline-item text-center ml-3 mr-3">
+                                        <h2 className="mb-1">25k</h2>
+                                        <span>Avg. Size</span>
                                     </li>
                                     <li className="list-inline-item text-center">
-                                        <h2 className="mb-1">13</h2>
-                                        <span>Tasks</span>
-                                    </li>
-                                    <li className="list-inline-item text-center">
-                                        <h2 className="mb-1">5</h2>
-                                        <span>Relases</span>
+                                        <h2 className="mb-1">35</h2>
+                                        <span>Age</span>
                                     </li>
                                 </ul>
                             </div>                                
@@ -254,18 +254,18 @@ const Clients = () => (
                             </p>
                             <div className="mt-4 mb-2">
                                 <span className="small">
-                                    Labels
+                                    Assets
                                 </span>
                             </div>
                             <div className="text-left mb-4">
                                 <Badge pill color="primary" className="mr-1">
-                                    { faker.commerce.department() }
+                                    Equity
                                 </Badge>
-                                <Badge pill color="secondary" className="mr-1">
-                                    { faker.commerce.department() }
+                                <Badge pill color="info" className="mr-1">
+                                    Real Estate
                                 </Badge>
-                                <Badge pill color="primary" className="mr-1">
-                                    { faker.commerce.department() }
+                                <Badge pill color="warning" className="mr-1">
+                                    Fixed Income
                                 </Badge>
                             </div>
                             <div className="mt-4 mb-2">
