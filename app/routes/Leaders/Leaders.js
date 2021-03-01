@@ -11,6 +11,7 @@ import { getQuote, getmegatrends} from '../API/api.js'
 
 import { PDFDownloadLink, Document, Page, Text } from '@react-pdf/renderer'
 import {ESGreport} from './ESGreport.js'
+import {Link} from 'react-router-dom'
 
 import {
     Container,
@@ -34,7 +35,6 @@ import {
     Media,
     UncontrolledTooltip,
     UncontrolledButtonDropdown,
-    Link
 } from '../../components'
 import {
     ProfileOverviewCard
@@ -413,10 +413,13 @@ render() {
                             </div>
                         <div className="text-center mb-4">
                             <h2>
-                               TSLA
+                               ESG-Aligned 
+                                <i className="fa fa-envira text-info ml-2"></i> 
                             </h2>
                             <div className="mt-2">
-                                ESG Group: <span className="text-info">Consumer Cyclical</span>
+                                Top Asset: <span>
+                                <Link className="text-info" to="../Security">TSLA</Link>
+                                </span>
                             </div>
                         </div>
                             <CardBody className="p-0">
@@ -429,7 +432,7 @@ render() {
                             <Col sm={ 4 }>
                                 <div className="mb-4">
                                     <div>
-                                        <h5 className="mb-1 text-info">ESG</h5>
+                                        <h5 className="mb-1 text-info">Portfolio ESG Risk</h5>
                                         <p>Average Risk Rating</p>
                                     </div>
                                     <div className="mb-3 d-flex">
