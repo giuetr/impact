@@ -33,23 +33,95 @@ const ESGreport = () => (
           style={styles.image}
       />
       <Text style={styles.subtitle}>
-        Sustainability Overview
+        Total GHG Emissions
       </Text>
       <Text style={styles.text}>
-      Building and maintaining trust in businesses and governments is fundamental to achieving a sustainable economy and world. Every day, decisions are made by businesses and governments which have direct impacts on their stakeholders, such as financial institutions, labor organizations, civil society and citizens, and the level of trust they have with them. These decisions are rarely based on financial information alone. They are based on an assessment of risk and opportunity using information on a wide variety of immediate and future issues. The value of the sustainability reporting process is that it ensures organizations consider their impacts on these sustainability issues, and enables them to be transparent about the risks and opportunities they face. Stakeholders also play a crucial role in identifying these risks and opportunities for organizations, particularly those that are non-financial. This increased transparency leads to better decision making, which helps build and maintain trust in businesses and governments.
+        39,301,294 CO2e (Units of metric tons of carbon dioxide)
       </Text>
       <Text style={styles.subtitle}>
-        Principal adverse sustainability impacts statement
+		    Minimum ESG Asset Allocation
+      </Text>
+      <Image
+          src={require("./sctr_2.png")} 
+          style={styles.image2}
+      />
+      <Text style={styles.text}>
+        The fund invests in direct holdings. In order to meet the environmental or social characteristics promoted, the fund generally invests at least 85% of its total assets in the securities comprising the TRXI World Fossil Fuel Free Index. Hence, 85% of the investments are aligned with the environmental characteristic.
+      </Text>
+      <Text style={styles.subtitle}>
+		    Economic sectors exposure
       </Text>
       <Text style={styles.text}>
-      Increased understanding of risks and opportunities
-      Emphasizing the link between financial and non-financial performance
-      Influencing long term management strategy and policy, and business plans
-      Streamlining processes, reducing costs and improving efficiency
-      Benchmarking and assessing sustainability performance with respect to laws, norms, codes, performance standards, and voluntary initiatives
-      Avoiding being implicated in publicized environmental, social and governance failures
-      Comparing performance internally, and between organizations and sectors
+        The fund is mostly exposed to the Technology and Agriculture sectors.
       </Text>
+      <Image
+          src={require("./sctr_1.png")} 
+          style={styles.image3}
+      />
+      <Text style={styles.subtitle}>
+        Environmental and/or social characteristics
+      </Text>
+      <Text style={styles.text}>
+        This financial product promotes environmental or social characteristics, but does not have as its objective a sustainable investment. It might invest partially in assets that have a sustainable objective, for instance qualified as sustainable according to the EU classification.
+      </Text>
+      <Text style={styles.subtitle}>
+        Environmental and/or social characteristics promoted by the financial product
+      </Text>
+      <Text style={styles.text}>
+        The characteristic promoted by this financial product consist in the exclusion of investments in companies that own fossil fuel reserves.
+      </Text>
+      <Text style={styles.subtitle}>
+        Investment strategy followed to meet the E/S characteristics
+      </Text>
+      <Text style={styles.text}>
+        The investment strategy aims at tracking an index (the TRXI World Fossil Fuel Free Index) that is primarily designed to exclude companies based on the specific ESG criterion of ownership of fossil fuel reserves. It serves as a potential replacement for current TRXI World index exposure for investors interested in eliminating fossil fuel reserves from their portfolio.
+      </Text>
+      <Text style={styles.subtitle}>
+        Binding elements for the investment selection
+      </Text>
+      <Text style={styles.text}>
+        The exclusion of investments in companies that own fossil fuel reserves related to fossil fuel reserves is the binding element.
+      </Text>
+      <Text style={styles.subtitle}>
+        Strategy implementation on a continuous basis
+      </Text>
+      <Text style={styles.text}>
+        The investment seeks to provide investment results that, before fees and expenses, correspond generally to the total return performance of the TRXI World Fossil Fuel Free Index. Normally, the fund generally invests substantially all, but at least 95%, of its total assets in the securities comprising the index. In addition, it may invest in equity securities that are not included in the index, cash and cash equivalents or money market instruments. The index is designed to measure the performance of companies in the TRXI World Index that are “fossil fuel free”, which are defined as companies that do not own fossil fuel reserves. The fund is non-diversified. The compliance with the “fossil fuels free” characteristics is monitored on a regular basis.
+      </Text>
+      <Text style={styles.subtitle}>
+        Amount of potential investments excluded
+      </Text>
+      <Text style={styles.text}>
+        The implementation of the selection criteria leads to the exclusion of at least 15% of potential investments. The strategy eliminates companies that own fossil fuel reserves from the TRXI World index.
+      </Text>
+      <Text style={styles.subtitle}>
+		    Policy to assess good governance practices of the investee companies
+      </Text>
+      <Text style={styles.text}>
+        The investee companies are rated for governance aspects using the IMPACT Proprietary Rating Suite.
+      </Text>
+      <Text style={styles.subtitle}>
+		Key Assets
+      </Text>
+      <Text style={styles.text}>
+        The fund may invest in equity securities that are not included in the index, cash and cash equivalents or money market instruments.
+      </Text>
+      <Text style={styles.subtitle}>
+		Impact of the sustainable investments of the financial product to a sustainable objective
+      </Text>
+      <Text style={styles.text}>
+        Investments in solar photovoltaic energy production are considered as significantly contributing to climate change mitigation under the EU Taxonomy. The investments in companies supplying water contribute to climate change adaptation. The activity of the company supplying water has a substantial contribution to GHG emissions savings through low specific energy consumption in the water supply system measured in kWh per cubic meter of water. Nonetheless, all of the selected companies supplying water might not be compliant with EU Taxonomy energy consumption thresholds for substantial contribution to climate change adaptation.
+      </Text>
+      <Text style={styles.subtitle}>
+      	Principal adverse impacts on sustainability
+      </Text>
+      <Text style={styles.text}>
+        Upon investment and over the life of the product, we assess and monitor indicators that are deemed to indicate the presence of a principal adverse impact as per EU law, except for all biodiversity-related indicators, for which we are unable to collect data. More details can be found under the prospectus section on Adverse Impact. We address adverse impacts by engaging with investee companies. We use research from proxy voting companies to help us decide how to vote.
+      </Text>
+
+
+
+
       <Text style={styles.subtitle}>
         Top ESG Assets and Allocation
       </Text>
@@ -57,103 +129,8 @@ const ESGreport = () => (
           src={require("./scn2.png")} 
           style={styles.image}
       />
-      <Text style={styles.subtitle}>
-        Portfolio vs. Benchmark
-      </Text>
-      <Text style={styles.text}>
-        We recognise the potential impact of climate change and have set out an ambition to align our financing portfolio to the Paris Agreement goals. Our aim is to accelerate the transition to a thriving low-carbon global economy through finance. Find out how we plan to help build a thriving low-carbon economy. We are proud to have won recognition as an industry leader for these efforts, including being named the World’s Best Bank for Sustainable Finance by Euromoney magazine for two consecutive years. But we also know that meeting the Paris Agreement goals will require even more effort and pace to ensure environmentally and socially responsible growth. That’s why we have an ambitious plan to prioritise financing and investment that supports the transition to a net zero global economy – and helps to build a thriving, resilient future for society and businesses.
-        As we look ahead to 2014, we continue our work on
-        nuclear plant life extensions. The next station being
-        considered for further life extension is Dungeness B.
-        We have been working hard on this and expect to
-        make a final decision on life extension for Dungeness
-        by the end of 2014. Our life extension programme will
-        ensure the existing nuclear plants continue to generate
-        the low carbon electricity the UK needs for as long as
-        practical.
-      </Text>
-      <Text style={styles.subtitle}>
-        Key Sectors
-      </Text>
-      <Text style={styles.text}>
-      The importance of rebuilding trust with customers
-      became even more important last year. After
-      maintaining our standard variable prices throughout
-      the year, we took the difficult decision to increase them
-      from 3rd January 2014. However we knew that rising
-      costs were hurting customers, and we knew that doing
-      nothing was not an option. So we held back the full
-      impact of rising costs: our increase was less than half
-      the size of those that had been announced by some
-      of our competitors.
-      We were the first company to take action. We did
-      so because we were confident that, working with
-      the industry, the Government would find ways to bear
-      down on costs. We chose to pass on the benefit of
-      that in anticipation of the decision we were expecting
-      from the Government. After our move, the Government
-      announced changes to the roll-out of various schemes
-      to reduce their cost for customers. As a result our main
-      competitors have followed our lead.
-      </Text>
-      <Text style={styles.text}>
-      We have embarked on our programme to deliver
-      smart meters. The benefits to customers of smart
-      meters are clear: real-time energy use will be recorded
-      allowing customers to see exactly how much energy
-      they are using, ending the need for estimated bills.
-      It is another way we are working to rebuild trust
-      with customers. We are building our smart metering
-      team in preparation for the full rollout. This includes
-      a new smart meter apprenticeship scheme to train
-      up the people we will need to deliver this ambitious
-      programme. We are committed to making this
-      beneficial programme as cost-effective as possible,
-      and this will always be a priority.
-      Into 2014, the new structure of our company
-      demonstrates our commitment to stand on the side
-      of customers. We have simplified our business around
-      the fundamental role that we play: generating electricity,
-      supplying electricity and gas to customers, and
-      delivering nuclear new build for the future. 
-      </Text>
-      <Text style={styles.text}>
-      There is a critical need for more STEM skills to help
-      support the transition to a low-carbon economy. 2013
-      saw more progress in our attempts to inspire and train
-      the next generation of engineers. The total number of
-      schools registered to the Pod, EDF Energy’s sustainable
-      schools programme, is now over 18,000, with almost
-      27,500 individual users (typically teachers) signed up
-      and nearly 52,000 resources downloaded since August
-      2013. More than 10 million children have been engaged
-      through the programme, and over 50 per cent of UK
-      schools are registered.
-      </Text>
-      <Text style={styles.text}>
-      As we look ahead to 2014, we continue our work on
-      nuclear plant life extensions. The next station being
-      considered for further life extension is Dungeness B.
-      We have been working hard on this and expect to
-      make a final decision on life extension for Dungeness
-      by the end of 2014. Our life extension programme will
-      ensure the existing nuclear plants continue to generate
-      the low carbon electricity the UK needs for as long as
-      practical.
-      </Text>
-      <Text style={styles.text}>
-      It used to be the case that most of the existing
-      nuclear stations were expected to close by 2023. In
-      fact, through the investments made in the life extension
-      programme most will now operate beyond that date.
-      We have continued to deliver on the commitments we
-      made following the events at Fukushima in 2011. In
-      December 2013 I opened our new Emergency Response
-      Centre at Sizewell which is designed to provide further,
-      robust back-up for our safety systems. It is another
-      key milestone of our £180 million safety and resilience
-      programme, which was completed in March this year. 
-      </Text>
+      
+
       <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
         `${pageNumber} / ${totalPages}`
       )} fixed />
@@ -193,22 +170,31 @@ const styles = StyleSheet.create({
     color: '#33AE9A',
     textTransform: 'uppercase',
     fontSize: 17,
-    marginLeft: 12,
-    marginBottom: 3,
+    marginTop: 7,
+    marginLeft:12,
+    marginBottom: 15,
   },
   subtitle: {
     color: '#33AE9A',
-    textTransform: 'uppercase',
-    fontSize: 17,
-    margin: 12,
+    fontSize: 18,
+    marginTop: 12,
+    marginLeft: 12,
   },
   text: {
-    margin: 12,
+    marginTop: 8,
+    marginLeft:12,
+    marginBottom: 15,
     fontSize: 12,
     textAlign: 'justify',
   },
+  image2:{
+    maxWidth: '230px',
+  },  
   image1: {
     width: '130px',
+  },
+  image3: {
+    width: '330px',
   },
   image: {
     marginVertical: 15,
