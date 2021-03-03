@@ -400,7 +400,13 @@ render() {
                             </p>
                             
                             <div>
-                                <Button className="mb-3" color="primary">
+                                <Link to="../Disclosures">
+                                    <Button outline className="mb-3" color="info">
+                                        Explore
+                                    </Button>
+                                </Link>
+                           
+                                <Button className="mb-3 ml-3" color="primary">
                                     <PDFDownloadLink style={{ color: 'white' }} document={<ESGreport />} fileName="ESG_Report_1MAR21.pdf">
                                         {({ blob, url, loading, error }) => (loading ? 'Creating ESG Report...' : 'Download Report')}
                                     </PDFDownloadLink>
@@ -547,9 +553,9 @@ render() {
 
             
            
-<Row>
-    <Tablestock items={final} />
-</Row>
+            <Row>
+                <Tablestock items={final} />
+            </Row>
           </Container>
           
     </Container>

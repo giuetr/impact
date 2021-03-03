@@ -123,6 +123,7 @@ import Carbon from './Carbon';
 import Leaders from './Leaders';
 import ProfileNew from './ProfileNew';
 import Checkout from './Checkout';
+import Disclosures from './Disclosures';
 
 
 
@@ -155,6 +156,7 @@ export const RoutedContent = () => {
             <Route path='/Leaders/:pillar' exact component={Leaders} />
             <Route path='/ProfileNew' exact component={ProfileNew} />
             <Route path='/Checkout' exact component={Checkout} />
+            <Route path='/Disclosures' exact component={Disclosures} />
 
 
 
