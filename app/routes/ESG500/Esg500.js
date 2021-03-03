@@ -113,9 +113,10 @@ render() {
                             
                             </div>
                         <div className="text-center mb-4">
-                            <h2>
-                               AMD
+                            <h2 className="text-primary">
+                               KEYS
                             </h2>
+                            <h4>Keysight Technologies, Inc.</h4>
                             <div className="mt-2">
                                 ESG Group: <span className="text-info">Technology Hardware</span>
                             </div>
@@ -138,7 +139,7 @@ render() {
                                         <div className="ml-2 align-self-center">
                                             <span>ESG Score</span>
                                             <h2 className="mb-0">
-                                            33
+                                            9.5 vs. 17.036
                                             </h2>
                                         </div>
                                     </div>
@@ -148,7 +149,7 @@ render() {
                                                 <i className="fa fa-circle fa-fw text-info"></i> Environmental
                                             </div>
                                             <h6 className="mb-0">
-                                            33
+                                            1.3 vs. 7.38
                                             </h6>
                                         </div>
                                         <div className="text-left">
@@ -156,7 +157,7 @@ render() {
                                                 <i className="fa fa-circle fa-fw text-primary"></i> Social
                                             </div>
                                             <h6 className="mb-0">
-                                            33
+                                            2.7 vs. 6.39
                                             </h6>
                                         </div>
                                         <div className="text-left">
@@ -164,7 +165,7 @@ render() {
                                                 <i className="fa fa-circle fa-fw text-gray-300"></i> Governance
                                             </div>
                                             <h6 className="mb-0">
-                                            93
+                                            5.8 vs. 3.26
                                             </h6>
                                         </div>
                                     </div>
@@ -175,31 +176,31 @@ render() {
                               <Table size="sm">
                                     <div className="mb-3">
                                         <h5 className="text-info">CONTROVERSIES</h5> 
-                                        <p>Total: <span className="text-warning">3</span></p>
+                                        <p>Total: <span className="text-warning">0</span></p>
                                     </div>
                                   <tbody>
                                       <tr>
                                           <td className="text-inverse bt-0">Social Supply Chain Incidents</td>
                                           <td className="text-right bt-0">
-                                              <Badge color="success" pill>1</Badge>
+                                              <Badge color="success" pill>0</Badge>
                                           </td>
                                       </tr>
                                       <tr>
                                           <td className="text-inverse">Customer Incidents</td>
                                           <td className="text-right">
-                                              <Badge color="primary" pill>1</Badge>
+                                              <Badge color="primary" pill>0</Badge>
                                           </td>
                                       </tr>
                                       <tr>
                                           <td className="text-inverse">Business Ethics Incidents</td>
                                           <td className="text-right">
-                                              <Badge color="info" pill>1</Badge>
+                                              <Badge color="info" pill>0</Badge>
                                           </td>
                                       </tr>
                                       <tr>
                                           <td className="text-inverse">Peer Average Controversies</td>
                                           <td className="text-right">
-                                              1.3
+                                          1.54
                                           </td>
                                       </tr>
                                   </tbody>
