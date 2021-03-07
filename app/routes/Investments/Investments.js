@@ -51,6 +51,11 @@ const payment = [
     "secondary"
 ];
 
+const offering = [
+    "NOVA SOLAR FARM",
+    "SPAIN ENERGY A",
+    "NEW GREEN FUND A",
+];
 
 class Investments extends Component {
     constructor(props) {
@@ -184,30 +189,48 @@ render() {
                                     <th className="bt-0">Fee</th>
                                     <th className="bt-0">Investment Date</th>
                                     <th className="bt-0">Asset Class</th>
-                                    <th className="bt-0">Status</th>
+                                    <th className="bt-0 text-center">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            {
-                                _.times(5, (index) => (
-                                    <tr key={ index }>
-                                        <td className="align-middle">
-                                            #{ faker.finance.mask() }
+                                    <tr>
+                                        <td className="align-middle text-inverse">
+                                            <div>
+                                            NOVA SOLAR FARM
+                                            </div>
+                                            <span className="text-muted">
+                                                <i className="fa fa-fw fa-map-marker text-info text-left"></i> Spain
+                                            </span>
                                         </td>
                                         <td className="align-middle">
-                                            { faker.name.firstName() } { faker.name.lastName() }
+                                            Intermoney
+                                        </td>
+                                        <td className="align-middle text-info">
+                                            € 30,000,000
                                         </td>
                                         <td className="align-middle">
-                                            $ { faker.finance.amount() }
+                                            € 200,000
+                                        </td>
+                                        <td className="align-middle text-info">
+                                        { faker.company.companyName() }11.01%
+                                        </td>
+                                        <td className="align-middle">
+                                            1.5%
+                                        </td>
+                                        <td className="align-middle">
+                                            1-Mar-2021
+                                        </td>
+                                        <td className="align-middle">
+                                            <Badge pill color="danger">
+                                                EQUITY
+                                            </Badge>
                                         </td>
                                         <td className="align-middle text-right">
-                                            <Badge pill color={ payment[index%4] }>
+                                            <Badge pill color="info">
                                                 { faker.finance.transactionType() }
                                             </Badge>
                                         </td>
                                     </tr>
-                                ))
-                            }
                             
                               </tbody>
                         </Table>
