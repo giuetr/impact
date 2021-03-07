@@ -6,9 +6,12 @@ import {
     Card,
     CardColumns,
     CardBody,
+    CardFooter,
     Col,
     Badge,
     Button,
+    CardImg,
+    HolderProvider,
 } from './../../../components';
 import { HeaderMain } from "../../components/HeaderMain";
 import { SearchResultsLeftNav } from "../../components/SearchResults/SearchResultsLeftNav";
@@ -34,264 +37,271 @@ const ImagesResults = () => (
                     <CardColumns>
 
                         {/* <ImagesResultsCard /> */}
-            
-                <Card className="mb-3">
-                    <CardBody>
-                        <div className="d-flex">
-                            <i className="fa fa-diamond m-2"></i>
-                        </div>
 
-                        <div className="mb-4 mt-3 text-center">
-                            <a className="h3 text-decoration-none" href="#">
-                                Mega<span className="fw-600">Trends</span>
+                <Card className="mb-3">
+                    <HolderProvider.Icon
+                            iconChar=""
+                            size={ 32 }
+                        >
+                            <CardImg 
+                                top 
+                                src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1652&q=80"
+                            />
+                    </HolderProvider.Icon>
+                    <CardBody>
+
+                        <div className="mb-4 mt-2 text-left">
+                            <a className="h5 text-uppercase text-decoration-none fw-500 text-info" href="#">
+                                Nova Solar Farm
                             </a>
-                            <div className="text-center mt-2">
-                                Frequency: <span className="text-info">Weekly</span>
+                            <div className="text-left mt-2">
+                                Originator: <span className="text-info">Intermoney</span>
                             </div>
-                            <div className="text-center">
+                            <div className="text-left">
                                 <i className="fa fa-map-marker mr-1"></i>
-                                EQUITY
+                                Spain
                             </div>
                         </div>
                         
-                        <div className="text-center mb-4">
-                            <div className="mb-2">
-                                <span className="small">
-                                    Top users:
+                        <div className="text-left mb-2">
+                            <p className="mb-1 fw-500 text-dark">
+                                Asset Class: <span className="fw-400">
+                                    <Badge pill color="primary" className="mr-1">
+                                        VENTURE CAPITAL
+                                    </Badge>
                                 </span>
-                            </div>
-                            <Badge pill color="primary" className="mr-1">
-                                Investors
-                            </Badge>
-                            <Badge pill color="warning" className="mr-1">
-                                Banks
-                            </Badge>
-                            <Badge pill color="pink">
-                                Hedge Funds
-                            </Badge>
-                        </div>
-                        <div className="text-center mb-4">
-                            <p className="mb-0">
-                                The companies leading the shift towards a sustainable future, organized by sector of innovation. Discover tomorrow's leaders.
                             </p>
-                            <Link to="/ESGleaders"><Button className="mt-3" color="primary">Free Access</Button></Link>
+                            <p className="mb-1 fw-500 text-dark">
+                                Total amount: <span className="fw-400">€ 50,000,000</span>
+                            </p>
+                            <p className="mb-2 fw-500 text-dark">
+                                Return: <span className="fw-400">5.03%</span>
+                            </p>
+                            <Link to="/ESGleaders"><Button className="mt-3" color="info">Explore</Button></Link>
                                         
                         </div>   
                     </CardBody>
+                    <CardFooter className="d-flex">
+                        <div className="mr-auto">
+                            <span className="mr-3">
+                                Investors:
+                            </span>
+                        </div>
+                        <span>152</span>
+                    </CardFooter>
+                </Card>
+                
+                <Card className="mb-3">
+                    <HolderProvider.Icon
+                            iconChar=""
+                            size={ 32 }
+                        >
+                            <CardImg 
+                                top 
+                                src="https://images.unsplash.com/photo-1568347877321-f8935c7dc5a3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1568&q=80"
+                            />
+                    </HolderProvider.Icon>
+                    <CardBody>
+
+                        <div className="mb-4 mt-2 text-left">
+                            <a className="h5 text-uppercase text-decoration-none fw-500 text-info" href="#">
+                                IBERIA FIXED INCOME I
+                            </a>
+                            <div className="text-left mt-2">
+                                Originator: <span className="text-info">Intermoney</span>
+                            </div>
+                            <div className="text-left">
+                                <i className="fa fa-map-marker mr-1"></i>
+                                Spain
+                            </div>
+                        </div>
+                        
+                        <div className="text-left mb-2">
+                            <p className="mb-1 fw-500 text-dark">
+                                Asset Class: <span className="fw-400">
+                                    <Badge pill color="secondary" className="mr-1">
+                                        FIXED INCOME
+                                    </Badge>
+                                </span>
+                            </p>
+                            <p className="mb-1 fw-500 text-dark">
+                                Total amount: <span className="fw-400">€ 50,000,000</span>
+                            </p>
+                            <p className="mb-2 fw-500 text-dark">
+                                Return: <span className="fw-400">5.03%</span>
+                            </p>
+                            <Link to="/ESGleaders"><Button className="mt-3" color="info">Explore</Button></Link>
+                                        
+                        </div>   
+                    </CardBody>
+                    <CardFooter className="d-flex">
+                        <div className="mr-auto">
+                            <span className="mr-3">
+                                Investors:
+                            </span>
+                        </div>
+                        <span>231</span>
+                    </CardFooter>
                 </Card>
 
-              <Card className="mb-3">
-                <CardBody>
-                    <div className="d-flex">
-                        <i className="fa fa-diamond m-2"></i>
-                    </div>
+                <Card className="mb-3">
+                    <HolderProvider.Icon
+                            iconChar=""
+                            size={ 32 }
+                        >
+                            <CardImg 
+                                top 
+                                src="https://images.unsplash.com/photo-1509390981263-4d8df07d826c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1650&q=80"
+                            />
+                    </HolderProvider.Icon>
+                    <CardBody>
 
-                    <div className="mb-4 mt-3 text-center">
-                        <a className="h3 text-decoration-none" href="#">
-                            <span className="fw-600">Shorts</span> &amp; Squeezes
-                        </a>
-                        <div className="text-center mt-2">
-                            Frequency: <span className="text-info">Weekly</span>
+                        <div className="mb-4 mt-2 text-left">
+                            <a className="h5 text-uppercase text-decoration-none fw-500 text-info" href="#">
+                                SPAIN ENERGY A
+                            </a>
+                            <div className="text-left mt-2">
+                                Originator: <span className="text-info">Intermoney</span>
+                            </div>
+                            <div className="text-left">
+                                <i className="fa fa-map-marker mr-1"></i>
+                                Spain
+                            </div>
                         </div>
-                        <div className="text-center">
-                            <i className="fa fa-map-marker mr-1"></i>
-                            EQUITY
-                        </div>
-                    </div>
-                    
-                    <div className="text-center mb-4">
-                        <div className="mb-2">
-                            <span className="small">
-                                Top users:
+                        
+                        <div className="text-left mb-2">
+                            <p className="mb-1 fw-500 text-dark">
+                                Asset Class: <span className="fw-400">
+                                    <Badge pill color="warning" className="mr-1">
+                                        PRIVATE EQUITY
+                                    </Badge>
+                                </span>
+                            </p>
+                            <p className="mb-1 fw-500 text-dark">
+                                Total amount: <span className="fw-400">€ 25,000,000</span>
+                            </p>
+                            <p className="mb-2 fw-500 text-dark">
+                                Return: <span className="fw-400">8.02%</span>
+                            </p>
+                            <Link to="/ESGleaders"><Button className="mt-3" color="info">Explore</Button></Link>
+                                        
+                        </div>   
+                    </CardBody>
+                    <CardFooter className="d-flex">
+                        <div className="mr-auto">
+                            <span className="mr-3">
+                                Investors:
                             </span>
                         </div>
-                        <Badge pill color="yellow" className="mr-1">
-                            Traders
-                        </Badge>
-                        <Badge pill color="pink">
-                            Hedge Funds
-                        </Badge>
-                    </div>
-                    <div className="text-center mb-4">
-                        <p className="mb-0">
-                            Instantly visualize short squeezes, stocks with high short interest and predict contrarian moves before the rest of the market.
-                        </p>
-                        <Link to="/Shorts"><Button className="mt-3" color="primary">Free Access</Button></Link>                
-                    </div>   
-                </CardBody>
-              </Card>
+                        <span>157</span>
+                    </CardFooter>
+                </Card>
 
-              <Card className="mb-3">
-                <CardBody>
-                    <div className="d-flex">
-                        <i className="fa fa-diamond m-2"></i>
-                    </div>
+                <Card className="mb-3">
+                    <HolderProvider.Icon
+                            iconChar=""
+                            size={ 32 }
+                        >
+                            <CardImg 
+                                top 
+                                src="https://images.unsplash.com/photo-1451485435476-a244439c78cd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80"
+                            />
+                    </HolderProvider.Icon>
+                    <CardBody>
 
-                    <div className="mb-4 mt-3 text-center">
-                        <a className="h3 text-decoration-none" href="#">
-                        <span className="fw-600">Insider</span> Trends
-                        </a>
-                        <div className="text-center mt-2">
-                            Frequency: <span className="text-info">Weekly</span>
+                        <div className="mb-4 mt-2 text-left">
+                            <a className="h5 text-uppercase text-decoration-none fw-500 text-info" href="#">
+                                NEW GREEN FUND A
+                            </a>
+                            <div className="text-left mt-2">
+                                Originator: <span className="text-info">Intermoney</span>
+                            </div>
+                            <div className="text-left">
+                                <i className="fa fa-map-marker mr-1"></i>
+                                Spain
+                            </div>
                         </div>
-                        <div className="text-center">
-                            <i className="fa fa-map-marker mr-1"></i>
-                            EQUITY
-                        </div>
-                    </div>
-                    
-                    <div className="text-center mb-4">
-                        <div className="mb-2">
-                            <span className="small">
-                                Top users:
+                        
+                        <div className="text-left mb-2">
+                            <p className="mb-1 fw-500 text-dark">
+                                Asset Class: <span className="fw-400">
+                                    <Badge pill color="danger" className="mr-1">
+                                        EQUITY
+                                    </Badge>
+                                </span>
+                            </p>
+                            <p className="mb-1 fw-500 text-dark">
+                                Total amount: <span className="fw-400">€ 15,000,000</span>
+                            </p>
+                            <p className="mb-2 fw-500 text-dark">
+                                Return: <span className="fw-400">8.92%</span>
+                            </p>
+                            <Link to="/ESGleaders"><Button className="mt-3" color="info">Explore</Button></Link>
+                                        
+                        </div>   
+                    </CardBody>
+                    <CardFooter className="d-flex">
+                        <div className="mr-auto">
+                            <span className="mr-3">
+                                Investors:
                             </span>
                         </div>
-                        <Badge pill color="primary" className="mr-1">
-                            Investors
-                        </Badge>
-                        <Badge pill color="pink">
-                            Hedge Funds
-                        </Badge>
-                    </div>
-                    <div className="text-center mb-4">
-                        <p className="mb-0">
-                            The latest trends and insights from the corporate insider trading activity of US equities. An in-depth look at flows, momentum and changes coming from the most informed shareholders.
-                        </p>
-                        <Link to="/Insiders"><Button className="mt-3" color="primary">Free Access</Button></Link>          
-                    </div>   
-                </CardBody>
-              </Card>
+                        <span>208</span>
+                    </CardFooter>
+                </Card>
 
-              <Card className="mb-3">
-                <CardBody>
-                    <div className="d-flex">
-                        <i className="fa fa-diamond m-2"></i>
-                    </div>
+                <Card className="mb-3">
+                    <HolderProvider.Icon
+                            iconChar=""
+                            size={ 32 }
+                        >
+                            <CardImg 
+                                top 
+                                src="https://images.unsplash.com/photo-1543946602-a0fce8117697?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
+                            />
+                    </HolderProvider.Icon>
+                    <CardBody>
 
-                    <div className="mb-4 mt-3 text-center">
-                        <a className="h3 text-decoration-none" href="#">
-                            <span className="fw-600">ESG</span> Lab
-                        </a>
-                        <div className="text-center mt-2">
-                            Frequency: <span className="text-info">Weekly</span>
+                        <div className="mb-4 mt-2 text-left">
+                            <a className="h5 text-uppercase text-decoration-none fw-500 text-info" href="#">
+                                XTECH ABSOLUTE RETURN
+                            </a>
+                            <div className="text-left mt-2">
+                                Originator: <span className="text-info">Intermoney</span>
+                            </div>
+                            <div className="text-left">
+                                <i className="fa fa-map-marker mr-1"></i>
+                                Spain
+                            </div>
                         </div>
-                        <div className="text-center">
-                            <i className="fa fa-map-marker mr-1"></i>
-                            EQUITY
-                        </div>
-                    </div>
-                    
-                    <div className="text-center mb-4">
-                        <div className="mb-2">
-                            <span className="small">
-                                Top users:
+                        
+                        <div className="text-left mb-2">
+                            <p className="mb-1 fw-500 text-dark">
+                                Asset Class: <span className="fw-400">
+                                    <Badge pill color="danger" className="mr-1">
+                                        EQUITY
+                                    </Badge>
+                                </span>
+                            </p>
+                            <p className="mb-1 fw-500 text-dark">
+                                Total amount: <span className="fw-400">€ 130,000,000</span>
+                            </p>
+                            <p className="mb-2 fw-500 text-dark">
+                                Return: <span className="fw-400">9.01%</span>
+                            </p>
+                            <Link to="/ESGleaders"><Button className="mt-3" color="info">Explore</Button></Link>
+                                        
+                        </div>   
+                    </CardBody>
+                    <CardFooter className="d-flex">
+                        <div className="mr-auto">
+                            <span className="mr-3">
+                                Investors:
                             </span>
                         </div>
-                        <Badge pill color="primary" className="mr-1">
-                            Investors
-                        </Badge>
-                        <Badge pill color="pink">
-                            Hedge Funds
-                        </Badge>
-                    </div>
-                    <div className="text-center mb-4">
-                        <p className="mb-0">
-                            Unlock the return potential of ESG factors by gaining a privileged view of the ESG profile of US Equities.
-                        </p>
-                        <Link to="/Esg500"><Button className="mt-3" color="primary">Free Access</Button></Link>             
-                    </div>   
-                </CardBody>
-              </Card>
-
-              <Card className="mb-3">
-                <CardBody>
-                    <div className="d-flex">
-                        <i className="fa fa-diamond m-2"></i>
-                    </div>
-
-                    <div className="mb-4 mt-3 text-center">
-                        <a className="h3 text-decoration-none" href="#">
-                            <span className="fw-600">Carbon</span> Leaders
-                        </a>
-                        <div className="text-center mt-2">
-                            Frequency: <span className="text-info">Monthly</span>
-                        </div>
-                        <div className="text-center">
-                            <i className="fa fa-map-marker mr-1"></i>
-                            EQUITY
-                        </div>
-                    </div>
-                    
-                    <div className="text-center mb-4">
-                        <div className="mb-2">
-                            <span className="small">
-                                Top users:
-                            </span>
-                        </div>
-                        <Badge pill color="primary" className="mr-1">
-                            Investors
-                        </Badge>
-                        <Badge pill color="yellow" className="mr-1">
-                            Traders
-                        </Badge>
-                        <Badge pill color="pink">
-                            Hedge Funds
-                        </Badge>
-                    </div>
-                    <div className="text-center mb-4">
-                        <p className="mb-0">
-                            The carbon emissions of hundreds of corporations. Discover the actual envirnomental impact of these companies and empower your prediction of their future performance.
-                        </p>
-                        <Link to="/Carbon"><Button className="mt-3" color="primary">Free Access</Button></Link>               
-                    </div>   
-                </CardBody>
-              </Card>
-              
-
-              <Card className="mb-3">
-                <CardBody>
-                    <div className="d-flex">
-                        <i className="fa fa-diamond m-2"></i>
-                    </div>
-
-                    <div className="mb-4 mt-3 text-center">
-                        <a className="h3 text-decoration-none" href="#">
-                            <span className="fw-600">Politicians</span> Trading
-                        </a>
-                        <div className="text-center mt-2">
-                            Frequency: <span className="text-info">Weekly</span>
-                        </div>
-                        <div className="text-center">
-                            <i className="fa fa-map-marker mr-1"></i>
-                            EQUITY
-                        </div>
-                    </div>
-                    
-                    <div className="text-center mb-4">
-                        <div className="mb-2">
-                            <span className="small">
-                                Top users:
-                            </span>
-                        </div>
-                        <Badge pill color="primary" className="mr-1">
-                            Investors
-                        </Badge>
-                        <Badge pill color="yellow" className="mr-1">
-                            Traders
-                        </Badge>
-                        <Badge pill color="pink">
-                            Hedge Funds
-                        </Badge>
-                    </div>
-                    <div className="text-center mb-4">
-                        <p className="mb-0">
-                            An updated set of actionable insights, metrics and KPIs from the trading and investing activity of the US Senate and House Members. 
-                        </p>
-                        <Link to="/Politics"><Button className="mt-3" color="primary">Free Access</Button></Link>              
-                    </div>   
-                </CardBody>
-              </Card>
-
+                        <span>79</span>
+                    </CardFooter>
+                </Card>
               
 
             </CardColumns>
