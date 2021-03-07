@@ -161,7 +161,7 @@ render() {
                     <CardBody>
                     <div>
                         <TradingViewWidget
-                            symbol="BME:IBC"
+                            symbol="SPY"
                             theme={Themes.LIGHT}
                             locale="en"
                             interval= "D"

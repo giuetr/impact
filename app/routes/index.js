@@ -20,6 +20,8 @@ import Widgets from './Widgets';
 import Home from './Home';
 
 import Data from './Data';
+import Investments from './Investments';
+
 
 import Cards from './Cards/Cards';
 import CardsHeaders from './Cards/CardsHeaders';
@@ -159,6 +161,7 @@ export const RoutedContent = () => {
             <Route path='/Checkout' exact component={Checkout} />
             <Route path='/Disclosures' exact component={Disclosures} />
             <Route path='/Portfolio' exact component={Portfolio} />
+            <Route path='/Investments' exact component={Investments} />
 
 
 

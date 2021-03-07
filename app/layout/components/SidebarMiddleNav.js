@@ -32,6 +32,12 @@ export const SidebarMiddleNav = () => (
         </SidebarMenu.Item>
 
         <SidebarMenu.Item
+            icon={<i className="fa fa-fw fa-area-chart"></i>}
+            title="My Investments"
+            to='/Investments'
+        />
+
+        <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-diamond"></i>}
             title="Data"
         >
