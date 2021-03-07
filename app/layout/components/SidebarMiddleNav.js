@@ -18,9 +18,18 @@ export const SidebarMiddleNav = () => (
 
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-search"></i>}
-            title="Portfolios"
+            title="Explore"
             to='/Apps/search-results'
         />
+
+        <SidebarMenu.Item
+            icon={<i className="fa fa-fw fa-bar-chart"></i>}
+            title="Portfolio"
+        >
+            <SidebarMenu.Item title="Overview" to='/Portfolio' exact />
+            <SidebarMenu.Item title="Analytics" to='/Portfolio/Analytics2' exact />
+            <SidebarMenu.Item title="Sustainability" to='/Leaders/AI' exact />
+        </SidebarMenu.Item>
 
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-diamond"></i>}

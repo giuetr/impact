@@ -124,6 +124,7 @@ import Leaders from './Leaders';
 import ProfileNew from './ProfileNew';
 import Checkout from './Checkout';
 import Disclosures from './Disclosures';
+import Portfolio from './Portfolio/Portfolio';
 
 
 
@@ -157,6 +158,7 @@ export const RoutedContent = () => {
             <Route path='/ProfileNew' exact component={ProfileNew} />
             <Route path='/Checkout' exact component={Checkout} />
             <Route path='/Disclosures' exact component={Disclosures} />
+            <Route path='/Portfolio' exact component={Portfolio} />
 
 
 
