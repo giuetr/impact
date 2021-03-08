@@ -127,7 +127,7 @@ import ProfileNew from './ProfileNew';
 import Checkout from './Checkout';
 import Disclosures from './Disclosures';
 import Portfolio from './Portfolio/Portfolio';
-
+import Homeinvestor from './Homeinvestor';
 
 
 //------ Route Definitions --------
@@ -162,6 +162,7 @@ export const RoutedContent = () => {
             <Route path='/Disclosures' exact component={Disclosures} />
             <Route path='/Portfolio' exact component={Portfolio} />
             <Route path='/Investments' exact component={Investments} />
+            <Route path='/Homeinvestor' exact component={Homeinvestor} />
 
 
 

@@ -123,60 +123,46 @@ render() {
             
 
             <Col lg={ 12 } className="pl-0">
-                    <Card className="mb-3">
-                        <CardBody className="mb-0">
-                            <CardTitle tag="h6">
-                                Insider Transactions
-                            </CardTitle>
-                            <p className="mb-3">
-                                <span className="text-success">Long</span> or <span className="text-danger">Short</span> insider transaction pressure in the last 6 months to date.
-                            </p>
-                            <Row className="justify-content-between">
-                            <Col lg={4}>
-                              <ProfileOverviewCard 
-                                  title="INSIDER TREND"
-                                  badgeTitle="LONG"
-                                  badgeColor="info"
-                                  value="LONG"
-                                  valueTitle="Upgrade"
-                                  footerTitle=""
-                                  footerTitleClassName="text-info"
-                                  footerValue=""
-                                  footerIcon=""
-                              />
-                            </Col>
-                            <Col lg={4}>
-                              <Row>
-                                <Col sm={ 6 }>
-                                    <SessionsByDevice 
-                                        title="Buy"
-                                        valuePercent="60"
-                                        valuePercentColor="text-success"
-                                        value="2"
-                                        valueColor="text-muted"
-                                    />
-                                </Col>
-                                <Col sm={ 6 }>
-                                    <SessionsByDevice 
-                                        title="Sell"
-                                        valuePercent="50"
-                                        valuePercentColor="text-danger"
-                                        value="2"
-                                        valueColor="text-muted"
-                                    />
-                                </Col>
-                              </Row>
-                            </Col>
-
-                            </Row>
-                            
-                            
-                        </CardBody>
-                    </Card>
-
-
                     <Card>
+                        
                         <CardBody>
+                            <CardTitle tag="h4" className="text-info">
+                                Investments
+                            </CardTitle>
+                            <Row className="mb-3 mt-5">
+                                <Col sm={ 3 }>
+                                    <div className="h3">
+                                        4
+                                    </div>
+                                    <span className="text-muted">
+                                        TOTAL INVESTMENTS
+                                    </span>
+                                </Col>
+                                <Col sm={ 3 }>
+                                    <div className="h3">
+                                        € 200,000,000
+                                    </div>
+                                    <span className="text-muted">
+                                        TOTAL SIZE
+                                    </span>
+                                </Col>
+                                <Col sm={ 3 }>
+                                    <div className="h3">
+                                        € 550,000
+                                    </div>
+                                    <span className="text-muted">
+                                        TOTAL INVESTED
+                                    </span>
+                                </Col>
+                                <Col sm={ 3 }>
+                                    <div className="h3">
+                                        5.00%
+                                    </div>
+                                    <span className="text-muted">
+                                        AVERAGE RETURN
+                                    </span>
+                                </Col>
+                            </Row>
 
                         <Table className="mb-0" hover responsive>
                             <thead>
@@ -212,7 +198,7 @@ render() {
                                             € 200,000
                                         </td>
                                         <td className="align-middle text-info">
-                                        { faker.company.companyName() }11.01%
+                                        11.01%
                                         </td>
                                         <td className="align-middle">
                                             1.5%
@@ -221,13 +207,129 @@ render() {
                                             1-Mar-2021
                                         </td>
                                         <td className="align-middle">
+                                            <Badge pill color="primary">
+                                                VENTURE CAPITAL
+                                            </Badge>
+                                        </td>
+                                        <td className="align-middle text-right">
+                                            <Badge pill color="info">
+                                                ACTIVE
+                                            </Badge>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="align-middle text-inverse">
+                                            <div>
+                                            SPAIN ENERGY A
+                                            </div>
+                                            <span className="text-muted">
+                                                <i className="fa fa-fw fa-map-marker text-info text-left"></i> Spain
+                                            </span>
+                                        </td>
+                                        <td className="align-middle">
+                                            Intermoney
+                                        </td>
+                                        <td className="align-middle text-info">
+                                            € 25,000,000
+                                        </td>
+                                        <td className="align-middle">
+                                            € 200,000
+                                        </td>
+                                        <td className="align-middle text-info">
+                                        11.01%
+                                        </td>
+                                        <td className="align-middle">
+                                            8.02%
+                                        </td>
+                                        <td className="align-middle">
+                                            1-Feb-2021
+                                        </td>
+                                        <td className="align-middle">
+                                            <Badge pill color="warning">
+                                                PRIVATE EQUITY
+                                            </Badge>
+                                        </td>
+                                        <td className="align-middle text-right">
+                                            <Badge pill color="info">
+                                                ACTIVE
+                                            </Badge>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td className="align-middle text-inverse">
+                                            <div>
+                                            XTECH ABSOLUTE RETURN
+                                            </div>
+                                            <span className="text-muted">
+                                                <i className="fa fa-fw fa-map-marker text-info text-left"></i> Spain
+                                            </span>
+                                        </td>
+                                        <td className="align-middle">
+                                            Intermoney
+                                        </td>
+                                        <td className="align-middle text-info">
+                                            € 130,000,000
+                                        </td>
+                                        <td className="align-middle">
+                                            € 50,000
+                                        </td>
+                                        <td className="align-middle text-info">
+                                        11.01%
+                                        </td>
+                                        <td className="align-middle">
+                                            9.01%
+                                        </td>
+                                        <td className="align-middle">
+                                            1-Jan-2021
+                                        </td>
+                                        <td className="align-middle">
                                             <Badge pill color="danger">
                                                 EQUITY
                                             </Badge>
                                         </td>
                                         <td className="align-middle text-right">
                                             <Badge pill color="info">
-                                                { faker.finance.transactionType() }
+                                                ACTIVE
+                                            </Badge>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td className="align-middle text-inverse">
+                                            <div>
+                                            NEW GREEN FUND A
+                                            </div>
+                                            <span className="text-muted">
+                                                <i className="fa fa-fw fa-map-marker text-info text-left"></i> Spain
+                                            </span>
+                                        </td>
+                                        <td className="align-middle">
+                                            Intermoney
+                                        </td>
+                                        <td className="align-middle text-info">
+                                            € 15,000,000
+                                        </td>
+                                        <td className="align-middle">
+                                            € 100,000
+                                        </td>
+                                        <td className="align-middle text-info">
+                                        8.92%
+                                        </td>
+                                        <td className="align-middle">
+                                            1.5%
+                                        </td>
+                                        <td className="align-middle">
+                                            11-Feb-2021
+                                        </td>
+                                        <td className="align-middle">
+                                            <Badge pill color="danger">
+                                                EQUITY
+                                            </Badge>
+                                        </td>
+                                        <td className="align-middle text-right">
+                                            <Badge pill color="info">
+                                                ACTIVE
                                             </Badge>
                                         </td>
                                     </tr>
