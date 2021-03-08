@@ -42,36 +42,91 @@ import {
   TinyDonutChart
 } from "../components/Monitor/TinyDonutChart";
 
-class Disclosures extends Component {
+class Disclosures2 extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             currentPrice: null,
-            options: {
-                chart: {
-                    height: 350,
-                    type: 'treemap'
-                  }
-            },
+
             series: [{
-                data:[{
-                    x: 'Technology',
-                    y: 218
+                name: 'ESG Rating',
+                data: [5.3, 5.2, 6.1, 7.1, 4.9, 5.6, 7.2, 5.3, 7.4, 6.8, 8.3, 10]
+              }],
+              options: {
+                chart: {
+                  type: 'bar',
+                },
+                plotOptions: {
+                  bar: {
+                    dataLabels: {
+                      position: 'top', // top, center, bottom
+                    },
+                  }
+                },
+                dataLabels: {
+                  enabled: true,
+                  formatter: function (val) {
+                    return val + "%";
                   },
-                  {
-                    x: 'IT',
-                    y: 149
+                  offsetY: -20,
+                  style: {
+                    fontSize: '12px',
+                    colors: ["#304758"]
+                  }
+                },
+                
+                xaxis: {
+                  categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                  position: 'top',
+                  axisBorder: {
+                    show: false
                   },
-                  {
-                    x: 'Agriculture',
-                    y: 184
+                  axisTicks: {
+                    show: false
                   },
-                  {
-                    x: 'Consumer Staple',
-                    y: 55
-                  },]
-            }],
+                  crosshairs: {
+                    fill: {
+                      type: 'gradient',
+                      gradient: {
+                        colorFrom: '#D8E3F0',
+                        colorTo: '#BED1E6',
+                        stops: [0, 100],
+                        opacityFrom: 0.4,
+                        opacityTo: 0.5,
+                      }
+                    }
+                  },
+                  tooltip: {
+                    enabled: true,
+                  }
+                },
+                yaxis: {
+                  axisBorder: {
+                    show: false
+                  },
+                  axisTicks: {
+                    show: false,
+                  },
+                  labels: {
+                    show: false,
+                    formatter: function (val) {
+                      return val + "";
+                    }
+                  }
+                
+                },
+                title: {
+                  text: 'Monthly ESG Rating',
+                  floating: true,
+                  offsetY: 330,
+                  align: 'center',
+                  style: {
+                    color: '#444'
+                  }
+                }
+              },
+
             options2: {
                 series: [85],
                 chart: {
@@ -148,7 +203,7 @@ render() {
                                         <div className="ml-2 align-self-center">
                                             <span>ESG Score</span>
                                             <h2 className="mb-0">
-                                            37
+                                            10
                                             </h2>
                                         </div>
                                     </div>
@@ -158,7 +213,7 @@ render() {
                                                 <i className="fa fa-circle fa-fw text-info"></i> Environmental
                                             </div>
                                             <h6 className="mb-0">
-                                            18
+                                            2
                                             </h6>
                                         </div>
                                         <div className="text-left">
@@ -166,7 +221,7 @@ render() {
                                                 <i className="fa fa-circle fa-fw text-primary"></i> Social
                                             </div>
                                             <h6 className="mb-0">
-                                            11
+                                            4
                                             </h6>
                                         </div>
                                         <div className="text-left">
@@ -174,7 +229,7 @@ render() {
                                                 <i className="fa fa-circle fa-fw text-gray-300"></i> Governance
                                             </div>
                                             <h6 className="mb-0">
-                                            8
+                                            4
                                             </h6>
                                         </div>
                                     </div>
@@ -226,11 +281,11 @@ render() {
                     <CardBody className="pb-0">
                         <div className="d-flex mb-2 justify-content-center">
                             <CardTitle tag="h5">
-                                Economic sectors exposure
+                                Monthly ESG Rating
                             </CardTitle>
                         </div>
                         <div className="donut pb-2">
-                            <Chart options={this.state.options2} series={this.state.series} type="treemap"/>
+                            <Chart options={this.state.options} series={this.state.series} type="bar"/>
                         </div>
 
                         
@@ -245,7 +300,7 @@ render() {
                                 </CardTitle>
                             </div>
                             <div className="donut pb-2">
-                                <Chart options={this.state.options2} series={this.state.options2.series} type="radialBar"/>
+                                <Chart options={this.state.options2} series={this.state.options2.series} height={300} type="radialBar"/>
                             </div>
                     </CardBody>
                 </Card>
@@ -324,4 +379,4 @@ render() {
     );
   } //render
 }
-export default Disclosures
+export default Disclosures2

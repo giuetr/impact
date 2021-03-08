@@ -128,6 +128,9 @@ import Checkout from './Checkout';
 import Disclosures from './Disclosures';
 import Portfolio from './Portfolio/Portfolio';
 import Homeinvestor from './Homeinvestor';
+import Metrics_vc from './Metrics_vc';
+import Disclosures2 from './Disclosures2';
+import Portfolioinvestor from './Portfolioinvestor';
 
 
 //------ Route Definitions --------
@@ -163,6 +166,9 @@ export const RoutedContent = () => {
             <Route path='/Portfolio' exact component={Portfolio} />
             <Route path='/Investments' exact component={Investments} />
             <Route path='/Homeinvestor' exact component={Homeinvestor} />
+            <Route path='/Metrics_vc' exact component={Metrics_vc} />
+            <Route path='/Disclosures2' exact component={Disclosures2} />
+            <Route path='/Portfolioinvestor' exact component={Portfolioinvestor} />
 
 
 

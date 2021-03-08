@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Chart from "react-apexcharts";
 import faker from 'faker/locale/en_US';
-import classes from './homeinvestor.scss';
 
 import { getQuote, getTrending, getMktnews, getSectors } from "../API/api.js";
 import Mktstatus from '../components/Mktstatus/Mktstatus';
@@ -45,7 +44,7 @@ import {
 import { HeaderMain } from "../components/HeaderMain";
 
 
-class Homeinvestor extends Component {
+class Portfolioinvestor extends Component {
     constructor(props) {
         super(props);
 
@@ -235,7 +234,7 @@ render() {
                                                 </FormGroup>
                                                 <FormGroup check inline>
                                                     <Label check>
-                                                        <Input type="radio" name="radioInline" disabled />{' '}
+                                                        <Input type="radio" name="radioInline" />{' '}
                                                         €100,000
                                                     </Label>
                                                 </FormGroup>
@@ -449,4 +448,4 @@ render() {
     );
   } //render
 }
-export default Homeinvestor
+export default Portfolioinvestor

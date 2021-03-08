@@ -26,9 +26,18 @@ export const SidebarMiddleNav = () => (
             icon={<i className="fa fa-fw fa-bar-chart"></i>}
             title="Portfolio"
         >
-            <SidebarMenu.Item title="Overview" to='/Portfolio' exact />
-            <SidebarMenu.Item title="Analytics" to='/Portfolio/Analytics2' exact />
-            <SidebarMenu.Item title="Sustainability" to='/Leaders/AI' exact />
+            <SidebarMenu.Item title="Overview" to='/Portfolioinvestor' exact />
+            <SidebarMenu.Item title="Analytics" to='/Leaders/AI' exact />
+            <SidebarMenu.Item title="Sustainability" to='/Disclosures' exact />
+        </SidebarMenu.Item>
+
+        <SidebarMenu.Item
+            icon={<i className="fa fa-fw fa-pie-chart"></i>}
+            title="Fund"
+        >
+            <SidebarMenu.Item title="Overview" to='/Homeinvestor' exact />
+            <SidebarMenu.Item title="Analytics" to='/Metrics_vc' exact />
+            <SidebarMenu.Item title="Sustainability" to='/Disclosures2' exact />
         </SidebarMenu.Item>
 
         <SidebarMenu.Item

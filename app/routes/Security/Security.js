@@ -757,7 +757,7 @@ render() {
                 </CardFooter>
                 </Card>
 
-              </CardDeck>
+            </CardDeck>
                 
                 </Col>  
         </Row>
