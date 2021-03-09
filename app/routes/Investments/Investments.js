@@ -17,6 +17,7 @@ import {
     Container,
     Row,
     Card,
+    Button,
     CardBody,
     CardDeck,
     CardTitle,
@@ -24,6 +25,7 @@ import {
     CardFooter,
     Col,
     Badge,
+    Progress,
     ListGroup,
     ListGroupItem,
     ListGroupItemHeading,
@@ -68,6 +70,55 @@ class Investments extends Component {
           yf_financialData_nasdaq: null,
           yf_financialData_djones:null,
           yf_financialData_SP500: null,
+
+
+          series: [
+            {
+            name: "Portfolio",
+            data: [11, 21, 39, 27, 43, 33, 56, 83, 132, 109, 145, 171]
+            },
+        ],
+        options: {
+          chart: {
+            height: 350,
+            type: 'line',
+            zoom: {
+              enabled: false
+            }
+          },
+          colors: ['#33AE9A'],
+          dataLabels: {
+            enabled: false
+          },
+          stroke: {
+            curve: 'straight'
+          },
+          fill: {
+            type: 'gradient',
+            gradient: {
+              shadeIntensity: 1,
+              inverseColors: false,
+              opacityFrom: 0.5,
+              opacityTo: 0,
+              stops: [0, 90, 100]
+            },
+          },
+          title: {
+            text: 'Portfolio Performance',
+            align: 'center'
+          },
+          grid: {
+            row: {
+              colors: ['transparent'], // takes an array which will be repeated on columns
+              opacity: 0.5
+            },
+          },
+          xaxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+          }
+        },
+
+
         };
     }
 
@@ -110,7 +161,7 @@ render() {
                 <div className="d-flex mt-3 mb-5">
                     <div>
                         <HeaderMain 
-                            title="Your Investments"
+                            title="Your Portfolio"
                             className=""
                         />
                         <div className="h3">
@@ -120,6 +171,163 @@ render() {
                     </div>
                 </div>
             </Container>
+
+            <Row>
+            <Col lg={ 3 }>
+                <Card className="mb-3">
+                    <CardBody>
+                        <CardTitle tag="h5" className="text-info mb-0">
+                            Your investments
+                        </CardTitle>
+                        <p className="mb-4">
+                            Total Active Investments
+                        </p>
+                        <div>
+                            <div className="mb-2">
+                                <h4>4</h4>
+                            </div>
+                        </div>
+                    </CardBody>
+                </Card>
+            </Col>
+            <Col lg={ 3 }>
+                <Card className="mb-3">
+                    <CardBody>
+                        <CardTitle tag="h5" className="text-info mb-0">
+                            Total PnL
+                        </CardTitle>
+                        <p className="mb-4">
+                            Since inception
+                        </p>
+                        <div>
+                            <div className="mb-2">
+                                <h4>€390,000</h4>
+                            </div>
+                        </div>
+                    </CardBody>
+                </Card>
+            </Col>
+            <Col lg={ 3 }>
+                <Card className="mb-3">
+                    <CardBody>
+                        <CardTitle className="mb-0 d-flex">
+                            <h5 className="text-info mb-0">PnL</h5>
+                            <Button color="link" size="sm" className="pt-0 ml-auto">
+                                    1Y <i className="text-info fa fa-angle-down"></i>
+                            </Button>
+                        </CardTitle>
+                        <p className="mb-4">
+                            Return %
+                        </p>
+                        <div>
+                            <div className="mb-2 text-info">
+                                <h4>21.03%</h4>
+                            </div>
+                        </div>
+                    </CardBody>
+                </Card>
+            </Col>
+            <Col lg={ 3 }>
+                <Card className="mb-3">
+                    <CardBody>
+                        <CardTitle tag="h5" className="text-info mb-0">
+                            ESG Profile
+                        </CardTitle>
+                        <p className="mb-4">
+                            Portfolio Sustainability Category
+                        </p>
+                        <div>
+                            <div className="mb-2">
+                            <Badge color="info">Risk Balanced</Badge>
+                            </div>
+                        </div>
+                    </CardBody>
+                </Card>
+            </Col>
+            
+        </Row>
+
+        <Row className="mb-4">
+            <Col lg={ 7 }>
+                <Card>
+                    <CardBody>
+                    <div>
+                    <Chart options={this.state.options} series={this.state.series} type="area" />
+                        
+                    </div>
+
+                    </CardBody>
+                </Card>
+            </Col>
+
+            <Col lg={ 5 }>
+              <CardDeck>
+              <Card className="d-flex flex-column">
+                <CardHeader className="bb-0 pt-4 text-info" tag="h4">
+                    YOUR PORTFOLIO
+                </CardHeader>
+                <Table responsive hover borderless className="table mb-0">
+
+                    <tbody>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Portfolio Value
+                            </td>
+                            <td className="align-middle text-right text-info">
+                            € 1,200,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                                PnL
+                            </td>
+                            <td className="align-middle text-right text-info">
+                            € 390,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Starting Investment
+                            </td>
+                            <td className="align-middle text-right text-info">
+                           € 500,000 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Average Investment
+                            </td>
+                            <td className="align-middle text-right text-info">
+                            € 15,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="align-middle text-inverse">
+                            Average Fee
+                            </td>
+                            <td className="align-middle text-right text-info">
+                            0.5%
+                            </td>
+                        </tr>
+                    </tbody>
+                </Table>
+                <CardBody>
+                    <div>
+                        <p className="ml-0 mb-0">
+                            Risk Level:
+                        </p>
+                        <h5 className="text-info mb-4">Low</h5>
+                        <Progress multi className="mb-1" style={{height: "10px"}}>
+                            <Progress animated bar color="info" value="37" />
+                            </Progress>
+                    </div>
+                </CardBody>
+                </Card>
+
+                
+              </CardDeck>
+              </Col>  
+        </Row>
             
 
             <Col lg={ 12 } className="pl-0">
@@ -127,11 +335,11 @@ render() {
                         
                         <CardBody>
                             <CardTitle tag="h4" className="text-info">
-                                Investments
+                                Active Investments
                             </CardTitle>
-                            <Row className="mb-3 mt-5">
+                            <Row className="mb-4 mt-5">
                                 <Col sm={ 3 }>
-                                    <div className="h3">
+                                    <div className="h4">
                                         4
                                     </div>
                                     <span className="text-muted">
@@ -139,7 +347,7 @@ render() {
                                     </span>
                                 </Col>
                                 <Col sm={ 3 }>
-                                    <div className="h3">
+                                    <div className="h4">
                                         € 200,000,000
                                     </div>
                                     <span className="text-muted">
@@ -147,7 +355,7 @@ render() {
                                     </span>
                                 </Col>
                                 <Col sm={ 3 }>
-                                    <div className="h3">
+                                    <div className="h4">
                                         € 550,000
                                     </div>
                                     <span className="text-muted">
@@ -155,7 +363,7 @@ render() {
                                     </span>
                                 </Col>
                                 <Col sm={ 3 }>
-                                    <div className="h3">
+                                    <div className="h4">
                                         5.00%
                                     </div>
                                     <span className="text-muted">
@@ -189,7 +397,7 @@ render() {
                                             </span>
                                         </td>
                                         <td className="align-middle">
-                                            Intermoney
+                                            New Green Assets
                                         </td>
                                         <td className="align-middle text-info">
                                             € 30,000,000
@@ -227,7 +435,7 @@ render() {
                                             </span>
                                         </td>
                                         <td className="align-middle">
-                                            Intermoney
+                                            CleanTech AM
                                         </td>
                                         <td className="align-middle text-info">
                                             € 25,000,000
@@ -266,7 +474,7 @@ render() {
                                             </span>
                                         </td>
                                         <td className="align-middle">
-                                            Intermoney
+                                            ESG Fund Inc.
                                         </td>
                                         <td className="align-middle text-info">
                                             € 130,000,000
@@ -305,7 +513,7 @@ render() {
                                             </span>
                                         </td>
                                         <td className="align-middle">
-                                            Intermoney
+                                            Environment Global Fund
                                         </td>
                                         <td className="align-middle text-info">
                                             € 15,000,000
