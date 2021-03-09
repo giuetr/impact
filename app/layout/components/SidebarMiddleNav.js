@@ -61,13 +61,19 @@ export const SidebarMiddleNav = () => (
             <SidebarMenu.Item title="Politicians Trading" to='/Politics' exact />
         </SidebarMenu.Item>
 
-        
+        <SidebarMenu.Item
+            icon={<i className="fa fa-fw fa-bank"></i>}
+            title="Manager"
+            to='/Dashmanager'
+        />
 
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-user"></i>}
             title="Profile"
             to='/ProfileNew'
         />
+
+        
 
         <SidebarMenu.Item 
         icon={<i className="fa fa-fw fa-group"></i>}
@@ -91,6 +97,9 @@ export const SidebarMiddleNav = () => (
             <SidebarMenu.Item title="Engagement" to='/dashboards/stock' exact />
             <SidebarMenu.Item title="Reports" to='/dashboards/reports' exact />
         </SidebarMenu.Item>
+
+        {/*
+        
 
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-th"></i>}
@@ -239,6 +248,10 @@ export const SidebarMiddleNav = () => (
             title="Icons"
             to='/icons'
         />
+
+        */}
+
+        
 
         
         
