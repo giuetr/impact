@@ -68,7 +68,7 @@ class Leaders extends Component {
                 settore = "Future of Food";
               break;
             case 'AI':
-                settore = "Iberian Fund Tracker Equity US";
+                settore = "Xtech Tracker Equity US";
               break;
             case 'XT':
                 settore = "Ultra Tech";

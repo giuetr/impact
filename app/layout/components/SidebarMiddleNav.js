@@ -4,32 +4,25 @@ import { SidebarMenu } from './../../components';
 
 export const SidebarMiddleNav = () => (
     <SidebarMenu>
+        
         <SidebarMenu.Item
-            icon={<i className="fa fa-fw fa-envira"></i>}
-            title="Home"
-            to='/Home'
+            icon={<i className="fa fa-fw fa-area-chart"></i>}
+            title="Dashboard"
+            to='/Investments'
         />
 
         <SidebarMenu.Item
-            icon={<i className="fa fa-fw fa-signal"></i>}
-            title="Snapshot"
-            to='/Security'
+            icon={<i className="fa fa-fw fa-envira"></i>}
+            title="Market"
+            to='/Home'
         />
 
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-search"></i>}
             title="Explore"
-            to='/Apps/search-results'
+            to='/Apps/images-results'
         />
 
-        <SidebarMenu.Item
-            icon={<i className="fa fa-fw fa-bar-chart"></i>}
-            title="Portfolio"
-        >
-            <SidebarMenu.Item title="Overview" to='/Portfolioinvestor' exact />
-            <SidebarMenu.Item title="Analytics" to='/Leaders/AI' exact />
-            <SidebarMenu.Item title="Sustainability" to='/Disclosures' exact />
-        </SidebarMenu.Item>
 
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-pie-chart"></i>}
@@ -39,11 +32,20 @@ export const SidebarMiddleNav = () => (
             <SidebarMenu.Item title="Analytics" to='/Metrics_vc' exact />
             <SidebarMenu.Item title="Sustainability" to='/Disclosures2' exact />
         </SidebarMenu.Item>
+        
+        <SidebarMenu.Item
+            icon={<i className="fa fa-fw fa-bar-chart"></i>}
+            title="Portfolio"
+        >
+            <SidebarMenu.Item title="Overview" to='/Leaders/AI' exact />
+            <SidebarMenu.Item title="Analytics" to='/Leaders/AI' exact />
+            <SidebarMenu.Item title="Sustainability" to='/Disclosures' exact />
+        </SidebarMenu.Item>
 
         <SidebarMenu.Item
-            icon={<i className="fa fa-fw fa-area-chart"></i>}
-            title="My Investments"
-            to='/Investments'
+            icon={<i className="fa fa-fw fa-signal"></i>}
+            title="Snapshot"
+            to='/Security'
         />
 
         <SidebarMenu.Item

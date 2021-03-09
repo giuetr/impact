@@ -77,7 +77,7 @@ const ImagesResults = () => (
                             <p className="mb-2 fw-500 text-dark">
                                 Return: <span className="fw-400">5.03%</span>
                             </p>
-                            <Link to="/ESGleaders"><Button className="mt-3" color="info">Explore</Button></Link>
+                            <Link to="/Homeinvestor"><Button className="mt-3" color="info">Explore</Button></Link>
                                         
                         </div>   
                     </CardBody>
@@ -289,7 +289,7 @@ const ImagesResults = () => (
                             <p className="mb-2 fw-500 text-dark">
                                 Return: <span className="fw-400">9.01%</span>
                             </p>
-                            <Link to="/ESGleaders"><Button className="mt-3" color="info">Explore</Button></Link>
+                            <Link to="/Leaders/AI"><Button className="mt-3" color="info">Explore</Button></Link>
                                         
                         </div>   
                     </CardBody>

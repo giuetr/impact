@@ -52,7 +52,7 @@ const SearchResultsCard = () => (
     <React.Fragment>
         <Card className="mb-3">
             <CardBody>
-                <Link className="h4 text-decoration-none" to="/Leaders/AI">Iberian Fund Tracker Equity US</Link>
+                <Link className="h4 text-decoration-none" to="/Leaders/AI">XTech Tracker Equity US</Link>
                 <br />
                 <div className="mb-3 mt-2">
                     <span className="fw-600 text-primary">
